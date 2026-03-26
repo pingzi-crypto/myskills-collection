@@ -12,7 +12,7 @@ This repository currently includes a starter template for building one skill tha
 
 The template lives here:
 
-- `cross-platform-skill-template/`
+- `skills/cross-platform-skill-template/`
 
 ## Design Goal
 
@@ -30,24 +30,25 @@ That means:
 ## Directory Structure
 
 ```text
-cross-platform-skill-template/
-├─ core/
-│  ├─ guide.md
-│  ├─ references/
-│  ├─ scripts/
-│  └─ assets/
-├─ codex/
-│  ├─ SKILL.md
-│  └─ agents/openai.yaml
-├─ claude/
-│  └─ SKILL.md
-└─ openclaw/
-   └─ SKILL.md
+skills/
+└─ cross-platform-skill-template/
+   ├─ core/
+   │  ├─ guide.md
+   │  ├─ references/
+   │  ├─ scripts/
+   │  └─ assets/
+   ├─ codex/
+   │  ├─ SKILL.md
+   │  └─ agents/openai.yaml
+   ├─ claude/
+   │  └─ SKILL.md
+   └─ openclaw/
+      └─ SKILL.md
 ```
 
 ## How To Use This Template
 
-1. Copy `cross-platform-skill-template/` to a new folder with your real skill name.
+1. Copy `skills/cross-platform-skill-template/` to a new folder with your real skill name.
 2. Replace the placeholder skill name `cross-platform-skill-template` in each wrapper.
 3. Rewrite `core/guide.md` with the real workflow.
 4. Add only the references, scripts, and assets your skill actually needs.
@@ -66,5 +67,6 @@ Do not force all platform-specific features into a single shared `SKILL.md`.
 ## Notes
 
 - The repository intentionally keeps the template minimal.
+- Skills are stored under `skills/` so the repo can grow into a real collection.
 - Platform-specific metadata should stay local to each wrapper.
 - Shared files should remain platform-neutral whenever possible.
