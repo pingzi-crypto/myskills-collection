@@ -1,16 +1,18 @@
 {
+  "id": "20260326200559-method",
   "title": "Prompt Narrowing",
   "domain": "AI协同",
   "subdomain": "Skill Design",
   "source": "Sample render test",
-  "status": "seed",
+  "status": "stable",
+  "graph_maturity": "local",
   "confidence": "1",
   "sections": {
     "problem_solved": [
-      "如何把过于宽泛的请求收缩成可以稳定执行的任务？"
+      "如何把过于宽泛的请求收窄成可以稳定执行的任务？"
     ],
     "core_idea": [
-      "先缩窄目标边界，再决定执行路径。"
+      "先收窄目标边界，再决定执行路径。"
     ],
     "method_structure": [
       "识别问题范围。",
@@ -18,11 +20,100 @@
       "锁定单一输出对象。",
       "再进入执行。"
     ],
+    "design_choices": [
+      "优先降低任务边界漂移，而不是一开始追求覆盖面。"
+    ],
+    "hidden_assumptions": [
+      "执行者已经能判断什么目标属于当前任务范围。"
+    ],
+    "fit_scenarios": [
+      "任务边界模糊、容易不断扩张时。"
+    ],
+    "non_fit_scenarios": [
+      "任务已经被定义得足够清楚时。"
+    ],
+    "comparison_with_alternatives": [
+      "与广泛探索型提示相比，它优先服务收敛与稳定执行。"
+    ],
+    "common_misuses": [
+      "把收窄范围误用成过早删掉关键约束。"
+    ],
+    "failure_modes": [
+      "如果收窄过头，可能导致输出虽然稳定但失去任务真正目标。"
+    ],
     "decision_criteria": [
       "如果任务边界还说不清，就先不要扩展实现范围。"
     ],
+    "representative_examples": [
+      "把“帮我优化整个知识系统”收敛成“先为一个 Method skill 设计 progression protocol”。"
+    ],
+    "validation_question": [
+      "这个请求是否已经收敛到一个清晰的输出对象？"
+    ],
+    "local_position": {
+      "upstream_concepts": [
+        "[[Problem Framing]] | 当前方法依赖问题边界被清楚表达。"
+      ],
+      "upstream_mechanisms": [
+        "[[Scope Drift]] | 需要理解范围漂移如何导致执行不稳定。"
+      ],
+      "adjacent_methods": [
+        "[[Prompt Iteration]] | 两者都优化提示，但前者优先收窄范围。"
+      ]
+    },
+    "operational_links": {
+      "prerequisites": [
+        "[[Single Output Target]] | 没有单一输出对象时，此方法难以稳定执行。"
+      ],
+      "enables": [
+        "[[Task Execution]] | 先收窄范围后，执行路径更容易稳定。"
+      ],
+      "contrasts": [
+        "[[Broad Prompt Exploration]] | 一个强调收敛，一个强调发散。"
+      ],
+      "corrections": [
+        "[[More Scope Means Better Results]] | 当前方法用于纠正无限扩张范围的直觉。"
+      ]
+    },
+    "current_status_notes": [
+      "当前卡片已经能表达方法核心，也已具备局部接网结构。"
+    ],
+    "next_goal": [
+      "补上在方法失效或边界不清时的回退规则。"
+    ],
+    "growing_checklist": [
+      "我能说明这个方法适用于哪些场景。",
+      "我能区分它与相邻方法的边界。"
+    ],
+    "stable_checklist": [
+      "我能给出至少三条可靠的节点级关系。",
+      "我能解释这张卡在局部知识网中的位置。"
+    ],
+    "expert_ready_checklist": [
+      "我能写出明确条件触发的路由规则。",
+      "我能说明方法失败时应该回退到哪类卡。"
+    ],
+    "promotion_assessment": {
+      "current_recommendation": "watchlist",
+      "main_reasons": [
+        "该方法有明显的局部接网价值。",
+        "但当前还缺少强规则级调度句。"
+      ],
+      "missing_evidence": [
+        "缺少执行失败后的回退规则。",
+        "缺少跨卡类型的条件化切换。"
+      ],
+      "next_rules": [
+        "当范围仍模糊时，回到 [[Problem Framing]]。",
+        "当执行路径不稳定时，先检查 [[Single Output Target]] 是否明确。"
+      ]
+    },
+    "current_upgrade_tasks": [
+      "为复杂任务补上方法选择与回退规则。"
+    ],
     "upgrade_history": [
-      "2026-03-26: created as seed"
+      "2026-03-26: created as seed",
+      "2026-03-26: added graph and promotion skeleton"
     ]
   }
 }

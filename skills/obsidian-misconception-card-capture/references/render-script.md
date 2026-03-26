@@ -25,6 +25,7 @@ Useful optional top-level fields:
 - `subdomain`
 - `source`
 - `status`
+- `graph_maturity`
 - `confidence`
 - `created`
 - `updated`
@@ -32,6 +33,7 @@ Useful optional top-level fields:
 - `tags`
 - `related`
 - `aliases`
+- `review_cycle`
 
 Optional `sections` object keys:
 
@@ -43,12 +45,15 @@ Optional `sections` object keys:
 - `representative_counterexamples`
 - `trigger_signals`
 - `corrective_action`
-- `related_cards_section`
+- `local_position`
+- `operational_links`
+- `routing_and_dispatch`
 - `current_status_notes`
 - `next_goal`
 - `growing_checklist`
 - `stable_checklist`
 - `expert_ready_checklist`
+- `promotion_assessment`
 - `current_upgrade_tasks`
 - `upgrade_history`
 
@@ -56,6 +61,7 @@ Each section value may be:
 
 - a string
 - a list of strings
+- a dictionary for structured graph or promotion sections
 
 ## Usage
 
@@ -76,3 +82,7 @@ python scripts/render_misconception_card.py --spec misconception.json --output "
 - Prefer the script for new card creation when the content has already been synthesized.
 - For updates, use the script only if it helps preserve deterministic layout without clobbering existing content.
 - Do not treat the script as the source of truth for semantic decisions. The agent still decides what content belongs in each section.
+- Use stage-aware rendering:
+  - `seed` may hide empty high-stage sections
+  - `stable` should expose graph structure
+  - `expert-ready` should expose `Routing and Dispatch` and promotion assessment gaps

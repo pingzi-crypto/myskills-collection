@@ -1,4 +1,4 @@
 interface:
   display_name: "Obsidian Learning Card Router"
-  short_description: "Route one thread to the right Obsidian card skill."
-  default_prompt: "Use $obsidian-learning-card-router to choose the right Obsidian card skill for this thread."
+  short_description: "Route one thread to the right card skill and mode."
+  default_prompt: "Use $obsidian-learning-card-router to choose the right Obsidian card skill and action mode for this thread."

@@ -1,9 +1,11 @@
 {
+  "id": "20260326201540-misconception",
   "title": "More Cards Means Better Learning",
   "domain": "AI协同",
   "subdomain": "Learning Card Design",
   "source": "Sample render test",
-  "status": "seed",
+  "status": "stable",
+  "graph_maturity": "local",
   "confidence": "1",
   "sections": {
     "mistaken_claim": [
@@ -14,16 +16,86 @@
     ],
     "why_it_is_wrong": [
       "卡片数量本身不等于理解深度。",
-      "过量创建低质量卡片会稀释图谱质量，并增加维护负担。"
+      "过量创建低质量卡会稀释图谱质量，并增加维护负担。"
     ],
     "correct_understanding": [
       "更重要的是单卡边界清楚、内容足够、后续值得升级，而不是机械堆数量。"
     ],
+    "what_it_confuses": [
+      "把“记录更多”误当成“理解更深”。"
+    ],
+    "representative_counterexamples": [
+      "一口气把同一主题拆成四类空卡，最后得到的是一组边界模糊、价值很低的卡。"
+    ],
+    "trigger_signals": [
+      "用户一上来就想为同一主题默认同时建四张卡。",
+      "讨论重点已经模糊，却仍然继续扩张卡片数量。"
+    ],
     "corrective_action": [
       "先判断当前内容最适合哪一类卡，再只创建一张最匹配的卡。"
     ],
+    "local_position": {
+      "common_confusions": [
+        "[[Learning Card Routing]] | 很多人把“多建卡”和“正确选卡”混在一起。"
+      ],
+      "correct_return_nodes": [
+        "[[Learning Card Routing]] | 纠正该误区后，应回到路由方法重新决定卡型。"
+      ],
+      "adjacent_misconceptions": [
+        "[[More Structure Means Better Learning]] | 两者都把形式增长误当成理解增长。"
+      ]
+    },
+    "operational_links": {
+      "prerequisites": [
+        "[[四类学习卡片的判别准则]] | 只有理解卡型差异，纠偏后才能回到正确路线。"
+      ],
+      "enables": [
+        "[[Learning Card Routing]] | 先纠正默认多卡倾向，后续路由和单卡创建才更稳。"
+      ],
+      "contrasts": [
+        "[[Single Concept Capture]] | 一个强调保守单卡，一个代表扩张冲动。"
+      ],
+      "corrections": [
+        "[[Create All Four Cards by Default]] | 当前卡用于纠正默认四建的错误做法。"
+      ]
+    },
+    "current_status_notes": [
+      "当前误区卡已经能稳定接回正确节点，但还缺少更强的多误区优先级规则。"
+    ],
+    "next_goal": [
+      "补上多个误区叠加时应先纠哪一个的判断规则。"
+    ],
+    "growing_checklist": [
+      "我能说明这个误区为什么容易看起来合理。"
+    ],
+    "stable_checklist": [
+      "我能给出足够的节点级关系，并说明纠偏后该回接到哪里。"
+    ],
+    "expert_ready_checklist": [
+      "我能写出先纠偏再回接的规则。",
+      "我能处理多误区叠加时的优先级。"
+    ],
+    "promotion_assessment": {
+      "current_recommendation": "watchlist",
+      "main_reasons": [
+        "该误区具有稳定的局部纠偏价值。",
+        "但当前还缺少更强的排障顺序和多误区裁决规则。"
+      ],
+      "missing_evidence": [
+        "缺少多个误区并存时的优先级规则。",
+        "缺少跨卡类型的条件化回接路径。"
+      ],
+      "next_rules": [
+        "当用户默认一概四建时，先纠正当前误区，再回到 [[Learning Card Routing]]。",
+        "当用户其实只是没理解卡型定义时，先转到 [[四类学习卡片的判别准则]]。"
+      ]
+    },
+    "current_upgrade_tasks": [
+      "补上多误区叠加时的纠偏顺序与回接规则。"
+    ],
     "upgrade_history": [
-      "2026-03-26: created as seed"
+      "2026-03-26: created as seed",
+      "2026-03-26: added graph and promotion skeleton"
     ]
   }
 }

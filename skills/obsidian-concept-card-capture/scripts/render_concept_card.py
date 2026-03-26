@@ -2,9 +2,8 @@
 """
 Render a Concept Card markdown file from a JSON spec.
 
-This script keeps the card structure deterministic while allowing the agent to
-focus on content synthesis. It can print the rendered markdown to stdout or
-write it directly to a target file.
+This renderer keeps the layout deterministic while supporting stage-aware
+display of graph structure and promotion evidence.
 """
 
 from __future__ import annotations
@@ -33,21 +32,6 @@ def normalize_list(value: Any) -> list[str]:
     return [text] if text else []
 
 
-def bullet_lines(value: Any) -> list[str]:
-    items = normalize_list(value)
-    return [f"- {item}" for item in items] if items else ["- "]
-
-
-def checkbox_lines(value: Any) -> list[str]:
-    items = normalize_list(value)
-    return [f"- [ ] {item}" for item in items] if items else ["- [ ] "]
-
-
-def nonempty_bullets(value: Any) -> list[str]:
-    items = normalize_list(value)
-    return [f"- {item}" for item in items]
-
-
 def scalar(value: Any, default: str = "") -> str:
     if value is None:
         return default
@@ -55,15 +39,27 @@ def scalar(value: Any, default: str = "") -> str:
     return text if text else default
 
 
+def bullet_lines(value: Any, default_blank: bool = True) -> list[str]:
+    items = normalize_list(value)
+    if items:
+        return [f"- {item}" for item in items]
+    return ["- "] if default_blank else []
+
+
+def checkbox_lines(value: Any) -> list[str]:
+    items = normalize_list(value)
+    return [f"- [ ] {item}" for item in items] if items else ["- [ ] "]
+
+
 def today_string() -> str:
     return datetime.now().strftime("%Y-%m-%d")
 
 
 def timestamp_string() -> str:
-    return datetime.now().strftime("%Y%m%d%H%M%S")
+    return datetime.now().strftime("%Y%m%d%H%M%S%f")
 
 
-def section_map(spec: dict[str, Any]) -> dict[str, list[str]]:
+def section_map(spec: dict[str, Any]) -> dict[str, Any]:
     sections = spec.get("sections", {}) or {}
     return {
         "question_answered": bullet_lines(sections.get("question_answered")),
@@ -78,15 +74,18 @@ def section_map(spec: dict[str, Any]) -> dict[str, list[str]]:
         "counter_examples": bullet_lines(sections.get("counter_examples")),
         "common_misunderstandings": bullet_lines(sections.get("common_misunderstandings")),
         "my_words": bullet_lines(sections.get("my_words")),
-        "related_cards_section": bullet_lines(sections.get("related_cards_section")),
         "needs_validation": bullet_lines(sections.get("needs_validation")),
-        "current_status_notes": nonempty_bullets(sections.get("current_status_notes")),
+        "current_status_notes": bullet_lines(sections.get("current_status_notes"), default_blank=False),
         "next_goal": bullet_lines(sections.get("next_goal")),
         "growing_checklist": checkbox_lines(sections.get("growing_checklist")),
         "stable_checklist": checkbox_lines(sections.get("stable_checklist")),
         "expert_ready_checklist": checkbox_lines(sections.get("expert_ready_checklist")),
         "current_upgrade_tasks": checkbox_lines(sections.get("current_upgrade_tasks")),
         "upgrade_history": bullet_lines(sections.get("upgrade_history")),
+        "local_position": sections.get("local_position", {}) or {},
+        "operational_links": sections.get("operational_links", {}) or {},
+        "routing_and_dispatch": bullet_lines(sections.get("routing_and_dispatch"), default_blank=False),
+        "promotion_assessment": sections.get("promotion_assessment", {}) or {},
     }
 
 
@@ -94,6 +93,7 @@ def render_frontmatter(spec: dict[str, Any], title: str) -> list[str]:
     created = scalar(spec.get("created"), today_string())
     updated = scalar(spec.get("updated"), created)
     status = scalar(spec.get("status"), "seed")
+    graph_maturity = scalar(spec.get("graph_maturity"), "none")
     card_id = scalar(spec.get("id"), f"{timestamp_string()}-concept")
     domain = scalar(spec.get("domain"))
     subdomain = scalar(spec.get("subdomain"))
@@ -102,6 +102,7 @@ def render_frontmatter(spec: dict[str, Any], title: str) -> list[str]:
     related = normalize_list(spec.get("related"))
     aliases = normalize_list(spec.get("aliases"))
     tags = normalize_list(spec.get("tags")) or ["concept"]
+    review_cycle = scalar(spec.get("review_cycle"), "30d")
 
     lines = [
         "---",
@@ -111,6 +112,7 @@ def render_frontmatter(spec: dict[str, Any], title: str) -> list[str]:
         f"domain: {domain}",
         f"subdomain: {subdomain}",
         f"status: {status}",
+        f"graph_maturity: {graph_maturity}",
         f"created: {created}",
         f"updated: {updated}",
         f"source: {source}",
@@ -121,12 +123,42 @@ def render_frontmatter(spec: dict[str, Any], title: str) -> list[str]:
     if related:
         lines.extend([f"  - {item}" for item in related])
     lines.append(f"confidence: {confidence}")
-    lines.append("review_cycle: 30d")
+    lines.append(f"review_cycle: {review_cycle}")
     lines.append("aliases: []" if not aliases else "aliases:")
     if aliases:
         lines.extend([f"  - {item}" for item in aliases])
     lines.append("---")
     return lines
+
+
+def lines_for_dict_entries(mapping: dict[str, Any], labels: list[tuple[str, str]]) -> tuple[list[str], bool]:
+    rendered: list[str] = []
+    has_content = False
+    for key, label in labels:
+        items = normalize_list(mapping.get(key))
+        if items:
+            rendered.append(f"- {label}: {items[0]}")
+            rendered.extend([f"  - {item}" for item in items[1:]])
+            has_content = True
+        else:
+            rendered.append(f"- {label}: ")
+    return rendered, has_content
+
+
+def should_show_graph(status: str, sections: dict[str, Any]) -> bool:
+    if status in {"stable", "expert-ready"}:
+        return True
+    if status == "growing":
+        return bool(sections["routing_and_dispatch"]) or any(
+            normalize_list(value) for value in sections["local_position"].values()
+        ) or any(normalize_list(value) for value in sections["operational_links"].values())
+    return False
+
+
+def should_show_promotion(status: str, assessment: dict[str, Any]) -> bool:
+    if status in {"stable", "expert-ready"}:
+        return True
+    return any(scalar(assessment.get(key)) or normalize_list(assessment.get(key)) for key in assessment)
 
 
 def render_card(spec: dict[str, Any]) -> str:
@@ -140,26 +172,48 @@ def render_card(spec: dict[str, Any]) -> str:
 
     title = sanitize_filename(raw_title)
     status = scalar(spec.get("status"), "seed")
+    graph_maturity = scalar(spec.get("graph_maturity"), "none")
     sections = section_map(spec)
+
+    local_labels = [
+        ("parent_concepts", "上位概念"),
+        ("child_concepts", "下位概念"),
+        ("adjacent_concepts", "相邻概念"),
+    ]
+    operational_labels = [
+        ("prerequisites", "前提依赖"),
+        ("enables", "下游支撑"),
+        ("contrasts", "关键对比"),
+        ("corrections", "纠偏关联"),
+    ]
+
+    local_lines, local_has_content = lines_for_dict_entries(sections["local_position"], local_labels)
+    operational_lines, operational_has_content = lines_for_dict_entries(
+        sections["operational_links"], operational_labels
+    )
+    routing_lines = sections["routing_and_dispatch"]
+    show_graph = should_show_graph(status, sections)
+    show_routing = status == "expert-ready" or bool(routing_lines) or status == "stable"
+    show_promotion = should_show_promotion(status, sections["promotion_assessment"])
 
     lines: list[str] = []
     lines.extend(render_frontmatter(spec, title))
     lines.append("")
     lines.append(f"# {title}")
     lines.append("")
-    lines.append("## 1. 这张卡回答什么问题？")
+    lines.append("## 1. 这个概念在回答什么问题？")
     lines.extend(sections["question_answered"])
     lines.append("")
     lines.append("## 2. 一句话定义")
     lines.extend(sections["one_sentence_definition"])
     lines.append("")
-    lines.append("## 3. 本质是什么？")
+    lines.append("## 3. 核心本质")
     lines.extend(sections["essence"])
     lines.append("")
-    lines.append("## 4. 为什么重要？")
+    lines.append("## 4. 为什么重要")
     lines.extend(sections["why_it_matters"])
     lines.append("")
-    lines.append("## 5. 核心机制 / 逻辑链")
+    lines.append("## 5. 核心逻辑")
     lines.extend(sections["core_logic"])
     lines.append("")
     lines.append("## 6. 成立前提")
@@ -174,42 +228,79 @@ def render_card(spec: dict[str, Any]) -> str:
     lines.append("## 9. 正例")
     lines.extend(sections["examples"])
     lines.append("")
-    lines.append("## 10. 反例 / 误用")
+    lines.append("## 10. 反例或误用")
     lines.extend(sections["counter_examples"])
     lines.append("")
-    lines.append("## 11. 常见误区")
+    lines.append("## 11. 常见误解")
     lines.extend(sections["common_misunderstandings"])
     lines.append("")
-    lines.append("## 12. 我的话版本")
+    lines.append("## 12. 我的表达")
     lines.extend(sections["my_words"])
     lines.append("")
-    lines.append("## 13. 与哪些卡相关")
-    lines.extend(sections["related_cards_section"])
-    lines.append("")
-    lines.append("## 14. 还待验证什么？")
+    lines.append("## 13. 待验证问题")
     lines.extend(sections["needs_validation"])
     lines.append("")
-    lines.append("## 当前状态")
-    lines.append(f"- 当前等级：{status}")
-    next_goal_lines = sections["next_goal"]
-    next_goal = next_goal_lines[0][2:] if next_goal_lines and next_goal_lines[0].startswith("- ") else ""
-    lines.append(f"- 下一目标：{next_goal}")
+
+    if show_graph:
+        lines.append("## Knowledge Graph Relations")
+        lines.append("")
+        lines.append("### Local Position")
+        lines.extend(local_lines)
+        if status in {"stable", "expert-ready"} and not local_has_content:
+            lines.append("- 说明：当前阶段仍缺少稳定的局部定位关系。")
+        lines.append("")
+        lines.append("### Operational Links")
+        lines.extend(operational_lines)
+        if status in {"stable", "expert-ready"} and not operational_has_content:
+            lines.append("- 说明：当前阶段仍缺少稳定的功能连接关系。")
+        lines.append("")
+        if show_routing:
+            lines.append("### Routing and Dispatch")
+            if routing_lines:
+                lines.extend(routing_lines)
+            elif status == "expert-ready":
+                lines.append("- 当前状态异常：expert-ready 仍缺少可复用的调度规则。")
+            else:
+                lines.append("- 当前尚未形成稳定调度规则。")
+            lines.append("")
+
+    lines.append("## Progression Layer")
+    lines.append("")
+    lines.append("### Current Status Notes")
+    lines.append(f"- 当前阶段：{status}")
+    lines.append(f"- 图谱成熟度：{graph_maturity}")
     lines.extend(sections["current_status_notes"])
     lines.append("")
-    lines.append("## 升级门槛")
-    lines.append("### 升到 growing 前自检")
+    lines.append("### Next Goal")
+    lines.extend(sections["next_goal"])
+    lines.append("")
+    lines.append("### Growing Checklist")
     lines.extend(sections["growing_checklist"])
     lines.append("")
-    lines.append("### 升到 stable 前自检")
+    lines.append("### Stable Checklist")
     lines.extend(sections["stable_checklist"])
     lines.append("")
-    lines.append("### 升到 expert-ready 前自检")
+    lines.append("### Expert-Ready Checklist")
     lines.extend(sections["expert_ready_checklist"])
     lines.append("")
-    lines.append("## 当前升级任务")
+    if show_promotion:
+        assessment = sections["promotion_assessment"]
+        lines.append("### Promotion Assessment")
+        lines.append(f"- 当前建议：{scalar(assessment.get('current_recommendation'), 'stay stable')}")
+        main_reasons = bullet_lines(assessment.get("main_reasons"))
+        missing_evidence = bullet_lines(assessment.get("missing_evidence"))
+        next_rules = bullet_lines(assessment.get("next_rules"))
+        lines.append("- 主要原因：")
+        lines.extend([f"  {line}" for line in main_reasons])
+        lines.append("- 缺失证据：")
+        lines.extend([f"  {line}" for line in missing_evidence])
+        lines.append("- 下一步最值得补的规则：")
+        lines.extend([f"  {line}" for line in next_rules])
+        lines.append("")
+    lines.append("### Current Upgrade Tasks")
     lines.extend(sections["current_upgrade_tasks"])
     lines.append("")
-    lines.append("## 升级记录")
+    lines.append("## Upgrade History")
     lines.extend(sections["upgrade_history"])
     lines.append("")
     return "\n".join(lines)

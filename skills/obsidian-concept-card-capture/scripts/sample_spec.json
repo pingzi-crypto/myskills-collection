@@ -1,90 +1,120 @@
 {
+  "id": "20260326201012-concept",
   "title": "Deterministic Card Rendering",
   "domain": "AI协同",
   "subdomain": "Skill Design",
   "source": "Current Codex thread on skill execution stability",
-  "status": "seed",
+  "status": "stable",
+  "graph_maturity": "local",
   "confidence": "1",
   "sections": {
     "question_answered": [
-      "如何让概念卡的最终结构稳定，而不依赖每次临场手写排版？"
+      "如何让卡片的最终结构保持稳定，而不是依赖每次临场手写排版？"
     ],
     "one_sentence_definition": [
       "Deterministic Card Rendering 是先完成内容判断，再用固定脚本生成最终卡片结构的做法。"
     ],
     "essence": [
-      "把语义生成和结构落盘分开，让内容判断和版式生成各自稳定。"
+      "把语义生成和结构落盘分开，让内容判断和版式输出各自稳定。"
     ],
     "why_it_matters": [
       "它能减少格式漂移。",
-      "它能让 skill 的输出更稳定、更容易复用。",
-      "它能让不同线程产出的卡片保持同一种结构。"
+      "它能让 skill 输出更稳定、更容易复用。"
     ],
     "core_logic": [
       "先从线程中提炼概念内容。",
       "再把内容映射到固定字段。",
-      "最后用渲染脚本输出统一的 Markdown 结构。"
+      "最后用渲染脚本输出统一 Markdown 结构。"
     ],
     "prerequisites": [
-      "概念卡的目标结构已经被明确下来。",
-      "输入内容已经被压缩成单一概念。",
-      "渲染脚本和输入字段约定保持一致。"
+      "目标卡片结构已经被稳定定义。",
+      "输入内容已经被压缩到单一概念。"
     ],
     "failure_boundaries": [
-      "如果输入本身是混合概念，渲染再稳定也只能稳定地产出混乱内容。",
-      "如果字段设计频繁变化，脚本稳定性会被破坏。",
-      "如果更新流直接整体覆盖旧卡，也会削弱稳定性。"
+      "如果输入本身混合多个概念，渲染再稳定也只能稳定地产出混乱内容。",
+      "如果字段设计频繁变化，脚本稳定性也会被破坏。"
     ],
     "confusions": [
-      "易混概念：模板化写作。",
-      "区别：模板化写作强调有模板；Deterministic Card Rendering 强调由固定渲染流程来保证最终输出一致。"
+      "容易与“只是有模板文件”混淆；真正关键的是固定渲染流程，而不是只存一个模板。"
     ],
     "examples": [
-      "先把概念内容整理成 JSON spec，再调用脚本生成完整概念卡。",
-      "不同概念卡都走同一个渲染脚本，因此 frontmatter 和章节顺序一致。"
+      "先整理 JSON spec，再调用脚本生成完整卡片。"
     ],
     "counter_examples": [
-      "每次都手工复制旧卡再改，结果不同卡片的字段顺序和章节风格逐渐漂移。",
-      "同一个 skill 有时直接写 Markdown，有时依赖模板插件，导致产出不一致。"
+      "每次手工复制旧卡再改，导致不同卡的字段顺序逐渐漂移。"
     ],
     "common_misunderstandings": [
-      "误以为结构稳定就等于内容质量高。",
-      "误以为只要有模板文件，就已经具备稳定渲染能力。"
+      "误以为结构稳定就等于内容质量高。"
     ],
     "my_words": [
       "内容让我来想，格式交给脚本。"
     ],
-    "related_cards_section": [
-      "[[Single Concept Capture]]",
-      "[[Vault Path Resolution]]"
-    ],
     "needs_validation": [
-      "更新已有概念卡时，是否也应该部分使用同一个渲染脚本。",
-      "脚本字段扩展后，是否仍能保持向后兼容。"
+      "更新已有概念卡时，是否也应尽量复用同一渲染骨架？"
+    ],
+    "local_position": {
+      "parent_concepts": [
+        "[[Skill Output Stability]] | 它属于更高层的稳定输出框架。"
+      ],
+      "child_concepts": [
+        "[[Deterministic Method Rendering]] | 方法卡渲染是它的具体实现分支。"
+      ],
+      "adjacent_concepts": [
+        "[[Template-Driven Writing]] | 两者都追求结构一致，但一个靠固定渲染流，一个更偏静态模板。"
+      ]
+    },
+    "operational_links": {
+      "prerequisites": [
+        "[[Single Concept Capture]] | 先把内容压缩成单一概念，固定渲染才有意义。"
+      ],
+      "enables": [
+        "[[Prompt Narrowing]] | 稳定渲染让不同线程下的输出更容易比较和维护。"
+      ],
+      "contrasts": [
+        "[[Template-Driven Writing]] | 一个强调静态模板，一个强调固定生成流程。"
+      ],
+      "corrections": [
+        "[[Templates Alone Guarantee Stability]] | 当前概念用于纠正“有模板就够了”的误解。"
+      ]
+    },
+    "current_status_notes": [
+      "当前概念已经具备局部接网结构，但仍缺少更明确的分流规则。"
     ],
     "next_goal": [
-      "把同一套稳定渲染逻辑推广到后续更多卡片类型。"
+      "补上当问题转向实现、更新流或跨卡迁移时的概念分流规则。"
     ],
     "growing_checklist": [
-      "我能解释为什么要把内容生成和结构生成分开。",
-      "我能说出它比手工排版稳定在哪里。",
-      "我能举出一个稳定渲染的正例。"
+      "我能解释为什么要把内容生成和结构生成分开。"
     ],
     "stable_checklist": [
-      "我知道这种做法依赖哪些前提。",
-      "我知道它在哪些情况下会失效。",
-      "我能判断什么时候该用脚本，什么时候只做局部更新。"
+      "我能给出至少三条可靠的节点级关系。",
+      "我能说明这张概念卡在局部知识网中的位置。"
     ],
     "expert_ready_checklist": [
-      "我能把这套渲染思想迁移到别的卡片类型。",
-      "我能设计兼顾更新流的稳定渲染方案。",
-      "我能解释结构稳定与语义稳定之间的关系。"
+      "我能写出从概念澄清切到机制或方法的规则。",
+      "我能处理概念边界冲突时的裁决。"
     ],
+    "promotion_assessment": {
+      "current_recommendation": "watchlist",
+      "main_reasons": [
+        "该概念已经具有稳定的局部定位价值。",
+        "但当前还缺少足够强的规则级概念分流句。"
+      ],
+      "missing_evidence": [
+        "缺少从定义转向方法或机制的条件化切换。",
+        "缺少概念边界冲突时的裁决规则。"
+      ],
+      "next_rules": [
+        "当讨论从定义转向执行落地时，转到对应 Method 卡。",
+        "当讨论从定义转向因果解释时，转到对应 Mechanism 卡。"
+      ]
+    },
     "current_upgrade_tasks": [
-      "用同一个渲染脚本再生成一张不同主题的完整概念卡，检查结构是否仍然稳定。"
+      "补上从概念澄清到下游卡型的分流规则。"
     ],
     "upgrade_history": [
-      "2026-03-26: created as seed"
+      "2026-03-26: created as seed",
+      "2026-03-26: added graph and promotion skeleton"
     ]
   }
 }

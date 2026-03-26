@@ -1,4 +1,4 @@
 interface:
   display_name: "Obsidian Mechanism Card Capture"
-  short_description: "Capture one mechanism from a thread into an Obsidian seed card."
-  default_prompt: "Use $obsidian-mechanism-card-capture to turn this thread into one Obsidian Mechanism Card."
+  short_description: "Capture, update, or promote one mechanism card with progression and graph structure."
+  default_prompt: "Use $obsidian-mechanism-card-capture to create, update, or promote one Obsidian Mechanism Card from this thread."

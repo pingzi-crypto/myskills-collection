@@ -49,6 +49,7 @@ Each new card should include these frontmatter fields:
 - `domain`
 - `subdomain`
 - `status: seed`
+- `graph_maturity: none`
 - `created`
 - `updated`
 - `source`
@@ -62,6 +63,7 @@ Each new card should include these frontmatter fields:
 
 - `type: concept`
 - `status: seed`
+- `graph_maturity: none`
 - `confidence: 1`
 - `review_cycle: 30d`
 - `tags: [concept]`
@@ -122,11 +124,45 @@ The body should stay faithful to the Concept Card structure and should emphasize
 - prerequisites
 - failure boundaries
 - confusion points
-- examples and misuses
+- examples and counter-examples
 - personal phrasing
-- related cards
-- what still needs validation
+- validation needs
+- knowledge graph relations
+- routing and dispatch
+- promotion assessment
 - upgrade checkpoints from `seed` onward
+
+## Knowledge Graph Structure
+
+Each Concept Card should reserve these graph sections:
+
+- `Local Position`
+- `Operational Links`
+- `Routing and Dispatch`
+
+Use the shared relationship grammar from `../references/knowledge-graph-relations.md`.
+
+Progression expectations:
+
+- `seed`: graph sections may stay hidden or minimal
+- `growing`: early node-level graph hints may appear
+- `stable`: `Local Position` and `Operational Links` should contain real evidence
+- `expert-ready`: `Routing and Dispatch` should contain strong rule-level statements
+
+## Promotion Assessment
+
+Concept Cards should include a lightweight promotion assessment section with:
+
+- current recommendation
+- main reasons
+- missing evidence
+- next rules worth adding
+
+Use one of these recommendation labels:
+
+- `worth promoting`
+- `watchlist`
+- `stay stable`
 
 ## Thread Capture Guidance
 

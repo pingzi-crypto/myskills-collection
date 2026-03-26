@@ -69,6 +69,19 @@ Route to:
 
 - `$obsidian-misconception-card-capture`
 
+## Existing Card Override
+
+If the task clearly targets an existing card:
+
+- preserve that card's current type by default
+- route to the same downstream skill
+- do not reclassify unless the user is explicitly fixing a wrong card type
+
+Examples:
+
+- updating an existing `Mechanism` card stays `Mechanism`
+- promoting an existing `Method` card stays `Method`
+
 ## Tie-Breaking Rules
 
 When a thread contains signals from more than one card type:
@@ -76,6 +89,7 @@ When a thread contains signals from more than one card type:
 1. Prefer the type that dominates the thread's center of gravity.
 2. Prefer the type that has the clearest single-card boundary.
 3. Prefer one card now and let sibling cards emerge later if needed.
+4. If an existing card is already in scope, prefer preserving its type over speculative rerouting.
 
 Do not default to:
 
@@ -128,6 +142,17 @@ Thread focus:
 Route to:
 
 - `$obsidian-misconception-card-capture`
+
+### Example 5
+
+Thread focus:
+
+- deciding whether an existing stable card deserves stronger graph structure
+- reviewing routing rules or promotion evidence
+
+Route to:
+
+- the existing card's current type
 
 ## Clarification Rule
 

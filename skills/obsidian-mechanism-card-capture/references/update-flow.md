@@ -22,7 +22,7 @@ Before editing the existing card:
 
 - tell the user the card already exists
 - show the existing path
-- ask whether to update the existing card
+- ask whether they want to update the existing card
 
 If the user does not confirm:
 
@@ -48,6 +48,7 @@ When updating an existing card:
 - preserve `created`
 - update `updated`
 - keep `status` unchanged unless the user explicitly wants a promotion
+- review `graph_maturity` separately from `status`
 - keep `confidence` unchanged unless the user explicitly wants a revision
 - keep existing `aliases` unless there is a clear new alias
 - keep existing `related` links unless there is a strong new relationship
@@ -58,13 +59,15 @@ Add or refine only what the new thread materially improves:
 
 - variables
 - causal chain
-- prerequisites
-- weak points
-- alternative explanations
+- preconditions
+- weak links
+- alternative mechanisms
 - boundaries
 - evidence
 - anomalies
-- related cards
+- graph relations
+- dispatch rules
+- promotion assessment
 
 Do not rewrite the whole card if only one or two sections need improvement.
 
@@ -81,6 +84,12 @@ Only change status when:
 
 Do not auto-promote from `seed` to `growing` just because more content was added.
 
+When the update is explicitly about maturity:
+
+- use `Promotion Assessment` to record whether the card is worth promoting
+- prefer `watchlist` or `stay stable` over optimistic promotion when evidence is incomplete
+- do not claim `expert-ready` unless the card includes reusable routing, switching, or arbitration rules
+
 ## Related Links Handling
 
 When updating related links:
@@ -96,4 +105,5 @@ After an update, report:
 1. that an existing card was updated
 2. the file path
 3. which sections changed
-4. any ambiguity that still remains
+4. whether the card was promoted, watchlisted, or kept stable
+5. any ambiguity that still remains

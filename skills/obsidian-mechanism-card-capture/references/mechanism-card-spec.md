@@ -49,6 +49,7 @@ Each new card should include these frontmatter fields:
 - `domain`
 - `subdomain`
 - `status: seed`
+- `graph_maturity: none`
 - `created`
 - `updated`
 - `source`
@@ -62,6 +63,7 @@ Each new card should include these frontmatter fields:
 
 - `type: mechanism`
 - `status: seed`
+- `graph_maturity: none`
 - `confidence: 1`
 - `review_cycle: 30d`
 - `tags: [mechanism]`
@@ -117,17 +119,58 @@ The body should stay faithful to the Mechanism Card structure and should emphasi
 - the phenomenon being explained
 - the core variables
 - the causal chain
-- key prerequisites
-- the weakest step
-- alternative explanations
+- key preconditions
+- the weakest link in the chain
+- alternative mechanisms or explanations
 - scope
 - failure boundaries
 - supporting evidence
 - anomalies or counter cases
 - compressed explanation
-- related cards
 - a validation question
+- knowledge graph relations
+- routing and dispatch
+- promotion assessment
 - upgrade checkpoints from `seed` onward
+
+## Knowledge Graph Structure
+
+Each Mechanism Card should reserve these graph sections:
+
+- `Local Position`
+- `Operational Links`
+- `Routing and Dispatch`
+
+Use the shared relationship grammar from `../references/knowledge-graph-relations.md`.
+
+Progression expectations:
+
+- `seed`: graph sections may stay hidden or minimal
+- `growing`: early node-level graph hints may appear
+- `stable`: local causal placement should be reliable
+- `expert-ready`: routing should include mechanism switching, diagnosis, or cross-type dispatch
+
+Suggested local-position buckets for mechanisms:
+
+- `upstream_concepts`
+- `trigger_conditions`
+- `downstream_results`
+- `adjacent_mechanisms`
+
+## Promotion Assessment
+
+Mechanism Cards should include a lightweight promotion assessment section with:
+
+- current recommendation
+- main reasons
+- missing evidence
+- next rules worth adding
+
+Use one of these recommendation labels:
+
+- `worth promoting`
+- `watchlist`
+- `stay stable`
 
 ## Thread Capture Guidance
 

@@ -1,24 +1,49 @@
 {
   "title": "Feedback Loop Stabilization",
-  "domain": "AI协同",
+  "domain": "AI Collaboration",
   "subdomain": "Skill Design",
   "source": "Sample render test",
   "status": "seed",
+  "graph_maturity": "none",
   "confidence": "1",
+  "review_cycle": "30d",
   "sections": {
     "phenomenon": [
-      "为什么通过前测、校验和迭代，skill 的输出会逐渐稳定？"
+      "Why repeated execution, inspection, and tightening can make a skill output converge instead of drifting."
     ],
     "core_variables": [
-      "前测质量",
-      "反馈速度",
-      "结构约束"
+      "Probe quality",
+      "Feedback speed",
+      "Structural constraints"
     ],
     "causal_chain": [
-      "先执行技能，再观察输出缺陷，然后收紧规则或补脚本，最终降低输出漂移。"
+      "Run the skill, observe where the output drifts, tighten the rule or renderer, then re-run with fewer degrees of freedom."
+    ],
+    "key_prerequisites": [
+      "A visible output artifact that can be compared across runs."
     ],
     "compressed_explanation": [
-      "先跑，再看，再收紧，直到输出稳定。"
+      "A feedback loop stabilizes when each iteration removes a specific source of drift."
+    ],
+    "validation_question": [
+      "What exactly is being constrained on each pass: data quality, rule ambiguity, or render structure?"
+    ],
+    "next_goal": [
+      "Add boundary cases and identify where the loop fails to stabilize."
+    ],
+    "growing_checklist": [
+      "Describe at least one failure boundary.",
+      "Name one alternative mechanism."
+    ],
+    "stable_checklist": [
+      "Add reliable local graph placement.",
+      "Document supporting evidence from repeated runs."
+    ],
+    "expert_ready_checklist": [
+      "Add switching rules to competing mechanisms or methods."
+    ],
+    "current_upgrade_tasks": [
+      "Capture one anomaly where tighter constraints reduced quality instead of improving it."
     ],
     "upgrade_history": [
       "2026-03-26: created as seed"
