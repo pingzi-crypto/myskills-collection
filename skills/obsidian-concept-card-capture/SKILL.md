@@ -33,10 +33,26 @@ Do not use this skill when:
 3. Ask which keywords, Q&A fragments, or thread points should be captured.
 4. Ask for `domain` when it is missing. Ask for `subdomain` and `source` only if useful.
 5. Check whether a card with the same title already exists under `<VAULT_ROOT>/学习/Cards/Concepts`.
-6. If the card already exists, stop and ask whether the user wants an update flow instead of creating a new card.
+6. If the card already exists, switch to the update flow in [references/update-flow.md](references/update-flow.md) instead of silently overwriting or creating a duplicate.
 7. If the card does not exist, create one new Concept Card with `status: seed`.
 8. Fill the card from the current thread, preferring concise synthesis over long transcript dumps.
 9. Add conservative backlinks only when the match is strong.
+
+## Update Flow
+
+When a same-title card already exists:
+
+1. Tell the user that the card already exists and show the existing path.
+2. Ask whether they want to update the existing card instead of creating a new one.
+3. If the user declines, stop without changing the file.
+4. If the user agrees, read the existing card before editing.
+5. Merge only the new thread-derived information that improves the card.
+6. Preserve the original card type, title, id, and existing structure.
+7. Update `updated` to the current date.
+8. Keep `status` unchanged unless the user explicitly asks to promote it.
+9. Do not reset `confidence`, `related`, `aliases`, or upgrade history unless the new evidence clearly justifies it.
+
+Use [references/update-flow.md](references/update-flow.md) for the detailed merge rules.
 
 ## Writing Rules
 
@@ -75,11 +91,12 @@ When unsure:
 When executing this skill, produce:
 
 1. A short note to the user stating the concept being captured.
-2. The created file path.
+2. The created or updated file path.
 3. A brief summary of what was extracted from the thread.
 4. Any unresolved ambiguity that should be clarified later.
 
 ## References
 
 - Read [references/concept-card-spec.md](references/concept-card-spec.md) for target paths, field defaults, and duplicate-handling rules.
+- Read [references/update-flow.md](references/update-flow.md) for how to handle same-title cards without creating duplicates.
 - Read [references/vault-path-resolution.md](references/vault-path-resolution.md) for how to resolve the vault root before reading templates or writing cards.

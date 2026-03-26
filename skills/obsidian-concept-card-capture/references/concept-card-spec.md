@@ -90,7 +90,8 @@ Before creating a new card, check:
 If a same-title card exists:
 
 - do not silently overwrite it
-- stop and ask whether the user wants an update workflow
+- do not create a duplicate file
+- switch to [update-flow.md](update-flow.md)
 
 ## Backlink Policy
 
