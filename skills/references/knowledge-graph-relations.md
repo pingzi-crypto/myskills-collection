@@ -15,6 +15,14 @@ Every card may use the same three graph layers:
 `Local Position` and `Operational Links` are mostly node-level.
 `Routing and Dispatch` is rule-level.
 
+Within `Routing and Dispatch`, use the shared sub-structure from
+`routing-and-dispatch-spec.md`:
+
+- `Direct Routes`
+- `Secondary Routes`
+- `Gap Signals`
+- `Stop Rules`
+
 ## Core Relationship Types
 
 - `parent`: the target is a higher-level abstraction or category
@@ -65,6 +73,12 @@ Strong rule-level statements include condition plus action, for example:
 - "When the concept boundary is unclear, switch to [[X]]."
 - "If both [[A]] and [[B]] seem relevant, choose [[A]] first."
 - "If execution fails and the cause is unclear, fall back to [[Y]]."
+
+For stronger dispatch maturity, also include:
+
+- bounded secondary paths
+- explicit missing-node triggers
+- explicit stop rules
 
 ## Rendering Guidance
 

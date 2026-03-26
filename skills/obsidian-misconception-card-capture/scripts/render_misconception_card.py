@@ -17,6 +17,12 @@ from typing import Any
 
 
 INVALID_FILENAME_RE = re.compile(r'[\\/:*?"<>|]')
+ROUTING_SECTION_LABELS = [
+    ("direct_routes", "Direct Routes"),
+    ("secondary_routes", "Secondary Routes"),
+    ("gap_signals", "Gap Signals"),
+    ("stop_rules", "Stop Rules"),
+]
 
 
 def sanitize_filename(value: str) -> str:
@@ -51,6 +57,51 @@ def checkbox_lines(value: Any) -> list[str]:
     return [f"- [ ] {item}" for item in items] if items else ["- [ ] "]
 
 
+def normalize_routing_sections(value: Any) -> dict[str, list[str]]:
+    if isinstance(value, dict):
+        mapping = value
+    else:
+        mapping = {"direct_routes": value}
+    return {key: normalize_list(mapping.get(key)) for key, _ in ROUTING_SECTION_LABELS}
+
+
+def has_routing_content(value: dict[str, list[str]]) -> bool:
+    return any(value.get(key) for key, _ in ROUTING_SECTION_LABELS)
+
+
+def routing_placeholder(key: str, status: str) -> str:
+    stable_placeholders = {
+        "direct_routes": "Direct routes are still emerging.",
+        "secondary_routes": "Secondary routes are optional until multi-hop paths stabilize.",
+        "gap_signals": "Gap signals are optional until promotion review begins.",
+        "stop_rules": "Stop rules are optional until dispatch complexity increases.",
+    }
+    expert_placeholders = {
+        "direct_routes": "Gap: expert-ready requires strong direct routes.",
+        "secondary_routes": "Gap: expert-ready requires at least one bounded secondary route.",
+        "gap_signals": "Gap: expert-ready requires at least one explicit gap signal.",
+        "stop_rules": "Gap: expert-ready requires at least one explicit stop rule.",
+    }
+    if status == "expert-ready":
+        return expert_placeholders[key]
+    if status == "stable":
+        return stable_placeholders[key]
+    return "No rule recorded yet."
+
+
+def render_routing_sections(routing: dict[str, list[str]], status: str) -> list[str]:
+    lines: list[str] = []
+    for key, label in ROUTING_SECTION_LABELS:
+        lines.append(f"#### {label}")
+        items = routing.get(key, [])
+        if items:
+            lines.extend([f"- {item}" for item in items])
+        else:
+            lines.append(f"- {routing_placeholder(key, status)}")
+        lines.append("")
+    return lines
+
+
 def today_string() -> str:
     return datetime.now().strftime("%Y-%m-%d")
 
@@ -79,7 +130,7 @@ def section_map(spec: dict[str, Any]) -> dict[str, Any]:
         "upgrade_history": bullet_lines(sections.get("upgrade_history")),
         "local_position": sections.get("local_position", {}) or {},
         "operational_links": sections.get("operational_links", {}) or {},
-        "routing_and_dispatch": bullet_lines(sections.get("routing_and_dispatch"), default_blank=False),
+        "routing_and_dispatch": normalize_routing_sections(sections.get("routing_and_dispatch")),
         "promotion_assessment": sections.get("promotion_assessment", {}) or {},
     }
 
@@ -144,7 +195,7 @@ def should_show_graph(status: str, sections: dict[str, Any]) -> bool:
     if status in {"stable", "expert-ready"}:
         return True
     if status == "growing":
-        return bool(sections["routing_and_dispatch"]) or any(
+        return has_routing_content(sections["routing_and_dispatch"]) or any(
             normalize_list(value) for value in sections["local_position"].values()
         ) or any(normalize_list(value) for value in sections["operational_links"].values())
     return False
@@ -186,9 +237,9 @@ def render_card(spec: dict[str, Any]) -> str:
     operational_lines, operational_has_content = lines_for_dict_entries(
         sections["operational_links"], operational_labels
     )
-    routing_lines = sections["routing_and_dispatch"]
+    routing_sections = sections["routing_and_dispatch"]
     show_graph = should_show_graph(status, sections)
-    show_routing = status == "expert-ready" or bool(routing_lines) or status == "stable"
+    show_routing = status in {"stable", "expert-ready"} or has_routing_content(routing_sections)
     show_promotion = should_show_promotion(status, sections["promotion_assessment"])
 
     lines: list[str] = []
@@ -236,12 +287,8 @@ def render_card(spec: dict[str, Any]) -> str:
         lines.append("")
         if show_routing:
             lines.append("### Routing and Dispatch")
-            if routing_lines:
-                lines.extend(routing_lines)
-            elif status == "expert-ready":
-                lines.append("- 当前状态异常：expert-ready 仍缺少可复用的调度规则。")
-            else:
-                lines.append("- 当前尚未形成稳定调度规则。")
+            lines.append("")
+            lines.extend(render_routing_sections(routing_sections, status))
             lines.append("")
 
     lines.append("## Progression Layer")
@@ -293,7 +340,7 @@ def main() -> None:
     args = parser.parse_args()
 
     spec_path = Path(args.spec)
-    spec = json.loads(spec_path.read_text(encoding="utf-8"))
+    spec = json.loads(spec_path.read_text(encoding="utf-8-sig"))
     markdown = render_card(spec)
 
     if args.output:

@@ -11,6 +11,7 @@ real content and graph capability, not by only changing `status`.
 - `stable` means the card is a reliable node in the local knowledge graph.
 - `expert-ready` means the card can participate in graph dispatch.
 - `expert-ready` is not the default end state for every card.
+- `expert-ready` is about reliable dispatch, not just richer content.
 
 ## Two Growth Axes
 
@@ -55,8 +56,28 @@ Rule-level relationships answer:
 - what order to use multiple nodes in
 - what to do when two nodes compete
 - where to fall back when the current path fails
+- when the graph is missing a needed node
+- when to stop searching the current path
 
 These relationships support `expert-ready`.
+
+## Stable Gate
+
+Use `stable` only when the card already behaves like a reliable local node.
+
+Hard gates:
+
+- the card boundary is stable
+- the local graph position is stable
+
+Minimum expectations:
+
+- at least three strong node-level relationships
+- at least two different relationship types
+- at least one structural relationship
+- at least one functional relationship
+- a clear explanation of the card's local graph position
+- enough boundary clarity that the card would not easily change type
 
 ## Stable Standard
 
@@ -99,6 +120,8 @@ Required:
 - at least one cross-card-type dispatch rule
 - at least one explicit condition-triggered route
 - stable local graph positioning already exists
+- at least one explicit gap-detection rule
+- at least one explicit stop rule
 
 Choose at least two:
 
@@ -107,6 +130,40 @@ Choose at least two:
 - failure fallback rule
 - route-planning rule
 - teaching or transfer rule
+
+## Routing And Dispatch Structure
+
+Use the shared four-part routing layer from
+`routing-and-dispatch-spec.md`:
+
+- `Direct Routes`
+- `Secondary Routes`
+- `Gap Signals`
+- `Stop Rules`
+
+Guidance by stage:
+
+- `seed`: this layer may stay hidden
+- `growing`: `Direct Routes` may begin to appear
+- `stable`: `Direct Routes` should start carrying real value; the other
+  sections may stay early or sparse
+- `expert-ready`: all four sections should contain substantive rules or expose
+  explicit gaps
+
+## Expert-Ready Review Standard
+
+Before promotion, first confirm that the card is already a high-quality
+`stable`.
+
+Core review targets:
+
+- `Direct Routes`: at least two strong direct rules
+- `Secondary Routes`: at least one bounded multi-hop path
+- `Gap Signals`: at least one explicit missing-node trigger
+- `Stop Rules`: at least one explicit termination rule
+
+These are stronger than simple "related cards" lists. The card should show
+that it can route, not just connect.
 
 ## Promotion Outcomes
 

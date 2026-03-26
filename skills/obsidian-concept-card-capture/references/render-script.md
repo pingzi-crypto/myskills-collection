@@ -68,6 +68,15 @@ Each section value may be:
 - a list of strings
 - a dictionary for structured graph or promotion sections
 
+For `routing_and_dispatch`, prefer a dictionary with:
+
+- `direct_routes`
+- `secondary_routes`
+- `gap_signals`
+- `stop_rules`
+
+Read `../../references/routing-and-dispatch-spec.md` for the shared structure.
+
 ## Usage
 
 Render to stdout:
@@ -91,3 +100,4 @@ python scripts/render_concept_card.py --spec concept.json --output "C:\path\to\C
   - `seed` may hide empty high-stage sections
   - `stable` should expose graph structure
   - `expert-ready` should expose `Routing and Dispatch` and promotion assessment gaps
+  - `expert-ready` should expose missing sub-blocks inside `Routing and Dispatch`
