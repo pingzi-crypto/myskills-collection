@@ -1,0 +1,27 @@
+{
+  "title": "Feedback Loop Stabilization",
+  "domain": "AI协同",
+  "subdomain": "Skill Design",
+  "source": "Sample render test",
+  "status": "seed",
+  "confidence": "1",
+  "sections": {
+    "phenomenon": [
+      "为什么通过前测、校验和迭代，skill 的输出会逐渐稳定？"
+    ],
+    "core_variables": [
+      "前测质量",
+      "反馈速度",
+      "结构约束"
+    ],
+    "causal_chain": [
+      "先执行技能，再观察输出缺陷，然后收紧规则或补脚本，最终降低输出漂移。"
+    ],
+    "compressed_explanation": [
+      "先跑，再看，再收紧，直到输出稳定。"
+    ],
+    "upgrade_history": [
+      "2026-03-26: created as seed"
+    ]
+  }
+}

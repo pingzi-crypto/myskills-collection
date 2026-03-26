@@ -49,6 +49,33 @@ Source: <optional source>
 Vault root: <optional vault path>
 ```
 
+### `obsidian-mechanism-card-capture`
+
+Skill for turning the current thread into exactly one Obsidian Mechanism Card.
+
+Path:
+
+- `skills/obsidian-mechanism-card-capture/`
+
+Use this entry when you want to:
+
+- capture one causal explanation from Q&A or discussion
+- create a new `seed` mechanism card
+- save it under the resolved vault root at `学习/Cards/Mechanisms`
+- add conservative backlinks to existing cards
+
+Prompt template:
+
+```text
+Use $obsidian-mechanism-card-capture to capture one mechanism from this thread.
+Mechanism title: <single mechanism>
+Keywords or thread points to capture: <keywords or short excerpts>
+Domain: <domain>
+Subdomain: <optional subdomain>
+Source: <optional source>
+Vault root: <optional vault path>
+```
+
 ## Suggested Workflow
 
 1. Copy `cross-platform-skill-template/` to a new skill folder.
