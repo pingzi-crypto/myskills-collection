@@ -130,6 +130,28 @@ Source: <optional source>
 Vault root: <optional vault path>
 ```
 
+### `obsidian-learning-card-router`
+
+Skill for deciding which one of the four Obsidian learning card skills should handle the current thread.
+
+Path:
+
+- `skills/obsidian-learning-card-router/`
+
+Use this entry when you want to:
+
+- classify a thread before creating a card
+- choose between concept, mechanism, method, and misconception
+- avoid defaulting to all four card types at once
+
+Prompt template:
+
+```text
+Use $obsidian-learning-card-router to choose the right learning card skill for this thread.
+Goal: create exactly one card from the current discussion.
+If the type is ambiguous, ask one short clarification question.
+```
+
 ## Suggested Workflow
 
 1. Copy `cross-platform-skill-template/` to a new skill folder.
