@@ -1,3 +1,6 @@
 .git/
 **/.git/
+__pycache__/
+**/__pycache__/
+*.py[cod]
 初始形象定位_亮春明媚精致亲和风.md
