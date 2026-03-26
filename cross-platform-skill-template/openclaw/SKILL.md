@@ -1,9 +1,9 @@
 ---
-name: template-cross-platform-skill
+name: cross-platform-skill-template
 description: Template OpenClaw wrapper for a cross-platform skill. Use as a starting point when building a reusable skill that shares core workflow, references, scripts, and assets across Codex, Claude Code, and OpenClaw.
 ---
 
-# Template Cross Platform Skill
+# Cross Platform Skill Template
 
 Read the shared workflow in [../core/guide.md](../core/guide.md).
 

@@ -48,7 +48,7 @@ cross-platform-skill-template/
 ## How To Use This Template
 
 1. Copy `cross-platform-skill-template/` to a new folder with your real skill name.
-2. Replace the placeholder skill name in each wrapper.
+2. Replace the placeholder skill name `cross-platform-skill-template` in each wrapper.
 3. Rewrite `core/guide.md` with the real workflow.
 4. Add only the references, scripts, and assets your skill actually needs.
 5. Keep platform-specific fields only in the matching wrapper.
