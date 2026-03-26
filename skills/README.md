@@ -1,10 +1,15 @@
 # Skills Index
 
-This directory stores reusable skills and templates for this collection.
+This directory stores reusable skills, concrete skill families, and starter
+templates for this collection.
 
-Family overview:
+## Family Overview
 
-- `skills/obsidian-learning-card-family.md`
+Shared learning-card references:
+
+- `skills/references/learning-card-skill-family.md`
+- `skills/references/progression-protocol.md`
+- `skills/references/knowledge-graph-relations.md`
 
 ## Available Entries
 
@@ -26,9 +31,38 @@ Use this entry when you want to:
 - keep shared workflow in `core/`
 - isolate platform-specific behavior in wrapper directories
 
+### `obsidian-learning-card-router`
+
+Router for deciding which one of the four Obsidian learning-card execution
+skills should handle the current thread, and whether the task is:
+
+- `create`
+- `update`
+- `promotion review`
+
+Path:
+
+- `skills/obsidian-learning-card-router/`
+
+Use this entry when you want to:
+
+- classify a thread before writing a card
+- choose between concept, mechanism, method, and misconception
+- preserve one-card boundaries
+- avoid defaulting to all four card types at once
+
+Prompt template:
+
+```text
+Use $obsidian-learning-card-router to choose the right learning card skill and mode for this thread.
+Goal: work on exactly one learning card.
+If the type is ambiguous, ask one short clarification question.
+```
+
 ### `obsidian-concept-card-capture`
 
-Skill for turning the current thread into exactly one Obsidian Concept Card.
+Execution skill for turning one thread into one Obsidian Concept Card, or for
+updating or promoting an existing Concept Card.
 
 Path:
 
@@ -37,14 +71,15 @@ Path:
 Use this entry when you want to:
 
 - capture one concept from Q&A or discussion
-- create a new `seed` concept card
+- update one existing concept card
+- review whether a concept card should stay stable, move to watchlist, or be promoted
 - save it under the resolved vault root at `学习/Cards/Concepts`
-- add conservative backlinks to existing cards
 
 Prompt template:
 
 ```text
-Use $obsidian-concept-card-capture to capture one concept from this thread.
+Use $obsidian-concept-card-capture to work on one concept card from this thread.
+Mode: <create | update | promotion review>
 Concept title: <single concept>
 Keywords or thread points to capture: <keywords or short excerpts>
 Domain: <domain>
@@ -55,7 +90,8 @@ Vault root: <optional vault path>
 
 ### `obsidian-mechanism-card-capture`
 
-Skill for turning the current thread into exactly one Obsidian Mechanism Card.
+Execution skill for turning one thread into one Obsidian Mechanism Card, or for
+updating or promoting an existing Mechanism Card.
 
 Path:
 
@@ -64,14 +100,15 @@ Path:
 Use this entry when you want to:
 
 - capture one causal explanation from Q&A or discussion
-- create a new `seed` mechanism card
+- update one existing mechanism card
+- review whether a mechanism card should stay stable, move to watchlist, or be promoted
 - save it under the resolved vault root at `学习/Cards/Mechanisms`
-- add conservative backlinks to existing cards
 
 Prompt template:
 
 ```text
-Use $obsidian-mechanism-card-capture to capture one mechanism from this thread.
+Use $obsidian-mechanism-card-capture to work on one mechanism card from this thread.
+Mode: <create | update | promotion review>
 Mechanism title: <single mechanism>
 Keywords or thread points to capture: <keywords or short excerpts>
 Domain: <domain>
@@ -82,7 +119,8 @@ Vault root: <optional vault path>
 
 ### `obsidian-method-card-capture`
 
-Skill for turning the current thread into exactly one Obsidian Method Card.
+Execution skill for turning one thread into one Obsidian Method Card, or for
+updating or promoting an existing Method Card.
 
 Path:
 
@@ -91,14 +129,15 @@ Path:
 Use this entry when you want to:
 
 - capture one practical procedure or strategy from Q&A or discussion
-- create a new `seed` method card
+- update one existing method card
+- review whether a method card should stay stable, move to watchlist, or be promoted
 - save it under the resolved vault root at `学习/Cards/Methods`
-- add conservative backlinks to existing cards
 
 Prompt template:
 
 ```text
-Use $obsidian-method-card-capture to capture one method from this thread.
+Use $obsidian-method-card-capture to work on one method card from this thread.
+Mode: <create | update | promotion review>
 Method title: <single method>
 Keywords or thread points to capture: <keywords or short excerpts>
 Domain: <domain>
@@ -109,7 +148,8 @@ Vault root: <optional vault path>
 
 ### `obsidian-misconception-card-capture`
 
-Skill for turning the current thread into exactly one Obsidian Misconception Card.
+Execution skill for turning one thread into one Obsidian Misconception Card, or
+for updating or promoting an existing Misconception Card.
 
 Path:
 
@@ -118,14 +158,15 @@ Path:
 Use this entry when you want to:
 
 - capture one mistaken claim or recurring error pattern from Q&A or discussion
-- create a new `seed` misconception card
+- update one existing misconception card
+- review whether a misconception card should stay stable, move to watchlist, or be promoted
 - save it under the resolved vault root at `学习/Cards/Misconceptions`
-- add conservative backlinks to existing cards
 
 Prompt template:
 
 ```text
-Use $obsidian-misconception-card-capture to capture one misconception from this thread.
+Use $obsidian-misconception-card-capture to work on one misconception card from this thread.
+Mode: <create | update | promotion review>
 Misconception title: <single misconception>
 Keywords or thread points to capture: <keywords or short excerpts>
 Domain: <domain>
@@ -134,40 +175,18 @@ Source: <optional source>
 Vault root: <optional vault path>
 ```
 
-### `obsidian-learning-card-router`
+## Suggested Obsidian Workflow
 
-Skill for deciding which one of the four Obsidian learning card skills should handle the current thread.
-
-Path:
-
-- `skills/obsidian-learning-card-router/`
-
-Use this entry when you want to:
-
-- classify a thread before creating a card
-- choose between concept, mechanism, method, and misconception
-- avoid defaulting to all four card types at once
-
-Prompt template:
-
-```text
-Use $obsidian-learning-card-router to choose the right learning card skill for this thread.
-Goal: create exactly one card from the current discussion.
-If the type is ambiguous, ask one short clarification question.
-```
-
-## Suggested Workflow
-
-1. Copy `cross-platform-skill-template/` to a new skill folder.
-2. Rename the placeholder skill name in each wrapper.
-3. Rewrite `core/guide.md` with the real workflow.
-4. Add only the references, scripts, and assets you actually need.
-5. Validate each platform wrapper separately.
+1. Use `obsidian-learning-card-router` if the type is still ambiguous.
+2. Route to exactly one execution skill.
+3. Let that skill handle duplicate checks, rendering, and progression assessment.
+4. Promote only when the card has real node-level or rule-level evidence.
 
 ## Collection Direction
 
 As this repository grows, this index should remain the first place to look for:
 
-- stable skills
+- stable skill families
 - starter templates
-- platform-specific variants
+- routing entry points
+- execution skills with real workflows
