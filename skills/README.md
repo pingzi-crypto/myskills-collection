@@ -2,6 +2,10 @@
 
 This directory stores reusable skills and templates for this collection.
 
+Family overview:
+
+- `skills/obsidian-learning-card-family.md`
+
 ## Available Entries
 
 ### `cross-platform-skill-template`
