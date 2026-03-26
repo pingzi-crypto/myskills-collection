@@ -1,0 +1,29 @@
+{
+  "title": "More Cards Means Better Learning",
+  "domain": "AI协同",
+  "subdomain": "Learning Card Design",
+  "source": "Sample render test",
+  "status": "seed",
+  "confidence": "1",
+  "sections": {
+    "mistaken_claim": [
+      "只要多建卡，学习效果自然会更好。"
+    ],
+    "why_it_seems_plausible": [
+      "更多卡片看起来像更多沉淀，因此容易被误认为学习质量更高。"
+    ],
+    "why_it_is_wrong": [
+      "卡片数量本身不等于理解深度。",
+      "过量创建低质量卡片会稀释图谱质量，并增加维护负担。"
+    ],
+    "correct_understanding": [
+      "更重要的是单卡边界清楚、内容足够、后续值得升级，而不是机械堆数量。"
+    ],
+    "corrective_action": [
+      "先判断当前内容最适合哪一类卡，再只创建一张最匹配的卡。"
+    ],
+    "upgrade_history": [
+      "2026-03-26: created as seed"
+    ]
+  }
+}

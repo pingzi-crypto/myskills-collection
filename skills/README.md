@@ -103,6 +103,33 @@ Source: <optional source>
 Vault root: <optional vault path>
 ```
 
+### `obsidian-misconception-card-capture`
+
+Skill for turning the current thread into exactly one Obsidian Misconception Card.
+
+Path:
+
+- `skills/obsidian-misconception-card-capture/`
+
+Use this entry when you want to:
+
+- capture one mistaken claim or recurring error pattern from Q&A or discussion
+- create a new `seed` misconception card
+- save it under the resolved vault root at `学习/Cards/Misconceptions`
+- add conservative backlinks to existing cards
+
+Prompt template:
+
+```text
+Use $obsidian-misconception-card-capture to capture one misconception from this thread.
+Misconception title: <single misconception>
+Keywords or thread points to capture: <keywords or short excerpts>
+Domain: <domain>
+Subdomain: <optional subdomain>
+Source: <optional source>
+Vault root: <optional vault path>
+```
+
 ## Suggested Workflow
 
 1. Copy `cross-platform-skill-template/` to a new skill folder.
