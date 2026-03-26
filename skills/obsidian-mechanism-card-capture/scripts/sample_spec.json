@@ -1,0 +1,83 @@
+{
+  "title": "Feedback Loop Stabilization",
+  "domain": "AI Collaboration",
+  "subdomain": "Skill Design",
+  "source": "Sample render test",
+  "status": "stable",
+  "graph_maturity": "local",
+  "confidence": "1",
+  "review_cycle": "30d",
+  "sections": {
+    "phenomenon": [
+      "Why repeated execution, inspection, and tightening can make a skill output converge instead of drifting."
+    ],
+    "core_variables": [
+      "Probe quality",
+      "Feedback speed",
+      "Structural constraints"
+    ],
+    "causal_chain": [
+      "Run the skill, observe where the output drifts, tighten the rule or renderer, then re-run with fewer degrees of freedom."
+    ],
+    "key_prerequisites": [
+      "A visible output artifact that can be compared across runs."
+    ],
+    "compressed_explanation": [
+      "A feedback loop stabilizes when each iteration removes a specific source of drift."
+    ],
+    "validation_question": [
+      "What exactly is being constrained on each pass: data quality, rule ambiguity, or render structure?"
+    ],
+    "routing_and_dispatch": {
+      "direct_routes": [
+        "When the output target itself is unclear, return to [[Single Output Target]].",
+        "If the drift is mainly scope sprawl rather than causal instability, route to [[Prompt Narrowing]]."
+      ],
+      "secondary_routes": [
+        "If [[Prompt Narrowing]] stabilizes the scope but the cause of drift remains unclear, continue to [[Deterministic Card Rendering]]."
+      ],
+      "gap_signals": [
+        "If the graph contains stable outputs but no card explains why tightening works, add a new Mechanism card for that missing causal explanation."
+      ],
+      "stop_rules": [
+        "Stop following this mechanism after two hops if the target itself keeps changing; reframe the task instead."
+      ]
+    },
+    "next_goal": [
+      "Add boundary cases and identify where the loop fails to stabilize."
+    ],
+    "growing_checklist": [
+      "Describe at least one failure boundary.",
+      "Name one alternative mechanism."
+    ],
+    "stable_checklist": [
+      "Add reliable local graph placement.",
+      "Document supporting evidence from repeated runs."
+    ],
+    "expert_ready_checklist": [
+      "Add competing-mechanism arbitration and stronger diagnosis routes."
+    ],
+    "current_upgrade_tasks": [
+      "Capture one anomaly where tighter constraints reduced quality instead of improving it."
+    ],
+    "promotion_assessment": {
+      "current_recommendation": "watchlist",
+      "main_reasons": [
+        "The mechanism already works as a reliable local explanatory node.",
+        "It has early dispatch behavior but not enough competing-mechanism arbitration yet."
+      ],
+      "missing_evidence": [
+        "It lacks a stronger switch rule between rendering drift and scope drift.",
+        "Its stop rules are still narrow."
+      ],
+      "next_rules": [
+        "If deterministic rendering is stable but semantic drift remains, switch to a different explanatory mechanism.",
+        "When explanation is complete and the next question becomes action, route into a method card."
+      ]
+    },
+    "upgrade_history": [
+      "2026-03-26: created as seed",
+      "2026-03-27: migrated routing to the four-part dispatch structure"
+    ]
+  }
+}

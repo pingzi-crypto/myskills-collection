@@ -1,0 +1,4 @@
+interface:
+  display_name: "Obsidian Concept Card Capture"
+  short_description: "Capture, update, or promote one Obsidian Concept Card."
+  default_prompt: "Use $obsidian-concept-card-capture to create, update, or promote one Obsidian Concept Card from this thread."

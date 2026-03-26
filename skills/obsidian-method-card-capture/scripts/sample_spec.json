@@ -1,0 +1,135 @@
+{
+  "id": "20260326200559-method",
+  "title": "Prompt Narrowing",
+  "domain": "AI Collaboration",
+  "subdomain": "Skill Design",
+  "source": "Sample render test",
+  "status": "stable",
+  "graph_maturity": "local",
+  "confidence": "1",
+  "review_cycle": "30d",
+  "sections": {
+    "problem_solved": [
+      "How can an overly broad request be narrowed into a task that can actually be executed reliably?"
+    ],
+    "core_idea": [
+      "Constrain the task boundary before deciding the execution path."
+    ],
+    "method_structure": [
+      "Identify the true scope of the request.",
+      "Remove unnecessary targets.",
+      "Lock onto one output target.",
+      "Then execute."
+    ],
+    "design_choices": [
+      "The method prioritizes scope stability over early coverage."
+    ],
+    "hidden_assumptions": [
+      "The operator can judge which goals really belong inside the current task boundary."
+    ],
+    "fit_scenarios": [
+      "Useful when the task keeps expanding or mixing multiple objectives."
+    ],
+    "non_fit_scenarios": [
+      "Less useful when the request is already precise and constrained."
+    ],
+    "comparison_with_alternatives": [
+      "Compared with broad exploratory prompting, this method sacrifices spread to gain execution stability."
+    ],
+    "common_misuses": [
+      "Over-narrowing too early and discarding constraints that actually matter."
+    ],
+    "failure_modes": [
+      "If the scope is narrowed too hard, the output can become stable but miss the real goal."
+    ],
+    "decision_criteria": [
+      "If the boundary is still unclear, do not expand implementation yet."
+    ],
+    "representative_examples": [
+      "Turning 'optimize my whole knowledge system' into 'first design the progression protocol for one method skill'."
+    ],
+    "validation_question": [
+      "Has the current request really been narrowed to one clear output target?"
+    ],
+    "local_position": {
+      "upstream_concepts": [
+        "[[Problem Framing]] | Prompt narrowing depends on a clear framing of the task boundary."
+      ],
+      "upstream_mechanisms": [
+        "[[Scope Drift]] | The method becomes easier to justify once scope drift is understood."
+      ],
+      "adjacent_methods": [
+        "[[Prompt Iteration]] | Both improve prompts, but prompt narrowing acts earlier on scope."
+      ]
+    },
+    "operational_links": {
+      "prerequisites": [
+        "[[Single Output Target]] | Without a single output target, narrowing cannot stabilize execution."
+      ],
+      "enables": [
+        "[[Task Execution]] | Once the scope is narrowed, execution paths become easier to stabilize."
+      ],
+      "contrasts": [
+        "[[Broad Prompt Exploration]] | One expands possibility space; the other reduces it."
+      ],
+      "corrections": [
+        "[[More Scope Means Better Results]] | This method corrects the intuition that broader scope always helps."
+      ]
+    },
+    "routing_and_dispatch": {
+      "direct_routes": [
+        "When the request still mixes multiple goals, route to [[Single Output Target]] before continuing this method.",
+        "If the boundary is unclear because the problem itself is vague, return to [[Problem Framing]]."
+      ],
+      "secondary_routes": [
+        "If [[Problem Framing]] clarifies the task but execution still drifts, continue to [[Scope Drift]] and then return here."
+      ],
+      "gap_signals": [
+        "If the graph contains scoping methods but no card explains how to choose between them, add a new Method card for scoping-method selection."
+      ],
+      "stop_rules": [
+        "Stop applying this method once the main problem is no longer scope but execution or causal diagnosis."
+      ]
+    },
+    "current_status_notes": [
+      "The card is already a reliable local method node and now has an explicit dispatch skeleton."
+    ],
+    "next_goal": [
+      "Add stronger failure fallback rules for when narrowing does not stabilize execution."
+    ],
+    "growing_checklist": [
+      "Explain where the method fits and where it does not."
+    ],
+    "stable_checklist": [
+      "Provide at least three strong node-level relationships.",
+      "Explain the method's local graph position."
+    ],
+    "expert_ready_checklist": [
+      "Add stronger cross-card fallback and method-arbitration rules.",
+      "Add at least one explicit gap signal and one stop rule."
+    ],
+    "promotion_assessment": {
+      "current_recommendation": "watchlist",
+      "main_reasons": [
+        "The method already has strong local graph value.",
+        "It now has direct routes, but not enough dispatch depth for expert-ready."
+      ],
+      "missing_evidence": [
+        "Fallback behavior after method failure is still too weak.",
+        "It lacks stronger method-selection arbitration across adjacent strategies."
+      ],
+      "next_rules": [
+        "When the method fails because the task is misframed, return to [[Problem Framing]].",
+        "When the method fails because the target is still unstable, return to [[Single Output Target]]."
+      ]
+    },
+    "current_upgrade_tasks": [
+      "Add one case where prompt narrowing reduced scope but still failed because the real cause was elsewhere."
+    ],
+    "upgrade_history": [
+      "2026-03-26: created as seed",
+      "2026-03-26: added graph and promotion skeleton",
+      "2026-03-27: migrated routing to the four-part dispatch structure"
+    ]
+  }
+}

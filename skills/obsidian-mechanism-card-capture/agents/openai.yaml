@@ -1,0 +1,4 @@
+interface:
+  display_name: "Obsidian Mechanism Card Capture"
+  short_description: "Capture, update, or promote one mechanism card with progression and graph structure."
+  default_prompt: "Use $obsidian-mechanism-card-capture to create, update, or promote one Obsidian Mechanism Card from this thread."

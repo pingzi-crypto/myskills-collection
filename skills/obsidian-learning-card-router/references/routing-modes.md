@@ -1,0 +1,75 @@
+# Routing Modes
+
+## Goal
+
+Distinguish whether the downstream card skill should create a new card,
+update an existing card, or run a progression review.
+
+## Available Modes
+
+- `create`
+- `update`
+- `promotion review`
+
+## Create
+
+Use `create` when:
+
+- the user wants to capture a new learning card
+- no same-title card is already in scope
+- the main question is first-time capture rather than maturity review
+
+Signals:
+
+- "turn this into a card"
+- "create a card for this"
+- "record this thread"
+
+## Update
+
+Use `update` when:
+
+- an existing card is already named, linked, or opened
+- the user wants to add or refine content
+- the focus is not mainly on progression status
+
+Signals:
+
+- "update this card"
+- "merge this thread into the existing card"
+- "补充这张卡"
+
+## Promotion Review
+
+Use `promotion review` when:
+
+- the task is explicitly about `seed`, `growing`, `stable`, or `expert-ready`
+- the user wants stronger graph structure, routing rules, or maturity assessment
+- the thread is mainly deciding whether an existing card should stay stable, be watchlisted, or be promoted
+
+Signals:
+
+- "should this be stable or expert-ready"
+- "promote this card"
+- "add routing and dispatch"
+- "review the progression"
+
+## Existing Card Priority
+
+If an existing card is explicitly in scope:
+
+- prefer `update` or `promotion review`
+- do not route to `create` unless the user explicitly wants a separate sibling card
+
+## Output Rule
+
+Always hand off with both:
+
+- card type
+- action mode
+
+Examples:
+
+- `Concept + create`
+- `Mechanism + update`
+- `Method + promotion review`

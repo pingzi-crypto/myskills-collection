@@ -1,0 +1,4 @@
+interface:
+  display_name: "Obsidian Method Card Capture"
+  short_description: "Capture, update, or promote one Obsidian Method Card."
+  default_prompt: "Use $obsidian-method-card-capture to create, update, or promote one Obsidian Method Card from this thread."

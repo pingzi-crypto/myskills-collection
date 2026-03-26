@@ -1,0 +1,4 @@
+interface:
+  display_name: "Obsidian Misconception Card Capture"
+  short_description: "Capture, update, or promote one Obsidian Misconception Card."
+  default_prompt: "Use $obsidian-misconception-card-capture to create, update, or promote one Obsidian Misconception Card from this thread."

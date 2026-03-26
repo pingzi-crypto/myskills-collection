@@ -1,0 +1,137 @@
+{
+  "id": "20260326201012-concept",
+  "title": "Deterministic Card Rendering",
+  "domain": "AI Collaboration",
+  "subdomain": "Skill Design",
+  "source": "Current Codex thread on skill execution stability",
+  "status": "stable",
+  "graph_maturity": "local",
+  "confidence": "1",
+  "review_cycle": "30d",
+  "sections": {
+    "question_answered": [
+      "How can a learning card keep a stable final structure instead of relying on ad hoc manual formatting every time?"
+    ],
+    "one_sentence_definition": [
+      "Deterministic Card Rendering means deciding the content first and then using a fixed renderer to produce the final card structure."
+    ],
+    "essence": [
+      "It separates semantic judgment from structural output so each layer can become stable in its own way."
+    ],
+    "why_it_matters": [
+      "It reduces formatting drift across runs.",
+      "It makes skill outputs easier to compare, validate, and maintain."
+    ],
+    "core_logic": [
+      "Extract the concept-level content from the thread.",
+      "Map that content into fixed sections.",
+      "Let a renderer generate the final Markdown shape."
+    ],
+    "prerequisites": [
+      "The target card structure is already stable enough to render deterministically.",
+      "The input has already been narrowed to one clear concept."
+    ],
+    "failure_boundaries": [
+      "If the input still mixes multiple concepts, deterministic rendering will only produce consistently mixed output.",
+      "If the schema keeps changing, renderer stability will also drift."
+    ],
+    "confusions": [
+      "It is easy to confuse this with simply having a template file; the key difference is a fixed rendering flow."
+    ],
+    "examples": [
+      "First build a JSON spec, then run the renderer to produce the final card."
+    ],
+    "counter_examples": [
+      "Manually copying an old card and editing it freehand until field order and section style slowly diverge."
+    ],
+    "common_misunderstandings": [
+      "A stable structure does not automatically mean high-quality content."
+    ],
+    "my_words": [
+      "Let me think about the content, and let the renderer own the shape."
+    ],
+    "needs_validation": [
+      "When updating an existing card, should the same rendering skeleton still be reused whenever possible?"
+    ],
+    "local_position": {
+      "parent_concepts": [
+        "[[Skill Output Stability]] | Deterministic rendering is a lower-level implementation of output stability."
+      ],
+      "child_concepts": [
+        "[[Deterministic Method Rendering]] | Method-card rendering is one concrete branch of this idea."
+      ],
+      "adjacent_concepts": [
+        "[[Template-Driven Writing]] | Both pursue consistency, but one relies on a renderer and the other leans on a static template."
+      ]
+    },
+    "operational_links": {
+      "prerequisites": [
+        "[[Single Concept Capture]] | Deterministic rendering only helps after the card boundary is already compressed to one concept."
+      ],
+      "enables": [
+        "[[Prompt Narrowing]] | Stable rendering makes it easier to compare outputs from narrowed prompts."
+      ],
+      "contrasts": [
+        "[[Template-Driven Writing]] | One emphasizes a fixed generation flow, the other emphasizes a reusable template."
+      ],
+      "corrections": [
+        "[[Templates Alone Guarantee Stability]] | This concept corrects the mistaken idea that templates alone are sufficient."
+      ]
+    },
+    "routing_and_dispatch": {
+      "direct_routes": [
+        "When the thread is still defining what deterministic rendering is, stay in this concept card before switching to implementation details.",
+        "If the idea is clear but the next question becomes how to apply it in a workflow, route to [[Prompt Narrowing]]."
+      ],
+      "secondary_routes": [
+        "If [[Prompt Narrowing]] clarifies task scope but renderer behavior is still unstable, continue to [[Deterministic Method Rendering]]."
+      ],
+      "gap_signals": [
+        "If the graph contains templates and renderers but no card explains output stability at a higher level, add a new Concept card for that parent abstraction."
+      ],
+      "stop_rules": [
+        "Stop staying in this concept once the main question changes from definition to execution design."
+      ]
+    },
+    "current_status_notes": [
+      "This concept already has reliable local graph placement and early routing value."
+    ],
+    "next_goal": [
+      "Add a stronger arbitration rule for when to move from definition work to method or mechanism work."
+    ],
+    "growing_checklist": [
+      "Explain why semantic generation and structural rendering should be separated."
+    ],
+    "stable_checklist": [
+      "Provide at least three strong node-level relationships.",
+      "Explain where this concept sits inside the local knowledge graph."
+    ],
+    "expert_ready_checklist": [
+      "Add stronger multi-hop routes from concept clarification into method or mechanism execution.",
+      "Add at least one explicit gap signal and one stop rule."
+    ],
+    "promotion_assessment": {
+      "current_recommendation": "watchlist",
+      "main_reasons": [
+        "The concept already works as a reliable local node.",
+        "It has early direct routes but not enough dispatch depth for expert-ready."
+      ],
+      "missing_evidence": [
+        "It still lacks stronger cross-card arbitration rules.",
+        "Its gap-detection behavior is still narrow."
+      ],
+      "next_rules": [
+        "When definition work turns into workflow design, route to a method card.",
+        "When definition work turns into causal explanation, route to a mechanism card."
+      ]
+    },
+    "current_upgrade_tasks": [
+      "Add one repeated real-world example where deterministic rendering prevented structural drift."
+    ],
+    "upgrade_history": [
+      "2026-03-26: created as seed",
+      "2026-03-26: added graph and promotion skeleton",
+      "2026-03-27: migrated routing to the four-part dispatch structure"
+    ]
+  }
+}

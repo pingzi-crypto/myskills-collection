@@ -1,0 +1,118 @@
+{
+  "id": "20260326201540-misconception",
+  "title": "More Cards Means Better Learning",
+  "domain": "AI Collaboration",
+  "subdomain": "Learning Card Design",
+  "source": "Sample render test",
+  "status": "stable",
+  "graph_maturity": "local",
+  "confidence": "1",
+  "review_cycle": "30d",
+  "sections": {
+    "mistaken_claim": [
+      "Creating more cards automatically leads to better learning."
+    ],
+    "why_it_seems_plausible": [
+      "More cards can look like more accumulation, so it is easy to confuse quantity with understanding."
+    ],
+    "why_it_is_wrong": [
+      "Card count does not equal conceptual depth.",
+      "Too many low-value cards dilute graph quality and increase maintenance cost."
+    ],
+    "correct_understanding": [
+      "What matters more is card boundary clarity, content density, and whether a card is worth maturing."
+    ],
+    "what_it_confuses": [
+      "It confuses 'recording more things' with 'understanding more deeply'."
+    ],
+    "representative_counterexamples": [
+      "Splitting one topic into four shallow cards can produce a noisier graph instead of a better one."
+    ],
+    "trigger_signals": [
+      "The user wants to create all four card types by default for one topic.",
+      "The discussion focus is already drifting, but card count keeps expanding."
+    ],
+    "corrective_action": [
+      "Choose the strongest single card type first and create only one card."
+    ],
+    "local_position": {
+      "common_confusions": [
+        "[[Learning Card Routing]] | The misconception often appears together with wrong card-type selection."
+      ],
+      "correct_return_nodes": [
+        "[[Learning Card Routing]] | After correction, routing should decide the right single-card path."
+      ],
+      "adjacent_misconceptions": [
+        "[[More Structure Means Better Learning]] | Both confuse formal expansion with real understanding."
+      ]
+    },
+    "operational_links": {
+      "prerequisites": [
+        "[[Single Concept Capture]] | Without a single-card boundary, this misconception keeps recurring."
+      ],
+      "enables": [
+        "[[Learning Card Routing]] | Correcting this misconception makes later routing more stable."
+      ],
+      "contrasts": [
+        "[[Single Concept Capture]] | One emphasizes conservative focus; the other represents expansion pressure."
+      ],
+      "corrections": [
+        "[[Create All Four Cards by Default]] | This card explicitly corrects that behavior."
+      ]
+    },
+    "routing_and_dispatch": {
+      "direct_routes": [
+        "When a user wants four cards by default, correct the misconception first and then return to [[Learning Card Routing]].",
+        "If the real problem is not a misconception but unclear card boundaries, route directly to [[Single Concept Capture]]."
+      ],
+      "secondary_routes": [
+        "If [[Learning Card Routing]] still leaves ambiguity, continue to [[Single Concept Capture]] to re-establish a conservative one-card boundary."
+      ],
+      "gap_signals": [
+        "If the graph keeps encountering quantity-over-quality mistakes but has no card for conservative card creation, add a new Misconception or Method card for that gap."
+      ],
+      "stop_rules": [
+        "Stop treating the issue as a misconception once the user already accepts the correction and the problem becomes operational routing."
+      ]
+    },
+    "current_status_notes": [
+      "This card already works as a stable local correction node and now has explicit return routes."
+    ],
+    "next_goal": [
+      "Add stronger rules for which misconception to correct first when multiple learning-design misconceptions overlap."
+    ],
+    "growing_checklist": [
+      "Explain why the misconception looks plausible."
+    ],
+    "stable_checklist": [
+      "Provide enough node-level relationships to show where correction should return."
+    ],
+    "expert_ready_checklist": [
+      "Add stronger multi-misconception arbitration rules.",
+      "Add at least one explicit gap signal and one stop rule."
+    ],
+    "promotion_assessment": {
+      "current_recommendation": "watchlist",
+      "main_reasons": [
+        "The card has stable corrective value and explicit return routing.",
+        "It still lacks stronger arbitration when multiple misconceptions overlap."
+      ],
+      "missing_evidence": [
+        "It lacks a stronger priority rule for stacked misconceptions.",
+        "Its gap detection still needs more repeated evidence."
+      ],
+      "next_rules": [
+        "If the user confuses quantity with understanding, correct this card before any routing work.",
+        "If the user already accepts the correction, stop here and resume operational routing."
+      ]
+    },
+    "current_upgrade_tasks": [
+      "Capture one case where correcting this misconception still left a second misconception unresolved."
+    ],
+    "upgrade_history": [
+      "2026-03-26: created as seed",
+      "2026-03-26: added graph and promotion skeleton",
+      "2026-03-27: migrated routing to the four-part dispatch structure"
+    ]
+  }
+}
