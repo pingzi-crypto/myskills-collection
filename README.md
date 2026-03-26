@@ -14,6 +14,45 @@ Browse the collection here:
 
 - `skills/README.md`
 
+## Quick Start
+
+The fastest way to start depends on what you want to do.
+
+### Option 1: Start from the template
+
+Use this when you want to create a new reusable skill.
+
+1. Copy `skills/cross-platform-skill-template/` to a new folder with your real skill name.
+2. Rewrite `core/guide.md` with the actual workflow.
+3. Keep shared logic in `core/`.
+4. Keep platform-specific metadata only in the wrapper folders.
+
+### Option 2: Use the Obsidian learning-card family
+
+Use this when you want to turn one thread into one Obsidian learning card.
+
+1. Start with `skills/obsidian-learning-card-router/` if the card type is still unclear.
+2. Route to exactly one execution skill:
+   - `obsidian-concept-card-capture`
+   - `obsidian-mechanism-card-capture`
+   - `obsidian-method-card-capture`
+   - `obsidian-misconception-card-capture`
+3. Let that execution skill create, update, or run promotion review on one card.
+
+### Simplest prompts
+
+```text
+Use $obsidian-learning-card-router to choose the right learning card skill and mode for this thread.
+```
+
+```text
+Use $obsidian-concept-card-capture to work on one concept card from this thread.
+Mode: create
+Concept title: <single concept>
+Keywords or thread points to capture: <keywords>
+Domain: <domain>
+```
+
 ## Main Entries
 
 ### Cross-platform template
