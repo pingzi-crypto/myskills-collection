@@ -14,6 +14,10 @@ The template lives here:
 
 - `skills/cross-platform-skill-template/`
 
+Browse the skills directory here:
+
+- `skills/README.md`
+
 ## Design Goal
 
 The template follows a simple rule:
@@ -70,3 +74,4 @@ Do not force all platform-specific features into a single shared `SKILL.md`.
 - Skills are stored under `skills/` so the repo can grow into a real collection.
 - Platform-specific metadata should stay local to each wrapper.
 - Shared files should remain platform-neutral whenever possible.
+- Use `skills/README.md` as the collection index as more skills are added.
