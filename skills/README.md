@@ -22,6 +22,21 @@ Use this entry when you want to:
 - keep shared workflow in `core/`
 - isolate platform-specific behavior in wrapper directories
 
+### `obsidian-concept-card-capture`
+
+Skill for turning the current thread into exactly one Obsidian Concept Card.
+
+Path:
+
+- `skills/obsidian-concept-card-capture/`
+
+Use this entry when you want to:
+
+- capture one concept from Q&A or discussion
+- create a new `seed` concept card
+- save it under the resolved vault root at `学习/Cards/Concepts`
+- add conservative backlinks to existing cards
+
 ## Suggested Workflow
 
 1. Copy `cross-platform-skill-template/` to a new skill folder.
