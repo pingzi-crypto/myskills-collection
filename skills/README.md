@@ -76,6 +76,33 @@ Source: <optional source>
 Vault root: <optional vault path>
 ```
 
+### `obsidian-method-card-capture`
+
+Skill for turning the current thread into exactly one Obsidian Method Card.
+
+Path:
+
+- `skills/obsidian-method-card-capture/`
+
+Use this entry when you want to:
+
+- capture one practical procedure or strategy from Q&A or discussion
+- create a new `seed` method card
+- save it under the resolved vault root at `学习/Cards/Methods`
+- add conservative backlinks to existing cards
+
+Prompt template:
+
+```text
+Use $obsidian-method-card-capture to capture one method from this thread.
+Method title: <single method>
+Keywords or thread points to capture: <keywords or short excerpts>
+Domain: <domain>
+Subdomain: <optional subdomain>
+Source: <optional source>
+Vault root: <optional vault path>
+```
+
 ## Suggested Workflow
 
 1. Copy `cross-platform-skill-template/` to a new skill folder.

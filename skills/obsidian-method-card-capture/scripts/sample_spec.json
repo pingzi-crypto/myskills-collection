@@ -1,0 +1,28 @@
+{
+  "title": "Prompt Narrowing",
+  "domain": "AI协同",
+  "subdomain": "Skill Design",
+  "source": "Sample render test",
+  "status": "seed",
+  "confidence": "1",
+  "sections": {
+    "problem_solved": [
+      "如何把过于宽泛的请求收缩成可以稳定执行的任务？"
+    ],
+    "core_idea": [
+      "先缩窄目标边界，再决定执行路径。"
+    ],
+    "method_structure": [
+      "识别问题范围。",
+      "去掉不必要目标。",
+      "锁定单一输出对象。",
+      "再进入执行。"
+    ],
+    "decision_criteria": [
+      "如果任务边界还说不清，就先不要扩展实现范围。"
+    ],
+    "upgrade_history": [
+      "2026-03-26: created as seed"
+    ]
+  }
+}
