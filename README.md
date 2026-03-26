@@ -12,7 +12,7 @@ This repository currently includes a starter template for building one skill tha
 
 The template lives here:
 
-- `三端兼容 Skill 模板/`
+- `cross-platform-skill-template/`
 
 ## Design Goal
 
@@ -30,7 +30,7 @@ That means:
 ## Directory Structure
 
 ```text
-三端兼容 Skill 模板/
+cross-platform-skill-template/
 ├─ core/
 │  ├─ guide.md
 │  ├─ references/
@@ -47,7 +47,7 @@ That means:
 
 ## How To Use This Template
 
-1. Copy `三端兼容 Skill 模板/` to a new folder with your real skill name.
+1. Copy `cross-platform-skill-template/` to a new folder with your real skill name.
 2. Replace the placeholder skill name in each wrapper.
 3. Rewrite `core/guide.md` with the real workflow.
 4. Add only the references, scripts, and assets your skill actually needs.
