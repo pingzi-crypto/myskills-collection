@@ -10,6 +10,7 @@ description: Capture one concept from the current thread and create a single Obs
 Create exactly one Concept Card from the current thread. This skill is intentionally narrow: it does not create mechanism, method, or misconception cards, and it does not create multiple concepts in one pass.
 
 Read [references/concept-card-spec.md](references/concept-card-spec.md) and [references/vault-path-resolution.md](references/vault-path-resolution.md) before creating or updating any card.
+Read [references/render-script.md](references/render-script.md) when preparing the final markdown for a new card.
 
 ## Workflow Decision
 
@@ -36,7 +37,8 @@ Do not use this skill when:
 6. If the card already exists, switch to the update flow in [references/update-flow.md](references/update-flow.md) instead of silently overwriting or creating a duplicate.
 7. If the card does not exist, create one new Concept Card with `status: seed`.
 8. Fill the card from the current thread, preferring concise synthesis over long transcript dumps.
-9. Add conservative backlinks only when the match is strong.
+9. When practical, render the final markdown with `scripts/render_concept_card.py` for deterministic structure.
+10. Add conservative backlinks only when the match is strong.
 
 ## Update Flow
 
@@ -72,6 +74,7 @@ Use [references/update-flow.md](references/update-flow.md) for the detailed merg
 - Include thread-derived material in the body where it improves understanding.
 - Keep the card focused on concept definition, boundaries, importance, mechanism, examples, and upgrade path.
 - Do not create mechanism, method, or misconception sections that belong to other card types.
+- Prefer `scripts/render_concept_card.py` to generate the final card layout for new cards.
 
 ## Backlink Policy
 
@@ -98,5 +101,6 @@ When executing this skill, produce:
 ## References
 
 - Read [references/concept-card-spec.md](references/concept-card-spec.md) for target paths, field defaults, and duplicate-handling rules.
+- Read [references/render-script.md](references/render-script.md) for how to use the deterministic card renderer.
 - Read [references/update-flow.md](references/update-flow.md) for how to handle same-title cards without creating duplicates.
 - Read [references/vault-path-resolution.md](references/vault-path-resolution.md) for how to resolve the vault root before reading templates or writing cards.

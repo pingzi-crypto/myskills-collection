@@ -1,0 +1,31 @@
+{
+  "title": "Deterministic Card Rendering",
+  "domain": "AI协同",
+  "subdomain": "Skill Design",
+  "source": "Sample render test",
+  "status": "seed",
+  "confidence": "1",
+  "sections": {
+    "question_answered": [
+      "如何让概念卡的最终结构稳定，而不依赖每次临场手写排版？"
+    ],
+    "one_sentence_definition": [
+      "Deterministic Card Rendering 是先完成内容判断，再用固定脚本生成最终卡片结构的做法。"
+    ],
+    "essence": [
+      "把语义生成和结构落盘分开。"
+    ],
+    "why_it_matters": [
+      "它能减少格式漂移，并让 skill 的输出更稳定。"
+    ],
+    "core_logic": [
+      "先整理内容字段，再交给脚本渲染固定模板。"
+    ],
+    "my_words": [
+      "内容让我来想，格式交给脚本。"
+    ],
+    "upgrade_history": [
+      "2026-03-26: created as seed"
+    ]
+  }
+}
