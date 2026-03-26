@@ -37,6 +37,18 @@ Use this entry when you want to:
 - save it under the resolved vault root at `学习/Cards/Concepts`
 - add conservative backlinks to existing cards
 
+Prompt template:
+
+```text
+Use $obsidian-concept-card-capture to capture one concept from this thread.
+Concept title: <single concept>
+Keywords or thread points to capture: <keywords or short excerpts>
+Domain: <domain>
+Subdomain: <optional subdomain>
+Source: <optional source>
+Vault root: <optional vault path>
+```
+
 ## Suggested Workflow
 
 1. Copy `cross-platform-skill-template/` to a new skill folder.
