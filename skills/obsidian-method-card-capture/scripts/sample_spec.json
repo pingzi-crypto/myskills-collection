@@ -1,119 +1,135 @@
 {
   "id": "20260326200559-method",
   "title": "Prompt Narrowing",
-  "domain": "AI协同",
+  "domain": "AI Collaboration",
   "subdomain": "Skill Design",
   "source": "Sample render test",
   "status": "stable",
   "graph_maturity": "local",
   "confidence": "1",
+  "review_cycle": "30d",
   "sections": {
     "problem_solved": [
-      "如何把过于宽泛的请求收窄成可以稳定执行的任务？"
+      "How can an overly broad request be narrowed into a task that can actually be executed reliably?"
     ],
     "core_idea": [
-      "先收窄目标边界，再决定执行路径。"
+      "Constrain the task boundary before deciding the execution path."
     ],
     "method_structure": [
-      "识别问题范围。",
-      "去掉不必要目标。",
-      "锁定单一输出对象。",
-      "再进入执行。"
+      "Identify the true scope of the request.",
+      "Remove unnecessary targets.",
+      "Lock onto one output target.",
+      "Then execute."
     ],
     "design_choices": [
-      "优先降低任务边界漂移，而不是一开始追求覆盖面。"
+      "The method prioritizes scope stability over early coverage."
     ],
     "hidden_assumptions": [
-      "执行者已经能判断什么目标属于当前任务范围。"
+      "The operator can judge which goals really belong inside the current task boundary."
     ],
     "fit_scenarios": [
-      "任务边界模糊、容易不断扩张时。"
+      "Useful when the task keeps expanding or mixing multiple objectives."
     ],
     "non_fit_scenarios": [
-      "任务已经被定义得足够清楚时。"
+      "Less useful when the request is already precise and constrained."
     ],
     "comparison_with_alternatives": [
-      "与广泛探索型提示相比，它优先服务收敛与稳定执行。"
+      "Compared with broad exploratory prompting, this method sacrifices spread to gain execution stability."
     ],
     "common_misuses": [
-      "把收窄范围误用成过早删掉关键约束。"
+      "Over-narrowing too early and discarding constraints that actually matter."
     ],
     "failure_modes": [
-      "如果收窄过头，可能导致输出虽然稳定但失去任务真正目标。"
+      "If the scope is narrowed too hard, the output can become stable but miss the real goal."
     ],
     "decision_criteria": [
-      "如果任务边界还说不清，就先不要扩展实现范围。"
+      "If the boundary is still unclear, do not expand implementation yet."
     ],
     "representative_examples": [
-      "把“帮我优化整个知识系统”收敛成“先为一个 Method skill 设计 progression protocol”。"
+      "Turning 'optimize my whole knowledge system' into 'first design the progression protocol for one method skill'."
     ],
     "validation_question": [
-      "这个请求是否已经收敛到一个清晰的输出对象？"
+      "Has the current request really been narrowed to one clear output target?"
     ],
     "local_position": {
       "upstream_concepts": [
-        "[[Problem Framing]] | 当前方法依赖问题边界被清楚表达。"
+        "[[Problem Framing]] | Prompt narrowing depends on a clear framing of the task boundary."
       ],
       "upstream_mechanisms": [
-        "[[Scope Drift]] | 需要理解范围漂移如何导致执行不稳定。"
+        "[[Scope Drift]] | The method becomes easier to justify once scope drift is understood."
       ],
       "adjacent_methods": [
-        "[[Prompt Iteration]] | 两者都优化提示，但前者优先收窄范围。"
+        "[[Prompt Iteration]] | Both improve prompts, but prompt narrowing acts earlier on scope."
       ]
     },
     "operational_links": {
       "prerequisites": [
-        "[[Single Output Target]] | 没有单一输出对象时，此方法难以稳定执行。"
+        "[[Single Output Target]] | Without a single output target, narrowing cannot stabilize execution."
       ],
       "enables": [
-        "[[Task Execution]] | 先收窄范围后，执行路径更容易稳定。"
+        "[[Task Execution]] | Once the scope is narrowed, execution paths become easier to stabilize."
       ],
       "contrasts": [
-        "[[Broad Prompt Exploration]] | 一个强调收敛，一个强调发散。"
+        "[[Broad Prompt Exploration]] | One expands possibility space; the other reduces it."
       ],
       "corrections": [
-        "[[More Scope Means Better Results]] | 当前方法用于纠正无限扩张范围的直觉。"
+        "[[More Scope Means Better Results]] | This method corrects the intuition that broader scope always helps."
+      ]
+    },
+    "routing_and_dispatch": {
+      "direct_routes": [
+        "When the request still mixes multiple goals, route to [[Single Output Target]] before continuing this method.",
+        "If the boundary is unclear because the problem itself is vague, return to [[Problem Framing]]."
+      ],
+      "secondary_routes": [
+        "If [[Problem Framing]] clarifies the task but execution still drifts, continue to [[Scope Drift]] and then return here."
+      ],
+      "gap_signals": [
+        "If the graph contains scoping methods but no card explains how to choose between them, add a new Method card for scoping-method selection."
+      ],
+      "stop_rules": [
+        "Stop applying this method once the main problem is no longer scope but execution or causal diagnosis."
       ]
     },
     "current_status_notes": [
-      "当前卡片已经能表达方法核心，也已具备局部接网结构。"
+      "The card is already a reliable local method node and now has an explicit dispatch skeleton."
     ],
     "next_goal": [
-      "补上在方法失效或边界不清时的回退规则。"
+      "Add stronger failure fallback rules for when narrowing does not stabilize execution."
     ],
     "growing_checklist": [
-      "我能说明这个方法适用于哪些场景。",
-      "我能区分它与相邻方法的边界。"
+      "Explain where the method fits and where it does not."
     ],
     "stable_checklist": [
-      "我能给出至少三条可靠的节点级关系。",
-      "我能解释这张卡在局部知识网中的位置。"
+      "Provide at least three strong node-level relationships.",
+      "Explain the method's local graph position."
     ],
     "expert_ready_checklist": [
-      "我能写出明确条件触发的路由规则。",
-      "我能说明方法失败时应该回退到哪类卡。"
+      "Add stronger cross-card fallback and method-arbitration rules.",
+      "Add at least one explicit gap signal and one stop rule."
     ],
     "promotion_assessment": {
       "current_recommendation": "watchlist",
       "main_reasons": [
-        "该方法有明显的局部接网价值。",
-        "但当前还缺少强规则级调度句。"
+        "The method already has strong local graph value.",
+        "It now has direct routes, but not enough dispatch depth for expert-ready."
       ],
       "missing_evidence": [
-        "缺少执行失败后的回退规则。",
-        "缺少跨卡类型的条件化切换。"
+        "Fallback behavior after method failure is still too weak.",
+        "It lacks stronger method-selection arbitration across adjacent strategies."
       ],
       "next_rules": [
-        "当范围仍模糊时，回到 [[Problem Framing]]。",
-        "当执行路径不稳定时，先检查 [[Single Output Target]] 是否明确。"
+        "When the method fails because the task is misframed, return to [[Problem Framing]].",
+        "When the method fails because the target is still unstable, return to [[Single Output Target]]."
       ]
     },
     "current_upgrade_tasks": [
-      "为复杂任务补上方法选择与回退规则。"
+      "Add one case where prompt narrowing reduced scope but still failed because the real cause was elsewhere."
     ],
     "upgrade_history": [
       "2026-03-26: created as seed",
-      "2026-03-26: added graph and promotion skeleton"
+      "2026-03-26: added graph and promotion skeleton",
+      "2026-03-27: migrated routing to the four-part dispatch structure"
     ]
   }
 }

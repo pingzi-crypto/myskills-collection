@@ -1,101 +1,118 @@
 {
   "id": "20260326201540-misconception",
   "title": "More Cards Means Better Learning",
-  "domain": "AI协同",
+  "domain": "AI Collaboration",
   "subdomain": "Learning Card Design",
   "source": "Sample render test",
   "status": "stable",
   "graph_maturity": "local",
   "confidence": "1",
+  "review_cycle": "30d",
   "sections": {
     "mistaken_claim": [
-      "只要多建卡，学习效果自然会更好。"
+      "Creating more cards automatically leads to better learning."
     ],
     "why_it_seems_plausible": [
-      "更多卡片看起来像更多沉淀，因此容易被误认为学习质量更高。"
+      "More cards can look like more accumulation, so it is easy to confuse quantity with understanding."
     ],
     "why_it_is_wrong": [
-      "卡片数量本身不等于理解深度。",
-      "过量创建低质量卡会稀释图谱质量，并增加维护负担。"
+      "Card count does not equal conceptual depth.",
+      "Too many low-value cards dilute graph quality and increase maintenance cost."
     ],
     "correct_understanding": [
-      "更重要的是单卡边界清楚、内容足够、后续值得升级，而不是机械堆数量。"
+      "What matters more is card boundary clarity, content density, and whether a card is worth maturing."
     ],
     "what_it_confuses": [
-      "把“记录更多”误当成“理解更深”。"
+      "It confuses 'recording more things' with 'understanding more deeply'."
     ],
     "representative_counterexamples": [
-      "一口气把同一主题拆成四类空卡，最后得到的是一组边界模糊、价值很低的卡。"
+      "Splitting one topic into four shallow cards can produce a noisier graph instead of a better one."
     ],
     "trigger_signals": [
-      "用户一上来就想为同一主题默认同时建四张卡。",
-      "讨论重点已经模糊，却仍然继续扩张卡片数量。"
+      "The user wants to create all four card types by default for one topic.",
+      "The discussion focus is already drifting, but card count keeps expanding."
     ],
     "corrective_action": [
-      "先判断当前内容最适合哪一类卡，再只创建一张最匹配的卡。"
+      "Choose the strongest single card type first and create only one card."
     ],
     "local_position": {
       "common_confusions": [
-        "[[Learning Card Routing]] | 很多人把“多建卡”和“正确选卡”混在一起。"
+        "[[Learning Card Routing]] | The misconception often appears together with wrong card-type selection."
       ],
       "correct_return_nodes": [
-        "[[Learning Card Routing]] | 纠正该误区后，应回到路由方法重新决定卡型。"
+        "[[Learning Card Routing]] | After correction, routing should decide the right single-card path."
       ],
       "adjacent_misconceptions": [
-        "[[More Structure Means Better Learning]] | 两者都把形式增长误当成理解增长。"
+        "[[More Structure Means Better Learning]] | Both confuse formal expansion with real understanding."
       ]
     },
     "operational_links": {
       "prerequisites": [
-        "[[四类学习卡片的判别准则]] | 只有理解卡型差异，纠偏后才能回到正确路线。"
+        "[[Single Concept Capture]] | Without a single-card boundary, this misconception keeps recurring."
       ],
       "enables": [
-        "[[Learning Card Routing]] | 先纠正默认多卡倾向，后续路由和单卡创建才更稳。"
+        "[[Learning Card Routing]] | Correcting this misconception makes later routing more stable."
       ],
       "contrasts": [
-        "[[Single Concept Capture]] | 一个强调保守单卡，一个代表扩张冲动。"
+        "[[Single Concept Capture]] | One emphasizes conservative focus; the other represents expansion pressure."
       ],
       "corrections": [
-        "[[Create All Four Cards by Default]] | 当前卡用于纠正默认四建的错误做法。"
+        "[[Create All Four Cards by Default]] | This card explicitly corrects that behavior."
+      ]
+    },
+    "routing_and_dispatch": {
+      "direct_routes": [
+        "When a user wants four cards by default, correct the misconception first and then return to [[Learning Card Routing]].",
+        "If the real problem is not a misconception but unclear card boundaries, route directly to [[Single Concept Capture]]."
+      ],
+      "secondary_routes": [
+        "If [[Learning Card Routing]] still leaves ambiguity, continue to [[Single Concept Capture]] to re-establish a conservative one-card boundary."
+      ],
+      "gap_signals": [
+        "If the graph keeps encountering quantity-over-quality mistakes but has no card for conservative card creation, add a new Misconception or Method card for that gap."
+      ],
+      "stop_rules": [
+        "Stop treating the issue as a misconception once the user already accepts the correction and the problem becomes operational routing."
       ]
     },
     "current_status_notes": [
-      "当前误区卡已经能稳定接回正确节点，但还缺少更强的多误区优先级规则。"
+      "This card already works as a stable local correction node and now has explicit return routes."
     ],
     "next_goal": [
-      "补上多个误区叠加时应先纠哪一个的判断规则。"
+      "Add stronger rules for which misconception to correct first when multiple learning-design misconceptions overlap."
     ],
     "growing_checklist": [
-      "我能说明这个误区为什么容易看起来合理。"
+      "Explain why the misconception looks plausible."
     ],
     "stable_checklist": [
-      "我能给出足够的节点级关系，并说明纠偏后该回接到哪里。"
+      "Provide enough node-level relationships to show where correction should return."
     ],
     "expert_ready_checklist": [
-      "我能写出先纠偏再回接的规则。",
-      "我能处理多误区叠加时的优先级。"
+      "Add stronger multi-misconception arbitration rules.",
+      "Add at least one explicit gap signal and one stop rule."
     ],
     "promotion_assessment": {
       "current_recommendation": "watchlist",
       "main_reasons": [
-        "该误区具有稳定的局部纠偏价值。",
-        "但当前还缺少更强的排障顺序和多误区裁决规则。"
+        "The card has stable corrective value and explicit return routing.",
+        "It still lacks stronger arbitration when multiple misconceptions overlap."
       ],
       "missing_evidence": [
-        "缺少多个误区并存时的优先级规则。",
-        "缺少跨卡类型的条件化回接路径。"
+        "It lacks a stronger priority rule for stacked misconceptions.",
+        "Its gap detection still needs more repeated evidence."
       ],
       "next_rules": [
-        "当用户默认一概四建时，先纠正当前误区，再回到 [[Learning Card Routing]]。",
-        "当用户其实只是没理解卡型定义时，先转到 [[四类学习卡片的判别准则]]。"
+        "If the user confuses quantity with understanding, correct this card before any routing work.",
+        "If the user already accepts the correction, stop here and resume operational routing."
       ]
     },
     "current_upgrade_tasks": [
-      "补上多误区叠加时的纠偏顺序与回接规则。"
+      "Capture one case where correcting this misconception still left a second misconception unresolved."
     ],
     "upgrade_history": [
       "2026-03-26: created as seed",
-      "2026-03-26: added graph and promotion skeleton"
+      "2026-03-26: added graph and promotion skeleton",
+      "2026-03-27: migrated routing to the four-part dispatch structure"
     ]
   }
 }

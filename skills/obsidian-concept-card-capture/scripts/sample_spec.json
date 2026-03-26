@@ -1,120 +1,137 @@
 {
   "id": "20260326201012-concept",
   "title": "Deterministic Card Rendering",
-  "domain": "AI协同",
+  "domain": "AI Collaboration",
   "subdomain": "Skill Design",
   "source": "Current Codex thread on skill execution stability",
   "status": "stable",
   "graph_maturity": "local",
   "confidence": "1",
+  "review_cycle": "30d",
   "sections": {
     "question_answered": [
-      "如何让卡片的最终结构保持稳定，而不是依赖每次临场手写排版？"
+      "How can a learning card keep a stable final structure instead of relying on ad hoc manual formatting every time?"
     ],
     "one_sentence_definition": [
-      "Deterministic Card Rendering 是先完成内容判断，再用固定脚本生成最终卡片结构的做法。"
+      "Deterministic Card Rendering means deciding the content first and then using a fixed renderer to produce the final card structure."
     ],
     "essence": [
-      "把语义生成和结构落盘分开，让内容判断和版式输出各自稳定。"
+      "It separates semantic judgment from structural output so each layer can become stable in its own way."
     ],
     "why_it_matters": [
-      "它能减少格式漂移。",
-      "它能让 skill 输出更稳定、更容易复用。"
+      "It reduces formatting drift across runs.",
+      "It makes skill outputs easier to compare, validate, and maintain."
     ],
     "core_logic": [
-      "先从线程中提炼概念内容。",
-      "再把内容映射到固定字段。",
-      "最后用渲染脚本输出统一 Markdown 结构。"
+      "Extract the concept-level content from the thread.",
+      "Map that content into fixed sections.",
+      "Let a renderer generate the final Markdown shape."
     ],
     "prerequisites": [
-      "目标卡片结构已经被稳定定义。",
-      "输入内容已经被压缩到单一概念。"
+      "The target card structure is already stable enough to render deterministically.",
+      "The input has already been narrowed to one clear concept."
     ],
     "failure_boundaries": [
-      "如果输入本身混合多个概念，渲染再稳定也只能稳定地产出混乱内容。",
-      "如果字段设计频繁变化，脚本稳定性也会被破坏。"
+      "If the input still mixes multiple concepts, deterministic rendering will only produce consistently mixed output.",
+      "If the schema keeps changing, renderer stability will also drift."
     ],
     "confusions": [
-      "容易与“只是有模板文件”混淆；真正关键的是固定渲染流程，而不是只存一个模板。"
+      "It is easy to confuse this with simply having a template file; the key difference is a fixed rendering flow."
     ],
     "examples": [
-      "先整理 JSON spec，再调用脚本生成完整卡片。"
+      "First build a JSON spec, then run the renderer to produce the final card."
     ],
     "counter_examples": [
-      "每次手工复制旧卡再改，导致不同卡的字段顺序逐渐漂移。"
+      "Manually copying an old card and editing it freehand until field order and section style slowly diverge."
     ],
     "common_misunderstandings": [
-      "误以为结构稳定就等于内容质量高。"
+      "A stable structure does not automatically mean high-quality content."
     ],
     "my_words": [
-      "内容让我来想，格式交给脚本。"
+      "Let me think about the content, and let the renderer own the shape."
     ],
     "needs_validation": [
-      "更新已有概念卡时，是否也应尽量复用同一渲染骨架？"
+      "When updating an existing card, should the same rendering skeleton still be reused whenever possible?"
     ],
     "local_position": {
       "parent_concepts": [
-        "[[Skill Output Stability]] | 它属于更高层的稳定输出框架。"
+        "[[Skill Output Stability]] | Deterministic rendering is a lower-level implementation of output stability."
       ],
       "child_concepts": [
-        "[[Deterministic Method Rendering]] | 方法卡渲染是它的具体实现分支。"
+        "[[Deterministic Method Rendering]] | Method-card rendering is one concrete branch of this idea."
       ],
       "adjacent_concepts": [
-        "[[Template-Driven Writing]] | 两者都追求结构一致，但一个靠固定渲染流，一个更偏静态模板。"
+        "[[Template-Driven Writing]] | Both pursue consistency, but one relies on a renderer and the other leans on a static template."
       ]
     },
     "operational_links": {
       "prerequisites": [
-        "[[Single Concept Capture]] | 先把内容压缩成单一概念，固定渲染才有意义。"
+        "[[Single Concept Capture]] | Deterministic rendering only helps after the card boundary is already compressed to one concept."
       ],
       "enables": [
-        "[[Prompt Narrowing]] | 稳定渲染让不同线程下的输出更容易比较和维护。"
+        "[[Prompt Narrowing]] | Stable rendering makes it easier to compare outputs from narrowed prompts."
       ],
       "contrasts": [
-        "[[Template-Driven Writing]] | 一个强调静态模板，一个强调固定生成流程。"
+        "[[Template-Driven Writing]] | One emphasizes a fixed generation flow, the other emphasizes a reusable template."
       ],
       "corrections": [
-        "[[Templates Alone Guarantee Stability]] | 当前概念用于纠正“有模板就够了”的误解。"
+        "[[Templates Alone Guarantee Stability]] | This concept corrects the mistaken idea that templates alone are sufficient."
+      ]
+    },
+    "routing_and_dispatch": {
+      "direct_routes": [
+        "When the thread is still defining what deterministic rendering is, stay in this concept card before switching to implementation details.",
+        "If the idea is clear but the next question becomes how to apply it in a workflow, route to [[Prompt Narrowing]]."
+      ],
+      "secondary_routes": [
+        "If [[Prompt Narrowing]] clarifies task scope but renderer behavior is still unstable, continue to [[Deterministic Method Rendering]]."
+      ],
+      "gap_signals": [
+        "If the graph contains templates and renderers but no card explains output stability at a higher level, add a new Concept card for that parent abstraction."
+      ],
+      "stop_rules": [
+        "Stop staying in this concept once the main question changes from definition to execution design."
       ]
     },
     "current_status_notes": [
-      "当前概念已经具备局部接网结构，但仍缺少更明确的分流规则。"
+      "This concept already has reliable local graph placement and early routing value."
     ],
     "next_goal": [
-      "补上当问题转向实现、更新流或跨卡迁移时的概念分流规则。"
+      "Add a stronger arbitration rule for when to move from definition work to method or mechanism work."
     ],
     "growing_checklist": [
-      "我能解释为什么要把内容生成和结构生成分开。"
+      "Explain why semantic generation and structural rendering should be separated."
     ],
     "stable_checklist": [
-      "我能给出至少三条可靠的节点级关系。",
-      "我能说明这张概念卡在局部知识网中的位置。"
+      "Provide at least three strong node-level relationships.",
+      "Explain where this concept sits inside the local knowledge graph."
     ],
     "expert_ready_checklist": [
-      "我能写出从概念澄清切到机制或方法的规则。",
-      "我能处理概念边界冲突时的裁决。"
+      "Add stronger multi-hop routes from concept clarification into method or mechanism execution.",
+      "Add at least one explicit gap signal and one stop rule."
     ],
     "promotion_assessment": {
       "current_recommendation": "watchlist",
       "main_reasons": [
-        "该概念已经具有稳定的局部定位价值。",
-        "但当前还缺少足够强的规则级概念分流句。"
+        "The concept already works as a reliable local node.",
+        "It has early direct routes but not enough dispatch depth for expert-ready."
       ],
       "missing_evidence": [
-        "缺少从定义转向方法或机制的条件化切换。",
-        "缺少概念边界冲突时的裁决规则。"
+        "It still lacks stronger cross-card arbitration rules.",
+        "Its gap-detection behavior is still narrow."
       ],
       "next_rules": [
-        "当讨论从定义转向执行落地时，转到对应 Method 卡。",
-        "当讨论从定义转向因果解释时，转到对应 Mechanism 卡。"
+        "When definition work turns into workflow design, route to a method card.",
+        "When definition work turns into causal explanation, route to a mechanism card."
       ]
     },
     "current_upgrade_tasks": [
-      "补上从概念澄清到下游卡型的分流规则。"
+      "Add one repeated real-world example where deterministic rendering prevented structural drift."
     ],
     "upgrade_history": [
       "2026-03-26: created as seed",
-      "2026-03-26: added graph and promotion skeleton"
+      "2026-03-26: added graph and promotion skeleton",
+      "2026-03-27: migrated routing to the four-part dispatch structure"
     ]
   }
 }
