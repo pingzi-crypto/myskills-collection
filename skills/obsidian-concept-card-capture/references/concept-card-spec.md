@@ -132,6 +132,24 @@ The body should stay faithful to the Concept Card structure and should emphasize
 - promotion assessment
 - upgrade checkpoints from `seed` onward
 
+For the default visible `stable` render:
+
+- keep the concept explanation layer visible
+- keep `Local Position`
+- keep `Operational Links`
+- keep only `Routing and Dispatch > Direct Routes`
+- compress progression and promotion notes into one short summary block
+
+Treat these as optional, review-only, or removable from the default `stable` body:
+
+- `my_words`
+- `needs_validation`
+- `Growing Checklist`
+- `Stable Checklist`
+- `Expert-Ready Checklist`
+- `Upgrade History`
+- expanded multi-block promotion sections
+
 ## Knowledge Graph Structure
 
 Each Concept Card should reserve these graph sections:

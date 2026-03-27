@@ -146,9 +146,18 @@ Guidance by stage:
 - `seed`: this layer may stay hidden
 - `growing`: `Direct Routes` may begin to appear
 - `stable`: `Direct Routes` should start carrying real value; the other
-  sections may stay early or sparse
+  sections should usually stay hidden unless the card is acting beyond normal stable scope
 - `expert-ready`: all four sections should contain substantive rules or expose
   explicit gaps
+
+## Default Stable Progression Display
+
+For default `stable` renders:
+
+- collapse progression notes into one compact summary block
+- keep current status, graph maturity, next goal, and a short recommendation when useful
+- treat detailed checklist scaffolding as review-mode material, not default body content
+- treat upgrade history as maintenance metadata, not default body content
 
 ## Expert-Ready Review Standard
 

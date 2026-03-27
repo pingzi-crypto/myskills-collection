@@ -129,6 +129,23 @@ The body should stay faithful to the Misconception Card structure and should emp
 - promotion assessment
 - upgrade checkpoints from `seed` onward
 
+For the default visible `stable` render:
+
+- keep the misconception correction layer visible
+- keep `Local Position`
+- keep `Operational Links`
+- keep only `Routing and Dispatch > Direct Routes`
+- compress progression and promotion notes into one short summary block
+
+Treat these as optional, review-only, or removable from the default `stable` body:
+
+- `what_it_confuses` when it duplicates the correction
+- `Growing Checklist`
+- `Stable Checklist`
+- `Expert-Ready Checklist`
+- `Upgrade History`
+- expanded multi-block promotion sections
+
 ## Knowledge Graph Structure
 
 Each Misconception Card should reserve these graph sections:

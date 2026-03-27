@@ -102,6 +102,31 @@ Shared rule:
 
 Not every card needs to become `expert-ready`.
 
+## Default Stable Render
+
+The default visible body for a `stable` card should stay lean.
+
+Keep visible by default:
+
+- the card-type explanation layer
+- `Knowledge Graph Relations > Local Position`
+- `Knowledge Graph Relations > Operational Links`
+- `Routing and Dispatch > Direct Routes`
+- one compact progression summary block
+
+Do not keep these as always-on default sections for `stable` cards:
+
+- `Routing and Dispatch > Secondary Routes`
+- `Routing and Dispatch > Gap Signals`
+- `Routing and Dispatch > Stop Rules`
+- `Growing Checklist`
+- `Stable Checklist`
+- `Expert-Ready Checklist`
+- `Upgrade History`
+- expanded multi-block promotion scaffolding
+
+Those sections are still valid inputs, but they should be stage-gated or review-only by default.
+
 ## Card-Type Boundaries
 
 ### Concept
