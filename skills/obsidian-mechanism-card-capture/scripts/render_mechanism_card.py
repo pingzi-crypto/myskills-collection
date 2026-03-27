@@ -57,6 +57,18 @@ def checkbox_lines(value: Any) -> list[str]:
     return [f"- [ ] {item}" for item in items] if items else ["- [ ] "]
 
 
+def has_meaningful_lines(lines: list[str]) -> bool:
+    return any(line.strip() not in {"-", "- [ ]"} for line in lines)
+
+
+def append_section(lines: list[str], status: str, heading: str, section_lines: list[str]) -> None:
+    if status not in {"stable", "expert-ready"} and not has_meaningful_lines(section_lines):
+        return
+    lines.append(heading)
+    lines.extend(section_lines)
+    lines.append("")
+
+
 def normalize_routing_sections(value: Any) -> dict[str, list[str]]:
     if isinstance(value, dict):
         mapping = value
@@ -218,7 +230,7 @@ def should_show_progression(status: str, sections: dict[str, Any]) -> bool:
     if status in {"stable", "expert-ready"}:
         return True
     return any(
-        normalize_list(sections.get(key))
+        has_meaningful_lines(sections[key])
         for key in ["current_status_notes", "next_goal", "current_upgrade_tasks", "upgrade_history"]
     )
 
@@ -267,42 +279,18 @@ def render_card(spec: dict[str, Any]) -> str:
     lines.append("")
     lines.append(f"# {title}")
     lines.append("")
-    lines.append("## 1. Phenomenon Explained")
-    lines.extend(sections["phenomenon"])
-    lines.append("")
-    lines.append("## 2. Core Variables")
-    lines.extend(sections["core_variables"])
-    lines.append("")
-    lines.append("## 3. Causal Chain")
-    lines.extend(sections["causal_chain"])
-    lines.append("")
-    lines.append("## 4. Key Preconditions")
-    lines.extend(sections["key_prerequisites"])
-    lines.append("")
-    lines.append("## 5. Weakest Link")
-    lines.extend(sections["weakest_step"])
-    lines.append("")
-    lines.append("## 6. Alternative Mechanisms")
-    lines.extend(sections["alternative_explanations"])
-    lines.append("")
-    lines.append("## 7. Scope")
-    lines.extend(sections["scope"])
-    lines.append("")
-    lines.append("## 8. Failure Boundaries")
-    lines.extend(sections["failure_boundaries"])
-    lines.append("")
-    lines.append("## 9. Supporting Evidence")
-    lines.extend(sections["supporting_evidence"])
-    lines.append("")
-    lines.append("## 10. Counter Cases")
-    lines.extend(sections["counter_cases"])
-    lines.append("")
-    lines.append("## 11. Compressed Explanation")
-    lines.extend(sections["compressed_explanation"])
-    lines.append("")
-    lines.append("## 12. Validation Question")
-    lines.extend(sections["validation_question"])
-    lines.append("")
+    append_section(lines, status, "## 1. Phenomenon Explained", sections["phenomenon"])
+    append_section(lines, status, "## 2. Core Variables", sections["core_variables"])
+    append_section(lines, status, "## 3. Causal Chain", sections["causal_chain"])
+    append_section(lines, status, "## 4. Key Preconditions", sections["key_prerequisites"])
+    append_section(lines, status, "## 5. Weakest Link", sections["weakest_step"])
+    append_section(lines, status, "## 6. Alternative Mechanisms", sections["alternative_explanations"])
+    append_section(lines, status, "## 7. Scope", sections["scope"])
+    append_section(lines, status, "## 8. Failure Boundaries", sections["failure_boundaries"])
+    append_section(lines, status, "## 9. Supporting Evidence", sections["supporting_evidence"])
+    append_section(lines, status, "## 10. Counter Cases", sections["counter_cases"])
+    append_section(lines, status, "## 11. Compressed Explanation", sections["compressed_explanation"])
+    append_section(lines, status, "## 12. Validation Question", sections["validation_question"])
 
     if show_graph:
         lines.append("## Knowledge Graph Relations")

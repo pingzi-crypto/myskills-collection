@@ -97,11 +97,16 @@ python scripts/render_method_card.py --spec method.json --output "C:\path\to\Car
 - For updates, use the script only if it helps preserve deterministic layout without clobbering existing content.
 - Do not treat the script as the source of truth for semantic decisions. The agent still decides what content belongs in each section.
 - Use stage-aware rendering:
-  - `seed` may hide empty high-stage sections
+  - `seed` and `growing` should render only populated core sections
+  - `seed` and `growing` should hide empty graph or progression scaffolding
   - `stable` should expose graph structure and a lean progression summary
   - `stable` should default to `Routing and Dispatch > Direct Routes` only
   - `expert-ready` should expose the full `Routing and Dispatch` layer and promotion assessment gaps
   - `expert-ready` should expose missing sub-blocks inside `Routing and Dispatch`
+
+For early-stage renders, do not keep empty placeholder headings in the body.
+If a `seed` or `growing` card has no meaningful progression content yet, omit the
+progression layer entirely.
 
 ## Lean Stable Render
 

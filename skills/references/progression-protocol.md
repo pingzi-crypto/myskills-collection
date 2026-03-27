@@ -143,8 +143,8 @@ Use the shared four-part routing layer from
 
 Guidance by stage:
 
-- `seed`: this layer may stay hidden
-- `growing`: `Direct Routes` may begin to appear
+- `seed`: this layer should stay hidden unless a direct route is already explicit and useful
+- `growing`: `Direct Routes` may begin to appear, but empty placeholders should stay hidden
 - `stable`: `Direct Routes` should start carrying real value; the other
   sections should usually stay hidden unless the card is acting beyond normal stable scope
 - `expert-ready`: all four sections should contain substantive rules or expose
@@ -158,6 +158,12 @@ For default `stable` renders:
 - keep current status, graph maturity, next goal, and a short recommendation when useful
 - treat detailed checklist scaffolding as review-mode material, not default body content
 - treat upgrade history as maintenance metadata, not default body content
+
+For `seed` and `growing` renders:
+
+- show only populated core explanation sections
+- omit empty placeholder headings
+- hide progression when it contains no meaningful status, goal, task, or history content
 
 ## Expert-Ready Review Standard
 

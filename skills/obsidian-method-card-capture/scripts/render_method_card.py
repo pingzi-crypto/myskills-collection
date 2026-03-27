@@ -57,6 +57,18 @@ def checkbox_lines(value: Any) -> list[str]:
     return [f"- [ ] {item}" for item in items] if items else ["- [ ] "]
 
 
+def has_meaningful_lines(lines: list[str]) -> bool:
+    return any(line.strip() not in {"-", "- [ ]"} for line in lines)
+
+
+def append_section(lines: list[str], status: str, heading: str, section_lines: list[str]) -> None:
+    if status not in {"stable", "expert-ready"} and not has_meaningful_lines(section_lines):
+        return
+    lines.append(heading)
+    lines.extend(section_lines)
+    lines.append("")
+
+
 def normalize_routing_sections(value: Any) -> dict[str, list[str]]:
     if isinstance(value, dict):
         mapping = value
@@ -219,7 +231,7 @@ def should_show_progression(status: str, sections: dict[str, Any]) -> bool:
     if status in {"stable", "expert-ready"}:
         return True
     return any(
-        normalize_list(sections.get(key))
+        has_meaningful_lines(sections[key])
         for key in ["current_status_notes", "next_goal", "current_upgrade_tasks", "upgrade_history"]
     )
 
@@ -267,45 +279,19 @@ def render_card(spec: dict[str, Any]) -> str:
     lines.append("")
     lines.append(f"# {title}")
     lines.append("")
-    lines.append("## 1. 这个方法解决什么问题？")
-    lines.extend(sections["problem_solved"])
-    lines.append("")
-    lines.append("## 2. 核心思路")
-    lines.extend(sections["core_idea"])
-    lines.append("")
-    lines.append("## 3. 步骤结构")
-    lines.extend(sections["method_structure"])
-    lines.append("")
-    lines.append("## 4. 关键设计选择")
-    lines.extend(sections["design_choices"])
-    lines.append("")
-    lines.append("## 5. 隐含假设")
-    lines.extend(sections["hidden_assumptions"])
-    lines.append("")
-    lines.append("## 6. 适用场景")
-    lines.extend(sections["fit_scenarios"])
-    lines.append("")
-    lines.append("## 7. 不适用场景")
-    lines.extend(sections["non_fit_scenarios"])
-    lines.append("")
-    lines.append("## 8. 与替代方法的比较")
-    lines.extend(sections["comparison_with_alternatives"])
-    lines.append("")
-    lines.append("## 9. 常见误用")
-    lines.extend(sections["common_misuses"])
-    lines.append("")
-    lines.append("## 10. 失败模式")
-    lines.extend(sections["failure_modes"])
-    lines.append("")
-    lines.append("## 11. 决策标准")
-    lines.extend(sections["decision_criteria"])
-    lines.append("")
-    lines.append("## 12. 代表性例子")
-    lines.extend(sections["representative_examples"])
-    lines.append("")
-    lines.append("## 13. 验证问题")
-    lines.extend(sections["validation_question"])
-    lines.append("")
+    append_section(lines, status, "## 1. 这个方法解决什么问题？", sections["problem_solved"])
+    append_section(lines, status, "## 2. 核心思路", sections["core_idea"])
+    append_section(lines, status, "## 3. 步骤结构", sections["method_structure"])
+    append_section(lines, status, "## 4. 关键设计选择", sections["design_choices"])
+    append_section(lines, status, "## 5. 隐含假设", sections["hidden_assumptions"])
+    append_section(lines, status, "## 6. 适用场景", sections["fit_scenarios"])
+    append_section(lines, status, "## 7. 不适用场景", sections["non_fit_scenarios"])
+    append_section(lines, status, "## 8. 与替代方法的比较", sections["comparison_with_alternatives"])
+    append_section(lines, status, "## 9. 常见误用", sections["common_misuses"])
+    append_section(lines, status, "## 10. 失败模式", sections["failure_modes"])
+    append_section(lines, status, "## 11. 决策标准", sections["decision_criteria"])
+    append_section(lines, status, "## 12. 代表性例子", sections["representative_examples"])
+    append_section(lines, status, "## 13. 验证问题", sections["validation_question"])
 
     if show_graph:
         lines.append("## Knowledge Graph Relations")

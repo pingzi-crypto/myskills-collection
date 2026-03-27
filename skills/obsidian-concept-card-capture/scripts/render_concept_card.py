@@ -57,6 +57,18 @@ def checkbox_lines(value: Any) -> list[str]:
     return [f"- [ ] {item}" for item in items] if items else ["- [ ] "]
 
 
+def has_meaningful_lines(lines: list[str]) -> bool:
+    return any(line.strip() not in {"-", "- [ ]"} for line in lines)
+
+
+def append_section(lines: list[str], status: str, heading: str, section_lines: list[str]) -> None:
+    if status not in {"stable", "expert-ready"} and not has_meaningful_lines(section_lines):
+        return
+    lines.append(heading)
+    lines.extend(section_lines)
+    lines.append("")
+
+
 def normalize_routing_sections(value: Any) -> dict[str, list[str]]:
     if isinstance(value, dict):
         mapping = value
@@ -219,7 +231,7 @@ def should_show_progression(status: str, sections: dict[str, Any]) -> bool:
     if status in {"stable", "expert-ready"}:
         return True
     return any(
-        normalize_list(sections.get(key))
+        has_meaningful_lines(sections[key])
         for key in ["current_status_notes", "next_goal", "current_upgrade_tasks", "upgrade_history"]
     )
 
@@ -267,45 +279,19 @@ def render_card(spec: dict[str, Any]) -> str:
     lines.append("")
     lines.append(f"# {title}")
     lines.append("")
-    lines.append("## 1. 这个概念在回答什么问题？")
-    lines.extend(sections["question_answered"])
-    lines.append("")
-    lines.append("## 2. 一句话定义")
-    lines.extend(sections["one_sentence_definition"])
-    lines.append("")
-    lines.append("## 3. 核心本质")
-    lines.extend(sections["essence"])
-    lines.append("")
-    lines.append("## 4. 为什么重要")
-    lines.extend(sections["why_it_matters"])
-    lines.append("")
-    lines.append("## 5. 核心逻辑")
-    lines.extend(sections["core_logic"])
-    lines.append("")
-    lines.append("## 6. 成立前提")
-    lines.extend(sections["prerequisites"])
-    lines.append("")
-    lines.append("## 7. 失效边界")
-    lines.extend(sections["failure_boundaries"])
-    lines.append("")
-    lines.append("## 8. 易混概念与区别")
-    lines.extend(sections["confusions"])
-    lines.append("")
-    lines.append("## 9. 正例")
-    lines.extend(sections["examples"])
-    lines.append("")
-    lines.append("## 10. 反例或误用")
-    lines.extend(sections["counter_examples"])
-    lines.append("")
-    lines.append("## 11. 常见误解")
-    lines.extend(sections["common_misunderstandings"])
-    lines.append("")
-    lines.append("## 12. 我的表达")
-    lines.extend(sections["my_words"])
-    lines.append("")
-    lines.append("## 13. 待验证问题")
-    lines.extend(sections["needs_validation"])
-    lines.append("")
+    append_section(lines, status, "## 1. 这个概念在回答什么问题？", sections["question_answered"])
+    append_section(lines, status, "## 2. 一句话定义", sections["one_sentence_definition"])
+    append_section(lines, status, "## 3. 核心本质", sections["essence"])
+    append_section(lines, status, "## 4. 为什么重要", sections["why_it_matters"])
+    append_section(lines, status, "## 5. 核心逻辑", sections["core_logic"])
+    append_section(lines, status, "## 6. 成立前提", sections["prerequisites"])
+    append_section(lines, status, "## 7. 失效边界", sections["failure_boundaries"])
+    append_section(lines, status, "## 8. 易混概念与区别", sections["confusions"])
+    append_section(lines, status, "## 9. 正例", sections["examples"])
+    append_section(lines, status, "## 10. 反例或误用", sections["counter_examples"])
+    append_section(lines, status, "## 11. 常见误解", sections["common_misunderstandings"])
+    append_section(lines, status, "## 12. 我的表达", sections["my_words"])
+    append_section(lines, status, "## 13. 待验证问题", sections["needs_validation"])
 
     if show_graph:
         lines.append("## Knowledge Graph Relations")
