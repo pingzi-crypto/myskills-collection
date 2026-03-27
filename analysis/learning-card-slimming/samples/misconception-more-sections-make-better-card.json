@@ -1,0 +1,112 @@
+{
+  "id": "20260327000004-misconception-audit",
+  "title": "More Sections Make a Better Learning Card",
+  "domain": "Learning Card Design",
+  "subdomain": "Template Slimming Audit",
+  "source": "Structured slimming audit sample",
+  "status": "stable",
+  "graph_maturity": "local",
+  "confidence": "1",
+  "review_cycle": "30d",
+  "sections": {
+    "mistaken_claim": [
+      "If a learning card has more sections, it must be more complete and therefore better."
+    ],
+    "why_it_seems_plausible": [
+      "A fuller template looks more rigorous, so people confuse visible completeness with actual retrieval value."
+    ],
+    "why_it_is_wrong": [
+      "Extra sections often repeat nearby ideas instead of adding new signal.",
+      "More visible scaffolding can hide the actual answer the card is supposed to preserve."
+    ],
+    "correct_understanding": [
+      "A better learning card keeps the minimum set of sections that preserve answer quality, graph placement, and next action."
+    ],
+    "what_it_confuses": [
+      "It confuses template completion with knowledge compression."
+    ],
+    "representative_counterexamples": [
+      "A short card with one clean definition, one boundary rule, and two strong graph links can outperform a bloated card with five weak reflection sections."
+    ],
+    "trigger_signals": [
+      "The reviewer hesitates to delete a section only because the template provides it.",
+      "Most new content lands in status, checklist, or reflection blocks rather than in the main answer."
+    ],
+    "corrective_action": [
+      "Score each section by retrieval value and remove or gate sections that do not change understanding, routing, or action."
+    ],
+    "local_position": {
+      "common_confusions": [
+        "[[Complete Template Filling]] | The misconception often appears as loyalty to the template rather than to signal density."
+      ],
+      "correct_return_nodes": [
+        "[[Section Priority Compression]] | After correction, return to the trimming method."
+      ],
+      "adjacent_misconceptions": [
+        "[[More Detail Means More Understanding]] | Both mistake quantity for learning quality."
+      ]
+    },
+    "operational_links": {
+      "prerequisites": [
+        "[[Single-Card Boundary]] | Without a clear boundary, section growth always feels justified."
+      ],
+      "enables": [
+        "[[Section Priority Compression]] | Correcting the belief makes trimming acceptable."
+      ],
+      "contrasts": [
+        "[[Signal Density]] | This misconception ignores density and over-values visible fullness."
+      ],
+      "corrections": [
+        "[[Section Bloat Drift]] | The mechanism explains how this misconception becomes a recurring template problem."
+      ]
+    },
+    "routing_and_dispatch": {
+      "direct_routes": [
+        "When the issue is belief-level attachment to template fullness, correct this misconception before trimming anything.",
+        "If the user already accepts the correction and needs an execution path, route to [[Section Priority Compression]]."
+      ],
+      "secondary_routes": [
+        "If trimming still feels unsafe after the misconception is corrected, continue to [[Single-Card Boundary]] to re-anchor what one card is allowed to contain."
+      ],
+      "gap_signals": [
+        "If the graph keeps confronting template-overfilling but lacks a card for signal density, add a new Concept card for that criterion."
+      ],
+      "stop_rules": [
+        "Stop treating the issue as a misconception once the user accepts the principle and the remaining problem is operational ranking."
+      ]
+    },
+    "current_status_notes": [
+      "The card already works as a stable local correction node for template-overfilling behavior."
+    ],
+    "next_goal": [
+      "Add a stronger priority rule for when this misconception overlaps with scope drift."
+    ],
+    "growing_checklist": [
+      "Explain why the misconception looks disciplined rather than sloppy."
+    ],
+    "stable_checklist": [
+      "Show reliable return routing after correction."
+    ],
+    "expert_ready_checklist": [
+      "Add stronger arbitration when template fullness and topic breadth stack together."
+    ],
+    "promotion_assessment": {
+      "current_recommendation": "watchlist",
+      "main_reasons": [
+        "The card already has stable corrective value."
+      ],
+      "missing_evidence": [
+        "It still needs stronger arbitration when template fullness and topic breadth are both present."
+      ],
+      "next_rules": [
+        "Correct this misconception before trimming only when the real blocker is attachment to fullness rather than lack of boundary clarity."
+      ]
+    },
+    "current_upgrade_tasks": [
+      "Capture one case where correcting the misconception was not enough because the card was also mis-scoped."
+    ],
+    "upgrade_history": [
+      "2026-03-27: created for slimming audit"
+    ]
+  }
+}

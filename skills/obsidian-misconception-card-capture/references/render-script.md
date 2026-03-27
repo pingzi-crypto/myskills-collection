@@ -93,6 +93,25 @@ python scripts/render_misconception_card.py --spec misconception.json --output "
 - Do not treat the script as the source of truth for semantic decisions. The agent still decides what content belongs in each section.
 - Use stage-aware rendering:
   - `seed` may hide empty high-stage sections
-  - `stable` should expose graph structure
-  - `expert-ready` should expose `Routing and Dispatch` and promotion assessment gaps
+  - `stable` should expose graph structure and a lean progression summary
+  - `stable` should default to `Routing and Dispatch > Direct Routes` only
+  - `expert-ready` should expose the full `Routing and Dispatch` layer and promotion assessment gaps
   - `expert-ready` should expose missing sub-blocks inside `Routing and Dispatch`
+
+## Lean Stable Render
+
+For default `stable` cards, prefer a slimmer render:
+
+- keep the misconception correction layer
+- keep `Knowledge Graph Relations > Local Position`
+- keep `Knowledge Graph Relations > Operational Links`
+- keep only `Routing and Dispatch > Direct Routes`
+- collapse progression notes into one compact `Upgrade Focus` block
+
+Do not keep these as always-on default sections for `stable` renders:
+
+- `Growing Checklist`
+- `Stable Checklist`
+- `Expert-Ready Checklist`
+- `Upgrade History`
+- expanded multi-block promotion scaffolding

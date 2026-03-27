@@ -1,0 +1,129 @@
+{
+  "id": "20260327000002-mechanism-audit",
+  "title": "Section Bloat Drift",
+  "domain": "Learning Card Design",
+  "subdomain": "Template Slimming Audit",
+  "source": "Structured slimming audit sample",
+  "status": "stable",
+  "graph_maturity": "local",
+  "confidence": "1",
+  "review_cycle": "30d",
+  "sections": {
+    "phenomenon": [
+      "Why learning cards become longer and lower-signal when every possible section stays permanently visible."
+    ],
+    "core_variables": [
+      "Template width",
+      "Deletion friction",
+      "Boundary confidence",
+      "Progression pressure"
+    ],
+    "causal_chain": [
+      "A wide template invites filler, filler normalizes section completion, section completion hides weak signal, and the card gradually optimizes for fullness instead of retrieval value."
+    ],
+    "key_prerequisites": [
+      "The template must make it easy to keep optional sections visible even when their content is weak."
+    ],
+    "weakest_step": [
+      "The weakest step is review discipline; without active pruning, optional sections become permanent ballast."
+    ],
+    "alternative_explanations": [
+      "Some bloat comes from unclear source threads rather than from template width alone."
+    ],
+    "scope": [
+      "This mechanism mainly explains mature card families with many reusable sections, not tiny scratch notes."
+    ],
+    "failure_boundaries": [
+      "If the card is too new to have real optional sections yet, bloat drift is not the main cause of verbosity."
+    ],
+    "supporting_evidence": [
+      "Across filled samples, progression and review scaffolding consume a large share of rendered words even when the card's real learning payload is already complete."
+    ],
+    "counter_cases": [
+      "A short template can still produce bloated cards when the thread itself is badly scoped."
+    ],
+    "compressed_explanation": [
+      "Section bloat drift happens when template completion becomes more important than signal density."
+    ],
+    "validation_question": [
+      "Is the extra section carrying new retrieval value, or only proving that the template was filled?"
+    ],
+    "local_position": {
+      "upstream_concepts": [
+        "[[Single-Card Boundary]] | Weak boundaries make it easier for extra sections to sneak in."
+      ],
+      "trigger_conditions": [
+        "[[Always-On Review Scaffolding]] | Permanent checklists and status blocks trigger the drift."
+      ],
+      "downstream_results": [
+        "[[Low-Signal Cards]] | The mechanism lowers retrieval density and raises maintenance burden."
+      ],
+      "adjacent_mechanisms": [
+        "[[Scope Drift]] | Scope drift widens the topic, while section bloat drift widens the template."
+      ]
+    },
+    "operational_links": {
+      "prerequisites": [
+        "[[Stable Card Family]] | The mechanism appears only after the template gains enough reusable structure."
+      ],
+      "enables": [
+        "[[Section Priority Compression]] | Understanding the mechanism justifies trimming action."
+      ],
+      "contrasts": [
+        "[[Rich Evidence Density]] | High detail is not the same as low-signal bloat."
+      ],
+      "corrections": [
+        "[[More Sections Make a Better Learning Card]] | Correcting the misconception removes one cause of this drift."
+      ]
+    },
+    "routing_and_dispatch": {
+      "direct_routes": [
+        "When the problem is deciding what to cut first, route to [[Section Priority Compression]].",
+        "If the problem is not template width but topic width, return to [[Single-Card Boundary]]."
+      ],
+      "secondary_routes": [
+        "If [[Section Priority Compression]] trims the card but the urge to re-expand remains, continue to [[More Sections Make a Better Learning Card]]."
+      ],
+      "gap_signals": [
+        "If the graph explains bloat but not how to measure retrieval density, add a new Concept card for signal density."
+      ],
+      "stop_rules": [
+        "Stop using this mechanism after one full trim pass if the card is still weak because the topic itself was misrouted."
+      ]
+    },
+    "current_status_notes": [
+      "The mechanism already explains why mature card templates tend to overproduce low-value sections."
+    ],
+    "next_goal": [
+      "Add a stronger distinction between topic drift and template drift."
+    ],
+    "growing_checklist": [
+      "Name one alternative explanation."
+    ],
+    "stable_checklist": [
+      "Show reliable local causal placement.",
+      "Document one repeated sign of template-caused bloat."
+    ],
+    "expert_ready_checklist": [
+      "Add stronger diagnosis routes between scope drift and section bloat drift."
+    ],
+    "promotion_assessment": {
+      "current_recommendation": "watchlist",
+      "main_reasons": [
+        "The mechanism already clarifies a repeatable cause of card verbosity."
+      ],
+      "missing_evidence": [
+        "It still needs a stronger switch rule for distinguishing section drift from topic drift."
+      ],
+      "next_rules": [
+        "If trimming section count does not improve retrieval, inspect topic routing before pruning further."
+      ]
+    },
+    "current_upgrade_tasks": [
+      "Capture one card where trimming the template did not solve the underlying problem."
+    ],
+    "upgrade_history": [
+      "2026-03-27: created for slimming audit"
+    ]
+  }
+}

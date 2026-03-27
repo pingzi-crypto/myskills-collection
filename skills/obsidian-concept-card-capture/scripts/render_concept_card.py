@@ -91,7 +91,8 @@ def routing_placeholder(key: str, status: str) -> str:
 
 def render_routing_sections(routing: dict[str, list[str]], status: str) -> list[str]:
     lines: list[str] = []
-    for key, label in ROUTING_SECTION_LABELS:
+    visible_labels = ROUTING_SECTION_LABELS if status == "expert-ready" else [ROUTING_SECTION_LABELS[0]]
+    for key, label in visible_labels:
         lines.append(f"#### {label}")
         items = routing.get(key, [])
         if items:
@@ -207,9 +208,20 @@ def should_show_graph(status: str, sections: dict[str, Any]) -> bool:
 
 
 def should_show_promotion(status: str, assessment: dict[str, Any]) -> bool:
+    if status == "expert-ready":
+        return True
+    if status == "stable":
+        return bool(scalar(assessment.get("current_recommendation"))) or bool(normalize_list(assessment.get("next_rules")))
+    return any(scalar(assessment.get(key)) or normalize_list(assessment.get(key)) for key in assessment)
+
+
+def should_show_progression(status: str, sections: dict[str, Any]) -> bool:
     if status in {"stable", "expert-ready"}:
         return True
-    return any(scalar(assessment.get(key)) or normalize_list(assessment.get(key)) for key in assessment)
+    return any(
+        normalize_list(sections.get(key))
+        for key in ["current_status_notes", "next_goal", "current_upgrade_tasks", "upgrade_history"]
+    )
 
 
 def render_card(spec: dict[str, Any]) -> str:
@@ -244,8 +256,11 @@ def render_card(spec: dict[str, Any]) -> str:
     )
     routing_sections = sections["routing_and_dispatch"]
     show_graph = should_show_graph(status, sections)
-    show_routing = status in {"stable", "expert-ready"} or has_routing_content(routing_sections)
+    show_routing = status == "expert-ready" or bool(routing_sections.get("direct_routes")) or (
+        status == "growing" and has_routing_content(routing_sections)
+    )
     show_promotion = should_show_promotion(status, sections["promotion_assessment"])
+    show_progression = should_show_progression(status, sections)
 
     lines: list[str] = []
     lines.extend(render_frontmatter(spec, title))
@@ -311,45 +326,31 @@ def render_card(spec: dict[str, Any]) -> str:
             lines.extend(render_routing_sections(routing_sections, status))
             lines.append("")
 
-    lines.append("## Progression Layer")
-    lines.append("")
-    lines.append("### Current Status Notes")
-    lines.append(f"- 当前阶段：{status}")
-    lines.append(f"- 图谱成熟度：{graph_maturity}")
-    lines.extend(sections["current_status_notes"])
-    lines.append("")
-    lines.append("### Next Goal")
-    lines.extend(sections["next_goal"])
-    lines.append("")
-    lines.append("### Growing Checklist")
-    lines.extend(sections["growing_checklist"])
-    lines.append("")
-    lines.append("### Stable Checklist")
-    lines.extend(sections["stable_checklist"])
-    lines.append("")
-    lines.append("### Expert-Ready Checklist")
-    lines.extend(sections["expert_ready_checklist"])
-    lines.append("")
-    if show_promotion:
-        assessment = sections["promotion_assessment"]
-        lines.append("### Promotion Assessment")
-        lines.append(f"- 当前建议：{scalar(assessment.get('current_recommendation'), 'stay stable')}")
-        main_reasons = bullet_lines(assessment.get("main_reasons"))
-        missing_evidence = bullet_lines(assessment.get("missing_evidence"))
-        next_rules = bullet_lines(assessment.get("next_rules"))
-        lines.append("- 主要原因：")
-        lines.extend([f"  {line}" for line in main_reasons])
-        lines.append("- 缺失证据：")
-        lines.extend([f"  {line}" for line in missing_evidence])
-        lines.append("- 下一步最值得补的规则：")
-        lines.extend([f"  {line}" for line in next_rules])
+    if show_progression:
+        lines.append("## Progression Layer")
         lines.append("")
-    lines.append("### Current Upgrade Tasks")
-    lines.extend(sections["current_upgrade_tasks"])
-    lines.append("")
-    lines.append("## Upgrade History")
-    lines.extend(sections["upgrade_history"])
-    lines.append("")
+        lines.append("### Upgrade Focus")
+        lines.append(f"- 当前阶段：{status}")
+        lines.append(f"- 图谱成熟度：{graph_maturity}")
+        lines.extend(sections["current_status_notes"])
+        if sections["next_goal"]:
+            lines.append("- 下一步重点：")
+            lines.extend([f"  {line}" for line in sections["next_goal"]])
+        if show_promotion:
+            assessment = sections["promotion_assessment"]
+            lines.append(f"- 当前建议：{scalar(assessment.get('current_recommendation'), 'stay stable')}")
+            missing_evidence = bullet_lines(assessment.get("missing_evidence"))
+            next_rules = bullet_lines(assessment.get("next_rules"))
+            if normalize_list(assessment.get("missing_evidence")):
+                lines.append("- 缺失证据：")
+                lines.extend([f"  {line}" for line in missing_evidence])
+            if normalize_list(assessment.get("next_rules")):
+                lines.append("- 下一步行动规则：")
+                lines.extend([f"  {line}" for line in next_rules])
+        elif sections["current_upgrade_tasks"]:
+            lines.append("- 当前升级任务：")
+            lines.extend([f"  {line}" for line in sections["current_upgrade_tasks"]])
+        lines.append("")
     return "\n".join(lines)
 
 

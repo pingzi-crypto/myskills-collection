@@ -1,0 +1,131 @@
+{
+  "id": "20260327000003-method-audit",
+  "title": "Section Priority Compression",
+  "domain": "Learning Card Design",
+  "subdomain": "Template Slimming Audit",
+  "source": "Structured slimming audit sample",
+  "status": "stable",
+  "graph_maturity": "local",
+  "confidence": "1",
+  "review_cycle": "30d",
+  "sections": {
+    "problem_solved": [
+      "How can a learning card be trimmed without losing the information needed for retrieval, routing, and upgrade?"
+    ],
+    "core_idea": [
+      "Rank sections by answer-criticality, routing value, and uniqueness, then cut the lowest-yield material first."
+    ],
+    "method_structure": [
+      "State the dominant question of the card.",
+      "Keep the sections that answer or bound that question.",
+      "Keep graph sections only when they carry real local value.",
+      "Gate progression scaffolding by maturity or review mode.",
+      "Render the shortest version that still supports reuse."
+    ],
+    "design_choices": [
+      "The method prefers signal density over template completeness."
+    ],
+    "hidden_assumptions": [
+      "The reviewer can tell the difference between useful nuance and habitual filler."
+    ],
+    "fit_scenarios": [
+      "Use it when cards feel complete but still hard to scan or retrieve from."
+    ],
+    "non_fit_scenarios": [
+      "Do not use it when the card is weak because the topic itself is still unclear."
+    ],
+    "comparison_with_alternatives": [
+      "Unlike a purely aesthetic rewrite, this method cuts by information yield rather than by sentence style alone."
+    ],
+    "common_misuses": [
+      "Removing graph sections too early and leaving the card isolated.",
+      "Keeping every checklist because it feels productive."
+    ],
+    "failure_modes": [
+      "The method fails when the reviewer trims high-value boundary sections together with low-value scaffolding."
+    ],
+    "decision_criteria": [
+      "If a section neither changes retrieval, graph placement, nor next action, it is a compression candidate."
+    ],
+    "representative_examples": [
+      "Merging status notes, next goal, and upgrade tasks into one short maintenance block while preserving the concept core and local graph placement."
+    ],
+    "validation_question": [
+      "After trimming, can a future self still answer what this card is for, where it fits, and what to do next?"
+    ],
+    "local_position": {
+      "upstream_concepts": [
+        "[[Single-Card Boundary]] | Clear boundaries make section ranking easier."
+      ],
+      "upstream_mechanisms": [
+        "[[Section Bloat Drift]] | The method is a response to that drift."
+      ],
+      "adjacent_methods": [
+        "[[Template Rewrite]] | Both reduce verbosity, but this method uses information yield as the ranking rule."
+      ]
+    },
+    "operational_links": {
+      "prerequisites": [
+        "[[Card Type Routing]] | Section compression assumes the right card type is already chosen."
+      ],
+      "enables": [
+        "[[Default Stable Render]] | It produces a thinner default card shape."
+      ],
+      "contrasts": [
+        "[[Complete Template Filling]] | One rewards completeness; the other rewards signal density."
+      ],
+      "corrections": [
+        "[[More Sections Make a Better Learning Card]] | The method corrects that impulse operationally."
+      ]
+    },
+    "routing_and_dispatch": {
+      "direct_routes": [
+        "When the problem is conceptual rather than operational, return to [[Single-Card Boundary]].",
+        "When the problem is repeated re-expansion after trimming, route to [[More Sections Make a Better Learning Card]]."
+      ],
+      "secondary_routes": [
+        "If [[Section Bloat Drift]] explains the cause but you still need an execution order, return here and trim by ranking."
+      ],
+      "gap_signals": [
+        "If the graph can explain what to cut but not how to measure retrieval quality after trimming, add a new Concept card for retrieval density."
+      ],
+      "stop_rules": [
+        "Stop trimming when removing one more section would erase boundary clarity, graph placement, or next action."
+      ]
+    },
+    "current_status_notes": [
+      "The method already works as a reliable local procedure for slimming stable cards."
+    ],
+    "next_goal": [
+      "Add a lightweight scoring shortcut for faster review passes."
+    ],
+    "growing_checklist": [
+      "Explain when not to compress."
+    ],
+    "stable_checklist": [
+      "Show reliable local graph placement.",
+      "Show at least one repeated successful trim pattern."
+    ],
+    "expert_ready_checklist": [
+      "Add stronger arbitration between compression, rerouting, and splitting."
+    ],
+    "promotion_assessment": {
+      "current_recommendation": "watchlist",
+      "main_reasons": [
+        "The method already has stable local execution value."
+      ],
+      "missing_evidence": [
+        "It still needs stronger arbitration between trimming a card and splitting it into two cards."
+      ],
+      "next_rules": [
+        "If compression removes a whole second question, split the card instead of trimming harder."
+      ]
+    },
+    "current_upgrade_tasks": [
+      "Capture one borderline case where splitting beat trimming."
+    ],
+    "upgrade_history": [
+      "2026-03-27: created for slimming audit"
+    ]
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "id": "20260327000001-concept-audit",
+  "title": "Single-Card Boundary",
+  "domain": "Learning Card Design",
+  "subdomain": "Template Slimming Audit",
+  "source": "Structured slimming audit sample",
+  "status": "stable",
+  "graph_maturity": "local",
+  "confidence": "1",
+  "review_cycle": "30d",
+  "sections": {
+    "question_answered": [
+      "What makes one learning card narrow enough to stay coherent while still useful?"
+    ],
+    "one_sentence_definition": [
+      "A single-card boundary is the rule that one card should answer one dominant question and stop before adjacent questions take over."
+    ],
+    "essence": [
+      "It compresses a thread to one retrieval unit without flattening the idea into something too vague."
+    ],
+    "why_it_matters": [
+      "It prevents one card from becoming a mixed concept-method-mechanism bundle.",
+      "It makes graph placement and later upgrades easier."
+    ],
+    "core_logic": [
+      "Identify the dominant question in the thread.",
+      "Keep only the evidence that serves that question.",
+      "Route leftover material to another card instead of stretching the current one."
+    ],
+    "prerequisites": [
+      "The card family already has clear type boundaries.",
+      "Creating a second card is cheaper than overloading the first card."
+    ],
+    "failure_boundaries": [
+      "It fails when the dominant question is still unresolved.",
+      "It also fails when the user really needs a comparison card rather than a single-node card."
+    ],
+    "confusions": [
+      "It is easy to confuse a single-card boundary with oversimplification; the real target is coherence, not forced thinness."
+    ],
+    "examples": [
+      "A thread that mainly defines what a boundary is becomes one concept card, while its trimming procedure becomes a separate method card."
+    ],
+    "counter_examples": [
+      "A card that explains what boundary means, why drift happens, how to fix it, and which misconception to avoid is already too wide."
+    ],
+    "common_misunderstandings": [
+      "One card does not mean one paragraph; it means one dominant question."
+    ],
+    "my_words": [
+      "One card, one real question."
+    ],
+    "needs_validation": [
+      "Where should borderline comparison-heavy threads split into two cards instead of one?"
+    ],
+    "local_position": {
+      "parent_concepts": [
+        "[[Knowledge Unit Coherence]] | Single-card boundary is one concrete rule for maintaining coherent learning units."
+      ],
+      "child_concepts": [
+        "[[Section Priority Compression]] | Compression is one downstream way to enforce the boundary."
+      ],
+      "adjacent_concepts": [
+        "[[Atomic Notes]] | Both seek compactness, but this card is tuned for learning-card routing rather than generic note size."
+      ]
+    },
+    "operational_links": {
+      "prerequisites": [
+        "[[Card Type Routing]] | Boundary quality depends on choosing the right card type first."
+      ],
+      "enables": [
+        "[[Section Priority Compression]] | A stable boundary makes section trimming much easier."
+      ],
+      "contrasts": [
+        "[[Full Thread Capture]] | One tries to preserve everything, while this concept defends selective inclusion."
+      ],
+      "corrections": [
+        "[[More Sections Make a Better Learning Card]] | This concept corrects the pressure to keep adding sections just because space exists."
+      ]
+    },
+    "routing_and_dispatch": {
+      "direct_routes": [
+        "When the real issue is how to enforce the boundary section by section, route to [[Section Priority Compression]].",
+        "When the issue is why boundaries keep widening by default, route to [[Section Bloat Drift]]."
+      ],
+      "secondary_routes": [
+        "If [[Section Priority Compression]] trims the card but drift still returns, continue to [[More Sections Make a Better Learning Card]] to correct the underlying belief."
+      ],
+      "gap_signals": [
+        "If the graph has boundary and trimming cards but no card about choosing between split versus merge decisions, add a new Method card for split-merge arbitration."
+      ],
+      "stop_rules": [
+        "Stop staying in this concept once the user agrees on the boundary and the next question becomes operational trimming."
+      ]
+    },
+    "current_status_notes": [
+      "This concept already behaves like a reliable local boundary anchor for the card family."
+    ],
+    "next_goal": [
+      "Add a stronger split-versus-merge rule for borderline cases."
+    ],
+    "growing_checklist": [
+      "Explain why boundary discipline is not the same as oversimplification."
+    ],
+    "stable_checklist": [
+      "Show reliable local graph placement.",
+      "Show at least three strong relationships."
+    ],
+    "expert_ready_checklist": [
+      "Add stronger split-versus-merge dispatch rules.",
+      "Add one explicit gap signal and one stop rule."
+    ],
+    "promotion_assessment": {
+      "current_recommendation": "watchlist",
+      "main_reasons": [
+        "The card already works as a stable local node.",
+        "It has early routing value inside the learning-card family."
+      ],
+      "missing_evidence": [
+        "It still lacks stronger arbitration when a thread could reasonably split into two cards."
+      ],
+      "next_rules": [
+        "If a thread has two equally dominant questions, split before writing either card."
+      ]
+    },
+    "current_upgrade_tasks": [
+      "Capture one real thread where split-versus-merge was hard to decide."
+    ],
+    "upgrade_history": [
+      "2026-03-27: created for slimming audit"
+    ]
+  }
+}
