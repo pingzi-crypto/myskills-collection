@@ -12,6 +12,7 @@ only wants to preserve one local exchange.
 Ask this first when the user wants to save current-session content:
 
 > 当前会话哪个片段想要保存成卡片？
+> Which fragment from the current session do you want to save as a card?
 
 The user may answer with:
 

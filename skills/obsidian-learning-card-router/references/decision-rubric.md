@@ -18,6 +18,7 @@ The available targets are:
 
 Ask:
 
+> 这段内容主要在回答什么问题？
 > What is this thread mainly trying to answer?
 
 If the user already answered with one of these exact labels:
@@ -178,7 +179,9 @@ If the dominant type is still unclear, ask one short question that forces a choi
 For Chinese-first routing, prefer:
 
 > 这段内容你最想记录的是？概念，机制，方法还是误解，请用这一组词中的一个回复。
+> What do you most want to record from this content: concept, mechanism, method, or misconception? Please reply with exactly one of those labels.
 
 Example:
 
+> 这段内容你主要想记录：这是什么、为什么会这样、具体怎么做，还是哪里错了？
 > Do you mainly want to capture what it is, why it works, how to do it, or what the mistake is?

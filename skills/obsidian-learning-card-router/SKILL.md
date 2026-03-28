@@ -64,10 +64,12 @@ Do not use this skill when:
 Ask this question first when the user wants to save part of the current session:
 
 > 当前会话哪个片段想要保存成卡片？
+> Which fragment from the current session do you want to save as a card?
 
 After the fragment is resolved, ask this next:
 
 > 这段内容你最想记录的是？概念，机制，方法还是误解，请用这一组词中的一个回复。
+> What do you most want to record from this content: concept, mechanism, method, or misconception? Please reply with exactly one of those labels.
 
 Map those exact replies like this:
 
@@ -83,19 +85,20 @@ Ask this older question only when the user did not choose one of the four labels
 and the dominant type is still unclear:
 
 > What is the thread mainly trying to answer?
+> 这段内容主要在回答什么问题？
 
 Route based on the answer:
 
-- "What is it?" -> `$obsidian-concept-card-capture`
-- "Why does it work?" -> `$obsidian-mechanism-card-capture`
-- "How do I do it?" -> `$obsidian-method-card-capture`
-- "Where is the mistake?" -> `$obsidian-misconception-card-capture`
+- "这是什么？ / What is it?" -> `$obsidian-concept-card-capture`
+- "为什么会这样？ / Why does it work?" -> `$obsidian-mechanism-card-capture`
+- "具体怎么做？ / How do I do it?" -> `$obsidian-method-card-capture`
+- "哪里错了？ / Where is the mistake?" -> `$obsidian-misconception-card-capture`
 
 Then ask or infer the second axis:
 
-- Is this a new card?
-- Is this improving an existing card?
-- Is this specifically a progression or promotion review?
+- 这是新卡吗？ / Is this a new card?
+- 这是在更新已有卡吗？ / Is this improving an existing card?
+- 这是晋升评审吗？ / Is this specifically a progression or promotion review?
 
 Default mode rule for current-session capture:
 
