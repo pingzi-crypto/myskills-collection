@@ -1,7 +1,7 @@
 # myskills-collection
 
-Progression-capable Obsidian learning-card skills with Codex, Claude Code, and
-OpenClaw-compatible entrypoints.
+Progression-capable Obsidian learning-card skills with a Codex runtime layout
+and exportable wrappers for Claude Code and OpenClaw.
 
 ## What This Repo Contains
 
@@ -57,9 +57,9 @@ The family includes:
 
 Each skill includes:
 
-- a root `SKILL.md` used by Codex
-- a `claude/SKILL.md` wrapper for Claude Code
-- an `openclaw/SKILL.md` wrapper for OpenClaw
+- a root `SKILL.md` under `skills/` used by Codex
+- exportable wrappers for Claude Code under `dist/claude/`
+- exportable wrappers for OpenClaw under `dist/openclaw/`
 
 Shared references:
 
@@ -117,25 +117,24 @@ Not every card should become `expert-ready`.
 skills/
   obsidian-learning-card-router/
     SKILL.md
-    claude/SKILL.md
-    openclaw/SKILL.md
   obsidian-concept-card-capture/
     SKILL.md
-    claude/SKILL.md
-    openclaw/SKILL.md
   obsidian-mechanism-card-capture/
     SKILL.md
-    claude/SKILL.md
-    openclaw/SKILL.md
   obsidian-method-card-capture/
     SKILL.md
-    claude/SKILL.md
-    openclaw/SKILL.md
   obsidian-misconception-card-capture/
     SKILL.md
-    claude/SKILL.md
-    openclaw/SKILL.md
   references/
+dist/
+  claude/
+    obsidian-learning-card-router/SKILL.md
+    obsidian-concept-card-capture/SKILL.md
+    ...
+  openclaw/
+    obsidian-learning-card-router/SKILL.md
+    obsidian-concept-card-capture/SKILL.md
+    ...
 ```
 
 ## Recommended Use
@@ -149,5 +148,7 @@ For Obsidian card capture:
 ## Notes
 
 - This repository now contains only the real learning-card skills, not a starter template.
+- `skills/` is the Codex runtime directory and should stay free of extra platform wrappers.
+- `dist/claude/` and `dist/openclaw/` are export surfaces, not Codex runtime entrypoints.
 - Shared references should stay shared when they express family-wide rules.
 - Local references should be added only when a card type genuinely needs specialized logic.

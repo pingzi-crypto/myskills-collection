@@ -15,9 +15,10 @@ The family contains:
 
 Platform compatibility:
 
-- Codex uses the root `SKILL.md` in each skill directory
-- Claude Code uses the `claude/SKILL.md` wrapper in each skill directory
-- OpenClaw uses the `openclaw/SKILL.md` wrapper in each skill directory
+- Codex uses the root `SKILL.md` in each skill directory under `skills/`
+- Claude Code wrappers should live under `dist/claude/`
+- OpenClaw wrappers should live under `dist/openclaw/`
+- keep non-Codex wrappers out of `skills/` when Codex runtime discovery would otherwise load them
 
 ## System Shape
 

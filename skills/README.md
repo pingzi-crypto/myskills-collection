@@ -24,11 +24,9 @@ skills should handle the current thread, and whether the task is:
 Path:
 
 - `skills/obsidian-learning-card-router/`
-
-Platform wrappers:
-
-- `skills/obsidian-learning-card-router/claude/`
-- `skills/obsidian-learning-card-router/openclaw/`
+- export wrappers:
+  - `dist/claude/obsidian-learning-card-router/`
+  - `dist/openclaw/obsidian-learning-card-router/`
 
 Use this entry when you want to:
 
@@ -53,11 +51,9 @@ updating or promoting an existing Concept Card.
 Path:
 
 - `skills/obsidian-concept-card-capture/`
-
-Platform wrappers:
-
-- `skills/obsidian-concept-card-capture/claude/`
-- `skills/obsidian-concept-card-capture/openclaw/`
+- export wrappers:
+  - `dist/claude/obsidian-concept-card-capture/`
+  - `dist/openclaw/obsidian-concept-card-capture/`
 
 Use this entry when you want to:
 
@@ -87,11 +83,9 @@ updating or promoting an existing Mechanism Card.
 Path:
 
 - `skills/obsidian-mechanism-card-capture/`
-
-Platform wrappers:
-
-- `skills/obsidian-mechanism-card-capture/claude/`
-- `skills/obsidian-mechanism-card-capture/openclaw/`
+- export wrappers:
+  - `dist/claude/obsidian-mechanism-card-capture/`
+  - `dist/openclaw/obsidian-mechanism-card-capture/`
 
 Use this entry when you want to:
 
@@ -121,11 +115,9 @@ updating or promoting an existing Method Card.
 Path:
 
 - `skills/obsidian-method-card-capture/`
-
-Platform wrappers:
-
-- `skills/obsidian-method-card-capture/claude/`
-- `skills/obsidian-method-card-capture/openclaw/`
+- export wrappers:
+  - `dist/claude/obsidian-method-card-capture/`
+  - `dist/openclaw/obsidian-method-card-capture/`
 
 Use this entry when you want to:
 
@@ -155,11 +147,9 @@ for updating or promoting an existing Misconception Card.
 Path:
 
 - `skills/obsidian-misconception-card-capture/`
-
-Platform wrappers:
-
-- `skills/obsidian-misconception-card-capture/claude/`
-- `skills/obsidian-misconception-card-capture/openclaw/`
+- export wrappers:
+  - `dist/claude/obsidian-misconception-card-capture/`
+  - `dist/openclaw/obsidian-misconception-card-capture/`
 
 Use this entry when you want to:
 
@@ -195,3 +185,8 @@ As this repository grows, this index should remain the first place to look for:
 - stable skill families
 - routing entry points
 - execution skills with real workflows
+
+Codex runtime rule:
+
+- keep `skills/` limited to the entries Codex should actually discover
+- keep non-Codex wrappers under `dist/` so they do not pollute Codex runtime discovery
