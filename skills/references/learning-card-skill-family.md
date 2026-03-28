@@ -54,6 +54,7 @@ Example:
 
 The router is responsible for:
 
+- selecting the source fragment to preserve
 - preserving the one-card boundary
 - selecting the dominant card type
 - selecting the correct action mode
@@ -66,6 +67,15 @@ The router is not responsible for:
 - promotion evidence details
 - backlink construction
 - graph rendering
+
+Router capture rule:
+
+- when the user wants to save one fragment from the current session, the router
+  should first identify that fragment
+- by default, use the selected user message as anchor start and the first
+  assistant reply after it as the primary source body
+- downstream execution skills should treat that anchored assistant reply as the
+  main content payload unless the user explicitly asks for a broader span
 
 ### Execution Skills
 

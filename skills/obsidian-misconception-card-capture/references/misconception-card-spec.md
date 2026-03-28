@@ -189,6 +189,7 @@ Use one of these recommendation labels:
 
 Do not try to modify past thread UI state. Instead:
 
+- if the router already selected a capture anchor, treat the anchored assistant reply as the primary source body
 - extract the user-confirmed keywords
 - summarize relevant Q&A points
 - fold them into the misconception card sections where they belong

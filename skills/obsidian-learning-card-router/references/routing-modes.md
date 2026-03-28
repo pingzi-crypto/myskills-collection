@@ -16,6 +16,7 @@ update an existing card, or run a progression review.
 Use `create` when:
 
 - the user wants to capture a new learning card
+- the user selects one fragment from the current session to preserve
 - no same-title card is already in scope
 - the main question is first-time capture rather than maturity review
 
@@ -24,6 +25,8 @@ Signals:
 - "turn this into a card"
 - "create a card for this"
 - "record this thread"
+- "保存成卡片"
+- "记录这段内容"
 
 ## Update
 
@@ -65,6 +68,7 @@ If an existing card is explicitly in scope:
 
 Always hand off with both:
 
+- capture anchor
 - card type
 - action mode
 

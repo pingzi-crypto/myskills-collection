@@ -4,6 +4,9 @@
 
 Classify one thread into one dominant learning card type.
 
+When a capture anchor has already been selected, classify the anchored content
+instead of the entire thread by default.
+
 The available targets are:
 
 - `$obsidian-concept-card-capture`
@@ -16,6 +19,15 @@ The available targets are:
 Ask:
 
 > What is this thread mainly trying to answer?
+
+If the user already answered with one of these exact labels:
+
+- `概念`
+- `机制`
+- `方法`
+- `误解`
+
+route directly without reopening the broader question.
 
 ## Routing Table
 
@@ -162,6 +174,10 @@ If the dominant type is still unclear, ask one short question that forces a choi
 - mechanism
 - method
 - misconception
+
+For Chinese-first routing, prefer:
+
+> 这段内容你最想记录的是？概念，机制，方法还是误解，请用这一组词中的一个回复。
 
 Example:
 
