@@ -66,6 +66,11 @@ Ask this question first when the user wants to save part of the current session:
 > 当前会话哪个片段想要保存成卡片？
 > Which fragment from the current session do you want to save as a card?
 
+If the user wants a smaller block inside one assistant reply, allow this follow-up:
+
+> 如果你不是要整条回复，而是其中一段，请给我起始短句和结束短句。
+> If you do not want the whole reply and only want one block inside it, give me a short start quote and end quote.
+
 After the fragment is resolved, ask this next:
 
 > 这段内容你最想记录的是？概念，机制，方法还是误解，请用这一组词中的一个回复。

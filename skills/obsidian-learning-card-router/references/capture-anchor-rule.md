@@ -19,6 +19,7 @@ The user may answer with:
 - a direct quote from one user message
 - a short paraphrase of the target user message
 - a clear reference to one recent request in the session
+- a start quote and end quote for a smaller block inside the anchored assistant reply
 
 ## Default Anchor Resolution
 
@@ -33,6 +34,30 @@ This means the default preserved unit is:
 - one user message
 - the first assistant reply immediately after it
 
+## Text-Block Anchor Override
+
+If the user wants a smaller block inside the anchored assistant reply, allow a
+text-block selection with:
+
+- `start quote`
+- `end quote`
+
+Resolution order:
+
+1. First resolve the normal anchor:
+   - selected user message
+   - first assistant reply after it
+2. Then search inside that anchored assistant reply for the requested start quote and end quote.
+3. Use the text span between those two quotes, inclusive by default, as the primary source body.
+
+Use this override only when:
+
+- the user clearly wants one local block rather than the whole assistant reply
+- both quote boundaries can be found with high confidence
+
+If only one boundary is clear, ask one short clarification question instead of
+guessing a larger block.
+
 ## Example
 
 If the user points to:
@@ -46,6 +71,9 @@ then the primary content body should default to the first assistant reply after 
 That assistant reply becomes the main recording body for the downstream card
 skill unless the user explicitly asks for a larger range.
 
+If the user instead gives a start quote and end quote inside that reply, the
+selected text block becomes the main recording body.
+
 ## Scope Rule
 
 Prefer the anchored assistant reply over the entire thread when:
@@ -53,6 +81,12 @@ Prefer the anchored assistant reply over the entire thread when:
 - the user wants to save one local exchange
 - the thread contains several different topics
 - later turns are mostly operational follow-up
+
+Prefer the selected text block over the full anchored assistant reply when:
+
+- the assistant reply contains several separable ideas
+- the user explicitly wants only one subsection
+- the chosen block already forms a coherent single-card boundary
 
 Use a broader span only when the user clearly asks for:
 
@@ -66,7 +100,8 @@ When the anchor is resolved, pass these facts downstream:
 
 - the selected user message
 - the first assistant reply after it
-- the rule that the anchored assistant reply is the primary source body
+- the selected text block when a start quote and end quote were provided
+- the rule that the most specific resolved body is the primary source body
 
 ## Ambiguity Rule
 

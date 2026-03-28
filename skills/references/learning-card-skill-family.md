@@ -74,8 +74,10 @@ Router capture rule:
   should first identify that fragment
 - by default, use the selected user message as anchor start and the first
   assistant reply after it as the primary source body
-- downstream execution skills should treat that anchored assistant reply as the
-  main content payload unless the user explicitly asks for a broader span
+- if the user provides a start quote and end quote inside that assistant reply,
+  use the resolved text block as the primary source body instead
+- downstream execution skills should treat the most specific resolved body as
+  the main content payload unless the user explicitly asks for a broader span
 
 ### Execution Skills
 
