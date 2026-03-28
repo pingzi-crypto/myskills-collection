@@ -13,6 +13,12 @@ The family contains:
 - `obsidian-method-card-capture`
 - `obsidian-misconception-card-capture`
 
+Platform compatibility:
+
+- Codex uses the root `SKILL.md` in each skill directory
+- Claude Code uses the `claude/SKILL.md` wrapper in each skill directory
+- OpenClaw uses the `openclaw/SKILL.md` wrapper in each skill directory
+
 ## System Shape
 
 The family uses a two-layer design:

@@ -1,13 +1,12 @@
 # myskills-collection
 
-Cross-platform skill templates plus a progression-capable Obsidian learning-card
-skill family for Codex-style workflows.
+Progression-capable Obsidian learning-card skills with Codex, Claude Code, and
+OpenClaw-compatible entrypoints.
 
 ## What This Repo Contains
 
-This repository currently has two main parts:
+This repository contains one main skill family:
 
-- a starter template for building one skill that can be adapted across three platforms
 - a concrete Obsidian learning-card skill family with routing, deterministic rendering, and progression rules
 
 Browse the collection here:
@@ -16,19 +15,7 @@ Browse the collection here:
 
 ## Quick Start
 
-The fastest way to start depends on what you want to do.
-
-### Option 1: Start from the template
-
-Use this when you want to create a new reusable skill.
-
-1. Copy `skills/cross-platform-skill-template/` to a new folder with your real skill name.
-2. Rewrite `core/guide.md` with the actual workflow.
-3. Keep shared logic in `core/`.
-4. Keep platform-specific metadata only in the wrapper folders.
-
-### Option 2: Use the Obsidian learning-card family
-
+The fastest way to start is to use the Obsidian learning-card family.
 Use this when you want to turn one thread into one Obsidian learning card.
 
 1. Start with `skills/obsidian-learning-card-router/` if the card type is still unclear.
@@ -53,23 +40,7 @@ Keywords or thread points to capture: <keywords>
 Domain: <domain>
 ```
 
-## Main Entries
-
-### Cross-platform template
-
-Use this when you want one shared skill core with thin wrappers for:
-
-- Codex
-- Claude Code
-- OpenClaw
-
-Path:
-
-- `skills/cross-platform-skill-template/`
-
-Design rule:
-
-> Keep reusable task logic in a shared core, and keep platform-specific behavior in thin wrappers.
+## Main Entry
 
 ### Obsidian learning-card skill family
 
@@ -83,6 +54,12 @@ The family includes:
 - `obsidian-mechanism-card-capture`
 - `obsidian-method-card-capture`
 - `obsidian-misconception-card-capture`
+
+Each skill includes:
+
+- a root `SKILL.md` used by Codex
+- a `claude/SKILL.md` wrapper for Claude Code
+- an `openclaw/SKILL.md` wrapper for OpenClaw
 
 Shared references:
 
@@ -138,34 +115,30 @@ Not every card should become `expert-ready`.
 
 ```text
 skills/
-  cross-platform-skill-template/
-    core/
-      guide.md
-      references/
-      scripts/
-      assets/
-    codex/
-      SKILL.md
-      agents/openai.yaml
-    claude/
-      SKILL.md
-    openclaw/
-      SKILL.md
   obsidian-learning-card-router/
+    SKILL.md
+    claude/SKILL.md
+    openclaw/SKILL.md
   obsidian-concept-card-capture/
+    SKILL.md
+    claude/SKILL.md
+    openclaw/SKILL.md
   obsidian-mechanism-card-capture/
+    SKILL.md
+    claude/SKILL.md
+    openclaw/SKILL.md
   obsidian-method-card-capture/
+    SKILL.md
+    claude/SKILL.md
+    openclaw/SKILL.md
   obsidian-misconception-card-capture/
+    SKILL.md
+    claude/SKILL.md
+    openclaw/SKILL.md
   references/
 ```
 
 ## Recommended Use
-
-For new skills:
-
-1. start from `skills/cross-platform-skill-template/`
-2. keep shared workflow in `core/`
-3. keep platform-specific behavior in wrappers
 
 For Obsidian card capture:
 
@@ -175,6 +148,6 @@ For Obsidian card capture:
 
 ## Notes
 
-- This repository now contains both templates and real skills.
+- This repository now contains only the real learning-card skills, not a starter template.
 - Shared references should stay shared when they express family-wide rules.
 - Local references should be added only when a card type genuinely needs specialized logic.

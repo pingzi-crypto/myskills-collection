@@ -1,4 +1,0 @@
-interface:
-  display_name: "Cross Platform Skill Template"
-  short_description: "Codex wrapper for a shared cross-platform skill."
-  default_prompt: "Use $cross-platform-skill-template to execute the shared workflow from the cross-platform skill core."

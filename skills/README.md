@@ -1,7 +1,6 @@
 # Skills Index
 
-This directory stores reusable skills, concrete skill families, and starter
-templates for this collection.
+This directory stores the concrete learning-card skill family for this collection.
 
 ## Family Overview
 
@@ -12,24 +11,6 @@ Shared learning-card references:
 - `skills/references/knowledge-graph-relations.md`
 
 ## Available Entries
-
-### `cross-platform-skill-template`
-
-Starter template for building one shared skill core with thin wrappers for:
-
-- Codex
-- Claude Code
-- OpenClaw
-
-Path:
-
-- `skills/cross-platform-skill-template/`
-
-Use this entry when you want to:
-
-- start a new cross-platform skill from a clean skeleton
-- keep shared workflow in `core/`
-- isolate platform-specific behavior in wrapper directories
 
 ### `obsidian-learning-card-router`
 
@@ -43,6 +24,11 @@ skills should handle the current thread, and whether the task is:
 Path:
 
 - `skills/obsidian-learning-card-router/`
+
+Platform wrappers:
+
+- `skills/obsidian-learning-card-router/claude/`
+- `skills/obsidian-learning-card-router/openclaw/`
 
 Use this entry when you want to:
 
@@ -67,6 +53,11 @@ updating or promoting an existing Concept Card.
 Path:
 
 - `skills/obsidian-concept-card-capture/`
+
+Platform wrappers:
+
+- `skills/obsidian-concept-card-capture/claude/`
+- `skills/obsidian-concept-card-capture/openclaw/`
 
 Use this entry when you want to:
 
@@ -97,6 +88,11 @@ Path:
 
 - `skills/obsidian-mechanism-card-capture/`
 
+Platform wrappers:
+
+- `skills/obsidian-mechanism-card-capture/claude/`
+- `skills/obsidian-mechanism-card-capture/openclaw/`
+
 Use this entry when you want to:
 
 - capture one causal explanation from Q&A or discussion
@@ -126,6 +122,11 @@ Path:
 
 - `skills/obsidian-method-card-capture/`
 
+Platform wrappers:
+
+- `skills/obsidian-method-card-capture/claude/`
+- `skills/obsidian-method-card-capture/openclaw/`
+
 Use this entry when you want to:
 
 - capture one practical procedure or strategy from Q&A or discussion
@@ -154,6 +155,11 @@ for updating or promoting an existing Misconception Card.
 Path:
 
 - `skills/obsidian-misconception-card-capture/`
+
+Platform wrappers:
+
+- `skills/obsidian-misconception-card-capture/claude/`
+- `skills/obsidian-misconception-card-capture/openclaw/`
 
 Use this entry when you want to:
 
@@ -187,6 +193,5 @@ Vault root: <optional vault path>
 As this repository grows, this index should remain the first place to look for:
 
 - stable skill families
-- starter templates
 - routing entry points
 - execution skills with real workflows
