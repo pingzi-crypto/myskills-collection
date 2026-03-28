@@ -65,6 +65,8 @@ Each section value may be:
 
 - a string
 - a list of strings
+- a dictionary like `{ "zh": "...", "en": "..." }` for one bilingual item
+- a list mixing strings and `{ "zh": "...", "en": "..." }` items
 - a dictionary for structured graph or promotion sections
 
 For `routing_and_dispatch`, prefer a dictionary with:
@@ -75,6 +77,11 @@ For `routing_and_dispatch`, prefer a dictionary with:
 - `stop_rules`
 
 Read `../../references/routing-and-dispatch-spec.md` for the shared structure.
+
+When bilingual content is available, the renderer should prefer:
+
+- Chinese as the main bullet text
+- an indented `EN:` translation line immediately below it
 
 ## Usage
 

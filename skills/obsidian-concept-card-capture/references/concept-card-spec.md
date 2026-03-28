@@ -132,6 +132,13 @@ The body should stay faithful to the Concept Card structure and should emphasize
 - promotion assessment
 - upgrade checkpoints from `seed` onward
 
+Default language rule for new cards:
+
+- body content should default to bilingual `中文 + English translation`
+- when the renderer spec is structured, prefer section items like:
+  - `{ "zh": "中文内容", "en": "English translation" }`
+- if only one language is confidently available, keep the content useful first and fill the second language later
+
 For the default visible `stable` render:
 
 - keep the concept explanation layer visible

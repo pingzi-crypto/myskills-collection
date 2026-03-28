@@ -73,11 +73,19 @@ Each execution skill is responsible for:
 
 - one card type only
 - deterministic rendering when practical
+- bilingual body content by default when the card is synthesized from the thread
 - duplicate detection
 - safe update flow
 - progression evidence in the body
 - conservative graph links
 - promotion assessment
+
+Default bilingual rule:
+
+- body content should default to `中文主句 + English translation`
+- when structured renderer input is used, prefer content items shaped like
+  `{ "zh": "...", "en": "..." }`
+- frontmatter keys and file paths stay unchanged unless a local skill spec says otherwise
 
 ## Shared Progression Model
 

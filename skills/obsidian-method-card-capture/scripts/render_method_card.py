@@ -45,16 +45,67 @@ def scalar(value: Any, default: str = "") -> str:
     return text if text else default
 
 
+def normalize_content_items(value: Any) -> list[Any]:
+    if value is None:
+        return []
+    if isinstance(value, list):
+        items: list[Any] = []
+        for item in value:
+            if isinstance(item, dict):
+                zh = scalar(item.get("zh"))
+                en = scalar(item.get("en"))
+                if zh or en:
+                    items.append({"zh": zh, "en": en})
+            else:
+                text = scalar(item)
+                if text:
+                    items.append(text)
+        return items
+    if isinstance(value, dict):
+        zh = scalar(value.get("zh"))
+        en = scalar(value.get("en"))
+        if zh or en:
+            return [{"zh": zh, "en": en}]
+        return []
+    text = scalar(value)
+    return [text] if text else []
+
+
+def render_item_lines(item: Any, prefix: str = "- ", translation_prefix: str = "  - EN: ") -> list[str]:
+    if isinstance(item, dict):
+        zh = scalar(item.get("zh"))
+        en = scalar(item.get("en"))
+        lines: list[str] = []
+        if zh:
+            lines.append(f"{prefix}{zh}")
+        if en:
+            if zh:
+                lines.append(f"{translation_prefix}{en}")
+            else:
+                lines.append(f"{prefix}EN: {en}")
+        return lines
+    text = scalar(item)
+    return [f"{prefix}{text}"] if text else []
+
+
 def bullet_lines(value: Any, default_blank: bool = True) -> list[str]:
-    items = normalize_list(value)
+    items = normalize_content_items(value)
     if items:
-        return [f"- {item}" for item in items]
+        lines: list[str] = []
+        for item in items:
+            lines.extend(render_item_lines(item))
+        return lines
     return ["- "] if default_blank else []
 
 
 def checkbox_lines(value: Any) -> list[str]:
-    items = normalize_list(value)
-    return [f"- [ ] {item}" for item in items] if items else ["- [ ] "]
+    items = normalize_content_items(value)
+    if items:
+        lines: list[str] = []
+        for item in items:
+            lines.extend(render_item_lines(item, prefix="- [ ] ", translation_prefix="  - EN: "))
+        return lines
+    return ["- [ ] "]
 
 
 def has_meaningful_lines(lines: list[str]) -> bool:
@@ -74,7 +125,7 @@ def normalize_routing_sections(value: Any) -> dict[str, list[str]]:
         mapping = value
     else:
         mapping = {"direct_routes": value}
-    return {key: normalize_list(mapping.get(key)) for key, _ in ROUTING_SECTION_LABELS}
+    return {key: normalize_content_items(mapping.get(key)) for key, _ in ROUTING_SECTION_LABELS}
 
 
 def has_routing_content(value: dict[str, list[str]]) -> bool:
@@ -108,7 +159,8 @@ def render_routing_sections(routing: dict[str, list[str]], status: str) -> list[
         lines.append(f"#### {label}")
         items = routing.get(key, [])
         if items:
-            lines.extend([f"- {item}" for item in items])
+            for item in items:
+                lines.extend(render_item_lines(item))
         else:
             lines.append(f"- {routing_placeholder(key, status)}")
         lines.append("")
@@ -199,10 +251,32 @@ def lines_for_dict_entries(mapping: dict[str, Any], labels: list[tuple[str, str]
     rendered: list[str] = []
     has_content = False
     for key, label in labels:
-        items = normalize_list(mapping.get(key))
+        items = normalize_content_items(mapping.get(key))
         if items:
-            rendered.append(f"- {label}: {items[0]}")
-            rendered.extend([f"  - {item}" for item in items[1:]])
+            first_item = items[0]
+            if isinstance(first_item, dict):
+                zh = scalar(first_item.get("zh"))
+                en = scalar(first_item.get("en"))
+                if zh:
+                    rendered.append(f"- {label}: {zh}")
+                    if en:
+                        rendered.append(f"  - EN: {en}")
+                elif en:
+                    rendered.append(f"- {label}: EN: {en}")
+            else:
+                rendered.append(f"- {label}: {first_item}")
+            for item in items[1:]:
+                if isinstance(item, dict):
+                    zh = scalar(item.get("zh"))
+                    en = scalar(item.get("en"))
+                    if zh:
+                        rendered.append(f"  - {zh}")
+                        if en:
+                            rendered.append(f"    - EN: {en}")
+                    elif en:
+                        rendered.append(f"  - EN: {en}")
+                else:
+                    rendered.append(f"  - {item}")
             has_content = True
         else:
             rendered.append(f"- {label}: ")
