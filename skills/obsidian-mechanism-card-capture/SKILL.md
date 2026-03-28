@@ -14,11 +14,13 @@ misconception cards, and it does not create multiple mechanisms in one pass.
 Read these before creating or updating any card:
 
 - [../references/learning-card-skill-family.md](../references/learning-card-skill-family.md)
+- [../shared/learning-card-core/references/vault-path-protocol.md](../shared/learning-card-core/references/vault-path-protocol.md)
+- [../shared/learning-card-core/references/same-title-update-flow.md](../shared/learning-card-core/references/same-title-update-flow.md)
+- [../shared/learning-card-core/references/deterministic-render-protocol.md](../shared/learning-card-core/references/deterministic-render-protocol.md)
 - [references/mechanism-card-spec.md](references/mechanism-card-spec.md)
 - [references/progression-rules.md](references/progression-rules.md)
 - [../references/progression-protocol.md](../references/progression-protocol.md)
 - [../references/knowledge-graph-relations.md](../references/knowledge-graph-relations.md)
-- [references/vault-path-resolution.md](references/vault-path-resolution.md)
 - [references/render-script.md](references/render-script.md)
 
 ## Workflow Decision
@@ -40,12 +42,12 @@ Do not use this skill when:
 
 ## Create Flow
 
-1. Resolve `VAULT_ROOT` using [references/vault-path-resolution.md](references/vault-path-resolution.md).
+1. Resolve `VAULT_ROOT` using [../shared/learning-card-core/references/vault-path-protocol.md](../shared/learning-card-core/references/vault-path-protocol.md) and the target paths in [references/mechanism-card-spec.md](references/mechanism-card-spec.md).
 2. Ask for the single mechanism title if it is not already explicit.
 3. Ask which keywords, Q&A fragments, or thread points should be captured.
 4. Ask for `domain` when it is missing. Ask for `subdomain` and `source` only if useful.
 5. Check whether a card with the same title already exists under `<VAULT_ROOT>/学习/Cards/Mechanisms`.
-6. If the card already exists, switch to the update flow in [references/update-flow.md](references/update-flow.md).
+6. If the card already exists, switch to the shared update flow in [../shared/learning-card-core/references/same-title-update-flow.md](../shared/learning-card-core/references/same-title-update-flow.md).
 7. If the card does not exist, create one new Mechanism Card with `status: seed` and `graph_maturity: none`.
 8. Fill the card from the current thread, preferring concise synthesis over long transcript dumps.
 9. Add early progression evidence and graph structure only when the thread clearly supports it.
@@ -66,7 +68,7 @@ When a same-title card already exists and the user wants to keep working on it:
 8. Keep `status` unchanged unless the user explicitly asks to promote it or the task is clearly a progression review.
 9. Do not reset `confidence`, `related`, `aliases`, or upgrade history unless the new evidence clearly justifies it.
 
-Use [references/update-flow.md](references/update-flow.md) for the detailed merge rules.
+Use [../shared/learning-card-core/references/same-title-update-flow.md](../shared/learning-card-core/references/same-title-update-flow.md) for the detailed merge rules.
 
 ## Promotion Flow
 
@@ -111,7 +113,7 @@ Promotion steps:
 - Keep the card focused on the explained phenomenon, core variables, causal chain, preconditions, weak links, alternative mechanisms, scope, boundaries, evidence, anomalies, and compressed explanation.
 - Use the shared graph structure: `Local Position`, `Operational Links`, and `Routing and Dispatch`.
 - Use `Promotion Assessment` to explain promotion choices instead of silently changing maturity.
-- Prefer `scripts/render_mechanism_card.py` to generate the final card layout for new cards.
+- Prefer `scripts/render_mechanism_card.py` to generate the final card layout for new cards, following [../shared/learning-card-core/references/deterministic-render-protocol.md](../shared/learning-card-core/references/deterministic-render-protocol.md).
 
 ## Backlink Policy
 
@@ -143,7 +145,7 @@ When executing this skill, produce:
 ## References
 
 - Read [references/mechanism-card-spec.md](references/mechanism-card-spec.md) for target paths, field defaults, and duplicate-handling rules.
-- Read [references/render-script.md](references/render-script.md) for how to use the deterministic mechanism card renderer.
-- Read [references/update-flow.md](references/update-flow.md) for how to handle same-title cards without creating duplicates.
+- Read [references/render-script.md](references/render-script.md) for mechanism-specific renderer inputs and section keys.
+- Read [../shared/learning-card-core/references/same-title-update-flow.md](../shared/learning-card-core/references/same-title-update-flow.md) for how to handle same-title cards without creating duplicates.
 - Read [references/progression-rules.md](references/progression-rules.md) for what mechanism progression should change in the body.
-- Read [references/vault-path-resolution.md](references/vault-path-resolution.md) for how to resolve the vault root before reading templates or writing cards.
+- Read [../shared/learning-card-core/references/vault-path-protocol.md](../shared/learning-card-core/references/vault-path-protocol.md) for how to resolve the vault root before reading templates or writing cards.

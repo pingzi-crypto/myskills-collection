@@ -66,6 +66,14 @@ Shared references:
 - `skills/references/progression-protocol.md`
 - `skills/references/knowledge-graph-relations.md`
 - `skills/references/learning-card-skill-family.md`
+- `skills/references/learning-card-shared-core-blueprint.md`
+- `skills/references/learning-card-worktree-guide.md`
+
+Shared implementation core:
+
+- `skills/shared/learning-card-core/references/vault-path-protocol.md`
+- `skills/shared/learning-card-core/references/same-title-update-flow.md`
+- `skills/shared/learning-card-core/references/deterministic-render-protocol.md`
 
 ## Obsidian Family Model
 
@@ -125,6 +133,10 @@ skills/
     SKILL.md
   obsidian-misconception-card-capture/
     SKILL.md
+  shared/
+    learning-card-core/
+      references/
+      scripts/
   references/
 dist/
   claude/

@@ -28,6 +28,18 @@ Its only job is to classify a thread into one of these four execution skills:
 - `obsidian-misconception-card-capture`
   Creates one Misconception Card
 
+### Shared Core
+
+- `skills/shared/learning-card-core/`
+
+This layer stores family-wide procedural rules such as:
+
+- vault-path protocol
+- same-title update flow
+- deterministic render protocol
+
+This shared layer does not replace the four execution skills.
+
 ## Decision Model
 
 Route based on the dominant question in the thread:

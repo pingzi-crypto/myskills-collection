@@ -7,8 +7,18 @@ This directory stores the concrete learning-card skill family for this collectio
 Shared learning-card references:
 
 - `skills/references/learning-card-skill-family.md`
+- `skills/references/learning-card-shared-core-blueprint.md`
+- `skills/references/learning-card-worktree-guide.md`
+- `skills/references/learning-card-route-3-execution-checklist.md`
 - `skills/references/progression-protocol.md`
 - `skills/references/knowledge-graph-relations.md`
+
+Shared implementation core:
+
+- `skills/shared/learning-card-core/references/vault-path-protocol.md`
+- `skills/shared/learning-card-core/references/same-title-update-flow.md`
+- `skills/shared/learning-card-core/references/deterministic-render-protocol.md`
+- `skills/shared/learning-card-core/scripts/render_common.py`
 
 ## Available Entries
 

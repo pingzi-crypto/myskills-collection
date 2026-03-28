@@ -1,21 +1,10 @@
-# Vault Path Resolution
+# Misconception Vault Paths
 
-## Goal
+Read the shared family protocol first:
 
-Resolve one `VAULT_ROOT` before reading the misconception template or writing any card.
+- [../../shared/learning-card-core/references/vault-path-protocol.md](../../shared/learning-card-core/references/vault-path-protocol.md)
 
-All path operations in this skill should be derived from that root.
-
-## Resolution Order
-
-Resolve the vault root in this order:
-
-1. Use an explicit vault path provided by the user in the current request.
-2. Use a vault path already established earlier in the thread, if it is still clearly applicable.
-3. Use the default local path `C:\Users\pz\Documents\Obsidian Vault` if it exists.
-4. If none of the above is reliable, ask the user to confirm the vault root before proceeding.
-
-## Derived Paths
+## Misconception-Specific Derived Paths
 
 Once `VAULT_ROOT` is resolved, derive these paths:
 
@@ -23,20 +12,8 @@ Once `VAULT_ROOT` is resolved, derive these paths:
 - Misconception card directory: `<VAULT_ROOT>/学习/Cards/Misconceptions`
 - Existing card search root: `<VAULT_ROOT>/学习/Cards`
 
-## Safety Rules
+## Misconception-Specific Safety Notes
 
-- Do not assume a hard-coded vault path when the current environment differs.
-- Do not write outside the resolved vault root.
-- If the resolved root exists but the derived template path is missing, stop and report that the template layout is inconsistent.
-- If the misconception output directory is missing, create it before writing the new card.
-
-## User-Facing Behavior
-
-When the vault root is ambiguous, ask a short direct question that requests only the vault root path.
-
-When the vault root is resolved, use it consistently for:
-
-- duplicate checks
-- backlink discovery
-- template inspection
-- final file creation
+- If the misconception output directory is missing, create it before writing.
+- If the misconception template path is missing, stop and report the template
+  layout mismatch.

@@ -13,6 +13,10 @@ The family contains:
 - `obsidian-method-card-capture`
 - `obsidian-misconception-card-capture`
 
+The family now also has a shared implementation layer:
+
+- `skills/shared/learning-card-core/`
+
 Platform compatibility:
 
 - Codex uses the root `SKILL.md` in each skill directory under `skills/`
@@ -26,6 +30,11 @@ The family uses a two-layer design:
 
 1. the router decides intent and card type
 2. one execution skill performs the actual create, update, or promotion work
+
+Implementation note:
+
+- shared procedural references may live under `skills/shared/learning-card-core/`
+- semantic card-type boundaries remain in the execution skills
 
 The router should not write cards.
 
