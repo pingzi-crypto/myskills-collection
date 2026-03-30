@@ -1,0 +1,7 @@
+Use $obsidian-method-card-capture to work on one method card from this thread.
+Mode: update
+Existing method card: Learning Card Routing
+Keywords or thread points to merge:
+- 把 router 的问题改成中英双语
+Source: <optional source>
+Vault root: C:\Users\pz\Documents\Obsidian Vault

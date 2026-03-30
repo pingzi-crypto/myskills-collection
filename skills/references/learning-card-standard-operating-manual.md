@@ -179,3 +179,12 @@ Before you stop, verify:
 - the output contains a file-level result line
 
 If the file-level result line is missing, treat the task as not finished yet.
+
+## Optional Helper
+
+If the router has already decided the card type and mode, you can generate a
+downstream execution prompt skeleton with:
+
+- `skills/shared/learning-card-core/scripts/build_execution_prompt.py`
+
+This helps reduce manual prompt rewriting between router and execution skill.

@@ -1,0 +1,12 @@
+Use $obsidian-concept-card-capture to work on one concept card from this thread.
+Mode: create
+Capture anchor: windows系统有自带的截图功能吗？如果有快捷键是什么 -> first assistant reply after it
+Concept title: Windows 自带截图方式
+Keywords or thread points to capture:
+- Windows 自带多种截图方式
+- Print Screen
+- Win + Shift + S
+Domain: Windows Workflow
+Subdomain: <optional subdomain>
+Source: <optional source>
+Vault root: C:\Users\pz\Documents\Obsidian Vault

@@ -1,0 +1,19 @@
+{
+  "outputs": [
+    {
+      "name": "concept-create",
+      "output": "analysis/learning-card-execution-prompt-builder/outputs/concept-create.txt",
+      "sha256": "FADF48481D8DE87C022FC17518D15874AF9F1782EB3663BE1BDC0E6D698AB044"
+    },
+    {
+      "name": "method-update",
+      "output": "analysis/learning-card-execution-prompt-builder/outputs/method-update.txt",
+      "sha256": "468456DBC27A09CD524BBCE248A1B358E1C278989F14B12878B855CE716EE319"
+    },
+    {
+      "name": "misconception-review",
+      "output": "analysis/learning-card-execution-prompt-builder/outputs/misconception-review.txt",
+      "sha256": "20B45551C2142B17D0150A3E3375FB726EC91589C83F08A889E488CE7451BDBB"
+    }
+  ]
+}

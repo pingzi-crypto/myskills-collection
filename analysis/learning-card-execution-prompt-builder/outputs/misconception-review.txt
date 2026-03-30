@@ -1,0 +1,7 @@
+Use $obsidian-misconception-card-capture to work on one misconception card from this thread.
+Mode: promotion review
+Existing misconception card: More Cards Means Better Learning
+Promotion evidence from this thread:
+- 当前线程在评估 expert-ready 条件
+Source: <optional source>
+Vault root: C:\Users\pz\Documents\Obsidian Vault

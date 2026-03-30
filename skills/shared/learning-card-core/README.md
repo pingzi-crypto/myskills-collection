@@ -12,6 +12,7 @@ Current shared references:
 Current shared scripts:
 
 - `scripts/render_common.py`
+- `scripts/build_execution_prompt.py`
 
 Boundary rule:
 
