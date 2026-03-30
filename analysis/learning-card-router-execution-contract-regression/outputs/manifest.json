@@ -1,0 +1,19 @@
+{
+  "samples": [
+    {
+      "name": "concept-create-minimum-package",
+      "output": "analysis/learning-card-router-execution-contract-regression/outputs/concept-create-minimum-package.txt",
+      "sha256": "1C44053FC191EEEA330F18BD106D679FB601DAC540F5E84CCBB9E4269D046B11"
+    },
+    {
+      "name": "method-update-minimum-package",
+      "output": "analysis/learning-card-router-execution-contract-regression/outputs/method-update-minimum-package.txt",
+      "sha256": "F28FF94216D7BF7FC48C40BAC04143292CEF139E09377CBAD7EE18F756F226B1"
+    },
+    {
+      "name": "misconception-review-minimum-package",
+      "output": "analysis/learning-card-router-execution-contract-regression/outputs/misconception-review-minimum-package.txt",
+      "sha256": "63D7A7BA1E1687CED7B27ADCE5D725DD4C80154CAAC9BC6C06F3F642400EEC06"
+    }
+  ]
+}

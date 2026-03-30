@@ -51,6 +51,10 @@ Prompt template:
 Use $obsidian-learning-card-router to choose the right learning card skill and mode for this thread.
 Goal: work on exactly one learning card.
 If the type is ambiguous, ask one short clarification question.
+After routing, explicitly show:
+- routing-only status
+- minimum execution package already confirmed
+- still-missing write inputs the downstream skill must collect
 ```
 
 ### `obsidian-concept-card-capture`

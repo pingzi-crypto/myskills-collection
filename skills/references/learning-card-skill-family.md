@@ -64,6 +64,29 @@ Example:
 
 - `Method + promotion review`
 
+## Minimum Handoff Package
+
+Before the router hands off to one execution skill, it should always make this
+minimum package explicit:
+
+- resolved capture anchor
+- selected card type
+- selected action mode
+- downstream execution skill
+- whether any write-critical inputs are still missing
+
+The router does not need to fabricate missing inputs.
+
+Instead, it should explicitly mark them as still needed by the downstream skill.
+
+Typical write-critical inputs:
+
+- card title
+- keywords or thread points to capture
+- domain
+- vault root
+- existing card title or path when update or promotion review depends on it
+
 ## Responsibilities
 
 ### Router
@@ -78,6 +101,8 @@ The router is responsible for:
 - handing off to exactly one downstream skill
 - explicitly stating when the result is routing only and no card file exists yet
 - pointing to one exact downstream next step for actual execution
+- making the minimum execution package explicit
+- marking still-missing write inputs instead of pretending the handoff is fully ready to write
 
 The router is not responsible for:
 
@@ -239,8 +264,9 @@ For ambiguous threads:
 1. route by dominant question
 2. decide whether the task is create, update, or promotion review
 3. explicitly state that routing did not create or update a card file yet
-4. hand off to exactly one execution skill
-5. let that skill perform duplicate checks and rendering
+4. state the minimum execution package and any still-missing write inputs
+5. hand off to exactly one execution skill
+6. let that skill perform duplicate checks and rendering
 
 For existing cards:
 

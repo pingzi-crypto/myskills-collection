@@ -80,6 +80,7 @@ Before merging Route 3 work, verify:
 11. missing optional progression fields do not emit empty placeholder blocks
 12. stage-aware routing visibility still hides and reveals the correct sub-blocks
 13. router handoff text explicitly marks routing-only status and the next execution step
+14. router handoff text explicitly marks the minimum confirmed execution package and any still-missing write inputs
 
 ## Checkpoint Rule
 

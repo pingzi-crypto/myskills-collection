@@ -78,6 +78,22 @@ And always make the execution boundary explicit:
 - the user still needs the downstream execution skill to actually create,
   update, or review the card
 
+And always include the minimum execution package:
+
+- resolved capture anchor
+- selected card type
+- selected action mode
+- downstream execution skill
+- any still-missing write inputs that must be collected before execution
+
+Mode-specific minimum follow-up:
+
+- `create`: if title, keywords, domain, or vault root are still missing, say so
+- `update`: if the target existing card is not explicit yet, say that the
+  downstream skill still needs the existing card path or title confirmation
+- `promotion review`: if the target existing card is not explicit yet, say that
+  the downstream skill still needs the existing card path or title confirmation
+
 Examples:
 
 - `Concept + create`

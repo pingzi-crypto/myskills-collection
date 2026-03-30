@@ -139,9 +139,21 @@ When executing this skill, produce:
 5. The exact downstream skill to use next.
 6. An explicit status line saying routing is complete but no card file has been
    created or updated yet.
-7. One exact next-step instruction for actual execution by the downstream
+7. The minimum execution package already known at handoff time:
+   - capture anchor
+   - card type
+   - action mode
+   - downstream skill
+8. Any still-missing write inputs that the downstream skill must collect before
+   real execution, for example:
+   - title
+   - keywords or thread points
+   - domain
+   - vault root
+   - existing card path or title when update or promotion review depends on it
+9. One exact next-step instruction for actual execution by the downstream
    skill.
-8. If needed, one clarification question before handoff.
+10. If needed, one clarification question before handoff.
 
 If the user replied with exactly one of `概念 / 机制 / 方法 / 误解`, immediately
 route to the corresponding downstream skill and treat the anchored assistant
@@ -160,6 +172,13 @@ Route result: <Concept | Mechanism | Method | Misconception>
 Mode: <create | update | promotion review>
 Use $<target-skill> for the next step.
 Router status: routing complete only. No card file has been created or updated yet.
+Execution package confirmed:
+- Capture anchor: <resolved anchor>
+- Card type: <Concept | Mechanism | Method | Misconception>
+- Mode: <create | update | promotion review>
+- Downstream skill: $<target-skill>
+Still needed before write:
+- <title | keywords | domain | vault root | existing card path | none>
 Next step: use $<target-skill> now to actually <create | update | review> the card.
 Suggested reply: <继续创建 | 继续更新 | 继续评审>
 Reason: <one-sentence rationale>
