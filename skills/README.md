@@ -193,6 +193,70 @@ Vault root: <optional vault path>
 4. Let that skill handle duplicate checks, rendering, and progression assessment.
 5. Promote only when the card has real node-level or rule-level evidence.
 
+## End-to-End Example
+
+This is the safest mental model:
+
+1. `obsidian-learning-card-router` only classifies the thread.
+2. The router does not create or update any card file.
+3. The downstream execution skill does the real write.
+
+Example:
+
+User asks to save a thread fragment about Windows screenshot capabilities.
+
+Router output should look like:
+
+```text
+Capture anchor: `windows系统有自带的截图功能吗？如果有快捷键是什么` -> first assistant reply after it
+Route result: `Concept`
+Mode: `create`
+Use `$obsidian-concept-card-capture` for the next step.
+Router status: routing complete only. No card file has been created or updated yet.
+Execution package confirmed:
+- Capture anchor: selected user message -> first assistant reply after it
+- Card type: Concept
+- Mode: create
+- Downstream skill: $obsidian-concept-card-capture
+Still needed before write:
+- title
+- keywords or thread points
+- domain
+- vault root
+Next step: use `$obsidian-concept-card-capture` now to actually create the card.
+Suggested reply: `继续创建`
+Reason: 这段内容主要在解释截图方式的类型和边界，属于概念卡。
+```
+
+At this point, no card file exists yet.
+
+The user or agent must continue into the execution skill, for example:
+
+```text
+Use $obsidian-concept-card-capture to work on one concept card from this thread.
+Mode: create
+Concept title: Windows 自带截图方式
+Keywords or thread points to capture:
+- Windows 自带多种截图方式
+- Print Screen
+- Win + Shift + S
+- Snipping Tool
+Domain: Windows Workflow
+Vault root: C:\Users\pz\Documents\Obsidian Vault
+```
+
+Only after that execution step should the user expect a result shaped like:
+
+```text
+Concept captured: Windows 自带截图方式
+Created file: <VAULT_ROOT>/学习/Cards/Concepts/Windows 自带截图方式.md
+Summary: extracted the built-in screenshot methods, their shortcuts, and their boundary differences.
+```
+
+Longer user-view examples live at:
+
+- `analysis/learning-card-end-to-end-examples/report.md`
+ 
 ## Collection Direction
 
 As this repository grows, this index should remain the first place to look for:
