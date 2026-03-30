@@ -1,0 +1,8 @@
+Capture anchor: `这个误解卡是否应该升到 expert-ready` -> first assistant reply after it
+Route result: `Misconception`
+Mode: `promotion review`
+Use `$obsidian-misconception-card-capture` for the next step.
+Router status: routing complete only. No card file has been created or updated yet.
+Next step: use `$obsidian-misconception-card-capture` now to actually review the card.
+Suggested reply: `继续评审`
+Reason: 当前线程在判断已有误解卡的成熟度与调度价值，属于晋升评审而不是首次写卡。

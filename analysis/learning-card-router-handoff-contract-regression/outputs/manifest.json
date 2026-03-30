@@ -1,0 +1,19 @@
+{
+  "samples": [
+    {
+      "name": "concept-create",
+      "output": "analysis/learning-card-router-handoff-contract-regression/outputs/concept-create-handoff.txt",
+      "sha256": "41E9E3628E6E559E4CC1FCF193E2DB9AD9F9F807AD5EC0CF71C93BE8F2E3AFAA"
+    },
+    {
+      "name": "method-update",
+      "output": "analysis/learning-card-router-handoff-contract-regression/outputs/method-update-handoff.txt",
+      "sha256": "D46C90C80D5A53F8BD4EC91ED0E2D49C1CC7559D3B35592D8192603F5824BBC6"
+    },
+    {
+      "name": "misconception-promotion-review",
+      "output": "analysis/learning-card-router-handoff-contract-regression/outputs/misconception-promotion-review-handoff.txt",
+      "sha256": "75A9C0D10A8E01B20C1BDDDF48A72C6667C384F80DF2A11F8E883D8FC0787A80"
+    }
+  ]
+}
