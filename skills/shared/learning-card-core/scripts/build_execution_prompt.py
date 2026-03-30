@@ -54,41 +54,54 @@ def placeholder(value: str | None, default: str) -> str:
     return text if text else default
 
 
-def render_prompt(args: argparse.Namespace) -> str:
-    config = CARD_CONFIG[args.card_type]
+def render_prompt_from_values(
+    *,
+    card_type: str,
+    mode: str,
+    capture_anchor: str | None = None,
+    title: str | None = None,
+    existing_card: str | None = None,
+    points: list[str] | None = None,
+    domain: str | None = None,
+    subdomain: str | None = None,
+    source: str | None = None,
+    vault_root: str | None = None,
+) -> str:
+    config = CARD_CONFIG[card_type]
     skill = config["skill"]
+    point_values = points or []
     lines: list[str] = [
         f"Use {skill} to work on one {config['label']} card from this thread.",
-        f"Mode: {args.mode}",
+        f"Mode: {mode}",
     ]
 
-    if args.capture_anchor:
-        lines.append(f"Capture anchor: {args.capture_anchor.strip()}")
+    if capture_anchor:
+        lines.append(f"Capture anchor: {capture_anchor.strip()}")
 
-    if args.mode == "create":
-        lines.append(f"{config['title_label']}: {placeholder(args.title, f'<single {config['label']}>')}")
+    if mode == "create":
+        lines.append(f"{config['title_label']}: {placeholder(title, f'<single {config['label']}>')}")
         lines.extend(
             bullet_block(
                 "Keywords or thread points to capture",
-                args.point,
+                point_values,
                 "<keywords or short excerpts>",
             )
         )
-        lines.append(f"Domain: {placeholder(args.domain, '<domain>')}")
-        lines.append(f"Subdomain: {placeholder(args.subdomain, '<optional subdomain>')}")
-        lines.append(f"Source: {placeholder(args.source, '<optional source>')}")
-        lines.append(f"Vault root: {placeholder(args.vault_root, '<optional vault path>')}")
+        lines.append(f"Domain: {placeholder(domain, '<domain>')}")
+        lines.append(f"Subdomain: {placeholder(subdomain, '<optional subdomain>')}")
+        lines.append(f"Source: {placeholder(source, '<optional source>')}")
+        lines.append(f"Vault root: {placeholder(vault_root, '<optional vault path>')}")
         return "\n".join(lines)
 
     lines.append(
         f"{config['existing_label']}: "
-        f"{placeholder(args.existing_card or args.title, '<existing card path or title>')}"
+        f"{placeholder(existing_card or title, '<existing card path or title>')}"
     )
-    if args.mode == "update":
+    if mode == "update":
         lines.extend(
             bullet_block(
                 "Keywords or thread points to merge",
-                args.point,
+                point_values,
                 "<keywords or short excerpts>",
             )
         )
@@ -96,13 +109,28 @@ def render_prompt(args: argparse.Namespace) -> str:
         lines.extend(
             bullet_block(
                 "Promotion evidence from this thread",
-                args.point,
+                point_values,
                 "<evidence or short excerpts>",
             )
         )
-    lines.append(f"Source: {placeholder(args.source, '<optional source>')}")
-    lines.append(f"Vault root: {placeholder(args.vault_root, '<optional vault path>')}")
+    lines.append(f"Source: {placeholder(source, '<optional source>')}")
+    lines.append(f"Vault root: {placeholder(vault_root, '<optional vault path>')}")
     return "\n".join(lines)
+
+
+def render_prompt(args: argparse.Namespace) -> str:
+    return render_prompt_from_values(
+        card_type=args.card_type,
+        mode=args.mode,
+        capture_anchor=args.capture_anchor,
+        title=args.title,
+        existing_card=args.existing_card,
+        points=args.point,
+        domain=args.domain,
+        subdomain=args.subdomain,
+        source=args.source,
+        vault_root=args.vault_root,
+    )
 
 
 def main() -> int:

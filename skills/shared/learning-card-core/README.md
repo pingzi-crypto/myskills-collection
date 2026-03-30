@@ -13,6 +13,7 @@ Current shared scripts:
 
 - `scripts/render_common.py`
 - `scripts/build_execution_prompt.py`
+- `scripts/build_execution_prompt_from_handoff.py`
 
 Boundary rule:
 

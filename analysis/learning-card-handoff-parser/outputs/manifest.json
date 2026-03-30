@@ -1,0 +1,19 @@
+{
+  "outputs": [
+    {
+      "name": "concept-create-prompt",
+      "output": "analysis/learning-card-handoff-parser/outputs/concept-create-prompt.txt",
+      "sha256": "77C1ED52941B27214DDF543ECEC91B011BDC47B33C88EC54DBE89300B2C1EA68"
+    },
+    {
+      "name": "method-update-prompt",
+      "output": "analysis/learning-card-handoff-parser/outputs/method-update-prompt.txt",
+      "sha256": "3E7B5B8B5B5254640A0D1731E896692DBFCA5A92C683C2B030B0B876E7E9F673"
+    },
+    {
+      "name": "misconception-review-prompt",
+      "output": "analysis/learning-card-handoff-parser/outputs/misconception-review-prompt.txt",
+      "sha256": "B71A8CE9265A7FA2605D4F19D8FD5496452D24F9E583A3371661CC8E23C3CC6C"
+    }
+  ]
+}

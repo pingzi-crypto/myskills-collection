@@ -1,0 +1,16 @@
+Capture anchor: `把 router 的问题改成中英双语` -> first assistant reply after it
+Route result: `Method`
+Mode: `update`
+Use `$obsidian-method-card-capture` for the next step.
+Router status: routing complete only. No card file has been created or updated yet.
+Execution package confirmed:
+- Capture anchor: selected user message -> first assistant reply after it
+- Card type: Method
+- Mode: update
+- Downstream skill: $obsidian-method-card-capture
+Still needed before write:
+- existing card title or path confirmation
+- vault root
+Next step: use `$obsidian-method-card-capture` now to actually update the card.
+Suggested reply: `继续更新`
+Reason: 当前任务是在已有方法卡上补充执行规则，不是新建卡。
