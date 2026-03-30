@@ -72,6 +72,12 @@ Always hand off with both:
 - card type
 - action mode
 
+And always make the execution boundary explicit:
+
+- routing alone did not write any card file yet
+- the user still needs the downstream execution skill to actually create,
+  update, or review the card
+
 Examples:
 
 - `Concept + create`

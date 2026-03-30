@@ -21,6 +21,9 @@ This skill is intentionally a router, not a writer. It decides:
 - the action mode
 - the correct downstream skill
 
+The router must explicitly tell the user when routing is finished but no card
+file has been created or updated yet.
+
 Read these before routing:
 
 - [../references/learning-card-skill-family.md](../references/learning-card-skill-family.md)
@@ -58,6 +61,9 @@ Do not use this skill when:
 8. If the anchored content contains multiple possible card types, choose the strongest primary one instead of trying to split immediately.
 9. Explain the routing decision in one short sentence.
 10. Hand off to the selected card skill with the mode and anchor attached.
+11. Explicitly state that routing alone did not create or update any card file.
+12. Give one exact next-step instruction so the user knows how to continue into
+    real card creation, update, or promotion review.
 
 ## Routing Questions
 
@@ -131,11 +137,18 @@ When executing this skill, produce:
    - `promotion review`
 4. The reason for the choice in one short sentence.
 5. The exact downstream skill to use next.
-6. If needed, one clarification question before handoff.
+6. An explicit status line saying routing is complete but no card file has been
+   created or updated yet.
+7. One exact next-step instruction for actual execution by the downstream
+   skill.
+8. If needed, one clarification question before handoff.
 
 If the user replied with exactly one of `概念 / 机制 / 方法 / 误解`, immediately
 route to the corresponding downstream skill and treat the anchored assistant
 reply as the primary source body to record.
+
+Do not stop with a handoff that sounds like a card already exists on disk when
+the router only classified the thread.
 
 ## Handoff Template
 
@@ -146,6 +159,9 @@ Capture anchor: <selected user message -> first assistant reply after it>
 Route result: <Concept | Mechanism | Method | Misconception>
 Mode: <create | update | promotion review>
 Use $<target-skill> for the next step.
+Router status: routing complete only. No card file has been created or updated yet.
+Next step: use $<target-skill> now to actually <create | update | review> the card.
+Suggested reply: <继续创建 | 继续更新 | 继续评审>
 Reason: <one-sentence rationale>
 ```
 

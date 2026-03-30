@@ -76,10 +76,13 @@ The router is responsible for:
 - selecting the correct action mode
 - avoiding premature multi-card expansion
 - handing off to exactly one downstream skill
+- explicitly stating when the result is routing only and no card file exists yet
+- pointing to one exact downstream next step for actual execution
 
 The router is not responsible for:
 
 - writing card body content
+- writing any card file
 - promotion evidence details
 - backlink construction
 - graph rendering
@@ -235,8 +238,9 @@ For ambiguous threads:
 
 1. route by dominant question
 2. decide whether the task is create, update, or promotion review
-3. hand off to exactly one execution skill
-4. let that skill perform duplicate checks and rendering
+3. explicitly state that routing did not create or update a card file yet
+4. hand off to exactly one execution skill
+5. let that skill perform duplicate checks and rendering
 
 For existing cards:
 

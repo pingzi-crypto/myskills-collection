@@ -184,9 +184,10 @@ Vault root: <optional vault path>
 ## Suggested Obsidian Workflow
 
 1. Use `obsidian-learning-card-router` if the type is still ambiguous.
-2. Route to exactly one execution skill.
-3. Let that skill handle duplicate checks, rendering, and progression assessment.
-4. Promote only when the card has real node-level or rule-level evidence.
+2. Let the router explicitly say whether it only classified the thread or an execution skill has actually written a card.
+3. Route to exactly one execution skill.
+4. Let that skill handle duplicate checks, rendering, and progression assessment.
+5. Promote only when the card has real node-level or rule-level evidence.
 
 ## Collection Direction
 
