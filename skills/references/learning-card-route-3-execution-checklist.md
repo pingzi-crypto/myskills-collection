@@ -78,6 +78,7 @@ Before merging Route 3 work, verify:
 9. bilingual default still behaves as expected
 10. vault-root overrides still behave as expected
 11. missing optional progression fields do not emit empty placeholder blocks
+12. stage-aware routing visibility still hides and reveals the correct sub-blocks
 
 ## Checkpoint Rule
 
