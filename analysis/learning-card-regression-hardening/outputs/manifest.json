@@ -1,0 +1,24 @@
+{
+  "cases": [
+    {
+      "name": "concept",
+      "output": "analysis/learning-card-regression-hardening/outputs/concept-seed-no-optional-progression.md",
+      "sha256": "54D1EA9FD4C908370BAF1543695D65E35E81728BBC213D5DE19D33DBEF8E440A"
+    },
+    {
+      "name": "mechanism",
+      "output": "analysis/learning-card-regression-hardening/outputs/mechanism-seed-no-optional-progression.md",
+      "sha256": "DB0D99CDCA16F6C62FBD181ACD326753E12E178681AA4CEA7547D249A78EA74D"
+    },
+    {
+      "name": "method",
+      "output": "analysis/learning-card-regression-hardening/outputs/method-seed-no-optional-progression.md",
+      "sha256": "79BF566808240717B00CCD14C480F557383F6F3942D07C8200E4713048A8A245"
+    },
+    {
+      "name": "misconception",
+      "output": "analysis/learning-card-regression-hardening/outputs/misconception-seed-no-optional-progression.md",
+      "sha256": "B685FBA7ABEBC0CF892DAA8608B378E3A386C90A6B867176F7C83946DF5C2E60"
+    }
+  ]
+}

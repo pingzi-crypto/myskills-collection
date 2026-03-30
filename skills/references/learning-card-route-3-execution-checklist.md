@@ -77,6 +77,7 @@ Before merging Route 3 work, verify:
 8. expert-ready still requires real dispatch value
 9. bilingual default still behaves as expected
 10. vault-root overrides still behave as expected
+11. missing optional progression fields do not emit empty placeholder blocks
 
 ## Checkpoint Rule
 
