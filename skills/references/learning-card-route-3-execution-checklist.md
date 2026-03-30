@@ -103,3 +103,4 @@ Checkpoint status at the moment:
 Additional note:
 
 - real-card dry-run against existing vault notes has been completed without write-path execution
+- controlled handoff-style validation against an explicit existing card has been completed with a real write
