@@ -1,0 +1,92 @@
+{
+  "title": "Skill 已在 Codex 加载不等于 Claude Code 和 OpenClaw 兼容已完成",
+  "domain": "AI协同",
+  "subdomain": "Skill Compatibility",
+  "source": "Anchored from current session: user asked whether already-loaded skills in Codex App mean no more compatibility work is needed for Claude Code and OpenClaw; routed as misconception by dominant correction intent",
+  "status": "seed",
+  "graph_maturity": "none",
+  "confidence": "1",
+  "review_cycle": "30d",
+  "sections": {
+    "mistaken_claim": [
+      {
+        "zh": "只要一个 skill 已经在 Codex App 里被加载出来，就等于它对 Claude Code 和 OpenClaw 的兼容已经自然成立，不需要再做兼容设计。",
+        "en": "If a skill is already loaded in the Codex App, its compatibility with Claude Code and OpenClaw is automatically complete and no additional compatibility design is needed."
+      }
+    ],
+    "why_it_seems_plausible": [
+      {
+        "zh": "同一份 skill 已经在一个宿主里可见，容易让人误以为其他宿主也会按相同规则解析它。",
+        "en": "When the same skill is already visible in one host, it is easy to assume that other hosts will parse it under the same rules."
+      },
+      {
+        "zh": "从用户视角看，“能加载”很像“能通用”，所以会把运行时暴露状态误当成跨端兼容证明。",
+        "en": "From the user perspective, 'it loads' looks very similar to 'it is portable', so runtime exposure is mistaken for cross-platform compatibility proof."
+      }
+    ],
+    "why_it_is_wrong": [
+      {
+        "zh": "Codex、Claude Code 和 OpenClaw 的 skill 发现方式、字段约定、执行入口和上下文注入方式并不必然相同。",
+        "en": "Codex, Claude Code, and OpenClaw do not necessarily share the same skill discovery rules, field contracts, execution entrypoints, or context injection behavior."
+      },
+      {
+        "zh": "在 Codex 中成功加载，只能证明当前目录结构和说明文件足以被 Codex 接受，不能自动证明另外两端也会按同样方式工作。",
+        "en": "A successful load in Codex only proves that the current directory structure and instruction files are acceptable to Codex; it does not automatically prove that the other two hosts will behave the same way."
+      },
+      {
+        "zh": "真正的兼容要求通常还包括目录约定、说明文档边界、脚本调用方式以及各端的测试验证。",
+        "en": "Real compatibility usually still requires alignment on directory conventions, instruction boundaries, script invocation shape, and validation on each host."
+      }
+    ],
+    "correct_understanding": [
+      {
+        "zh": "“已被 Codex 加载”只说明它在 Codex 侧可用，不等于三端兼容工作已经结束。",
+        "en": "'Already loaded by Codex' only means it is usable on the Codex side; it does not mean cross-platform compatibility work is finished."
+      },
+      {
+        "zh": "更稳妥的做法是把公共协议抽出来，再分别检查 Claude Code 和 OpenClaw 是否接受同样的 skill 结构或需要薄适配层。",
+        "en": "The safer approach is to extract a shared protocol and then verify whether Claude Code and OpenClaw accept the same skill structure or need thin adapter layers."
+      }
+    ],
+    "what_it_confuses": [
+      {
+        "zh": "它把“一个宿主里的可见性”混淆成了“多个宿主里的兼容性”。",
+        "en": "It confuses visibility inside one host with compatibility across multiple hosts."
+      }
+    ],
+    "representative_counterexamples": [
+      {
+        "zh": "一个 skill 可以在 Codex 中被扫描到，但如果 Claude Code 需要不同的目录边界或 OpenClaw 需要不同的元数据字段，它仍然需要兼容处理。",
+        "en": "A skill can be discovered in Codex, but if Claude Code needs a different directory boundary or OpenClaw expects different metadata fields, compatibility work is still required."
+      }
+    ],
+    "trigger_signals": [
+      {
+        "zh": "只因为 skill 已出现在 Codex 可用列表中，就直接下结论说不需要再做 Claude Code 或 OpenClaw 兼容。",
+        "en": "Concluding that no more Claude Code or OpenClaw compatibility work is needed merely because the skill appears in the Codex available-skill list."
+      }
+    ],
+    "corrective_action": [
+      {
+        "zh": "先区分“Codex 可用”与“三端兼容”这两个判断层级，再分别验证目录、协议和执行路径。",
+        "en": "First separate the judgment levels of 'usable in Codex' and 'compatible across all three hosts', then validate directories, protocols, and execution paths independently."
+      },
+      {
+        "zh": "如果目标是三端复用，优先维护共享核心协议，再为各宿主保留最小适配层。",
+        "en": "If the goal is reuse across three hosts, maintain a shared core protocol first and keep only minimal host-specific adapters."
+      }
+    ],
+    "current_status_notes": [
+      {
+        "zh": "这张卡由一次真实的 router 主导歧义线程写入验证创建，用来证明系统可以先判定误解类型，再落到 Misconception create 路径。",
+        "en": "This card was created through a real router-led ambiguous-thread write validation to prove that the system can classify the content as a misconception before landing on the Misconception create path."
+      }
+    ],
+    "current_upgrade_tasks": [
+      {
+        "zh": "后续可补充一到两个 Claude Code 或 OpenClaw 侧的真实兼容差异案例。",
+        "en": "Later, add one or two real compatibility-difference cases from Claude Code or OpenClaw."
+      }
+    ]
+  }
+}

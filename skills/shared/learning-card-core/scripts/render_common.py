@@ -194,14 +194,14 @@ def bullet_lines(value: Any, default_blank: bool = True) -> list[str]:
     return ["- "] if default_blank else []
 
 
-def checkbox_lines(value: Any) -> list[str]:
+def checkbox_lines(value: Any, default_blank: bool = True) -> list[str]:
     items = normalize_content_items(value)
     if items:
         lines: list[str] = []
         for item in items:
             lines.extend(render_item_lines(item, prefix="- [ ] ", translation_prefix="  - EN: "))
         return lines
-    return ["- [ ] "]
+    return ["- [ ] "] if default_blank else []
 
 
 def has_meaningful_lines(lines: list[str]) -> bool:

@@ -104,3 +104,4 @@ Additional note:
 
 - real-card dry-run against existing vault notes has been completed without write-path execution
 - controlled handoff-style validation against an explicit existing card has been completed with a real write
+- one router-led ambiguous-thread create-path validation has been completed with a real write to cover non-explicit card targeting
