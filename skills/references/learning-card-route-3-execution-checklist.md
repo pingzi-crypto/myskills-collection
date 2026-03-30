@@ -99,3 +99,7 @@ Checkpoint status at the moment:
 2. shared script helpers introduced -> completed
 3. execution skills thinned against shared script helpers -> completed for renderer wrappers
 4. regression pass completed -> automated renderer checks completed; manual router/update walkthrough completed; live real-card session still recommended
+
+Additional note:
+
+- real-card dry-run against existing vault notes has been completed without write-path execution
