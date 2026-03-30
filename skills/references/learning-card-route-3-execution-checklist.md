@@ -98,7 +98,7 @@ Checkpoint status at the moment:
 1. shared references extracted
 2. shared script helpers introduced -> completed
 3. execution skills thinned against shared script helpers -> completed for renderer wrappers
-4. regression pass completed -> automated renderer checks completed; manual router/update walkthrough completed; live real-card session still recommended
+4. regression pass completed -> automated renderer checks completed; manual router/update walkthrough completed; one live real-card update-path write has been completed
 
 Additional note:
 
