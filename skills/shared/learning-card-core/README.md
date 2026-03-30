@@ -16,6 +16,7 @@ Current shared scripts:
 Boundary rule:
 
 - shared core owns procedural and rendering protocol
+- shared core owns common spec validation before deterministic rendering
 - execution skills still own card-type semantics
 - router still owns broad thread classification
 

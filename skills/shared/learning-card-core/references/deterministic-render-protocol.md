@@ -28,6 +28,16 @@ All renderer inputs should support these family-wide ideas:
 
 Section names remain card-type-specific.
 
+Before rendering, shared-core validators should verify:
+
+- required top-level identity fields are present
+- family-wide enums such as `status` and `graph_maturity` are valid
+- list-like metadata fields keep stable shapes
+- structured sections such as graph links, routing, and promotion blocks keep
+  object form where required
+- unknown section keys are rejected at the wrapper level instead of being
+  silently ignored
+
 ## Bilingual Content Rule
 
 When content is synthesized from the thread, default to bilingual items shaped

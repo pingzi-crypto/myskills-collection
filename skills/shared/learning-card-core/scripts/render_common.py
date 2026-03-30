@@ -12,6 +12,113 @@ ROUTING_SECTION_LABELS = [
     ("gap_signals", "Gap Signals"),
     ("stop_rules", "Stop Rules"),
 ]
+ALLOWED_STATUS = {"seed", "growing", "stable", "expert-ready"}
+ALLOWED_GRAPH_MATURITY = {"none", "weak", "local", "dispatchable"}
+ROUTING_SECTION_KEYS = {key for key, _ in ROUTING_SECTION_LABELS}
+
+
+class SpecValidationError(ValueError):
+    pass
+
+
+def _is_bilingual_leaf(value: Any) -> bool:
+    return isinstance(value, dict) and set(value).issubset({"zh", "en"})
+
+
+def _is_content_value(value: Any) -> bool:
+    if value is None:
+        return True
+    if isinstance(value, (str, int, float, bool)):
+        return True
+    if isinstance(value, list):
+        return all(_is_content_value(item) and not isinstance(item, list) for item in value)
+    if _is_bilingual_leaf(value):
+        return True
+    return False
+
+
+def _validate_content_value(value: Any, path: str) -> None:
+    if not _is_content_value(value):
+        raise SpecValidationError(f"{path} must be a string, bilingual item, or list of those values.")
+
+
+def _validate_mapping_section(value: Any, path: str) -> None:
+    if value is None:
+        return
+    if not isinstance(value, dict):
+        raise SpecValidationError(f"{path} must be an object.")
+    for key, item in value.items():
+        _validate_content_value(item, f"{path}.{key}")
+
+
+def _validate_routing_section(value: Any, path: str) -> None:
+    if value is None:
+        return
+    if isinstance(value, dict):
+        unknown = sorted(set(value) - ROUTING_SECTION_KEYS)
+        if unknown:
+            raise SpecValidationError(f"{path} contains unknown routing keys: {', '.join(unknown)}")
+        for key, item in value.items():
+            _validate_content_value(item, f"{path}.{key}")
+        return
+    _validate_content_value(value, path)
+
+
+def validate_learning_card_spec(
+    spec: dict[str, Any],
+    *,
+    card_type: str,
+    section_keys: set[str],
+    mapping_sections: set[str] | None = None,
+    routing_sections: set[str] | None = None,
+) -> None:
+    if not isinstance(spec, dict):
+        raise SpecValidationError(f"{card_type} spec root must be an object.")
+
+    title = spec.get("title")
+    if title is None or not str(title).strip():
+        raise SpecValidationError(f"{card_type} spec is missing required field: title")
+
+    domain = spec.get("domain")
+    if domain is None or not str(domain).strip():
+        raise SpecValidationError(f"{card_type} spec is missing required field: domain")
+
+    status = spec.get("status")
+    if status is not None and scalar(status) not in ALLOWED_STATUS:
+        allowed = ", ".join(sorted(ALLOWED_STATUS))
+        raise SpecValidationError(f"{card_type} spec status must be one of: {allowed}")
+
+    graph_maturity = spec.get("graph_maturity")
+    if graph_maturity is not None and scalar(graph_maturity) not in ALLOWED_GRAPH_MATURITY:
+        allowed = ", ".join(sorted(ALLOWED_GRAPH_MATURITY))
+        raise SpecValidationError(f"{card_type} spec graph_maturity must be one of: {allowed}")
+
+    for key in ["tags", "related", "aliases"]:
+        value = spec.get(key)
+        if value is not None and not isinstance(value, (str, list)):
+            raise SpecValidationError(f"{card_type} spec field '{key}' must be a string or a list.")
+
+    sections = spec.get("sections", {}) or {}
+    if not isinstance(sections, dict):
+        raise SpecValidationError(f"{card_type} spec field 'sections' must be an object.")
+
+    unknown_sections = sorted(set(sections) - section_keys)
+    if unknown_sections:
+        raise SpecValidationError(
+            f"{card_type} spec contains unknown section keys: {', '.join(unknown_sections)}"
+        )
+
+    mapping_sections = mapping_sections or set()
+    routing_sections = routing_sections or set()
+
+    for key, value in sections.items():
+        path = f"sections.{key}"
+        if key in mapping_sections:
+            _validate_mapping_section(value, path)
+        elif key in routing_sections:
+            _validate_routing_section(value, path)
+        else:
+            _validate_content_value(value, path)
 
 
 def sanitize_filename(value: str) -> str:

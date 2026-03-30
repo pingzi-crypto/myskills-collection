@@ -20,9 +20,11 @@ if str(CORE_SCRIPTS) not in sys.path:
     sys.path.insert(0, str(CORE_SCRIPTS))
 
 from render_common import (
+    SpecValidationError,
     append_section,
     bullet_lines,
     checkbox_lines,
+    has_routing_content,
     lines_for_dict_entries,
     normalize_list,
     normalize_routing_sections,
@@ -33,7 +35,30 @@ from render_common import (
     should_show_graph,
     should_show_progression,
     should_show_promotion,
+    validate_learning_card_spec,
 )
+
+SECTION_KEYS = {
+    "mistaken_claim",
+    "why_it_seems_plausible",
+    "why_it_is_wrong",
+    "correct_understanding",
+    "what_it_confuses",
+    "representative_counterexamples",
+    "trigger_signals",
+    "corrective_action",
+    "current_status_notes",
+    "next_goal",
+    "growing_checklist",
+    "stable_checklist",
+    "expert_ready_checklist",
+    "current_upgrade_tasks",
+    "upgrade_history",
+    "local_position",
+    "operational_links",
+    "routing_and_dispatch",
+    "promotion_assessment",
+}
 
 
 def section_map(spec: dict[str, Any]) -> dict[str, Any]:
@@ -62,14 +87,15 @@ def section_map(spec: dict[str, Any]) -> dict[str, Any]:
 
 
 def render_card(spec: dict[str, Any]) -> str:
+    validate_learning_card_spec(
+        spec,
+        card_type="misconception",
+        section_keys=SECTION_KEYS,
+        mapping_sections={"local_position", "operational_links", "promotion_assessment"},
+        routing_sections={"routing_and_dispatch"},
+    )
+
     raw_title = scalar(spec.get("title"))
-    if not raw_title:
-        raise ValueError("Missing required field: title")
-
-    domain = scalar(spec.get("domain"))
-    if not domain:
-        raise ValueError("Missing required field: domain")
-
     title = sanitize_filename(raw_title)
     status = scalar(spec.get("status"), "seed")
     graph_maturity = scalar(spec.get("graph_maturity"), "none")
@@ -94,7 +120,7 @@ def render_card(spec: dict[str, Any]) -> str:
     routing_sections = sections["routing_and_dispatch"]
     show_graph = should_show_graph(status, sections)
     show_routing = status == "expert-ready" or bool(routing_sections.get("direct_routes")) or (
-        status == "growing" and any(routing_sections.values())
+        status == "growing" and has_routing_content(routing_sections)
     )
     show_promotion = should_show_promotion(status, sections["promotion_assessment"])
     show_progression = should_show_progression(status, sections)
@@ -166,9 +192,14 @@ def main() -> None:
     parser.add_argument("--output", help="Optional output markdown path. Prints to stdout when omitted.")
     args = parser.parse_args()
 
-    spec_path = Path(args.spec)
-    spec = json.loads(spec_path.read_text(encoding="utf-8-sig"))
-    markdown = render_card(spec)
+    try:
+        spec_path = Path(args.spec)
+        spec = json.loads(spec_path.read_text(encoding="utf-8-sig"))
+        markdown = render_card(spec)
+    except json.JSONDecodeError as exc:
+        parser.exit(2, f"Invalid JSON spec: {exc}\n")
+    except SpecValidationError as exc:
+        parser.exit(2, f"Spec validation failed: {exc}\n")
 
     if args.output:
         output_path = Path(args.output)

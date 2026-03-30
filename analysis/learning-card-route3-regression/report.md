@@ -54,6 +54,24 @@ Observed result:
 
 - no syntax errors
 
+### Shared Spec Validation Failure Path
+
+Status:
+
+- pass
+
+Check shape:
+
+- run one renderer with an intentionally invalid spec
+- verify the shared-core validator rejects the input before rendering
+- verify the CLI returns a concise validation error instead of a Python traceback
+
+Observed result:
+
+- invalid `status` values are rejected by the shared validator
+- wrapper scripts now exit with a stable `Spec validation failed: ...` message
+- the invalid spec does not fall through into partial rendering
+
 ## Output Artifact Hashes
 
 - `concept-sample.md`
@@ -71,6 +89,7 @@ Observed result:
 
 - shared procedural references are in place under `skills/shared/learning-card-core/references/`
 - shared script helper is in place under `skills/shared/learning-card-core/scripts/render_common.py`
+- shared spec validation now runs before deterministic rendering
 - renderer wrappers are thinner and keep card-type-specific section schemas
 - deterministic rendering still works after moving common logic into the shared core
 

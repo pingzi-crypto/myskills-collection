@@ -33,7 +33,7 @@ The current Route 3 target is:
 
 The next structural step should be:
 
-- extract shared script-level helpers without flattening card-type semantics
+- run one live real-card session against an existing Obsidian note to validate router handoff plus update or promotion-review behavior
 
 ## Scope Boundary
 
