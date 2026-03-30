@@ -7,6 +7,7 @@ This directory stores the concrete learning-card skill family for this collectio
 Shared learning-card references:
 
 - `skills/references/learning-card-skill-family.md`
+- `skills/references/learning-card-standard-operating-manual.md`
 - `skills/references/learning-card-shared-core-blueprint.md`
 - `skills/references/learning-card-worktree-guide.md`
 - `skills/references/learning-card-route-3-execution-checklist.md`
@@ -256,6 +257,10 @@ Summary: extracted the built-in screenshot methods, their shortcuts, and their b
 Longer user-view examples live at:
 
 - `analysis/learning-card-end-to-end-examples/report.md`
+
+Short operator manual:
+
+- `skills/references/learning-card-standard-operating-manual.md`
  
 ## Collection Direction
 
