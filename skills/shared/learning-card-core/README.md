@@ -15,6 +15,14 @@ Current shared scripts:
 - `scripts/build_execution_prompt.py`
 - `scripts/build_execution_prompt_from_handoff.py`
 
+Shared script intent:
+
+- `scripts/render_common.py`: deterministic shared rendering helpers
+- `scripts/build_execution_prompt.py`: build an execution prompt when card type
+  and mode are already explicit
+- `scripts/build_execution_prompt_from_handoff.py`: parse canonical router
+  handoff text and emit the matching execution prompt skeleton
+
 Boundary rule:
 
 - shared core owns procedural and rendering protocol

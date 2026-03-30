@@ -64,6 +64,8 @@ Do not use this skill when:
 11. Explicitly state that routing alone did not create or update any card file.
 12. Give one exact next-step instruction so the user knows how to continue into
     real card creation, update, or promotion review.
+13. Keep the handoff text stable enough to be consumed by the shared parser at
+    `../shared/learning-card-core/scripts/build_execution_prompt_from_handoff.py`.
 
 ## Routing Questions
 
@@ -161,6 +163,9 @@ reply as the primary source body to record.
 
 Do not stop with a handoff that sounds like a card already exists on disk when
 the router only classified the thread.
+
+The canonical handoff format is intentionally machine-parseable so shared
+tooling can generate the next execution prompt without manual rewriting.
 
 ## Handoff Template
 

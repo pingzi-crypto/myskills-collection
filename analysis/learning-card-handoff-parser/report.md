@@ -16,6 +16,10 @@ Script:
 
 - `skills/shared/learning-card-core/scripts/build_execution_prompt_from_handoff.py`
 
+Regression script:
+
+- `analysis/learning-card-handoff-parser/scripts/verify_handoff_parser.py`
+
 It reuses:
 
 - `skills/shared/learning-card-core/scripts/build_execution_prompt.py`
@@ -38,6 +42,12 @@ It reuses:
 - `analysis/learning-card-handoff-parser/outputs/misconception-review-prompt.txt`
 - `analysis/learning-card-handoff-parser/outputs/manifest.json`
 
+Rebuild command:
+
+```powershell
+python analysis/learning-card-handoff-parser/scripts/verify_handoff_parser.py
+```
+
 ## Observed Result
 
 - the new parser can read canonical router handoff text and recover:
@@ -49,12 +59,14 @@ It reuses:
   shape for `create`, `update`, and `promotion review`
 - this reduces one more manual step between router output and execution-skill
   invocation
+- the parser line is now regression-backed, so future router handoff changes can
+  be checked against stable execution-prompt outputs
 
 ## Output Artifact Hashes
 
 - `concept-create-prompt.txt`
-  - `77C1ED52941B27214DDF543ECEC91B011BDC47B33C88EC54DBE89300B2C1EA68`
+  - `8791CAE5C5D1ADC57349F72E5CEDE070FFDE5DDBBFEE688B96B9D6724CBFFE69`
 - `method-update-prompt.txt`
-  - `3E7B5B8B5B5254640A0D1731E896692DBFCA5A92C683C2B030B0B876E7E9F673`
+  - `B7D6B14BF75C0DF2840207B148E602947C924895355ADBB9BC31040639A52D25`
 - `misconception-review-prompt.txt`
-  - `B71A8CE9265A7FA2605D4F19D8FD5496452D24F9E583A3371661CC8E23C3CC6C`
+  - `FA9B01F01031FB16D862324BD9B5523705F1FF7087545CBAF3D14BE6AC07DECC`

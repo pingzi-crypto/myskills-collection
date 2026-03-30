@@ -180,11 +180,21 @@ Before you stop, verify:
 
 If the file-level result line is missing, treat the task as not finished yet.
 
-## Optional Helper
+## Optional Helpers
 
-If the router has already decided the card type and mode, you can generate a
-downstream execution prompt skeleton with:
+If you already know card type and mode explicitly, use:
 
 - `skills/shared/learning-card-core/scripts/build_execution_prompt.py`
 
-This helps reduce manual prompt rewriting between router and execution skill.
+If you want to reuse the router handoff text directly, use:
+
+- `skills/shared/learning-card-core/scripts/build_execution_prompt_from_handoff.py`
+
+Example:
+
+```powershell
+python skills/shared/learning-card-core/scripts/build_execution_prompt_from_handoff.py `
+  --handoff-file analysis/learning-card-handoff-parser/inputs/concept-create-handoff.txt
+```
+
+This reduces manual prompt rewriting between router output and execution skill.

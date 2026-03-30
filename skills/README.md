@@ -231,6 +231,12 @@ Reason: 这段内容主要在解释截图方式的类型和边界，属于概念
 
 At this point, no card file exists yet.
 
+Optional bridge:
+
+- if you want to turn that router handoff directly into an execution prompt
+  skeleton, run
+  `python skills/shared/learning-card-core/scripts/build_execution_prompt_from_handoff.py --handoff-file <handoff.txt>`
+
 The user or agent must continue into the execution skill, for example:
 
 ```text
