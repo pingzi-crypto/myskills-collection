@@ -1,0 +1,22 @@
+{
+  "name": "concept-update-bridge-packet",
+  "mode": "update",
+  "card_type": "concept",
+  "expected_skill": "$obsidian-concept-card-capture",
+  "expected_target_path": "C:\\Users\\pz\\Documents\\Obsidian Vault\\学习\\Cards\\Concepts\\Deterministic Card Rendering.md",
+  "linked_live_case": "analysis/learning-card-live-acceptance-harness/cases/concept-update.json",
+  "linked_live_target_path": "C:\\Users\\pz\\Documents\\Obsidian Vault\\学习\\Cards\\Concepts\\Deterministic Card Rendering.md",
+  "linked_live_result_markers": [
+    "Updated file:",
+    "Summary:"
+  ],
+  "go_no_go": "go",
+  "placeholder_free": true,
+  "placeholder_markers": [],
+  "manual_next_step": "Copy concept-update-bridge-packet.txt into the next turn and run $obsidian-concept-card-capture until the result shows Updated file:, Summary:.",
+  "expected_completion_markers": [
+    "Updated file:",
+    "Summary:"
+  ],
+  "prompt_output": "analysis/learning-card-bridge-live-preflight/outputs/concept-update-bridge-packet.txt"
+}

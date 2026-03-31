@@ -104,6 +104,5 @@ system because it confirms all of the following on a real existing note:
 
 Still worth testing later:
 
-- one fully ambiguous thread that starts without the target card being explicit
-- one router-led write where the system must first choose between concept,
-  mechanism, method, and misconception before writing
+- one bridge-originated live operator run that starts from canonical router
+  handoff text, crosses the shared bridge, and ends in a real write result

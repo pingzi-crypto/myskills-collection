@@ -1,0 +1,34 @@
+{
+  "outputs": [
+    {
+      "name": "concept-update-bridge-packet",
+      "output": "analysis/learning-card-bridge-live-preflight/outputs/concept-update-bridge-packet.txt",
+      "sha256": "C643B98FA10ECD190563DCA76D1FD4A38D210925B5A0B8874DB26092F65501BD"
+    },
+    {
+      "name": "concept-update-bridge-packet-check",
+      "output": "analysis/learning-card-bridge-live-preflight/outputs/concept-update-bridge-packet-check.json",
+      "sha256": "B3B6AEA903783F52641C4962947E2808E73CA07EB7A3BC84BD324C37885CF358"
+    },
+    {
+      "name": "method-promotion-review-bridge-packet",
+      "output": "analysis/learning-card-bridge-live-preflight/outputs/method-promotion-review-bridge-packet.txt",
+      "sha256": "396B7BC9539E7D4984814411974C8280608B7CE1DA1BDB7810A4587506A4CBF3"
+    },
+    {
+      "name": "method-promotion-review-bridge-packet-check",
+      "output": "analysis/learning-card-bridge-live-preflight/outputs/method-promotion-review-bridge-packet-check.json",
+      "sha256": "EDDF59C7695FC41EAD5E1626DCE2F9A63C307BE895F4F9ECAAF29F2DA23DA14C"
+    },
+    {
+      "name": "misconception-ambiguous-create-bridge-packet",
+      "output": "analysis/learning-card-bridge-live-preflight/outputs/misconception-ambiguous-create-bridge-packet.txt",
+      "sha256": "FB82833CD3B9308BCFA425D3369EF495199F1C89FE0640EB401EC47C016CFE11"
+    },
+    {
+      "name": "misconception-ambiguous-create-bridge-packet-check",
+      "output": "analysis/learning-card-bridge-live-preflight/outputs/misconception-ambiguous-create-bridge-packet-check.json",
+      "sha256": "D669851AEC78FBFA70B3AE15B09254683CB292E27E10F2563FAD6E41390D5459"
+    }
+  ]
+}

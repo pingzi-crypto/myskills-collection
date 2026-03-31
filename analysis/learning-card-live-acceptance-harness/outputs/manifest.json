@@ -1,6 +1,11 @@
 {
   "outputs": [
     {
+      "name": "concept-update-bridge-originated-live-write",
+      "output": "analysis/learning-card-live-acceptance-harness/outputs/concept-update-bridge-originated-check.json",
+      "sha256": "B3737B59C2B2A3912FB28DE954C2A2C473918FF057C0F6C031884A2AB4286DA9"
+    },
+    {
       "name": "concept-update-live-write",
       "output": "analysis/learning-card-live-acceptance-harness/outputs/concept-update-check.json",
       "sha256": "7962163893F31496CBF8AC94F0B160E54FC7CD53A2168323792A84855E97B573"
@@ -9,6 +14,11 @@
       "name": "method-promotion-review-live-write",
       "output": "analysis/learning-card-live-acceptance-harness/outputs/method-promotion-review-check.json",
       "sha256": "EC62D68B4B25261F1201E40E2BCA7ABE1022B39113D252D670F817EA29BB2267"
+    },
+    {
+      "name": "misconception-ambiguous-create-live-write",
+      "output": "analysis/learning-card-live-acceptance-harness/outputs/misconception-ambiguous-create-check.json",
+      "sha256": "4749A45A3370745C9C6084F7779C877FB55C964F0600053717469BCB7A2629A6"
     }
   ]
 }

@@ -36,10 +36,23 @@ without manual rewriting, use:
 pwsh -File skills/shared/learning-card-core/scripts/use_handoff_bridge.ps1
 ```
 
+Fastest daily Windows path:
+
+1. Copy the full router handoff block after routing is complete.
+2. Run `pwsh -File skills/shared/learning-card-core/scripts/use_handoff_bridge.ps1`.
+3. Paste the generated execution prompt into the next turn and continue with the routed execution skill.
+
+Important:
+
+- router handoff plus bridge output still does not mean a card file was written
+- only the downstream execution result with `Created file:`, `Updated file:`, or `Reviewed file:` proves real card work happened
+
 Operator acceptance for this bridge lives at:
 
 - `analysis/learning-card-operator-bridge-acceptance/report.md`
 - `analysis/learning-card-execution-result-acceptance/report.md`
+- `analysis/learning-card-bridge-live-preflight/report.md`
+- `analysis/learning-card-bridge-originated-live-validation/report.md`
 
 ### Simplest prompts
 

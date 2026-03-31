@@ -1,0 +1,12 @@
+Use $obsidian-misconception-card-capture to work on one misconception card from this thread.
+Mode: create
+Capture anchor: `技能已经在 Codex App 中加载，是否说明 Claude Code 和 OpenClaw 的兼容工作已经不需要了` -> first assistant reply after it
+Misconception title: Skill 已在 Codex 加载不等于 Claude Code 和 OpenClaw 兼容已完成
+Keywords or thread points to capture:
+- Codex-visible loading only proves current-host discovery
+- cross-host compatibility still needs host-specific wrapper behavior
+- loaded in one host does not mean compatibility is complete everywhere
+Domain: AI Skill Compatibility
+Subdomain: Cross-Host Runtime Behavior
+Source: analysis/learning-card-router-ambiguous-create-validation/report.md
+Vault root: C:\Users\pz\Documents\Obsidian Vault

@@ -102,4 +102,5 @@ It confirms that the current system can:
 Still worth testing later:
 
 - one real `promotion review` write on an existing card
-- one real router-led handoff that starts from ambiguous thread content and ends in a write
+- one bridge-originated live operator run that starts from canonical router
+  handoff text and ends in a real execution result
