@@ -1,6 +1,12 @@
 .git/
 **/.git/
-.codex/
+.codex/*
+!.codex/project-architecture.md
+!.codex/handoff.md
+!.codex/decisions.md
+!.codex/todo.md
+!.codex/sessions/
+.codex/sessions/
 __pycache__/
 **/__pycache__/
 *.py[cod]
