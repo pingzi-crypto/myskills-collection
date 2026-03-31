@@ -1,0 +1,24 @@
+{
+  "name": "method-promotion-review-bridge-packet",
+  "mode": "promotion review",
+  "card_type": "method",
+  "expected_skill": "$obsidian-method-card-capture",
+  "expected_target_path": "C:\\Users\\pz\\Documents\\Obsidian Vault\\学习\\Cards\\Methods\\Prompt Narrowing.md",
+  "linked_live_case": "analysis/learning-card-live-acceptance-harness/cases/method-promotion-review.json",
+  "linked_live_target_path": "C:\\Users\\pz\\Documents\\Obsidian Vault\\学习\\Cards\\Methods\\Prompt Narrowing.md",
+  "linked_live_result_markers": [
+    "Reviewed file:",
+    "Promotion result:",
+    "Summary:"
+  ],
+  "go_no_go": "go",
+  "placeholder_free": true,
+  "placeholder_markers": [],
+  "manual_next_step": "Copy method-promotion-review-bridge-packet.txt into the next turn and run $obsidian-method-card-capture until the result shows Reviewed file:, Promotion result:, Summary:.",
+  "expected_completion_markers": [
+    "Reviewed file:",
+    "Promotion result:",
+    "Summary:"
+  ],
+  "prompt_output": "analysis/learning-card-bridge-live-preflight/outputs/method-promotion-review-bridge-packet.txt"
+}

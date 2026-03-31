@@ -5,17 +5,23 @@
 - Check the remaining project docs for stale structure language or old branch
   assumptions.
 - Keep new learning-card work based on `main` rather than `master`.
-- Decide whether the current thin PowerShell wrapper is enough, or whether the
-  operator bridge should gain a more product-like wrapper.
+- Decide whether the current clarified thin PowerShell wrapper is enough, or
+  whether the operator bridge should gain a more product-like wrapper.
 
 ## Next
 
-- Tighten the shortest end-to-end operator flow from router handoff to actual
-  execution-skill invocation.
+- If confusion still appears in real use, shorten the path from bridge output to
+  actual execution-skill invocation even further.
 - Review whether any higher-value aliases, wrapper commands, or docs examples
   should be added beyond the current PowerShell wrapper.
-- Decide whether to add a stronger acceptance layer for actual execution-skill
-  invocation after the bridge step.
+- Decide whether to add a stronger live acceptance layer for a
+  bridge-originated operator session after the bridge step.
+- If a higher-risk live line is opened, use the new bridge preflight cases as
+  the starting packet instead of rebuilding execution prompts manually.
+- Use the preflight `*-check.json` outputs as the go/no-go gate before any
+  future bridge-originated live operator run.
+- Extend the now-live-proven bridge-originated update shape to the remaining
+  shapes: promotion review and ambiguous create.
 
 ## Later
 
@@ -39,3 +45,11 @@
 - Added a read-only live acceptance harness for the existing real-write
   validation line.
 - Wrote the initial project-level `.codex` continuity files.
+- Hardened the bridge to prefer `pwsh` and documented the shortest daily
+  operator flow more explicitly.
+- Extended the read-only live acceptance harness to cover the recorded
+  ambiguous create real-write case as well.
+- Added bridge live preflight acceptance for update, promotion review, and
+  ambiguous create packets aligned to recorded live cases.
+- Completed one bridge-originated live update run from canonical handoff to a
+  real concept-card update on disk.

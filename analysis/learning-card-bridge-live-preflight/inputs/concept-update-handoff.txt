@@ -1,0 +1,16 @@
+Capture anchor: `shared spec validation now protects deterministic rendering before structural output begins` -> first assistant reply after it
+Route result: `Concept`
+Mode: `update`
+Use `$obsidian-concept-card-capture` for the next step.
+Router status: routing complete only. No card file has been created or updated yet.
+Execution package confirmed:
+- Capture anchor: selected user message -> first assistant reply after it
+- Card type: Concept
+- Mode: update
+- Downstream skill: $obsidian-concept-card-capture
+Still needed before write:
+- existing card title or path confirmation
+- vault root
+Next step: use `$obsidian-concept-card-capture` now to actually update the card.
+Suggested reply: `继续更新`
+Reason: 当前任务是在已有概念卡上补充新的 deterministic rendering 约束证据，不是新建卡。

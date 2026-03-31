@@ -1,0 +1,17 @@
+{
+  "name": "misconception-ambiguous-create-live-write",
+  "validation_kind": "create",
+  "card_type": "misconception",
+  "target_path": "C:\\Users\\pz\\Documents\\Obsidian Vault\\学习\\Cards\\Misconceptions\\Skill 已在 Codex 加载不等于 Claude Code 和 OpenClaw 兼容已完成.md",
+  "target_exists": true,
+  "expected_route": "$obsidian-misconception-card-capture",
+  "expected_result_markers": [
+    "Created file:",
+    "Summary:"
+  ],
+  "duplicate_glob": "Skill 已在 Codex 加载不等于 Claude Code 和 OpenClaw 兼容已完成*.md",
+  "duplicate_matches": [
+    "Skill 已在 Codex 加载不等于 Claude Code 和 OpenClaw 兼容已完成.md"
+  ],
+  "source_report": "analysis/learning-card-router-ambiguous-create-validation/report.md"
+}

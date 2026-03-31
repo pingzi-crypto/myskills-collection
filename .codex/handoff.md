@@ -24,14 +24,32 @@
   - `--from-clipboard`
   - `--copy`
   - `use_handoff_bridge.ps1` as the thinnest Windows wrapper
+- The shared bridge now prefers `pwsh` for clipboard-backed operator flows and
+  falls back to Windows PowerShell when `pwsh` is unavailable.
 - Regression coverage exists for the handoff parser and prompt bridge under
   `analysis/learning-card-handoff-parser/`.
 - Operator acceptance coverage exists for the daily wrapper flow under
   `analysis/learning-card-operator-bridge-acceptance/`.
 - Execution result contract acceptance exists under
   `analysis/learning-card-execution-result-acceptance/`.
+- Bridge live preflight coverage now exists under
+  `analysis/learning-card-bridge-live-preflight/` to turn canonical handoff
+  text plus explicit parameters into execution-ready prompt packets aligned
+  with recorded live cases.
+- The bridge live preflight layer now also checks that generated packets are
+  placeholder-free and emits machine-readable `*-check.json` readiness files.
 - A read-only live acceptance harness now exists for the recorded real-write
   validations under `analysis/learning-card-live-acceptance-harness/`.
+- The read-only live acceptance harness now covers all three recorded real-write
+  shapes:
+  - existing-card update
+  - existing-card promotion review
+  - ambiguous no-card-in-scope create
+- One bridge-originated live update run has now been completed from canonical
+  handoff -> bridge packet -> preflight gate -> real concept-card update.
+- The shortest daily operator path is now documented more explicitly in the
+  existing README and operator manual so users can distinguish bridge output
+  from actual card-write proof.
 
 ## Locked Decisions
 
@@ -50,12 +68,25 @@
 - The current operator bridge is usable but still script-first; future users may
   still want a more product-like wrapper beyond the current thin PowerShell
   helper.
+- Users can still stop too early after the bridge step if the downstream
+  execution skill is not invoked and no file-level result line is returned.
+- The highest remaining live gap is a bridge-originated operator session that
+  covers the remaining non-update shapes:
+  - promotion review
+  - ambiguous create
+- The bridge preflight layer is still synthetic; it does not prove that the
+  downstream execution skill was actually run in the same session.
 
 ## Next Step
 
-- Decide whether the current thin PowerShell wrapper plus operator acceptance is
-  enough, or whether the bridge should gain a more product-like wrapper beyond
-  shared scripts.
+- Decide whether the current clarified thin PowerShell wrapper is enough, or
+  whether the bridge should gain a more product-like wrapper beyond shared
+  scripts.
+- If a new higher-risk validation line is opened, prefer targeting the
+  bridge-originated operator path rather than re-proving the already-covered
+  ambiguous create shape.
+- The bridge-originated operator path is now partially live-proven through the
+  concept update shape and can be extended by shape rather than redesigned.
 
 ## Acceptance
 
@@ -72,7 +103,10 @@
 - `skills/references/learning-card-standard-operating-manual.md`
 - `skills/shared/learning-card-core/scripts/build_execution_prompt_from_handoff.py`
 - `skills/shared/learning-card-core/scripts/use_handoff_bridge.ps1`
+- `skills/references/learning-card-standard-operating-manual.md`
 - `analysis/learning-card-handoff-parser/report.md`
 - `analysis/learning-card-operator-bridge-acceptance/report.md`
 - `analysis/learning-card-execution-result-acceptance/report.md`
+- `analysis/learning-card-bridge-live-preflight/report.md`
+- `analysis/learning-card-bridge-originated-live-validation/report.md`
 - `analysis/learning-card-live-acceptance-harness/report.md`

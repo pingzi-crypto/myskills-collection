@@ -23,7 +23,8 @@ Shared script intent:
   and mode are already explicit
 - `scripts/build_execution_prompt_from_handoff.py`: parse canonical router
   handoff text and emit the matching execution prompt skeleton, including
-  operator-friendly stdin and clipboard entry modes
+  operator-friendly stdin and clipboard entry modes; prefers `pwsh` on Windows
+  and falls back to Windows PowerShell when needed
 - `scripts/use_handoff_bridge.ps1`: thin PowerShell wrapper for the handoff
   bridge; defaults to clipboard in and clipboard out for day-to-day operator use
 

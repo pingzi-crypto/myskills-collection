@@ -243,6 +243,8 @@ Optional bridge:
 - if you already copied the router handoff block on Windows, run
   `pwsh -File skills/shared/learning-card-core/scripts/use_handoff_bridge.ps1`
   to turn clipboard handoff text into clipboard-ready execution prompt output
+- after that, paste the generated execution prompt into the next turn; the
+  bridge itself still does not create or update any card file
 
 The user or agent must continue into the execution skill, for example:
 
@@ -276,6 +278,16 @@ Short operator manual:
 - `skills/references/learning-card-standard-operating-manual.md`
 - `analysis/learning-card-operator-bridge-acceptance/report.md`
 - `analysis/learning-card-execution-result-acceptance/report.md`
+- `analysis/learning-card-bridge-live-preflight/report.md`
+- `analysis/learning-card-bridge-originated-live-validation/report.md`
+
+Shortest daily Windows flow:
+
+1. Let the router finish and copy the full handoff block.
+2. Run `pwsh -File skills/shared/learning-card-core/scripts/use_handoff_bridge.ps1`.
+3. Paste the generated execution prompt into the next turn.
+4. Wait for an execution result containing `Created file:`, `Updated file:`, or
+   `Reviewed file:` before treating the card as finished.
  
 ## Collection Direction
 

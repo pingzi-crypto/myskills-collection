@@ -1,0 +1,23 @@
+{
+  "name": "concept-update-bridge-packet",
+  "handoff_file": "inputs/concept-update-handoff.txt",
+  "card_type": "concept",
+  "mode": "update",
+  "expected_skill": "$obsidian-concept-card-capture",
+  "output": "concept-update-bridge-packet.txt",
+  "linked_live_case": "analysis/learning-card-live-acceptance-harness/cases/concept-update.json",
+  "existing_card": "C:\\Users\\pz\\Documents\\Obsidian Vault\\学习\\Cards\\Concepts\\Deterministic Card Rendering.md",
+  "points": [
+    "shared spec validation now protects deterministic rendering before structural output begins",
+    "the update should stay additive and preserve the same-title concept path"
+  ],
+  "source": "analysis/learning-card-live-write-validation/report.md",
+  "vault_root": "C:\\Users\\pz\\Documents\\Obsidian Vault",
+  "required_prompt_phrases": [
+    "Use $obsidian-concept-card-capture to work on one concept card from this thread.",
+    "Mode: update",
+    "Existing concept card: C:\\Users\\pz\\Documents\\Obsidian Vault\\学习\\Cards\\Concepts\\Deterministic Card Rendering.md",
+    "Keywords or thread points to merge:",
+    "Vault root: C:\\Users\\pz\\Documents\\Obsidian Vault"
+  ]
+}

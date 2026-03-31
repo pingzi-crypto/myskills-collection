@@ -1,0 +1,23 @@
+{
+  "name": "method-promotion-review-bridge-packet",
+  "handoff_file": "inputs/method-promotion-review-handoff.txt",
+  "card_type": "method",
+  "mode": "promotion review",
+  "expected_skill": "$obsidian-method-card-capture",
+  "output": "method-promotion-review-bridge-packet.txt",
+  "linked_live_case": "analysis/learning-card-live-acceptance-harness/cases/method-promotion-review.json",
+  "existing_card": "C:\\Users\\pz\\Documents\\Obsidian Vault\\学习\\Cards\\Methods\\Prompt Narrowing.md",
+  "points": [
+    "keep stable and remain on watchlist",
+    "do not promote to expert-ready yet because fallback arbitration remains incomplete"
+  ],
+  "source": "analysis/learning-card-live-promotion-review-validation/report.md",
+  "vault_root": "C:\\Users\\pz\\Documents\\Obsidian Vault",
+  "required_prompt_phrases": [
+    "Use $obsidian-method-card-capture to work on one method card from this thread.",
+    "Mode: promotion review",
+    "Existing method card: C:\\Users\\pz\\Documents\\Obsidian Vault\\学习\\Cards\\Methods\\Prompt Narrowing.md",
+    "Promotion evidence from this thread:",
+    "Vault root: C:\\Users\\pz\\Documents\\Obsidian Vault"
+  ]
+}

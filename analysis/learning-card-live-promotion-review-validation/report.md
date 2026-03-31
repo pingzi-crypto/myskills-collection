@@ -99,5 +99,5 @@ promotion-review write on an existing card while preserving:
 
 Still worth testing later:
 
-- one live router-led write that starts from ambiguous thread content and ends
-  in a real update or promotion review
+- one bridge-originated live operator run that starts from canonical router
+  handoff text and ends in a real execution result

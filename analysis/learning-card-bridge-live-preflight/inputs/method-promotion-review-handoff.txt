@@ -1,0 +1,16 @@
+Capture anchor: `Prompt Narrowing 这张方法卡是否应该继续保持 stable` -> first assistant reply after it
+Route result: `Method`
+Mode: `promotion review`
+Use `$obsidian-method-card-capture` for the next step.
+Router status: routing complete only. No card file has been created or updated yet.
+Execution package confirmed:
+- Capture anchor: selected user message -> first assistant reply after it
+- Card type: Method
+- Mode: promotion review
+- Downstream skill: $obsidian-method-card-capture
+Still needed before write:
+- existing card title or path confirmation
+- vault root
+Next step: use `$obsidian-method-card-capture` now to actually review the card.
+Suggested reply: `继续评审`
+Reason: 当前线程是在评审已有方法卡是否应继续保持 stable，而不是创建或普通更新。

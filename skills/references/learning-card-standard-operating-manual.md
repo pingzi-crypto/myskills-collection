@@ -206,6 +206,20 @@ pwsh -File skills/shared/learning-card-core/scripts/use_handoff_bridge.ps1
 That flow lets you copy the router handoff block, run one command, and paste the
 generated execution prompt directly into the next turn.
 
+Exact daily sequence:
+
+1. Finish router classification and copy the full canonical handoff block.
+2. Run `pwsh -File skills/shared/learning-card-core/scripts/use_handoff_bridge.ps1`.
+3. Paste the generated execution prompt into the next turn.
+4. Continue until the execution skill returns `Created file:`, `Updated file:`,
+   or `Reviewed file:`.
+
+Important:
+
+- bridge output is only the next execution prompt
+- bridge output is not proof that a card file was written
+- if the final file-level result line is missing, the workflow is still incomplete
+
 If you want stdout only and do not want to overwrite the clipboard:
 
 ```powershell
@@ -219,3 +233,13 @@ Acceptance reference:
 
 - `analysis/learning-card-operator-bridge-acceptance/report.md`
 - `analysis/learning-card-execution-result-acceptance/report.md`
+- `analysis/learning-card-bridge-live-preflight/report.md`
+- `analysis/learning-card-bridge-originated-live-validation/report.md`
+
+Live-run readiness rule:
+
+- before any new bridge-originated live run, the preflight packet should be
+  placeholder-free and point to one explicit target path
+- use the `*-check.json` output from
+  `analysis/learning-card-bridge-live-preflight/outputs/` as the quickest
+  machine-readable readiness check

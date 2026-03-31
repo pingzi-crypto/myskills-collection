@@ -1,0 +1,26 @@
+{
+  "name": "misconception-ambiguous-create-bridge-packet",
+  "handoff_file": "inputs/misconception-ambiguous-create-handoff.txt",
+  "card_type": "misconception",
+  "mode": "create",
+  "expected_skill": "$obsidian-misconception-card-capture",
+  "output": "misconception-ambiguous-create-bridge-packet.txt",
+  "linked_live_case": "analysis/learning-card-live-acceptance-harness/cases/misconception-ambiguous-create.json",
+  "title": "Skill 已在 Codex 加载不等于 Claude Code 和 OpenClaw 兼容已完成",
+  "points": [
+    "Codex-visible loading only proves current-host discovery",
+    "cross-host compatibility still needs host-specific wrapper behavior",
+    "loaded in one host does not mean compatibility is complete everywhere"
+  ],
+  "domain": "AI Skill Compatibility",
+  "subdomain": "Cross-Host Runtime Behavior",
+  "source": "analysis/learning-card-router-ambiguous-create-validation/report.md",
+  "vault_root": "C:\\Users\\pz\\Documents\\Obsidian Vault",
+  "required_prompt_phrases": [
+    "Use $obsidian-misconception-card-capture to work on one misconception card from this thread.",
+    "Mode: create",
+    "Misconception title: Skill 已在 Codex 加载不等于 Claude Code 和 OpenClaw 兼容已完成",
+    "Domain: AI Skill Compatibility",
+    "Vault root: C:\\Users\\pz\\Documents\\Obsidian Vault"
+  ]
+}

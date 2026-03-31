@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -45,14 +46,22 @@ CASES = [
 ]
 
 
+def resolve_powershell_executable() -> str:
+    for candidate in ("pwsh", "powershell"):
+        if shutil.which(candidate):
+            return candidate
+    raise RuntimeError("No PowerShell executable found. Install pwsh or make powershell available on PATH.")
+
+
 def sha256_text(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest().upper()
 
 
 def run_wrapper_printonly(input_path: Path) -> str:
+    shell = resolve_powershell_executable()
     completed = subprocess.run(
         [
-            "pwsh",
+            shell,
             "-File",
             str(WRAPPER_PATH),
             "-HandoffFile",
@@ -71,16 +80,17 @@ def run_wrapper_printonly(input_path: Path) -> str:
 
 
 def run_wrapper_clipboard_smoke(input_path: Path) -> str:
+    shell = resolve_powershell_executable()
     command = (
         f"$text = Get-Content -Path '{input_path}' -Raw -Encoding utf8; "
         "Set-Clipboard -Value $text; "
         "Start-Sleep -Milliseconds 300; "
-        f"pwsh -File '{WRAPPER_PATH}' | Out-Null; "
+        f"& '{shell}' -File '{WRAPPER_PATH}' | Out-Null; "
         "Start-Sleep -Milliseconds 300; "
         "Get-Clipboard -Raw"
     )
     completed = subprocess.run(
-        ["powershell", "-NoProfile", "-Command", command],
+        [shell, "-NoProfile", "-Command", command],
         check=True,
         capture_output=True,
         text=True,

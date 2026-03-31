@@ -1,0 +1,9 @@
+Use $obsidian-concept-card-capture to work on one concept card from this thread.
+Mode: update
+Capture anchor: `shared spec validation now protects deterministic rendering before structural output begins` -> first assistant reply after it
+Existing concept card: C:\Users\pz\Documents\Obsidian Vault\学习\Cards\Concepts\Deterministic Card Rendering.md
+Keywords or thread points to merge:
+- shared spec validation now protects deterministic rendering before structural output begins
+- the update should stay additive and preserve the same-title concept path
+Source: analysis/learning-card-live-write-validation/report.md
+Vault root: C:\Users\pz\Documents\Obsidian Vault

@@ -1,0 +1,9 @@
+Use $obsidian-method-card-capture to work on one method card from this thread.
+Mode: promotion review
+Capture anchor: `Prompt Narrowing 这张方法卡是否应该继续保持 stable` -> first assistant reply after it
+Existing method card: C:\Users\pz\Documents\Obsidian Vault\学习\Cards\Methods\Prompt Narrowing.md
+Promotion evidence from this thread:
+- keep stable and remain on watchlist
+- do not promote to expert-ready yet because fallback arbitration remains incomplete
+Source: analysis/learning-card-live-promotion-review-validation/report.md
+Vault root: C:\Users\pz\Documents\Obsidian Vault

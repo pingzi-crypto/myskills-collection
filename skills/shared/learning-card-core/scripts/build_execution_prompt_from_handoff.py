@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 
@@ -20,6 +21,13 @@ CARD_TYPE_MAP = {
     "method": "method",
     "misconception": "misconception",
 }
+
+
+def resolve_powershell_executable() -> str:
+    for candidate in ("pwsh", "powershell"):
+        if shutil.which(candidate):
+            return candidate
+    raise RuntimeError("No PowerShell executable found. Install pwsh or make powershell available on PATH.")
 
 
 def clean_value(value: str) -> str:
@@ -149,8 +157,9 @@ def read_stdin_text() -> str:
 
 
 def read_clipboard_text() -> str:
+    shell = resolve_powershell_executable()
     command = [
-        "powershell",
+        shell,
         "-NoProfile",
         "-Command",
         "Get-Clipboard -Raw",
@@ -166,8 +175,9 @@ def read_clipboard_text() -> str:
 
 
 def write_clipboard_text(text: str) -> None:
+    shell = resolve_powershell_executable()
     command = [
-        "powershell",
+        shell,
         "-NoProfile",
         "-Command",
         "Set-Clipboard",
@@ -232,7 +242,7 @@ def main() -> int:
 
     try:
         prompt = build_from_handoff(args)
-    except ValueError as exc:
+    except (RuntimeError, ValueError) as exc:
         parser.error(str(exc))
 
     output_text = prompt + "\n"
