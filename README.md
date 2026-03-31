@@ -39,6 +39,7 @@ pwsh -File skills/shared/learning-card-core/scripts/use_handoff_bridge.ps1
 Operator acceptance for this bridge lives at:
 
 - `analysis/learning-card-operator-bridge-acceptance/report.md`
+- `analysis/learning-card-execution-result-acceptance/report.md`
 
 ### Simplest prompts
 

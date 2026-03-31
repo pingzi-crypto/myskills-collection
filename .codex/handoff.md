@@ -28,6 +28,8 @@
   `analysis/learning-card-handoff-parser/`.
 - Operator acceptance coverage exists for the daily wrapper flow under
   `analysis/learning-card-operator-bridge-acceptance/`.
+- Execution result contract acceptance exists under
+  `analysis/learning-card-execution-result-acceptance/`.
 
 ## Locked Decisions
 
@@ -70,3 +72,4 @@
 - `skills/shared/learning-card-core/scripts/use_handoff_bridge.ps1`
 - `analysis/learning-card-handoff-parser/report.md`
 - `analysis/learning-card-operator-bridge-acceptance/report.md`
+- `analysis/learning-card-execution-result-acceptance/report.md`

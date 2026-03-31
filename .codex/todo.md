@@ -35,4 +35,5 @@
 - Added a thin PowerShell wrapper for the default clipboard-to-clipboard
   operator path.
 - Added operator acceptance coverage for the wrapper-driven bridge flow.
+- Added execution result contract acceptance after the bridge step.
 - Wrote the initial project-level `.codex` continuity files.

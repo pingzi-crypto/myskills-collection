@@ -1,0 +1,4 @@
+Concept captured: Windows 自带截图方式
+Created file: C:\Users\pz\Documents\Obsidian Vault\学习\Cards\Concepts\Windows 自带截图方式.md
+Summary: extracted the built-in screenshot options, their shortcuts, and their boundary differences.
+Progression result: stay seed

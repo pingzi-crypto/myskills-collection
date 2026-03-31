@@ -1,0 +1,3 @@
+Method updated: Prompt Narrowing
+Updated file: C:\Users\pz\Documents\Obsidian Vault\学习\Cards\Methods\Prompt Narrowing.md
+Summary: merged new routing-precision guidance into the existing method card without changing its core identity.

@@ -275,6 +275,7 @@ Short operator manual:
 
 - `skills/references/learning-card-standard-operating-manual.md`
 - `analysis/learning-card-operator-bridge-acceptance/report.md`
+- `analysis/learning-card-execution-result-acceptance/report.md`
  
 ## Collection Direction
 

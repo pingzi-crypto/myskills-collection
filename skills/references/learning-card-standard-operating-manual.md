@@ -218,3 +218,4 @@ This reduces manual prompt rewriting between router output and execution skill.
 Acceptance reference:
 
 - `analysis/learning-card-operator-bridge-acceptance/report.md`
+- `analysis/learning-card-execution-result-acceptance/report.md`
