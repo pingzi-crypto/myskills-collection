@@ -1,6 +1,10 @@
 # Skills Index
 
-This directory stores the concrete learning-card skill family for this collection.
+This directory stores the concrete learning-card skill family for this
+collection.
+
+For the current repository state, this family is the primary long-lived
+direction.
 
 ## Family Overview
 
@@ -278,6 +282,12 @@ As this repository grows, this index should remain the first place to look for:
 - stable skill families
 - routing entry points
 - execution skills with real workflows
+
+Current repository defaults:
+
+- `main` is the active branch
+- `.codex/` stores long-lived continuity files for this direction
+- `analysis/learning-card-*` stores regression and validation artifacts
 
 Codex runtime rule:
 

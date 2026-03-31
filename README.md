@@ -9,6 +9,9 @@ This repository contains one main skill family:
 
 - a concrete Obsidian learning-card skill family with routing, deterministic rendering, and progression rules
 
+The active delivery line is `main`.
+Project continuity for this direction lives under `.codex/`.
+
 Browse the collection here:
 
 - `skills/README.md`
@@ -83,6 +86,13 @@ Shared implementation core:
 - `skills/shared/learning-card-core/references/vault-path-protocol.md`
 - `skills/shared/learning-card-core/references/same-title-update-flow.md`
 - `skills/shared/learning-card-core/references/deterministic-render-protocol.md`
+
+Project continuity files:
+
+- `.codex/project-architecture.md`
+- `.codex/handoff.md`
+- `.codex/decisions.md`
+- `.codex/todo.md`
 
 ## Obsidian Family Model
 
@@ -169,6 +179,7 @@ For Obsidian card capture:
 ## Notes
 
 - This repository now contains only the real learning-card skills, not a starter template.
+- `main` is the active branch; treat `master` as legacy unless explicitly revived.
 - `skills/` is the Codex runtime directory and should stay free of extra platform wrappers.
 - `dist/claude/` and `dist/openclaw/` are export surfaces, not Codex runtime entrypoints.
 - Shared references should stay shared when they express family-wide rules.

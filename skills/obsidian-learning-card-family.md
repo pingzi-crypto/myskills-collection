@@ -1,6 +1,10 @@
 # Obsidian Learning Card Family
 
-This document gives one place to understand the learning-card skill family in this repository.
+This document gives one place to understand the learning-card skill family in
+this repository.
+
+For the current repository, this family is the primary active project
+direction.
 
 ## Family Structure
 
@@ -39,6 +43,16 @@ This layer stores family-wide procedural rules such as:
 - deterministic render protocol
 
 This shared layer does not replace the four execution skills.
+
+### Direction Continuity
+
+- `.codex/project-architecture.md`
+- `.codex/handoff.md`
+- `.codex/decisions.md`
+- `.codex/todo.md`
+
+Use these files for long-lived continuity instead of relying on chat history
+alone.
 
 ## Decision Model
 
@@ -118,3 +132,6 @@ This family is designed to avoid two common failures:
 - creating all four card types by default for every topic
 
 The system stays cleaner when routing and writing are separated.
+
+It also stays cleaner when the family remains the primary project direction
+instead of competing with parallel template-first repository narratives.
