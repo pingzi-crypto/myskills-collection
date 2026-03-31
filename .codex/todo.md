@@ -36,4 +36,6 @@
   operator path.
 - Added operator acceptance coverage for the wrapper-driven bridge flow.
 - Added execution result contract acceptance after the bridge step.
+- Added a read-only live acceptance harness for the existing real-write
+  validation line.
 - Wrote the initial project-level `.codex` continuity files.

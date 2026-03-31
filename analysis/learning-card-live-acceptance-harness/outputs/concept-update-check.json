@@ -1,0 +1,17 @@
+{
+  "name": "concept-update-live-write",
+  "validation_kind": "update",
+  "card_type": "concept",
+  "target_path": "C:\\Users\\pz\\Documents\\Obsidian Vault\\学习\\Cards\\Concepts\\Deterministic Card Rendering.md",
+  "target_exists": true,
+  "expected_route": "$obsidian-concept-card-capture",
+  "expected_result_markers": [
+    "Updated file:",
+    "Summary:"
+  ],
+  "duplicate_glob": "Deterministic Card Rendering*.md",
+  "duplicate_matches": [
+    "Deterministic Card Rendering.md"
+  ],
+  "source_report": "analysis/learning-card-live-write-validation/report.md"
+}

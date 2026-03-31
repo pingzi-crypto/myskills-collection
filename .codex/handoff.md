@@ -30,6 +30,8 @@
   `analysis/learning-card-operator-bridge-acceptance/`.
 - Execution result contract acceptance exists under
   `analysis/learning-card-execution-result-acceptance/`.
+- A read-only live acceptance harness now exists for the recorded real-write
+  validations under `analysis/learning-card-live-acceptance-harness/`.
 
 ## Locked Decisions
 
@@ -73,3 +75,4 @@
 - `analysis/learning-card-handoff-parser/report.md`
 - `analysis/learning-card-operator-bridge-acceptance/report.md`
 - `analysis/learning-card-execution-result-acceptance/report.md`
+- `analysis/learning-card-live-acceptance-harness/report.md`
