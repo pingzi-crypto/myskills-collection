@@ -1,0 +1,22 @@
+{
+  "name": "misconception-bridge-create-bridge-packet",
+  "mode": "create",
+  "card_type": "misconception",
+  "expected_skill": "$obsidian-misconception-card-capture",
+  "expected_target_path": "C:\\Users\\pz\\Documents\\Obsidian Vault\\学习\\Cards\\Misconceptions\\生成 execution packet 不等于卡片已经写入.md",
+  "linked_live_case": "analysis/learning-card-live-acceptance-harness/cases/misconception-bridge-originated-create.json",
+  "linked_live_target_path": "C:\\Users\\pz\\Documents\\Obsidian Vault\\学习\\Cards\\Misconceptions\\生成 execution packet 不等于卡片已经写入.md",
+  "linked_live_result_markers": [
+    "Created file:",
+    "Summary:"
+  ],
+  "go_no_go": "go",
+  "placeholder_free": true,
+  "placeholder_markers": [],
+  "manual_next_step": "Copy misconception-bridge-create-bridge-packet.txt into the next turn and run $obsidian-misconception-card-capture until the result shows Created file:, Summary:.",
+  "expected_completion_markers": [
+    "Created file:",
+    "Summary:"
+  ],
+  "prompt_output": "analysis/learning-card-bridge-live-preflight/outputs/misconception-bridge-create-bridge-packet.txt"
+}

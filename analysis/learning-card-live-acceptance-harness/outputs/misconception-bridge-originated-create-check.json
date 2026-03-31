@@ -1,0 +1,17 @@
+{
+  "name": "misconception-bridge-originated-create-live-write",
+  "validation_kind": "create",
+  "card_type": "misconception",
+  "target_path": "C:\\Users\\pz\\Documents\\Obsidian Vault\\学习\\Cards\\Misconceptions\\生成 execution packet 不等于卡片已经写入.md",
+  "target_exists": true,
+  "expected_route": "$obsidian-misconception-card-capture",
+  "expected_result_markers": [
+    "Created file:",
+    "Summary:"
+  ],
+  "duplicate_glob": "生成 execution packet 不等于卡片已经写入*.md",
+  "duplicate_matches": [
+    "生成 execution packet 不等于卡片已经写入.md"
+  ],
+  "source_report": "analysis/learning-card-bridge-originated-ambiguous-create-validation/report.md"
+}

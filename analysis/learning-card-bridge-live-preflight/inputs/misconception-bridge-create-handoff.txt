@@ -1,0 +1,18 @@
+Capture anchor: `bridge 输出 execution packet 之后，是不是就说明卡片已经真正创建好了` -> first assistant reply after it
+Route result: `Misconception`
+Mode: `create`
+Use `$obsidian-misconception-card-capture` for the next step.
+Router status: routing complete only. No card file has been created or updated yet.
+Execution package confirmed:
+- Capture anchor: selected user message -> first assistant reply after it
+- Card type: Misconception
+- Mode: create
+- Downstream skill: $obsidian-misconception-card-capture
+Still needed before write:
+- title
+- keywords or thread points
+- domain
+- vault root
+Next step: use `$obsidian-misconception-card-capture` now to actually create the card.
+Suggested reply: `继续创建`
+Reason: 这段内容主要在纠正“bridge 已生成 execution packet”就等于“卡片文件已经落盘”的错误推断。

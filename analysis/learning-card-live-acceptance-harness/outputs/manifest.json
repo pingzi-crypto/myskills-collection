@@ -24,6 +24,11 @@
       "name": "misconception-ambiguous-create-live-write",
       "output": "analysis/learning-card-live-acceptance-harness/outputs/misconception-ambiguous-create-check.json",
       "sha256": "4749A45A3370745C9C6084F7779C877FB55C964F0600053717469BCB7A2629A6"
+    },
+    {
+      "name": "misconception-bridge-originated-create-live-write",
+      "output": "analysis/learning-card-live-acceptance-harness/outputs/misconception-bridge-originated-create-check.json",
+      "sha256": "3E0261E44AEA112DF46DF7A7F61D5D45148766DC545D52012DA82E3D3BDE75E2"
     }
   ]
 }

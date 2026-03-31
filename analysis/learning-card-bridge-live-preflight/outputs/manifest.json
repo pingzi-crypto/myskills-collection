@@ -29,6 +29,16 @@
       "name": "misconception-ambiguous-create-bridge-packet-check",
       "output": "analysis/learning-card-bridge-live-preflight/outputs/misconception-ambiguous-create-bridge-packet-check.json",
       "sha256": "D669851AEC78FBFA70B3AE15B09254683CB292E27E10F2563FAD6E41390D5459"
+    },
+    {
+      "name": "misconception-bridge-create-bridge-packet",
+      "output": "analysis/learning-card-bridge-live-preflight/outputs/misconception-bridge-create-bridge-packet.txt",
+      "sha256": "DC77858CDEFC11DF90CEFDD18FF91C6D9C2049886898659B076D45EDA01CCE56"
+    },
+    {
+      "name": "misconception-bridge-create-bridge-packet-check",
+      "output": "analysis/learning-card-bridge-live-preflight/outputs/misconception-bridge-create-bridge-packet-check.json",
+      "sha256": "ACE51CD9B54418F6C184A8230076C70E200A9A66E2B9070ACAC4B568D3309581"
     }
   ]
 }
