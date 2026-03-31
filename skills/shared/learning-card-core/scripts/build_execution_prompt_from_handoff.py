@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import argparse
 from pathlib import Path
-import re
+import subprocess
 import sys
 
 
@@ -123,9 +123,9 @@ def extract_points(args: argparse.Namespace, mode: str) -> list[str]:
 
 
 def build_from_handoff(args: argparse.Namespace) -> str:
-    handoff_text = Path(args.handoff_file).read_text(encoding="utf-8") if args.handoff_file else args.handoff_text
+    handoff_text = resolve_handoff_text(args)
     if not handoff_text:
-        raise ValueError("Provide either --handoff-file or --handoff-text.")
+        raise ValueError("Provide router handoff text with --handoff-file, --handoff-text, --stdin, or --from-clipboard.")
 
     parsed = parse_handoff(handoff_text)
     inferred = infer_placeholders(parsed["mode"], parsed["missing_inputs"])
@@ -144,12 +144,76 @@ def build_from_handoff(args: argparse.Namespace) -> str:
     )
 
 
+def read_stdin_text() -> str:
+    return sys.stdin.read()
+
+
+def read_clipboard_text() -> str:
+    command = [
+        "powershell",
+        "-NoProfile",
+        "-Command",
+        "Get-Clipboard -Raw",
+    ]
+    completed = subprocess.run(
+        command,
+        check=True,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+    )
+    return completed.stdout
+
+
+def write_clipboard_text(text: str) -> None:
+    command = [
+        "powershell",
+        "-NoProfile",
+        "-Command",
+        "Set-Clipboard",
+    ]
+    subprocess.run(
+        command,
+        check=True,
+        input=text,
+        text=True,
+        encoding="utf-8",
+    )
+
+
+def resolve_handoff_text(args: argparse.Namespace) -> str:
+    provided_sources = sum(
+        [
+            bool(args.handoff_file),
+            bool(args.handoff_text),
+            bool(args.stdin),
+            bool(args.from_clipboard),
+        ]
+    )
+    if provided_sources != 1:
+        raise ValueError("Choose exactly one input source: --handoff-file, --handoff-text, --stdin, or --from-clipboard.")
+
+    if args.handoff_file:
+        return Path(args.handoff_file).read_text(encoding="utf-8")
+    if args.handoff_text:
+        return args.handoff_text
+    if args.stdin:
+        return read_stdin_text()
+    return read_clipboard_text()
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="Build an execution prompt skeleton from router handoff text."
     )
     parser.add_argument("--handoff-file", help="Path to router handoff text.")
     parser.add_argument("--handoff-text", help="Inline router handoff text.")
+    parser.add_argument("--stdin", action="store_true", help="Read router handoff text from stdin.")
+    parser.add_argument(
+        "--from-clipboard",
+        action="store_true",
+        help="Read router handoff text from the system clipboard.",
+    )
     parser.add_argument("--capture-anchor", help="Optional override for capture anchor.")
     parser.add_argument("--title", help="Optional title override.")
     parser.add_argument("--existing-card", help="Optional existing-card override.")
@@ -159,19 +223,29 @@ def main() -> int:
     parser.add_argument("--source", help="Optional source string.")
     parser.add_argument("--vault-root", help="Optional vault-root override.")
     parser.add_argument("--output", help="Optional output file path.")
+    parser.add_argument(
+        "--copy",
+        action="store_true",
+        help="Copy the generated execution prompt to the system clipboard.",
+    )
     args = parser.parse_args()
 
-    if not args.handoff_file and not args.handoff_text:
-        parser.error("Provide either --handoff-file or --handoff-text.")
+    try:
+        prompt = build_from_handoff(args)
+    except ValueError as exc:
+        parser.error(str(exc))
 
-    prompt = build_from_handoff(args)
+    output_text = prompt + "\n"
 
     if args.output:
         output_path = Path(args.output)
         output_path.parent.mkdir(parents=True, exist_ok=True)
-        output_path.write_text(prompt + "\n", encoding="utf-8")
+        output_path.write_text(output_text, encoding="utf-8")
     else:
         print(prompt)
+
+    if args.copy:
+        write_clipboard_text(output_text)
 
     return 0
 

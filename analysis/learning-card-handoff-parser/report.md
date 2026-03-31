@@ -31,6 +31,8 @@ It reuses:
 - preserves the capture anchor when present
 - emits a downstream execution prompt skeleton with placeholders for any still-
   missing write inputs
+- accepts router handoff text from file, inline text, stdin, or clipboard
+- can copy the generated execution prompt back to the clipboard for operator use
 
 ## Output Artifacts
 
@@ -61,6 +63,8 @@ python analysis/learning-card-handoff-parser/scripts/verify_handoff_parser.py
   invocation
 - the parser line is now regression-backed, so future router handoff changes can
   be checked against stable execution-prompt outputs
+- file input and stdin input now produce identical prompt output for the same
+  canonical handoff text
 
 ## Output Artifact Hashes
 

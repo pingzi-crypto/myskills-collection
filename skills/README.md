@@ -236,6 +236,9 @@ Optional bridge:
 - if you want to turn that router handoff directly into an execution prompt
   skeleton, run
   `python skills/shared/learning-card-core/scripts/build_execution_prompt_from_handoff.py --handoff-file <handoff.txt>`
+- if you already copied the router handoff block on Windows, run
+  `python skills/shared/learning-card-core/scripts/build_execution_prompt_from_handoff.py --from-clipboard --copy`
+  to turn clipboard handoff text into clipboard-ready execution prompt output
 
 The user or agent must continue into the execution skill, for example:
 

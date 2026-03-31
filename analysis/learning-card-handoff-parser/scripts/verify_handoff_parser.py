@@ -46,14 +46,25 @@ def sha256_text(text: str) -> str:
 
 def run_case(case: dict[str, str]) -> tuple[str, str]:
     input_path = INPUT_DIR / case["input"]
-    completed = subprocess.run(
+    file_run = subprocess.run(
         [sys.executable, str(SCRIPT_PATH), "--handoff-file", str(input_path)],
         check=True,
         capture_output=True,
         text=True,
         encoding="utf-8",
     )
-    text = completed.stdout
+    stdin_run = subprocess.run(
+        [sys.executable, str(SCRIPT_PATH), "--stdin"],
+        check=True,
+        capture_output=True,
+        input=input_path.read_text(encoding="utf-8"),
+        text=True,
+        encoding="utf-8",
+    )
+    if file_run.stdout != stdin_run.stdout:
+        raise ValueError(f"{case['name']} produced different output for --handoff-file and --stdin")
+
+    text = file_run.stdout
     if not text.endswith("\n"):
         text += "\n"
     return text, sha256_text(text)

@@ -21,7 +21,8 @@ Shared script intent:
 - `scripts/build_execution_prompt.py`: build an execution prompt when card type
   and mode are already explicit
 - `scripts/build_execution_prompt_from_handoff.py`: parse canonical router
-  handoff text and emit the matching execution prompt skeleton
+  handoff text and emit the matching execution prompt skeleton, including
+  operator-friendly stdin and clipboard entry modes
 
 Boundary rule:
 

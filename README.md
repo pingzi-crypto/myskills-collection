@@ -26,6 +26,15 @@ Use this when you want to turn one thread into one Obsidian learning card.
    - `obsidian-misconception-card-capture`
 3. Let that execution skill create, update, or run promotion review on one card.
 
+If you already have router handoff text and want the next execution prompt
+without manual rewriting, use:
+
+```powershell
+python skills/shared/learning-card-core/scripts/build_execution_prompt_from_handoff.py `
+  --from-clipboard `
+  --copy
+```
+
 ### Simplest prompts
 
 ```text
