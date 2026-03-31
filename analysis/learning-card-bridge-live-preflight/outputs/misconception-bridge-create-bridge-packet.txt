@@ -1,0 +1,12 @@
+Use $obsidian-misconception-card-capture to work on one misconception card from this thread.
+Mode: create
+Capture anchor: `bridge 输出 execution packet 之后，是不是就说明卡片已经真正创建好了` -> first assistant reply after it
+Misconception title: 生成 execution packet 不等于卡片已经写入
+Keywords or thread points to capture:
+- bridge output only proves the next execution prompt is ready
+- until the execution skill returns a file-level result, no card write is proven
+- execution packet generation and real note creation are different workflow stages
+Domain: AI协同
+Subdomain: Learning Card Operator Flow
+Source: analysis/learning-card-bridge-live-preflight/report.md
+Vault root: C:\Users\pz\Documents\Obsidian Vault

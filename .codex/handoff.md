@@ -47,6 +47,12 @@
   - ambiguous no-card-in-scope create
 - One bridge-originated live update run has now been completed from canonical
   handoff -> bridge packet -> preflight gate -> real concept-card update.
+- One bridge-originated live promotion-review run has now been completed from
+  canonical handoff -> bridge packet -> preflight gate -> real method-card
+  review update.
+- One bridge-originated live ambiguous create run has now been completed from
+  canonical handoff -> bridge packet -> preflight gate -> real misconception
+  card creation.
 - The shortest daily operator path is now documented more explicitly in the
   existing README and operator manual so users can distinguish bridge output
   from actual card-write proof.
@@ -70,8 +76,9 @@
   helper.
 - Users can still stop too early after the bridge step if the downstream
   execution skill is not invoked and no file-level result line is returned.
-- The highest remaining live gap is a bridge-originated operator session that
-  covers the remaining non-update shapes:
+- The bridge-originated operator stack is now live-proven across all three
+  target execution shapes:
+  - update
   - promotion review
   - ambiguous create
 - The bridge preflight layer is still synthetic; it does not prove that the
@@ -85,8 +92,9 @@
 - If a new higher-risk validation line is opened, prefer targeting the
   bridge-originated operator path rather than re-proving the already-covered
   ambiguous create shape.
-- The bridge-originated operator path is now partially live-proven through the
-  concept update shape and can be extended by shape rather than redesigned.
+- The bridge-originated operator path is now live-proven across update,
+  promotion-review, and ambiguous-create shapes and can now be maintained as a
+  stable validation line rather than an open gap.
 
 ## Acceptance
 
@@ -109,4 +117,6 @@
 - `analysis/learning-card-execution-result-acceptance/report.md`
 - `analysis/learning-card-bridge-live-preflight/report.md`
 - `analysis/learning-card-bridge-originated-live-validation/report.md`
+- `analysis/learning-card-bridge-originated-promotion-review-validation/report.md`
+- `analysis/learning-card-bridge-originated-ambiguous-create-validation/report.md`
 - `analysis/learning-card-live-acceptance-harness/report.md`

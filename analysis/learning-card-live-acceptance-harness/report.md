@@ -19,7 +19,9 @@ Current cases:
 - `concept-update-live-write`
 - `concept-update-bridge-originated-live-write`
 - `method-promotion-review-live-write`
+- `method-promotion-review-bridge-originated-live-write`
 - `misconception-ambiguous-create-live-write`
+- `misconception-bridge-originated-create-live-write`
 
 These are based on the already-recorded live validations under:
 
@@ -45,10 +47,13 @@ python analysis/learning-card-live-acceptance-harness/scripts/verify_live_accept
   - existing-card update
   - bridge-originated existing-card update
   - existing-card promotion review
+  - bridge-originated existing-card promotion review
   - ambiguous no-card-in-scope create
+  - bridge-originated ambiguous no-card-in-scope create
 - this harness does not replace a future new live write, but it keeps the
   already-earned live validation line from decaying into one-off narrative
   reports
-- the remaining higher-value bridge-originated gaps are now narrower:
+- the bridge-originated triad is now fully covered by recorded live cases:
+  - update
   - promotion review
   - ambiguous create

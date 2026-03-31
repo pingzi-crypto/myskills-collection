@@ -1,0 +1,26 @@
+{
+  "name": "misconception-bridge-create-bridge-packet",
+  "handoff_file": "inputs/misconception-bridge-create-handoff.txt",
+  "card_type": "misconception",
+  "mode": "create",
+  "expected_skill": "$obsidian-misconception-card-capture",
+  "output": "misconception-bridge-create-bridge-packet.txt",
+  "linked_live_case": "analysis/learning-card-live-acceptance-harness/cases/misconception-bridge-originated-create.json",
+  "title": "生成 execution packet 不等于卡片已经写入",
+  "points": [
+    "bridge output only proves the next execution prompt is ready",
+    "until the execution skill returns a file-level result, no card write is proven",
+    "execution packet generation and real note creation are different workflow stages"
+  ],
+  "domain": "AI协同",
+  "subdomain": "Learning Card Operator Flow",
+  "source": "analysis/learning-card-bridge-live-preflight/report.md",
+  "vault_root": "C:\\Users\\pz\\Documents\\Obsidian Vault",
+  "required_prompt_phrases": [
+    "Use $obsidian-misconception-card-capture to work on one misconception card from this thread.",
+    "Mode: create",
+    "Misconception title: 生成 execution packet 不等于卡片已经写入",
+    "Domain: AI协同",
+    "Vault root: C:\\Users\\pz\\Documents\\Obsidian Vault"
+  ]
+}
