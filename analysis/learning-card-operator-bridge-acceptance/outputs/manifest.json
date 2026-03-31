@@ -1,0 +1,24 @@
+{
+  "outputs": [
+    {
+      "name": "concept-create-wrapper-printonly",
+      "output": "analysis/learning-card-operator-bridge-acceptance/outputs/concept-create-wrapper-printonly.txt",
+      "sha256": "8791CAE5C5D1ADC57349F72E5CEDE070FFDE5DDBBFEE688B96B9D6724CBFFE69"
+    },
+    {
+      "name": "method-update-wrapper-printonly",
+      "output": "analysis/learning-card-operator-bridge-acceptance/outputs/method-update-wrapper-printonly.txt",
+      "sha256": "B7D6B14BF75C0DF2840207B148E602947C924895355ADBB9BC31040639A52D25"
+    },
+    {
+      "name": "misconception-review-wrapper-printonly",
+      "output": "analysis/learning-card-operator-bridge-acceptance/outputs/misconception-review-wrapper-printonly.txt",
+      "sha256": "FA9B01F01031FB16D862324BD9B5523705F1FF7087545CBAF3D14BE6AC07DECC"
+    },
+    {
+      "name": "concept-create-wrapper-clipboard",
+      "output": "analysis/learning-card-operator-bridge-acceptance/outputs/concept-create-wrapper-clipboard.txt",
+      "sha256": "8791CAE5C5D1ADC57349F72E5CEDE070FFDE5DDBBFEE688B96B9D6724CBFFE69"
+    }
+  ]
+}

@@ -26,6 +26,8 @@
   - `use_handoff_bridge.ps1` as the thinnest Windows wrapper
 - Regression coverage exists for the handoff parser and prompt bridge under
   `analysis/learning-card-handoff-parser/`.
+- Operator acceptance coverage exists for the daily wrapper flow under
+  `analysis/learning-card-operator-bridge-acceptance/`.
 
 ## Locked Decisions
 
@@ -47,8 +49,9 @@
 
 ## Next Step
 
-- Decide whether the current thin PowerShell wrapper is enough, or whether the
-  operator bridge should gain a more product-like wrapper beyond shared scripts.
+- Decide whether the current thin PowerShell wrapper plus operator acceptance is
+  enough, or whether the bridge should gain a more product-like wrapper beyond
+  shared scripts.
 
 ## Acceptance
 
@@ -66,3 +69,4 @@
 - `skills/shared/learning-card-core/scripts/build_execution_prompt_from_handoff.py`
 - `skills/shared/learning-card-core/scripts/use_handoff_bridge.ps1`
 - `analysis/learning-card-handoff-parser/report.md`
+- `analysis/learning-card-operator-bridge-acceptance/report.md`

@@ -43,6 +43,10 @@ if ($BridgeArgs -and $BridgeArgs.Count -gt 0) {
     $arguments += $BridgeArgs
 }
 
+if (-not $HandoffFile -and -not $HandoffText -and -not $Stdin) {
+    Start-Sleep -Milliseconds 300
+}
+
 $outputLines = & $Python @arguments
 $exitCode = $LASTEXITCODE
 

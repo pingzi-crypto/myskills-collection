@@ -14,6 +14,8 @@
   execution-skill invocation.
 - Review whether any higher-value aliases, wrapper commands, or docs examples
   should be added beyond the current PowerShell wrapper.
+- Decide whether to add a stronger acceptance layer for actual execution-skill
+  invocation after the bridge step.
 
 ## Later
 
@@ -32,4 +34,5 @@
 - Added operator-facing stdin and clipboard modes to the handoff bridge.
 - Added a thin PowerShell wrapper for the default clipboard-to-clipboard
   operator path.
+- Added operator acceptance coverage for the wrapper-driven bridge flow.
 - Wrote the initial project-level `.codex` continuity files.

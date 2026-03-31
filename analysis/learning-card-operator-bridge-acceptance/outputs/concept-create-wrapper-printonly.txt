@@ -1,0 +1,10 @@
+Use $obsidian-concept-card-capture to work on one concept card from this thread.
+Mode: create
+Capture anchor: `windows系统有自带的截图功能吗？如果有快捷键是什么` -> first assistant reply after it
+Concept title: <single concept>
+Keywords or thread points to capture:
+- <keywords or short excerpts>
+Domain: <domain>
+Subdomain: <optional subdomain>
+Source: <optional source>
+Vault root: <optional vault path>

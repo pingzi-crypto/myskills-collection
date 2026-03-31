@@ -36,6 +36,10 @@ without manual rewriting, use:
 pwsh -File skills/shared/learning-card-core/scripts/use_handoff_bridge.ps1
 ```
 
+Operator acceptance for this bridge lives at:
+
+- `analysis/learning-card-operator-bridge-acceptance/report.md`
+
 ### Simplest prompts
 
 ```text

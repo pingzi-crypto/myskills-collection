@@ -214,3 +214,7 @@ pwsh -File skills/shared/learning-card-core/scripts/use_handoff_bridge.ps1 `
 ```
 
 This reduces manual prompt rewriting between router output and execution skill.
+
+Acceptance reference:
+
+- `analysis/learning-card-operator-bridge-acceptance/report.md`

@@ -274,6 +274,7 @@ Longer user-view examples live at:
 Short operator manual:
 
 - `skills/references/learning-card-standard-operating-manual.md`
+- `analysis/learning-card-operator-bridge-acceptance/report.md`
  
 ## Collection Direction
 

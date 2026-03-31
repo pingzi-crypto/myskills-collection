@@ -1,0 +1,8 @@
+Use $obsidian-method-card-capture to work on one method card from this thread.
+Mode: update
+Capture anchor: `把 router 的问题改成中英双语` -> first assistant reply after it
+Existing method card: <existing card path or title>
+Keywords or thread points to merge:
+- <keywords or short excerpts>
+Source: <optional source>
+Vault root: <optional vault path>
