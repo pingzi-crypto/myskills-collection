@@ -15,6 +15,7 @@ This removes one more manual step between:
 Script:
 
 - `skills/shared/learning-card-core/scripts/build_execution_prompt_from_handoff.py`
+- `skills/shared/learning-card-core/scripts/use_handoff_bridge.ps1`
 
 Regression script:
 
@@ -33,6 +34,8 @@ It reuses:
   missing write inputs
 - accepts router handoff text from file, inline text, stdin, or clipboard
 - can copy the generated execution prompt back to the clipboard for operator use
+- includes a thin PowerShell wrapper for the default clipboard-to-clipboard
+  operator path
 
 ## Output Artifacts
 

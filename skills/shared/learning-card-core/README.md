@@ -14,6 +14,7 @@ Current shared scripts:
 - `scripts/render_common.py`
 - `scripts/build_execution_prompt.py`
 - `scripts/build_execution_prompt_from_handoff.py`
+- `scripts/use_handoff_bridge.ps1`
 
 Shared script intent:
 
@@ -23,6 +24,8 @@ Shared script intent:
 - `scripts/build_execution_prompt_from_handoff.py`: parse canonical router
   handoff text and emit the matching execution prompt skeleton, including
   operator-friendly stdin and clipboard entry modes
+- `scripts/use_handoff_bridge.ps1`: thin PowerShell wrapper for the handoff
+  bridge; defaults to clipboard in and clipboard out for day-to-day operator use
 
 Boundary rule:
 

@@ -200,12 +200,17 @@ python skills/shared/learning-card-core/scripts/build_execution_prompt_from_hand
 Fastest operator path on Windows:
 
 ```powershell
-python skills/shared/learning-card-core/scripts/build_execution_prompt_from_handoff.py `
-  --from-clipboard `
-  --copy
+pwsh -File skills/shared/learning-card-core/scripts/use_handoff_bridge.ps1
 ```
 
 That flow lets you copy the router handoff block, run one command, and paste the
 generated execution prompt directly into the next turn.
+
+If you want stdout only and do not want to overwrite the clipboard:
+
+```powershell
+pwsh -File skills/shared/learning-card-core/scripts/use_handoff_bridge.ps1 `
+  -PrintOnly
+```
 
 This reduces manual prompt rewriting between router output and execution skill.

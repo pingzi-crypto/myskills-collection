@@ -33,9 +33,7 @@ If you already have router handoff text and want the next execution prompt
 without manual rewriting, use:
 
 ```powershell
-python skills/shared/learning-card-core/scripts/build_execution_prompt_from_handoff.py `
-  --from-clipboard `
-  --copy
+pwsh -File skills/shared/learning-card-core/scripts/use_handoff_bridge.ps1
 ```
 
 ### Simplest prompts

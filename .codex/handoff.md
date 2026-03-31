@@ -23,6 +23,7 @@
   - `--stdin`
   - `--from-clipboard`
   - `--copy`
+  - `use_handoff_bridge.ps1` as the thinnest Windows wrapper
 - Regression coverage exists for the handoff parser and prompt bridge under
   `analysis/learning-card-handoff-parser/`.
 
@@ -41,13 +42,13 @@
 - Some older repository descriptions may still imply broader or older structure
   assumptions and need periodic cleanup.
 - The current operator bridge is usable but still script-first; future users may
-  still want a more product-like wrapper.
+  still want a more product-like wrapper beyond the current thin PowerShell
+  helper.
 
 ## Next Step
 
-- Review project docs for any remaining stale structure language, then decide
-  whether the operator bridge should remain a shared script or gain a thinner
-  user-facing wrapper.
+- Decide whether the current thin PowerShell wrapper is enough, or whether the
+  operator bridge should gain a more product-like wrapper beyond shared scripts.
 
 ## Acceptance
 
@@ -63,4 +64,5 @@
 - `skills/references/learning-card-skill-family.md`
 - `skills/references/learning-card-standard-operating-manual.md`
 - `skills/shared/learning-card-core/scripts/build_execution_prompt_from_handoff.py`
+- `skills/shared/learning-card-core/scripts/use_handoff_bridge.ps1`
 - `analysis/learning-card-handoff-parser/report.md`
