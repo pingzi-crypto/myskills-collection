@@ -13,9 +13,11 @@ This checklist is for structural changes such as:
 - family-wide update-flow changes
 - progression-protocol refactors
 
-Current working branch target:
+Current branch policy:
 
-- `codex/learning-card-core-refactor`
+- use a dedicated Route 3 worktree branch based on `main`
+- name it after the actual structural surface, for example
+  `codex/router-contract-refactor`
 
 ## Before Editing
 
@@ -29,11 +31,13 @@ Current working branch target:
 
 The current Route 3 target is:
 
-- continue evolving the learning-card family toward `router + shared core + 4 thin execution skills`
+- preserve and extend the current `router + shared core + 4 thin execution
+  skills` architecture without collapsing card-type boundaries
 
 The next structural step should be:
 
-- run one live real-card session against an existing Obsidian note to validate router handoff plus update or promotion-review behavior
+- read the active `.codex` continuity files first, then define the next
+  structural checkpoint explicitly before editing
 
 ## Scope Boundary
 
@@ -109,3 +113,12 @@ Additional note:
 - real-card dry-run against existing vault notes has been completed without write-path execution
 - controlled handoff-style validation against an explicit existing card has been completed with a real write
 - one router-led ambiguous-thread create-path validation has been completed with a real write to cover non-explicit card targeting
+- router handoff parsing and operator-facing bridge tooling have been added on
+  top of the shared core
+
+Continuity read order before new Route 3 work:
+
+1. `.codex/handoff.md`
+2. `.codex/decisions.md`
+3. `.codex/todo.md`
+4. this checklist

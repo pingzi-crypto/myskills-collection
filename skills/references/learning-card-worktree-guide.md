@@ -245,7 +245,10 @@ Based on the current repository state:
 
 - the shared-reference extraction already moved this family closer to Route 3
   work
-- the next step of shared script extraction is also Route 3
+- shared script extraction and router handoff bridge work have already been
+  completed
+- the next structural step should be judged from the current `.codex` direction
+  files instead of assuming the family is still pre-bridge
 - future small content or spec tuning can return to Route 1 or Route 2
 
 This means the repository should not permanently live inside worktrees.
@@ -254,3 +257,10 @@ The correct rule is:
 
 - use worktrees for structural evolution
 - do not force worktrees for every small edit
+
+Current continuity pointers:
+
+- `.codex/project-architecture.md`
+- `.codex/handoff.md`
+- `.codex/decisions.md`
+- `.codex/todo.md`
