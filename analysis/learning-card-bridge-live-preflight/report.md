@@ -61,5 +61,4 @@ python analysis/learning-card-bridge-live-preflight/scripts/verify_bridge_live_p
 - it does prove that the operator can derive a concrete execution packet from
   canonical handoff text for all three live-proven shapes
 - the remaining highest-value live gap is now narrower:
-  - bridge-originated promotion review
   - bridge-originated ambiguous create

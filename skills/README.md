@@ -280,6 +280,7 @@ Short operator manual:
 - `analysis/learning-card-execution-result-acceptance/report.md`
 - `analysis/learning-card-bridge-live-preflight/report.md`
 - `analysis/learning-card-bridge-originated-live-validation/report.md`
+- `analysis/learning-card-bridge-originated-promotion-review-validation/report.md`
 
 Shortest daily Windows flow:
 

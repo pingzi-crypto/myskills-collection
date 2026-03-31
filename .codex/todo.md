@@ -20,8 +20,8 @@
   the starting packet instead of rebuilding execution prompts manually.
 - Use the preflight `*-check.json` outputs as the go/no-go gate before any
   future bridge-originated live operator run.
-- Extend the now-live-proven bridge-originated update shape to the remaining
-  shapes: promotion review and ambiguous create.
+- Extend the now-live-proven bridge-originated update and promotion-review
+  shapes to the remaining shape: ambiguous create.
 
 ## Later
 
@@ -53,3 +53,5 @@
   ambiguous create packets aligned to recorded live cases.
 - Completed one bridge-originated live update run from canonical handoff to a
   real concept-card update on disk.
+- Completed one bridge-originated live promotion-review run from canonical
+  handoff to a real method-card review update on disk.

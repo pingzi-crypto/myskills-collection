@@ -1,0 +1,23 @@
+{
+  "name": "method-promotion-review-bridge-originated-live-write",
+  "validation_kind": "promotion review",
+  "card_type": "method",
+  "target_path": "C:\\Users\\pz\\Documents\\Obsidian Vault\\学习\\Cards\\Methods\\Prompt Narrowing.md",
+  "expected_route": "$obsidian-method-card-capture",
+  "expected_result_markers": [
+    "Reviewed file:",
+    "Promotion result:",
+    "Summary:"
+  ],
+  "duplicate_dir": "C:\\Users\\pz\\Documents\\Obsidian Vault\\学习\\Cards\\Methods",
+  "duplicate_glob": "Prompt Narrowing*.md",
+  "expected_duplicate_count": 1,
+  "source_report": "analysis/learning-card-bridge-originated-promotion-review-validation/report.md",
+  "required_report_phrases": [
+    "actual bridge-originated promotion-review execution",
+    "Observed outcome:",
+    "pass",
+    "the bridge-originated packet led to a real promotion-review update on the expected note path",
+    "no duplicate method file was created"
+  ]
+}

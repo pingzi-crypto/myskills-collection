@@ -130,5 +130,4 @@ line:
 
 Still worth testing later:
 
-- one bridge-originated live `promotion review` run on an existing card
 - one bridge-originated live `create` run from an ambiguous thread

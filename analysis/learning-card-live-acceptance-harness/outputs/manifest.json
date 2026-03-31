@@ -11,6 +11,11 @@
       "sha256": "7962163893F31496CBF8AC94F0B160E54FC7CD53A2168323792A84855E97B573"
     },
     {
+      "name": "method-promotion-review-bridge-originated-live-write",
+      "output": "analysis/learning-card-live-acceptance-harness/outputs/method-promotion-review-bridge-originated-check.json",
+      "sha256": "9CE6D7FA300CB01AF0D1F022818C19EE6470C5830D00C38C396480892C52FC7C"
+    },
+    {
       "name": "method-promotion-review-live-write",
       "output": "analysis/learning-card-live-acceptance-harness/outputs/method-promotion-review-check.json",
       "sha256": "EC62D68B4B25261F1201E40E2BCA7ABE1022B39113D252D670F817EA29BB2267"

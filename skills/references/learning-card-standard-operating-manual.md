@@ -235,6 +235,7 @@ Acceptance reference:
 - `analysis/learning-card-execution-result-acceptance/report.md`
 - `analysis/learning-card-bridge-live-preflight/report.md`
 - `analysis/learning-card-bridge-originated-live-validation/report.md`
+- `analysis/learning-card-bridge-originated-promotion-review-validation/report.md`
 
 Live-run readiness rule:
 

@@ -47,6 +47,9 @@
   - ambiguous no-card-in-scope create
 - One bridge-originated live update run has now been completed from canonical
   handoff -> bridge packet -> preflight gate -> real concept-card update.
+- One bridge-originated live promotion-review run has now been completed from
+  canonical handoff -> bridge packet -> preflight gate -> real method-card
+  review update.
 - The shortest daily operator path is now documented more explicitly in the
   existing README and operator manual so users can distinguish bridge output
   from actual card-write proof.
@@ -71,8 +74,7 @@
 - Users can still stop too early after the bridge step if the downstream
   execution skill is not invoked and no file-level result line is returned.
 - The highest remaining live gap is a bridge-originated operator session that
-  covers the remaining non-update shapes:
-  - promotion review
+  covers the remaining create shape:
   - ambiguous create
 - The bridge preflight layer is still synthetic; it does not prove that the
   downstream execution skill was actually run in the same session.
@@ -86,7 +88,8 @@
   bridge-originated operator path rather than re-proving the already-covered
   ambiguous create shape.
 - The bridge-originated operator path is now partially live-proven through the
-  concept update shape and can be extended by shape rather than redesigned.
+  concept update and promotion-review shapes and can be extended by shape
+  rather than redesigned.
 
 ## Acceptance
 
@@ -109,4 +112,5 @@
 - `analysis/learning-card-execution-result-acceptance/report.md`
 - `analysis/learning-card-bridge-live-preflight/report.md`
 - `analysis/learning-card-bridge-originated-live-validation/report.md`
+- `analysis/learning-card-bridge-originated-promotion-review-validation/report.md`
 - `analysis/learning-card-live-acceptance-harness/report.md`
