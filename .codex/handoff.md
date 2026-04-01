@@ -46,6 +46,11 @@
   `analysis/learning-card-operator-bridge-acceptance/`.
 - Operator packet acceptance coverage is being added under
   `analysis/learning-card-operator-packet-acceptance/`.
+- Operator packet acceptance now covers the full operator triad under
+  `analysis/learning-card-operator-packet-acceptance/`:
+  - create
+  - update
+  - promotion review
 - Execution result contract acceptance exists under
   `analysis/learning-card-execution-result-acceptance/`.
 - Bridge live preflight coverage now exists under

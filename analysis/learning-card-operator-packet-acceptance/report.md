@@ -13,6 +13,12 @@ This line is still lighter than a full live write. Its job is to shorten the
 daily operator path without changing the underlying router or execution
 contracts.
 
+Covered operator-flow shapes:
+
+- `create`
+- `update`
+- `promotion review`
+
 ## Acceptance Target
 
 Primary wrapper:
@@ -48,6 +54,10 @@ python analysis/learning-card-operator-packet-acceptance/scripts/verify_operator
 
 - `analysis/learning-card-operator-packet-acceptance/outputs/concept-create-operator-packet.txt`
 - `analysis/learning-card-operator-packet-acceptance/outputs/concept-create-operator-packet.json`
+- `analysis/learning-card-operator-packet-acceptance/outputs/method-update-operator-packet.txt`
+- `analysis/learning-card-operator-packet-acceptance/outputs/method-update-operator-packet.json`
+- `analysis/learning-card-operator-packet-acceptance/outputs/misconception-review-operator-packet.txt`
+- `analysis/learning-card-operator-packet-acceptance/outputs/misconception-review-operator-packet.json`
 - `analysis/learning-card-operator-packet-acceptance/outputs/manifest.json`
 
 ## Observed Result
@@ -68,3 +78,5 @@ python analysis/learning-card-operator-packet-acceptance/scripts/verify_operator
   `Next action:`, so the action line stays shorter under real create/update
   usage
 - clipboard behavior stays compatible with the existing execution-skill flow
+- the operator-packet acceptance line now covers the full daily triad rather
+  than only the create shape

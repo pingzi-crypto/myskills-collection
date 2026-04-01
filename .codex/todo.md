@@ -64,3 +64,5 @@
   that it matches the shared-core wrapper output.
 - Added direct clipboard-mode acceptance for the repo-level operator-packet
   wrapper so the daily default path is regression-covered.
+- Expanded operator-packet acceptance from create-only coverage to the full
+  create/update/promotion-review triad.

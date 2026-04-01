@@ -9,6 +9,26 @@
       "name": "concept-create-operator-packet-text",
       "output": "analysis/learning-card-operator-packet-acceptance/outputs/concept-create-operator-packet.txt",
       "sha256": "2D4D3A3E8FE056183089BD68A73B90925236CD57E286EEA8FEBC25D0BB370605"
+    },
+    {
+      "name": "method-update-operator-packet-json",
+      "output": "analysis/learning-card-operator-packet-acceptance/outputs/method-update-operator-packet.json",
+      "sha256": "3E8B5117A23D8C759EA78336E783586004764A86A3922AD918A34D3BC063CF20"
+    },
+    {
+      "name": "method-update-operator-packet-text",
+      "output": "analysis/learning-card-operator-packet-acceptance/outputs/method-update-operator-packet.txt",
+      "sha256": "1B47B1707CBD7327D9A8369B788223DB18E8E8DF68592D7E99B05983E7AFC757"
+    },
+    {
+      "name": "misconception-review-operator-packet-json",
+      "output": "analysis/learning-card-operator-packet-acceptance/outputs/misconception-review-operator-packet.json",
+      "sha256": "155CC38DB19EC741C80B4F525972D8D85DEA38ED70FCD5F997DC2668A39F5793"
+    },
+    {
+      "name": "misconception-review-operator-packet-text",
+      "output": "analysis/learning-card-operator-packet-acceptance/outputs/misconception-review-operator-packet.txt",
+      "sha256": "9DAE8FEEB6AF5DD3233AA2B151DD4A43A0946C8310294E2BEDE7899D29064CF3"
     }
   ]
 }

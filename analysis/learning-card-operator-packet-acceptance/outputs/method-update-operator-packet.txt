@@ -1,0 +1,17 @@
+Operator packet ready.
+Status: Execution prompt ready only. No card file has been created, updated, or reviewed yet.
+Downstream skill: $obsidian-method-card-capture
+Mode: update
+Completion proof: Updated file:, Summary:
+Still needed: existing card title or path confirmation, vault root
+Next action: Fill the missing fields, paste the execution prompt into the next turn, and continue with $obsidian-method-card-capture until the result shows Updated file:, Summary:.
+
+Execution prompt preview:
+Use $obsidian-method-card-capture to work on one method card from this thread.
+Mode: update
+Capture anchor: `把 router 的问题改成中英双语` -> first assistant reply after it
+Existing method card: <existing card path or title>
+Keywords or thread points to merge:
+- <keywords or short excerpts>
+Source: <optional source>
+Vault root: <optional vault path>

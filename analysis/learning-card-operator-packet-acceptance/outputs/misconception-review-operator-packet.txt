@@ -1,0 +1,17 @@
+Operator packet ready.
+Status: Execution prompt ready only. No card file has been created, updated, or reviewed yet.
+Downstream skill: $obsidian-misconception-card-capture
+Mode: promotion review
+Completion proof: Reviewed file:, Promotion result:, Summary:
+Still needed: existing card title or path confirmation, vault root
+Next action: Fill the missing fields, paste the execution prompt into the next turn, and continue with $obsidian-misconception-card-capture until the result shows Reviewed file:, Promotion result:, Summary:.
+
+Execution prompt preview:
+Use $obsidian-misconception-card-capture to work on one misconception card from this thread.
+Mode: promotion review
+Capture anchor: `这个误解卡是否应该升到 expert-ready` -> first assistant reply after it
+Existing misconception card: <existing card path or title>
+Promotion evidence from this thread:
+- <evidence or short excerpts>
+Source: <optional source>
+Vault root: <optional vault path>

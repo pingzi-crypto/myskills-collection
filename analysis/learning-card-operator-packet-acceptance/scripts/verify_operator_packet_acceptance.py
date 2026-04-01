@@ -12,10 +12,40 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[3]
 ANALYSIS_DIR = REPO_ROOT / "analysis" / "learning-card-operator-packet-acceptance"
 OUTPUT_DIR = ANALYSIS_DIR / "outputs"
-HANDOFF_INPUT = REPO_ROOT / "analysis" / "learning-card-handoff-parser" / "inputs" / "concept-create-handoff.txt"
 PACKET_BUILDER = REPO_ROOT / "skills" / "shared" / "learning-card-core" / "scripts" / "build_operator_packet_from_handoff.py"
 WRAPPER = REPO_ROOT / "skills" / "shared" / "learning-card-core" / "scripts" / "use_operator_packet.ps1"
 PROJECT_WRAPPER = REPO_ROOT / "scripts" / "use_learning_card_operator_packet.ps1"
+HANDOFF_DIR = REPO_ROOT / "analysis" / "learning-card-handoff-parser" / "inputs"
+
+CASES = [
+    {
+        "slug": "concept-create",
+        "handoff_input": HANDOFF_DIR / "concept-create-handoff.txt",
+        "skill": "$obsidian-concept-card-capture",
+        "mode": "create",
+        "completion_proof": "Created file:, Summary:",
+        "missing_inputs": "title, keywords or thread points, domain, vault root",
+        "prompt_line": "Use $obsidian-concept-card-capture to work on one concept card from this thread.",
+    },
+    {
+        "slug": "method-update",
+        "handoff_input": HANDOFF_DIR / "method-update-handoff.txt",
+        "skill": "$obsidian-method-card-capture",
+        "mode": "update",
+        "completion_proof": "Updated file:, Summary:",
+        "missing_inputs": "existing card title or path confirmation, vault root",
+        "prompt_line": "Use $obsidian-method-card-capture to work on one method card from this thread.",
+    },
+    {
+        "slug": "misconception-review",
+        "handoff_input": HANDOFF_DIR / "misconception-review-handoff.txt",
+        "skill": "$obsidian-misconception-card-capture",
+        "mode": "promotion review",
+        "completion_proof": "Reviewed file:, Promotion result:, Summary:",
+        "missing_inputs": "existing card title or path confirmation, vault root",
+        "prompt_line": "Use $obsidian-misconception-card-capture to work on one misconception card from this thread.",
+    },
+]
 
 
 def sha256_text(text: str) -> str:
@@ -50,81 +80,76 @@ def get_clipboard_text(shell: str) -> str:
     return completed.stdout
 
 
-def main() -> int:
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    failures: list[str] = []
-    manifest: list[dict[str, str]] = []
-
-    json_run = subprocess.run(
-        [
-            sys.executable,
-            str(PACKET_BUILDER),
-            "--handoff-file",
-            str(HANDOFF_INPUT),
-            "--format",
-            "json",
-        ],
+def run_command(arguments: list[str]) -> str:
+    completed = subprocess.run(
+        arguments,
         check=True,
         capture_output=True,
         text=True,
         encoding="utf-8",
     )
-    packet_text = json_run.stdout
+    return completed.stdout
+
+
+def verify_case(case: dict[str, str | Path], shell: str) -> tuple[list[str], list[dict[str, str]]]:
+    failures: list[str] = []
+    manifest: list[dict[str, str]] = []
+    slug = str(case["slug"])
+    handoff_input = Path(case["handoff_input"])
+    handoff_text = handoff_input.read_text(encoding="utf-8")
+
+    packet_text = run_command(
+        [
+            sys.executable,
+            str(PACKET_BUILDER),
+            "--handoff-file",
+            str(handoff_input),
+            "--format",
+            "json",
+        ]
+    )
     packet = json.loads(packet_text)
 
-    if packet["skill"] != "$obsidian-concept-card-capture":
-        failures.append("packet json skill mismatch")
-    if packet["mode"] != "create":
-        failures.append("packet json mode mismatch")
-    if "Created file:" not in packet["completion_markers"]:
-        failures.append("packet json missing create completion marker")
+    if packet["skill"] != case["skill"]:
+        failures.append(f"{slug}: packet json skill mismatch")
+    if packet["mode"] != case["mode"]:
+        failures.append(f"{slug}: packet json mode mismatch")
+    if packet["completion_markers"] != str(case["completion_proof"]).split(", "):
+        failures.append(f"{slug}: packet json completion markers mismatch")
 
-    packet_json_path = OUTPUT_DIR / "concept-create-operator-packet.json"
+    packet_json_path = OUTPUT_DIR / f"{slug}-operator-packet.json"
     packet_json_path.write_text(packet_text, encoding="utf-8")
     manifest.append(
         {
-            "name": "concept-create-operator-packet-json",
+            "name": f"{slug}-operator-packet-json",
             "output": str(packet_json_path.relative_to(REPO_ROOT)).replace("\\", "/"),
             "sha256": sha256_text(packet_text),
         }
     )
 
-    shell = resolve_powershell_executable()
-    handoff_text = HANDOFF_INPUT.read_text(encoding="utf-8")
     set_clipboard_text(shell, handoff_text)
-    subprocess.run(
-        [shell, "-File", str(WRAPPER)],
-        check=True,
-        capture_output=True,
-        text=True,
-        encoding="utf-8",
-    )
-    clipboard_text = get_clipboard_text(shell)
-    if "Operator packet ready." in clipboard_text:
-        failures.append("shared wrapper clipboard should contain prompt only, not packet summary")
-    if "Use $obsidian-concept-card-capture" not in clipboard_text:
-        failures.append("shared wrapper clipboard prompt missing downstream skill line")
+    run_command([shell, "-File", str(WRAPPER), "-HandoffFile", str(handoff_input)])
+    shared_clipboard_text = get_clipboard_text(shell)
+    if "Operator packet ready." in shared_clipboard_text:
+        failures.append(f"{slug}: shared wrapper clipboard should contain prompt only, not packet summary")
+    if str(case["prompt_line"]) not in shared_clipboard_text:
+        failures.append(f"{slug}: shared wrapper clipboard prompt missing downstream skill line")
 
-    wrapper_run = subprocess.run(
+    wrapper_text = run_command(
         [
             shell,
             "-File",
             str(WRAPPER),
             "-HandoffFile",
-            str(HANDOFF_INPUT),
+            str(handoff_input),
             "-PrintOnly",
-        ],
-        check=True,
-        capture_output=True,
-        text=True,
-        encoding="utf-8",
+        ]
     )
-    wrapper_text = wrapper_run.stdout
-    wrapper_output_path = OUTPUT_DIR / "concept-create-operator-packet.txt"
+    wrapper_output_path = OUTPUT_DIR / f"{slug}-operator-packet.txt"
     wrapper_output_path.write_text(wrapper_text, encoding="utf-8")
     manifest.append(
         {
-            "name": "concept-create-operator-packet-text",
+            "name": f"{slug}-operator-packet-text",
             "output": str(wrapper_output_path.relative_to(REPO_ROOT)).replace("\\", "/"),
             "sha256": sha256_text(wrapper_text),
         }
@@ -133,49 +158,52 @@ def main() -> int:
     required_phrases = [
         "Operator packet ready.",
         "Status: Execution prompt ready only. No card file has been created, updated, or reviewed yet.",
-        "Downstream skill: $obsidian-concept-card-capture",
-        "Mode: create",
-        "Completion proof: Created file:, Summary:",
-        "Still needed: title, keywords or thread points, domain, vault root",
+        f"Downstream skill: {case['skill']}",
+        f"Mode: {case['mode']}",
+        f"Completion proof: {case['completion_proof']}",
+        f"Still needed: {case['missing_inputs']}",
         "Next action:",
         "Execution prompt preview:",
-        "Use $obsidian-concept-card-capture to work on one concept card from this thread.",
+        str(case["prompt_line"]),
     ]
     for phrase in required_phrases:
         if phrase not in wrapper_text:
-            failures.append(f"wrapper output missing phrase: {phrase}")
+            failures.append(f"{slug}: wrapper output missing phrase: {phrase}")
 
-    project_wrapper_run = subprocess.run(
+    project_wrapper_text = run_command(
         [
             shell,
             "-File",
             str(PROJECT_WRAPPER),
             "-HandoffFile",
-            str(HANDOFF_INPUT),
+            str(handoff_input),
             "-PrintOnly",
-        ],
-        check=True,
-        capture_output=True,
-        text=True,
-        encoding="utf-8",
+        ]
     )
-    project_wrapper_text = project_wrapper_run.stdout
     if project_wrapper_text != wrapper_text:
-        failures.append("project wrapper output mismatch")
+        failures.append(f"{slug}: project wrapper output mismatch")
 
     set_clipboard_text(shell, handoff_text)
-    subprocess.run(
-        [shell, "-File", str(PROJECT_WRAPPER)],
-        check=True,
-        capture_output=True,
-        text=True,
-        encoding="utf-8",
-    )
+    run_command([shell, "-File", str(PROJECT_WRAPPER), "-HandoffFile", str(handoff_input)])
     project_clipboard_text = get_clipboard_text(shell)
     if "Operator packet ready." in project_clipboard_text:
-        failures.append("project wrapper clipboard should contain prompt only, not packet summary")
-    if project_clipboard_text != clipboard_text:
-        failures.append("project wrapper clipboard prompt mismatch")
+        failures.append(f"{slug}: project wrapper clipboard should contain prompt only, not packet summary")
+    if project_clipboard_text != shared_clipboard_text:
+        failures.append(f"{slug}: project wrapper clipboard prompt mismatch")
+
+    return failures, manifest
+
+
+def main() -> int:
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    failures: list[str] = []
+    manifest: list[dict[str, str]] = []
+    shell = resolve_powershell_executable()
+
+    for case in CASES:
+        case_failures, case_manifest = verify_case(case, shell)
+        failures.extend(case_failures)
+        manifest.extend(case_manifest)
 
     manifest_path = OUTPUT_DIR / "manifest.json"
     manifest_path.write_text(

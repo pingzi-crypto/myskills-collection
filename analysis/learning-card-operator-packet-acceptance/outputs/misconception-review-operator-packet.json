@@ -1,0 +1,18 @@
+{
+  "card_type": "misconception",
+  "mode": "promotion review",
+  "skill": "$obsidian-misconception-card-capture",
+  "capture_anchor": "`这个误解卡是否应该升到 expert-ready` -> first assistant reply after it",
+  "status": "Execution prompt ready only. No card file has been created, updated, or reviewed yet.",
+  "missing_inputs": [
+    "existing card title or path confirmation",
+    "vault root"
+  ],
+  "completion_markers": [
+    "Reviewed file:",
+    "Promotion result:",
+    "Summary:"
+  ],
+  "next_action": "Fill the missing fields, paste the execution prompt into the next turn, and continue with $obsidian-misconception-card-capture until the result shows Reviewed file:, Promotion result:, Summary:.",
+  "prompt": "Use $obsidian-misconception-card-capture to work on one misconception card from this thread.\nMode: promotion review\nCapture anchor: `这个误解卡是否应该升到 expert-ready` -> first assistant reply after it\nExisting misconception card: <existing card path or title>\nPromotion evidence from this thread:\n- <evidence or short excerpts>\nSource: <optional source>\nVault root: <optional vault path>"
+}
