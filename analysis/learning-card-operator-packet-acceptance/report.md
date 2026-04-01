@@ -34,7 +34,8 @@ Underlying packet builder:
   - completion proof markers
   - next action
 - repo-level thin wrapper matches the shared wrapper output
-- clipboard still receives only the execution prompt rather than the summary
+- both wrappers keep clipboard output limited to the execution prompt rather
+  than the packet summary
 - the packet builder can emit JSON with prompt plus operator metadata
 
 ## Rebuild Command
@@ -57,6 +58,8 @@ python analysis/learning-card-operator-packet-acceptance/scripts/verify_operator
   the operator-packet flow without introducing a second packet contract
 - the packet summary now explicitly says the card has not been written yet, so
   `Operator packet ready.` is less likely to be misread as task completion
+- the repo-level daily wrapper now has direct clipboard-mode acceptance rather
+  than relying only on `-PrintOnly` equivalence
 - operators can see the next action and completion proof markers immediately
   without re-reading the manual
 - operators can also see the still-missing fields immediately instead of

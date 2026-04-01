@@ -62,3 +62,5 @@
   no card file has been written yet.
 - Added a repo-level thin wrapper for the operator-packet flow and validated
   that it matches the shared-core wrapper output.
+- Added direct clipboard-mode acceptance for the repo-level operator-packet
+  wrapper so the daily default path is regression-covered.

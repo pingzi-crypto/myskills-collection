@@ -101,9 +101,9 @@ def main() -> int:
     )
     clipboard_text = get_clipboard_text(shell)
     if "Operator packet ready." in clipboard_text:
-        failures.append("clipboard should contain prompt only, not packet summary")
+        failures.append("shared wrapper clipboard should contain prompt only, not packet summary")
     if "Use $obsidian-concept-card-capture" not in clipboard_text:
-        failures.append("clipboard prompt missing downstream skill line")
+        failures.append("shared wrapper clipboard prompt missing downstream skill line")
 
     wrapper_run = subprocess.run(
         [
@@ -162,6 +162,20 @@ def main() -> int:
     project_wrapper_text = project_wrapper_run.stdout
     if project_wrapper_text != wrapper_text:
         failures.append("project wrapper output mismatch")
+
+    set_clipboard_text(shell, handoff_text)
+    subprocess.run(
+        [shell, "-File", str(PROJECT_WRAPPER)],
+        check=True,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+    )
+    project_clipboard_text = get_clipboard_text(shell)
+    if "Operator packet ready." in project_clipboard_text:
+        failures.append("project wrapper clipboard should contain prompt only, not packet summary")
+    if project_clipboard_text != clipboard_text:
+        failures.append("project wrapper clipboard prompt mismatch")
 
     manifest_path = OUTPUT_DIR / "manifest.json"
     manifest_path.write_text(

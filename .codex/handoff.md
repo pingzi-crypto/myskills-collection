@@ -32,6 +32,8 @@
   - `use_operator_packet.ps1`
 - A repo-level thin wrapper now exists for the preferred daily operator path:
   - `scripts/use_learning_card_operator_packet.ps1`
+- The repo-level thin wrapper now has direct default clipboard-mode acceptance,
+  not only `-PrintOnly` equivalence coverage.
 - The operator-packet summary now surfaces missing write-critical inputs as a
   separate `Still needed:` line and keeps `Next action:` compact enough to scan
   during real create and update runs.
