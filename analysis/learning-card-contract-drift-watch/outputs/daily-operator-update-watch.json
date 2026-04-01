@@ -1,0 +1,13 @@
+{
+  "watch_line": "daily_operator",
+  "mode": "update",
+  "expected_skill": "$obsidian-method-card-capture",
+  "router_file": "analysis/learning-card-router-execution-contract-regression/outputs/method-update-minimum-package.txt",
+  "operator_packet_file": "analysis/learning-card-operator-packet-acceptance/outputs/method-update-operator-packet.json",
+  "execution_result_file": "analysis/learning-card-execution-result-acceptance/outputs/method-update-result.txt",
+  "completion_markers": [
+    "Updated file:",
+    "Summary:"
+  ],
+  "status": "ok"
+}

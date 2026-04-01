@@ -42,6 +42,10 @@
   operators stop after the wrapper step.
 - Regression coverage exists for the handoff parser and prompt bridge under
   `analysis/learning-card-handoff-parser/`.
+- A cross-layer contract drift watch now exists under
+  `analysis/learning-card-contract-drift-watch/` to connect router minimum
+  package, operator packet, execution result, preflight check, and live harness
+  expectations.
 - Operator acceptance coverage exists for the daily wrapper flow under
   `analysis/learning-card-operator-bridge-acceptance/`.
 - Operator packet acceptance coverage is being added under
@@ -139,6 +143,9 @@
   live write line.
 - Preflight `*-check.json` outputs can now be consumed through one repo-level
   go/no-go gate instead of being read manually.
+- When router, bridge, or execution contracts materially shift, the contract
+  drift watch is now the fastest cross-layer rerun surface before deciding
+  whether deeper live revalidation is necessary.
 
 ## Acceptance
 

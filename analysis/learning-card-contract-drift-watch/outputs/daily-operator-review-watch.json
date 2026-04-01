@@ -1,0 +1,14 @@
+{
+  "watch_line": "daily_operator",
+  "mode": "promotion review",
+  "expected_skill": "$obsidian-misconception-card-capture",
+  "router_file": "analysis/learning-card-router-execution-contract-regression/outputs/misconception-review-minimum-package.txt",
+  "operator_packet_file": "analysis/learning-card-operator-packet-acceptance/outputs/misconception-review-operator-packet.json",
+  "execution_result_file": "analysis/learning-card-execution-result-acceptance/outputs/misconception-review-result.txt",
+  "completion_markers": [
+    "Reviewed file:",
+    "Promotion result:",
+    "Summary:"
+  ],
+  "status": "ok"
+}

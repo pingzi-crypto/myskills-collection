@@ -1,0 +1,34 @@
+{
+  "outputs": [
+    {
+      "name": "daily-operator-create-watch",
+      "output": "analysis/learning-card-contract-drift-watch/outputs/daily-operator-create-watch.json",
+      "sha256": "E0522722CE35038CF9FB38E17409010C96808D3D523797FE3719D957886CCAF9"
+    },
+    {
+      "name": "daily-operator-update-watch",
+      "output": "analysis/learning-card-contract-drift-watch/outputs/daily-operator-update-watch.json",
+      "sha256": "746C6F456D619EF85905AD5451E7802784EEF527B3445F80A2BA1C704D666559"
+    },
+    {
+      "name": "daily-operator-review-watch",
+      "output": "analysis/learning-card-contract-drift-watch/outputs/daily-operator-review-watch.json",
+      "sha256": "88180501C3BAF22CA9320E448A3BB73B8A110455EDC49853FE5F297246C5B38A"
+    },
+    {
+      "name": "bridge-live-update-watch",
+      "output": "analysis/learning-card-contract-drift-watch/outputs/bridge-live-update-watch.json",
+      "sha256": "F2DDEFBECBF604043D8C518E86F63AABA84CC29A847C79E9AA1FE0E33B52D3E1"
+    },
+    {
+      "name": "bridge-live-review-watch",
+      "output": "analysis/learning-card-contract-drift-watch/outputs/bridge-live-review-watch.json",
+      "sha256": "6897155267543CFA2DEB4A1698FAECD09237FB6D64419F6539898B5F83C732CE"
+    },
+    {
+      "name": "bridge-live-create-watch",
+      "output": "analysis/learning-card-contract-drift-watch/outputs/bridge-live-create-watch.json",
+      "sha256": "C24136BB820FD8CC17F7703B4E3E882742DFC6768B0AF9442127C0E981CD7CED"
+    }
+  ]
+}

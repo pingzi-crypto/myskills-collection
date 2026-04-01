@@ -1,0 +1,12 @@
+{
+  "watch_line": "bridge_live",
+  "expected_skill": "$obsidian-misconception-card-capture",
+  "preflight_check_file": "analysis/learning-card-bridge-live-preflight/outputs/misconception-bridge-create-bridge-packet-check.json",
+  "live_harness_file": "analysis/learning-card-live-acceptance-harness/outputs/misconception-bridge-originated-create-check.json",
+  "expected_target_path": "C:\\Users\\pz\\Documents\\Obsidian Vault\\学习\\Cards\\Misconceptions\\生成 execution packet 不等于卡片已经写入.md",
+  "completion_markers": [
+    "Created file:",
+    "Summary:"
+  ],
+  "status": "ok"
+}

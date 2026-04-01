@@ -1,0 +1,12 @@
+{
+  "watch_line": "bridge_live",
+  "expected_skill": "$obsidian-concept-card-capture",
+  "preflight_check_file": "analysis/learning-card-bridge-live-preflight/outputs/concept-update-bridge-packet-check.json",
+  "live_harness_file": "analysis/learning-card-live-acceptance-harness/outputs/concept-update-bridge-originated-check.json",
+  "expected_target_path": "C:\\Users\\pz\\Documents\\Obsidian Vault\\学习\\Cards\\Concepts\\Deterministic Card Rendering.md",
+  "completion_markers": [
+    "Updated file:",
+    "Summary:"
+  ],
+  "status": "ok"
+}

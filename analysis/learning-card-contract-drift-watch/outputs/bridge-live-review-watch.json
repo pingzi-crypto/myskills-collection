@@ -1,0 +1,13 @@
+{
+  "watch_line": "bridge_live",
+  "expected_skill": "$obsidian-method-card-capture",
+  "preflight_check_file": "analysis/learning-card-bridge-live-preflight/outputs/method-promotion-review-bridge-packet-check.json",
+  "live_harness_file": "analysis/learning-card-live-acceptance-harness/outputs/method-promotion-review-bridge-originated-check.json",
+  "expected_target_path": "C:\\Users\\pz\\Documents\\Obsidian Vault\\学习\\Cards\\Methods\\Prompt Narrowing.md",
+  "completion_markers": [
+    "Reviewed file:",
+    "Promotion result:",
+    "Summary:"
+  ],
+  "status": "ok"
+}

@@ -70,3 +70,6 @@
 - Added a repo-level preflight gate wrapper and acceptance line so future
   bridge-originated live runs can consume `*-check.json` outputs as an actual
   go/no-go gate.
+- Added a cross-layer contract drift watch so router, operator-packet,
+  preflight, execution-result, and live-harness expectations can be checked
+  together after contract changes.
