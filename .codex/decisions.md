@@ -121,3 +121,41 @@
 ### Impact
 - `scripts/` can host thin operator wrappers for daily use.
 - Acceptance should verify that repo-level wrappers match shared-core output.
+
+---
+
+### Decision
+- Summary: Strengthen bridge-originated live acceptance through read-only
+  evidence-chain validation before opening any new live write line
+- Date: 2026-04-01
+- Status: active
+
+### Context
+- The repository already has one live-proven bridge-originated triad for
+  update, promotion review, and ambiguous create.
+- The remaining gap was not proof that bridge-originated live writes can happen,
+  but proof that the full operator session evidence chain still aligns across
+  handoff, preflight packet, readiness gate, live report, and target note.
+
+### Choice
+- Prefer strengthening the existing live acceptance harness with evidence-chain
+  checks for bridge-originated cases.
+- Do not open a new real-write validation line unless the contracts materially
+  shift beyond what the read-only evidence chain can still prove.
+
+### Why
+- It increases confidence in the bridge-originated operator path without
+  creating unnecessary vault-write risk.
+- It keeps the stronger live acceptance layer reusable, repeatable, and safe to
+  rerun on demand.
+
+### Alternatives Rejected
+- Option: immediately add another real bridge-originated live write run
+- Why not: the existing live triad already proves execution can happen; the
+  higher-value gap is contract continuity, not another write.
+
+### Impact
+- Bridge-originated live cases should carry structured pointers to handoff,
+  preflight packet, and readiness-check artifacts.
+- The live acceptance harness should verify that those artifacts still align
+  with the final recorded live target.

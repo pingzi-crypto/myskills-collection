@@ -13,5 +13,6 @@
   "duplicate_matches": [
     "Skill 已在 Codex 加载不等于 Claude Code 和 OpenClaw 兼容已完成.md"
   ],
-  "source_report": "analysis/learning-card-router-ambiguous-create-validation/report.md"
+  "source_report": "analysis/learning-card-router-ambiguous-create-validation/report.md",
+  "bridge_originated": false
 }

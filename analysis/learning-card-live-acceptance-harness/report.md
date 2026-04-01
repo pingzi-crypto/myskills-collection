@@ -11,6 +11,8 @@ This harness reads structured case files and verifies:
 - the target note still sits in the expected card-type directory
 - duplicate safety still holds for the recorded same-title glob
 - the original source report still contains the expected write-validation facts
+- for bridge-originated cases, the recorded handoff, preflight packet, and
+  preflight check still exist and still align with the final live-write target
 
 ## Scope
 
@@ -53,6 +55,13 @@ python analysis/learning-card-live-acceptance-harness/scripts/verify_live_accept
 - this harness does not replace a future new live write, but it keeps the
   already-earned live validation line from decaying into one-off narrative
   reports
+- the bridge-originated live line is now backed by a stronger read-only
+  evidence chain:
+  - canonical handoff
+  - bridge preflight packet
+  - machine-readable readiness check
+  - recorded live write report
+  - target note still on disk
 - the bridge-originated triad is now fully covered by recorded live cases:
   - update
   - promotion review

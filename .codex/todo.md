@@ -13,8 +13,6 @@
   output to actual execution-skill invocation even further.
 - Review whether any higher-value aliases, wrapper commands, or docs examples
   should be added beyond the current operator-packet wrapper.
-- Decide whether to add a stronger live acceptance layer for a
-  bridge-originated operator session after the bridge step.
 - If a higher-risk live line is opened, use the new bridge preflight cases as
   the starting packet instead of rebuilding execution prompts manually.
 - Use the preflight `*-check.json` outputs as the go/no-go gate before any
@@ -68,3 +66,6 @@
   create/update/promotion-review triad.
 - Added copyable docs examples for the repo-level operator-packet path across
   create, update, and promotion-review flows.
+- Strengthened bridge-originated live acceptance with read-only evidence-chain
+  checks across handoff, preflight packet, readiness gate, live report, and
+  target note.

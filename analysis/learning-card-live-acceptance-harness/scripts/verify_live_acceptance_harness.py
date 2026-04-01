@@ -35,6 +35,7 @@ def main() -> int:
         duplicate_dir = Path(case["duplicate_dir"])
         report_path = REPO_ROOT / case["source_report"]
         expected_dir_name = CARD_TYPE_DIR[case["card_type"]]
+        bridge_originated = bool(case.get("bridge_originated", False))
 
         if not target_path.exists():
             failures.append(f"{name} target path missing: {target_path}")
@@ -66,6 +67,60 @@ def main() -> int:
                 if phrase not in report_text:
                     failures.append(f"{name} source report missing phrase: {phrase}")
 
+        evidence_chain: dict[str, object] | None = None
+        if bridge_originated:
+            handoff_path = REPO_ROOT / case["handoff_source"]
+            preflight_packet_path = REPO_ROOT / case["preflight_packet"]
+            preflight_check_path = REPO_ROOT / case["preflight_check"]
+
+            if not handoff_path.exists():
+                failures.append(f"{name} handoff source missing: {handoff_path}")
+            if not preflight_packet_path.exists():
+                failures.append(f"{name} preflight packet missing: {preflight_packet_path}")
+            if not preflight_check_path.exists():
+                failures.append(f"{name} preflight check missing: {preflight_check_path}")
+
+            preflight_check = {}
+            if preflight_check_path.exists():
+                preflight_check = json.loads(preflight_check_path.read_text(encoding="utf-8"))
+                if preflight_check.get("expected_skill") != case["expected_route"]:
+                    failures.append(f"{name} preflight check expected_skill mismatch")
+                if preflight_check.get("expected_target_path") != case["target_path"]:
+                    failures.append(f"{name} preflight check expected_target_path mismatch")
+                if preflight_check.get("linked_live_target_path") != case["target_path"]:
+                    failures.append(f"{name} preflight check linked_live_target_path mismatch")
+                if preflight_check.get("expected_completion_markers") != case["expected_result_markers"]:
+                    failures.append(f"{name} preflight check completion markers mismatch")
+                if preflight_check.get("go_no_go") != "go":
+                    failures.append(f"{name} preflight check go_no_go is not go")
+                if preflight_check.get("placeholder_free") is not True:
+                    failures.append(f"{name} preflight check is not placeholder_free")
+                prompt_output = preflight_check.get("prompt_output")
+                if not prompt_output:
+                    failures.append(f"{name} preflight check missing prompt_output")
+                elif not (REPO_ROOT / str(prompt_output)).exists():
+                    failures.append(f"{name} preflight check prompt_output missing on disk")
+
+            if report_text:
+                for linked_path in (
+                    case["handoff_source"],
+                    case["preflight_packet"],
+                    case["preflight_check"],
+                ):
+                    if linked_path not in report_text:
+                        failures.append(f"{name} source report does not mention {linked_path}")
+
+            evidence_chain = {
+                "handoff_source": case["handoff_source"],
+                "handoff_exists": handoff_path.exists(),
+                "preflight_packet": case["preflight_packet"],
+                "preflight_packet_exists": preflight_packet_path.exists(),
+                "preflight_check": case["preflight_check"],
+                "preflight_check_exists": preflight_check_path.exists(),
+                "preflight_go_no_go": preflight_check.get("go_no_go") if preflight_check else None,
+                "preflight_placeholder_free": preflight_check.get("placeholder_free") if preflight_check else None,
+            }
+
         result = {
             "name": name,
             "validation_kind": case["validation_kind"],
@@ -77,7 +132,10 @@ def main() -> int:
             "duplicate_glob": case["duplicate_glob"],
             "duplicate_matches": duplicate_matches,
             "source_report": case["source_report"],
+            "bridge_originated": bridge_originated,
         }
+        if evidence_chain is not None:
+            result["evidence_chain"] = evidence_chain
 
         output_path = OUTPUT_DIR / f"{case_path.stem}-check.json"
         output_text = json.dumps(result, ensure_ascii=False, indent=2) + "\n"

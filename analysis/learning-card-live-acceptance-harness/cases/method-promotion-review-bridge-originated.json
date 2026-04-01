@@ -13,6 +13,10 @@
   "duplicate_glob": "Prompt Narrowing*.md",
   "expected_duplicate_count": 1,
   "source_report": "analysis/learning-card-bridge-originated-promotion-review-validation/report.md",
+  "bridge_originated": true,
+  "handoff_source": "analysis/learning-card-bridge-live-preflight/inputs/method-promotion-review-handoff.txt",
+  "preflight_packet": "analysis/learning-card-bridge-live-preflight/outputs/method-promotion-review-bridge-packet.txt",
+  "preflight_check": "analysis/learning-card-bridge-live-preflight/outputs/method-promotion-review-bridge-packet-check.json",
   "required_report_phrases": [
     "actual bridge-originated promotion-review execution",
     "Observed outcome:",

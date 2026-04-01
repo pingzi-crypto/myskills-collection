@@ -14,5 +14,6 @@
   "duplicate_matches": [
     "Prompt Narrowing.md"
   ],
-  "source_report": "analysis/learning-card-live-promotion-review-validation/report.md"
+  "source_report": "analysis/learning-card-live-promotion-review-validation/report.md",
+  "bridge_originated": false
 }

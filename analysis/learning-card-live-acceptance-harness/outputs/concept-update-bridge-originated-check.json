@@ -13,5 +13,16 @@
   "duplicate_matches": [
     "Deterministic Card Rendering.md"
   ],
-  "source_report": "analysis/learning-card-bridge-originated-live-validation/report.md"
+  "source_report": "analysis/learning-card-bridge-originated-live-validation/report.md",
+  "bridge_originated": true,
+  "evidence_chain": {
+    "handoff_source": "analysis/learning-card-bridge-live-preflight/inputs/concept-update-handoff.txt",
+    "handoff_exists": true,
+    "preflight_packet": "analysis/learning-card-bridge-live-preflight/outputs/concept-update-bridge-packet.txt",
+    "preflight_packet_exists": true,
+    "preflight_check": "analysis/learning-card-bridge-live-preflight/outputs/concept-update-bridge-packet-check.json",
+    "preflight_check_exists": true,
+    "preflight_go_no_go": "go",
+    "preflight_placeholder_free": true
+  }
 }

@@ -66,6 +66,13 @@
   - existing-card update
   - existing-card promotion review
   - ambiguous no-card-in-scope create
+- The read-only live acceptance harness now also validates the bridge-originated
+  evidence chain for recorded live cases:
+  - canonical handoff source
+  - preflight packet
+  - preflight readiness check
+  - live report
+  - target note on disk
 - One bridge-originated live update run has now been completed from canonical
   handoff -> bridge packet -> preflight gate -> real concept-card update.
 - One bridge-originated live promotion-review run has now been completed from
@@ -106,6 +113,9 @@
   - ambiguous create
 - The bridge preflight layer is still synthetic; it does not prove that the
   downstream execution skill was actually run in the same session.
+- The stronger bridge-originated live acceptance layer is now read-only and
+  evidence-based; it still does not replace a future new live write if the
+  operator contracts materially change.
 
 ## Next Step
 
@@ -121,6 +131,9 @@
 - The bridge-originated operator path is now live-proven across update,
   promotion-review, and ambiguous-create shapes and can now be maintained as a
   stable validation line rather than an open gap.
+- The current stronger live-acceptance direction is to maintain the recorded
+  bridge-originated triad through evidence-chain checks before opening any new
+  live write line.
 
 ## Acceptance
 

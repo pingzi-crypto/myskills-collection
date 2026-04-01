@@ -12,6 +12,10 @@
   "duplicate_glob": "Deterministic Card Rendering*.md",
   "expected_duplicate_count": 1,
   "source_report": "analysis/learning-card-bridge-originated-live-validation/report.md",
+  "bridge_originated": true,
+  "handoff_source": "analysis/learning-card-bridge-live-preflight/inputs/concept-update-handoff.txt",
+  "preflight_packet": "analysis/learning-card-bridge-live-preflight/outputs/concept-update-bridge-packet.txt",
+  "preflight_check": "analysis/learning-card-bridge-live-preflight/outputs/concept-update-bridge-packet-check.json",
   "required_report_phrases": [
     "actual bridge-originated update-path execution",
     "Observed outcome:",

@@ -3,32 +3,32 @@
     {
       "name": "concept-update-bridge-originated-live-write",
       "output": "analysis/learning-card-live-acceptance-harness/outputs/concept-update-bridge-originated-check.json",
-      "sha256": "B3737B59C2B2A3912FB28DE954C2A2C473918FF057C0F6C031884A2AB4286DA9"
+      "sha256": "9FF20E2422365DDBF12AE2327F31695951526DBCB4B2F676EE5E2B4A34F88F49"
     },
     {
       "name": "concept-update-live-write",
       "output": "analysis/learning-card-live-acceptance-harness/outputs/concept-update-check.json",
-      "sha256": "7962163893F31496CBF8AC94F0B160E54FC7CD53A2168323792A84855E97B573"
+      "sha256": "A7305572D19B8514830641A70C480471BE35775EEBFBE32B616A44AB88F7E931"
     },
     {
       "name": "method-promotion-review-bridge-originated-live-write",
       "output": "analysis/learning-card-live-acceptance-harness/outputs/method-promotion-review-bridge-originated-check.json",
-      "sha256": "9CE6D7FA300CB01AF0D1F022818C19EE6470C5830D00C38C396480892C52FC7C"
+      "sha256": "EAD0A4AB013B08B49936089995A2935D09219596ED007C10952D619A5425EE5D"
     },
     {
       "name": "method-promotion-review-live-write",
       "output": "analysis/learning-card-live-acceptance-harness/outputs/method-promotion-review-check.json",
-      "sha256": "EC62D68B4B25261F1201E40E2BCA7ABE1022B39113D252D670F817EA29BB2267"
+      "sha256": "8A1F570C9592A104D2C4B47B0958E63A8C34D2E9F9ACB63C86AF8C40D781153B"
     },
     {
       "name": "misconception-ambiguous-create-live-write",
       "output": "analysis/learning-card-live-acceptance-harness/outputs/misconception-ambiguous-create-check.json",
-      "sha256": "4749A45A3370745C9C6084F7779C877FB55C964F0600053717469BCB7A2629A6"
+      "sha256": "FFBECFD79D7CC69946FBA19A875C1F5F3B164C3421B1EC4A83B999288BB64C11"
     },
     {
       "name": "misconception-bridge-originated-create-live-write",
       "output": "analysis/learning-card-live-acceptance-harness/outputs/misconception-bridge-originated-create-check.json",
-      "sha256": "3E0261E44AEA112DF46DF7A7F61D5D45148766DC545D52012DA82E3D3BDE75E2"
+      "sha256": "A3182A3D0D676C3E1EF648A74A3C16158BD4CB5BF6201217AF98C6BBD4E828A1"
     }
   ]
 }

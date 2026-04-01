@@ -12,6 +12,10 @@
   "duplicate_glob": "生成 execution packet 不等于卡片已经写入*.md",
   "expected_duplicate_count": 1,
   "source_report": "analysis/learning-card-bridge-originated-ambiguous-create-validation/report.md",
+  "bridge_originated": true,
+  "handoff_source": "analysis/learning-card-bridge-live-preflight/inputs/misconception-bridge-create-handoff.txt",
+  "preflight_packet": "analysis/learning-card-bridge-live-preflight/outputs/misconception-bridge-create-bridge-packet.txt",
+  "preflight_check": "analysis/learning-card-bridge-live-preflight/outputs/misconception-bridge-create-bridge-packet-check.json",
   "required_report_phrases": [
     "actual bridge-originated ambiguous create execution",
     "Observed outcome:",
