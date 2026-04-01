@@ -56,6 +56,35 @@ Fastest daily Windows path:
 2. Run `pwsh -File scripts/use_learning_card_operator_packet.ps1`.
 3. Paste the generated execution prompt into the next turn and continue with the routed execution skill.
 
+Shortest daily examples:
+
+Create:
+
+```text
+1. Router handoff says: Mode: create
+2. Run: pwsh -File scripts/use_learning_card_operator_packet.ps1
+3. Fill: title, keywords or thread points, domain, vault root
+4. Stop only after: Created file:
+```
+
+Update:
+
+```text
+1. Router handoff says: Mode: update
+2. Run: pwsh -File scripts/use_learning_card_operator_packet.ps1
+3. Fill: existing card title or path confirmation, vault root
+4. Stop only after: Updated file:
+```
+
+Promotion review:
+
+```text
+1. Router handoff says: Mode: promotion review
+2. Run: pwsh -File scripts/use_learning_card_operator_packet.ps1
+3. Fill: existing card title or path confirmation, vault root
+4. Stop only after: Reviewed file: + Promotion result:
+```
+
 Important:
 
 - router handoff plus bridge output still does not mean a card file was written

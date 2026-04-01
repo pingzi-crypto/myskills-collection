@@ -66,3 +66,5 @@
   wrapper so the daily default path is regression-covered.
 - Expanded operator-packet acceptance from create-only coverage to the full
   create/update/promotion-review triad.
+- Added copyable docs examples for the repo-level operator-packet path across
+  create, update, and promotion-review flows.

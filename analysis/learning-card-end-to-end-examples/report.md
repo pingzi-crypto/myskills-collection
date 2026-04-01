@@ -93,6 +93,13 @@ Practical shortcut:
 
 ## Example 2: Method Update
 
+### User Intent
+
+The user wants to merge new bilingual-routing guidance into an existing method
+card.
+
+### Router Step
+
 Router output can already know:
 
 - card type: `Method`
@@ -110,7 +117,44 @@ Still needed before write:
 That means the downstream skill still has to identify the exact existing note
 before any update can happen.
 
+### Operator Packet Step
+
+The repo-level daily shortcut can now turn that handoff into the next execution
+prompt:
+
+```powershell
+pwsh -File scripts/use_learning_card_operator_packet.ps1
+```
+
+Expected operator summary shape:
+
+```text
+Operator packet ready.
+Status: Execution prompt ready only. No card file has been created, updated, or reviewed yet.
+Downstream skill: $obsidian-method-card-capture
+Mode: update
+Completion proof: Updated file:, Summary:
+Still needed: existing card title or path confirmation, vault root
+```
+
+### Execution Result
+
+Only after the execution skill runs should the result look like:
+
+```text
+Method updated: Router bilingual clarification flow
+Updated file: C:\Users\pz\Documents\Obsidian Vault\学习\Cards\Methods\Router bilingual clarification flow.md
+Summary: merged the bilingual question pattern and clarified when the router should ask for card type confirmation.
+```
+
 ## Example 3: Promotion Review
+
+### User Intent
+
+The user wants to review whether one misconception card has enough graph and
+routing evidence to move upward.
+
+### Router Step
 
 For `promotion review`, the same rule applies:
 
@@ -118,12 +162,34 @@ For `promotion review`, the same rule applies:
 - but if the exact existing card is not explicit, no review write should happen
   yet
 
+### Operator Packet Step
+
+The same repo-level daily shortcut applies:
+
+```powershell
+pwsh -File scripts/use_learning_card_operator_packet.ps1
+```
+
+Expected operator summary shape:
+
+```text
+Operator packet ready.
+Status: Execution prompt ready only. No card file has been created, updated, or reviewed yet.
+Downstream skill: $obsidian-misconception-card-capture
+Mode: promotion review
+Completion proof: Reviewed file:, Promotion result:, Summary:
+Still needed: existing card title or path confirmation, vault root
+```
+
+### Execution Result
+
 Only after the target note is explicit should the execution skill return a
 result such as:
 
 ```text
-Reviewed file: <path>
+Reviewed file: C:\Users\pz\Documents\Obsidian Vault\学习\Cards\Misconceptions\误把路由完成当作写卡完成.md
 Promotion result: watchlist
+Summary: review found that the card has a clear correction rule but still lacks enough graph-routing evidence for promotion.
 ```
 
 ## Core Rule

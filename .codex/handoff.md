@@ -77,6 +77,8 @@
 - The shortest daily operator path is now documented more explicitly in the
   existing README and operator manual so users can distinguish bridge output
   from actual card-write proof.
+- The docs set now includes copyable daily examples for the operator-packet
+  path across create, update, and promotion-review flows.
 
 ## Locked Decisions
 

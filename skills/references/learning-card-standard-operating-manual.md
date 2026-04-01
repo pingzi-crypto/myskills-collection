@@ -215,6 +215,35 @@ Exact daily sequence:
 4. Continue until the execution skill returns `Created file:`, `Updated file:`,
    or `Reviewed file:`.
 
+Fast copyable daily examples:
+
+Create:
+
+```text
+Router handoff says: Mode: create
+Run: pwsh -File scripts/use_learning_card_operator_packet.ps1
+Then fill: title, keywords or thread points, domain, vault root
+Done only when execution output shows: Created file:
+```
+
+Update:
+
+```text
+Router handoff says: Mode: update
+Run: pwsh -File scripts/use_learning_card_operator_packet.ps1
+Then fill: existing card title or path confirmation, vault root
+Done only when execution output shows: Updated file:
+```
+
+Promotion review:
+
+```text
+Router handoff says: Mode: promotion review
+Run: pwsh -File scripts/use_learning_card_operator_packet.ps1
+Then fill: existing card title or path confirmation, vault root
+Done only when execution output shows: Reviewed file: and Promotion result:
+```
+
 Important:
 
 - bridge output is only the next execution prompt
