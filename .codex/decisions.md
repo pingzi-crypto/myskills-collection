@@ -159,3 +159,41 @@
   preflight packet, and readiness-check artifacts.
 - The live acceptance harness should verify that those artifacts still align
   with the final recorded live target.
+
+---
+
+### Decision
+- Summary: Keep the current repo-level operator surface as the default and do
+  not add a thinner alias yet
+- Date: 2026-04-01
+- Status: active
+
+### Context
+- The repository now has one repo-level daily operator wrapper and one repo-level
+  preflight gate wrapper.
+- Acceptance, examples, and drift-watch coverage now exist around both.
+
+### Choice
+- Treat the current pair of repo-level commands as sufficient:
+  - `scripts/use_learning_card_operator_packet.ps1`
+  - `scripts/use_learning_card_preflight_gate.ps1`
+- Do not add another thinner alias unless new real operator use shows that the
+  command path itself is the primary friction point.
+
+### Why
+- The remaining operator work is mostly semantic, not syntactic:
+  - providing missing inputs
+  - choosing the exact existing target card
+  - waiting for file-level completion proof
+- Another alias would reduce typing slightly but add more surface area to keep
+  documented and regression-backed.
+
+### Alternatives Rejected
+- Option: add another even thinner alias immediately
+- Why not: that would optimize a smaller problem than the current real
+  operator bottlenecks.
+
+### Impact
+- The current repo-level wrappers become the stable default surface.
+- Future operator-surface changes should be justified by new real-use friction,
+  not by abstraction preference alone.

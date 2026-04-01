@@ -93,6 +93,11 @@
   from actual card-write proof.
 - The docs set now includes copyable daily examples for the operator-packet
   path across create, update, and promotion-review flows.
+- The current review outcome is that the repo-level operator surface is already
+  thin enough for now:
+  - `scripts/use_learning_card_operator_packet.ps1`
+  - `scripts/use_learning_card_preflight_gate.ps1`
+  - no thinner alias is justified until new real-use friction appears
 
 ## Locked Decisions
 
@@ -132,6 +137,8 @@
 - The repo-level wrapper now provides that thinner command surface inside the
   repository; the remaining question is whether anything thinner than a single
   repo-local command is still needed.
+- Current answer: no further alias compression is recommended yet; keep the
+  existing repo-level wrappers as the stable default surface.
 - If a new higher-risk validation line is opened, prefer targeting the
   bridge-originated operator path rather than re-proving the already-covered
   ambiguous create shape.

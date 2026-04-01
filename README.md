@@ -101,6 +101,7 @@ Operator acceptance for this bridge lives at:
 - `analysis/learning-card-bridge-originated-ambiguous-create-validation/report.md`
 - `analysis/learning-card-operator-packet-acceptance/report.md`
 - `analysis/learning-card-contract-drift-watch/report.md`
+- `analysis/learning-card-operator-surface-review/report.md`
 
 ### Simplest prompts
 

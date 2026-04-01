@@ -3,16 +3,13 @@
 ## Now
 
 - Keep new learning-card work based on `main` rather than `master`.
-- Collect a few more real operator uses to decide whether the new repo-level
-  operator-packet wrapper is enough, or whether any thinner command surface is
-  still needed.
+- Keep the current repo-level operator surface stable unless new real use shows
+  that command invocation itself is still the main friction point.
 
 ## Next
 
 - If confusion still appears in real use, shorten the path from operator packet
   output to actual execution-skill invocation even further.
-- Review whether any higher-value aliases, wrapper commands, or docs examples
-  should be added beyond the current operator-packet wrapper.
 - If a higher-risk live line is opened, use the new bridge preflight cases as
   the starting packet instead of rebuilding execution prompts manually.
 - Maintain the now-live-proven bridge-originated stack as contracts evolve, and
@@ -73,3 +70,5 @@
 - Added a cross-layer contract drift watch so router, operator-packet,
   preflight, execution-result, and live-harness expectations can be checked
   together after contract changes.
+- Reviewed the operator surface and kept the current repo-level wrappers as the
+  stable default until new real-use friction justifies another alias.
