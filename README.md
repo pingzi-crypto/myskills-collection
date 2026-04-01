@@ -41,13 +41,19 @@ action, the not-written-yet status, and the exact completion proof to wait for,
 use:
 
 ```powershell
+pwsh -File scripts/use_learning_card_operator_packet.ps1
+```
+
+Equivalent shared-core path:
+
+```powershell
 pwsh -File skills/shared/learning-card-core/scripts/use_operator_packet.ps1
 ```
 
 Fastest daily Windows path:
 
 1. Copy the full router handoff block after routing is complete.
-2. Run `pwsh -File skills/shared/learning-card-core/scripts/use_operator_packet.ps1`.
+2. Run `pwsh -File scripts/use_learning_card_operator_packet.ps1`.
 3. Paste the generated execution prompt into the next turn and continue with the routed execution skill.
 
 Important:

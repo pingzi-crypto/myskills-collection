@@ -247,6 +247,8 @@ Optional bridge:
   bridge itself still does not create or update any card file
 - if you want the bridge plus an operator-facing next-step summary in one
   command, run
+  `pwsh -File scripts/use_learning_card_operator_packet.ps1`
+- the shared-core equivalent remains available at
   `pwsh -File skills/shared/learning-card-core/scripts/use_operator_packet.ps1`
 
 The user or agent must continue into the execution skill, for example:
@@ -290,7 +292,7 @@ Short operator manual:
 Shortest daily Windows flow:
 
 1. Let the router finish and copy the full handoff block.
-2. Run `pwsh -File skills/shared/learning-card-core/scripts/use_operator_packet.ps1`.
+2. Run `pwsh -File scripts/use_learning_card_operator_packet.ps1`.
 3. Paste the generated execution prompt into the next turn.
 4. Wait for an execution result containing `Created file:`, `Updated file:`, or
    `Reviewed file:` before treating the card as finished.

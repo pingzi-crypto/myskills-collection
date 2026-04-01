@@ -18,6 +18,7 @@ contracts.
 Primary wrapper:
 
 - `skills/shared/learning-card-core/scripts/use_operator_packet.ps1`
+- `scripts/use_learning_card_operator_packet.ps1`
 
 Underlying packet builder:
 
@@ -32,6 +33,7 @@ Underlying packet builder:
   - still-needed inputs when write-critical fields are still missing
   - completion proof markers
   - next action
+- repo-level thin wrapper matches the shared wrapper output
 - clipboard still receives only the execution prompt rather than the summary
 - the packet builder can emit JSON with prompt plus operator metadata
 
@@ -51,6 +53,8 @@ python analysis/learning-card-operator-packet-acceptance/scripts/verify_operator
 
 - the repository now has a more product-like operator entrypoint above the raw
   handoff bridge
+- the repository now also has a shorter repo-level daily command surface for
+  the operator-packet flow without introducing a second packet contract
 - the packet summary now explicitly says the card has not been written yet, so
   `Operator packet ready.` is less likely to be misread as task completion
 - operators can see the next action and completion proof markers immediately

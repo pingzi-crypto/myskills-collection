@@ -35,6 +35,12 @@ Shared script intent:
   shows the next operator step and copies only the execution prompt to the
   clipboard
 
+Repo-level daily wrapper:
+
+- `scripts/use_learning_card_operator_packet.ps1`: shortest repo-local entry
+  for the operator-packet flow; delegates to shared core without creating a
+  second protocol layer
+
 Boundary rule:
 
 - shared core owns procedural and rendering protocol

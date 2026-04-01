@@ -19,6 +19,8 @@ analysis reports.
 - One primary project direction: the learning-card skill family.
 - Shared references and shared core scripts live under `skills/references/` and
   `skills/shared/learning-card-core/`.
+- Repo-level daily operator wrappers may live under `scripts/` when they only
+  delegate into shared core and do not create a parallel protocol layer.
 - Concrete runtime skills live under `skills/obsidian-*`.
 - Export wrappers live under `dist/claude/` and `dist/openclaw/`.
 - Regression and validation artifacts live under `analysis/`.
@@ -38,6 +40,7 @@ analysis reports.
   - `skills/obsidian-misconception-card-capture/`
   - `skills/references/`
   - `skills/shared/learning-card-core/`
+  - `scripts/` for thin repo-level operator wrappers
   - `dist/claude/` and `dist/openclaw/` for this family
   - `analysis/learning-card-*`
 - What does not belong here:

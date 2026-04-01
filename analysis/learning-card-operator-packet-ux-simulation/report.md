@@ -31,6 +31,8 @@ This line focuses on operator comprehension, not on live writing.
 - the wrapper now distinguishes `Execution prompt preview:` from
   `Execution prompt copied to clipboard:` so `-PrintOnly` no longer sounds like
   a clipboard write happened
+- the flow can now be launched from a shorter repo-level wrapper instead of the
+  full shared-script path
 - the summary remains short enough to scan before the execution prompt block
 
 ## Simulation Assessment

@@ -89,3 +89,35 @@
 - Router contract changes should be checked against bridge tooling and
   handoff-parser regressions.
 - The shared bridge script is now part of the expected operator workflow.
+
+---
+
+### Decision
+- Summary: Allow repo-level operator wrappers only as thin delegators into the
+  shared learning-card core
+- Date: 2026-04-01
+- Status: active
+
+### Context
+- The shared operator-packet entrypoint is correct but its full script path is
+  longer than needed for daily use from the repository root.
+
+### Choice
+- Allow repo-level wrapper scripts under `scripts/` when they only forward into
+  the shared-core implementation and do not introduce a second protocol or
+  duplicate packet-building logic.
+
+### Why
+- It shortens the daily command surface without collapsing the current
+  architecture.
+- It keeps the shared core as the single implementation source of truth.
+
+### Alternatives Rejected
+- Option: keep only the long shared-core script path
+- Why not: the daily operator flow stays needlessly high-friction.
+- Option: move packet logic out of shared core into repo-level wrappers
+- Why not: that would create contract drift and duplicate maintenance.
+
+### Impact
+- `scripts/` can host thin operator wrappers for daily use.
+- Acceptance should verify that repo-level wrappers match shared-core output.

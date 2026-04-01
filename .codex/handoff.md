@@ -30,6 +30,8 @@
   bridge layer:
   - `build_operator_packet_from_handoff.py`
   - `use_operator_packet.ps1`
+- A repo-level thin wrapper now exists for the preferred daily operator path:
+  - `scripts/use_learning_card_operator_packet.ps1`
 - The operator-packet summary now surfaces missing write-critical inputs as a
   separate `Still needed:` line and keeps `Next action:` compact enough to scan
   during real create and update runs.
@@ -101,6 +103,9 @@
 - Decide whether the current clarified operator-packet entrypoint is enough, or
   whether the bridge should gain an even thinner daily command surface beyond
   shared scripts after a few more real operator uses.
+- The repo-level wrapper now provides that thinner command surface inside the
+  repository; the remaining question is whether anything thinner than a single
+  repo-local command is still needed.
 - If a new higher-risk validation line is opened, prefer targeting the
   bridge-originated operator path rather than re-proving the already-covered
   ambiguous create shape.

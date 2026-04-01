@@ -15,6 +15,7 @@ OUTPUT_DIR = ANALYSIS_DIR / "outputs"
 HANDOFF_INPUT = REPO_ROOT / "analysis" / "learning-card-handoff-parser" / "inputs" / "concept-create-handoff.txt"
 PACKET_BUILDER = REPO_ROOT / "skills" / "shared" / "learning-card-core" / "scripts" / "build_operator_packet_from_handoff.py"
 WRAPPER = REPO_ROOT / "skills" / "shared" / "learning-card-core" / "scripts" / "use_operator_packet.ps1"
+PROJECT_WRAPPER = REPO_ROOT / "scripts" / "use_learning_card_operator_packet.ps1"
 
 
 def sha256_text(text: str) -> str:
@@ -143,6 +144,24 @@ def main() -> int:
     for phrase in required_phrases:
         if phrase not in wrapper_text:
             failures.append(f"wrapper output missing phrase: {phrase}")
+
+    project_wrapper_run = subprocess.run(
+        [
+            shell,
+            "-File",
+            str(PROJECT_WRAPPER),
+            "-HandoffFile",
+            str(HANDOFF_INPUT),
+            "-PrintOnly",
+        ],
+        check=True,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+    )
+    project_wrapper_text = project_wrapper_run.stdout
+    if project_wrapper_text != wrapper_text:
+        failures.append("project wrapper output mismatch")
 
     manifest_path = OUTPUT_DIR / "manifest.json"
     manifest_path.write_text(

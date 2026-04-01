@@ -3,9 +3,9 @@
 ## Now
 
 - Keep new learning-card work based on `main` rather than `master`.
-- Collect a few more real operator uses to decide whether the new
-  operator-packet wrapper is enough, or whether the operator bridge should gain
-  an even thinner daily command surface.
+- Collect a few more real operator uses to decide whether the new repo-level
+  operator-packet wrapper is enough, or whether any thinner command surface is
+  still needed.
 
 ## Next
 
@@ -60,3 +60,5 @@
   fields and `Next action:` stays action-focused in real use.
 - Added an explicit operator-packet status line so wrapper output states that
   no card file has been written yet.
+- Added a repo-level thin wrapper for the operator-packet flow and validated
+  that it matches the shared-core wrapper output.
