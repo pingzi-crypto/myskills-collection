@@ -284,6 +284,7 @@ Short operator manual:
 - `analysis/learning-card-operator-bridge-acceptance/report.md`
 - `analysis/learning-card-execution-result-acceptance/report.md`
 - `analysis/learning-card-bridge-live-preflight/report.md`
+- `analysis/learning-card-preflight-gate-acceptance/report.md`
 - `analysis/learning-card-bridge-originated-live-validation/report.md`
 - `analysis/learning-card-bridge-originated-promotion-review-validation/report.md`
 - `analysis/learning-card-bridge-originated-ambiguous-create-validation/report.md`
@@ -296,6 +297,13 @@ Shortest daily Windows flow:
 3. Paste the generated execution prompt into the next turn.
 4. Wait for an execution result containing `Created file:`, `Updated file:`, or
    `Reviewed file:` before treating the card as finished.
+
+Before any future bridge-originated live run, gate the preflight check first:
+
+```powershell
+pwsh -File scripts/use_learning_card_preflight_gate.ps1 `
+  -CheckFile analysis/learning-card-bridge-live-preflight/outputs/concept-update-bridge-packet-check.json
+```
  
 ## Collection Direction
 

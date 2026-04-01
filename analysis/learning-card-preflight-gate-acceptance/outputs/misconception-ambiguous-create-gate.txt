@@ -1,0 +1,9 @@
+Bridge preflight gate ready.
+Gate: GO
+Skill: $obsidian-misconception-card-capture
+Mode: create
+Target: C:\Users\pz\Documents\Obsidian Vault\学习\Cards\Misconceptions\Skill 已在 Codex 加载不等于 Claude Code 和 OpenClaw 兼容已完成.md
+Completion proof: Created file:, Summary:
+Prompt packet: analysis/learning-card-bridge-live-preflight/outputs/misconception-ambiguous-create-bridge-packet.txt
+Next action: Copy misconception-ambiguous-create-bridge-packet.txt into the next turn and run $obsidian-misconception-card-capture until the result shows Created file:, Summary:.
+Placeholder free: True

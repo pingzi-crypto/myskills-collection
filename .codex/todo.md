@@ -15,8 +15,6 @@
   should be added beyond the current operator-packet wrapper.
 - If a higher-risk live line is opened, use the new bridge preflight cases as
   the starting packet instead of rebuilding execution prompts manually.
-- Use the preflight `*-check.json` outputs as the go/no-go gate before any
-  future bridge-originated live operator run.
 - Maintain the now-live-proven bridge-originated stack as contracts evolve, and
   rerun the triad when router, bridge, or execution contracts materially shift.
 
@@ -69,3 +67,6 @@
 - Strengthened bridge-originated live acceptance with read-only evidence-chain
   checks across handoff, preflight packet, readiness gate, live report, and
   target note.
+- Added a repo-level preflight gate wrapper and acceptance line so future
+  bridge-originated live runs can consume `*-check.json` outputs as an actual
+  go/no-go gate.

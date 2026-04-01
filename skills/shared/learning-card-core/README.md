@@ -40,6 +40,8 @@ Repo-level daily wrapper:
 - `scripts/use_learning_card_operator_packet.ps1`: shortest repo-local entry
   for the operator-packet flow; delegates to shared core without creating a
   second protocol layer
+- `scripts/use_learning_card_preflight_gate.ps1`: repo-local read-only gate for
+  consuming bridge preflight `*-check.json` outputs before any live operator run
 
 Boundary rule:
 

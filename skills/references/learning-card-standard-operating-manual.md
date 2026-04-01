@@ -276,3 +276,9 @@ Live-run readiness rule:
 - use the `*-check.json` output from
   `analysis/learning-card-bridge-live-preflight/outputs/` as the quickest
   machine-readable readiness check
+- for an operator-friendly gate summary, run:
+
+```powershell
+pwsh -File scripts/use_learning_card_preflight_gate.ps1 `
+  -CheckFile analysis/learning-card-bridge-live-preflight/outputs/concept-update-bridge-packet-check.json
+```

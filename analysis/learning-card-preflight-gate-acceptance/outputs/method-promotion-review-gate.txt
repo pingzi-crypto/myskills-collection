@@ -1,0 +1,9 @@
+Bridge preflight gate ready.
+Gate: GO
+Skill: $obsidian-method-card-capture
+Mode: promotion review
+Target: C:\Users\pz\Documents\Obsidian Vault\学习\Cards\Methods\Prompt Narrowing.md
+Completion proof: Reviewed file:, Promotion result:, Summary:
+Prompt packet: analysis/learning-card-bridge-live-preflight/outputs/method-promotion-review-bridge-packet.txt
+Next action: Copy method-promotion-review-bridge-packet.txt into the next turn and run $obsidian-method-card-capture until the result shows Reviewed file:, Promotion result:, Summary:.
+Placeholder free: True

@@ -1,0 +1,29 @@
+{
+  "outputs": [
+    {
+      "name": "concept-update-gate",
+      "output": "analysis/learning-card-preflight-gate-acceptance/outputs/concept-update-gate.txt",
+      "sha256": "2FE386B74595264549C817BC218C6B76453C2A07EC3305AC4B3A7BCB59F48419"
+    },
+    {
+      "name": "method-promotion-review-gate",
+      "output": "analysis/learning-card-preflight-gate-acceptance/outputs/method-promotion-review-gate.txt",
+      "sha256": "2DA35B9E634ECFE4C3577722E784DC1C7878D3B75FA828A13E04374BF23C6B46"
+    },
+    {
+      "name": "misconception-ambiguous-create-gate",
+      "output": "analysis/learning-card-preflight-gate-acceptance/outputs/misconception-ambiguous-create-gate.txt",
+      "sha256": "2FCB16F347AE6268A8967DC748A5B58E21F5DF6A394F442FB33F58451DA9360C"
+    },
+    {
+      "name": "misconception-bridge-create-gate",
+      "output": "analysis/learning-card-preflight-gate-acceptance/outputs/misconception-bridge-create-gate.txt",
+      "sha256": "EB489F51AC60904772408019604047D6F2D613D1B1724191F5DC784CC2AFCBD7"
+    },
+    {
+      "name": "synthetic-no-go-gate",
+      "output": "analysis/learning-card-preflight-gate-acceptance/outputs/synthetic-no-go-gate.txt",
+      "sha256": "659044D993257B5CE70DD6FABFB2C6B4F338C49C8338BD94064CDA4A66BC0A13"
+    }
+  ]
+}

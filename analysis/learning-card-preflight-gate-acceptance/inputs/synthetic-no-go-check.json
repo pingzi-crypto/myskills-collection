@@ -1,0 +1,25 @@
+{
+  "name": "synthetic-no-go-case",
+  "mode": "create",
+  "card_type": "concept",
+  "expected_skill": "$obsidian-concept-card-capture",
+  "expected_target_path": "C:\\Users\\pz\\Documents\\Obsidian Vault\\学习\\Cards\\Concepts\\Synthetic Placeholder Case.md",
+  "linked_live_case": "analysis/example.json",
+  "linked_live_target_path": "C:\\Users\\pz\\Documents\\Obsidian Vault\\学习\\Cards\\Concepts\\Synthetic Placeholder Case.md",
+  "linked_live_result_markers": [
+    "Created file:",
+    "Summary:"
+  ],
+  "go_no_go": "no-go",
+  "placeholder_free": false,
+  "placeholder_markers": [
+    "<single concept>",
+    "<domain>"
+  ],
+  "manual_next_step": "Do not continue into the execution skill until the missing placeholders are resolved.",
+  "expected_completion_markers": [
+    "Created file:",
+    "Summary:"
+  ],
+  "prompt_output": "analysis/example.txt"
+}

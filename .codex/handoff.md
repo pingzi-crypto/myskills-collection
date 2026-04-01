@@ -59,6 +59,9 @@
   with recorded live cases.
 - The bridge live preflight layer now also checks that generated packets are
   placeholder-free and emits machine-readable `*-check.json` readiness files.
+- A repo-level preflight gate wrapper now exists for consuming those readiness
+  files before any future live operator run:
+  - `scripts/use_learning_card_preflight_gate.ps1`
 - A read-only live acceptance harness now exists for the recorded real-write
   validations under `analysis/learning-card-live-acceptance-harness/`.
 - The read-only live acceptance harness now covers all three recorded real-write
@@ -134,6 +137,8 @@
 - The current stronger live-acceptance direction is to maintain the recorded
   bridge-originated triad through evidence-chain checks before opening any new
   live write line.
+- Preflight `*-check.json` outputs can now be consumed through one repo-level
+  go/no-go gate instead of being read manually.
 
 ## Acceptance
 

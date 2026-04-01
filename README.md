@@ -95,6 +95,7 @@ Operator acceptance for this bridge lives at:
 - `analysis/learning-card-operator-bridge-acceptance/report.md`
 - `analysis/learning-card-execution-result-acceptance/report.md`
 - `analysis/learning-card-bridge-live-preflight/report.md`
+- `analysis/learning-card-preflight-gate-acceptance/report.md`
 - `analysis/learning-card-bridge-originated-live-validation/report.md`
 - `analysis/learning-card-bridge-originated-promotion-review-validation/report.md`
 - `analysis/learning-card-bridge-originated-ambiguous-create-validation/report.md`

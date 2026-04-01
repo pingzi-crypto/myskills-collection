@@ -1,0 +1,10 @@
+Bridge preflight gate ready.
+Gate: NO-GO
+Skill: $obsidian-concept-card-capture
+Mode: create
+Target: C:\Users\pz\Documents\Obsidian Vault\学习\Cards\Concepts\Synthetic Placeholder Case.md
+Completion proof: Created file:, Summary:
+Prompt packet: analysis/example.txt
+Next action: Do not continue into the execution skill until the missing placeholders are resolved.
+Placeholder free: False
+Blocking placeholders: <single concept>, <domain>
