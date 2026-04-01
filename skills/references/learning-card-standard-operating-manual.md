@@ -200,16 +200,17 @@ python skills/shared/learning-card-core/scripts/build_execution_prompt_from_hand
 Fastest operator path on Windows:
 
 ```powershell
-pwsh -File skills/shared/learning-card-core/scripts/use_handoff_bridge.ps1
+pwsh -File skills/shared/learning-card-core/scripts/use_operator_packet.ps1
 ```
 
-That flow lets you copy the router handoff block, run one command, and paste the
-generated execution prompt directly into the next turn.
+That flow lets you copy the router handoff block, run one command, see the next
+action plus completion proof, and paste the generated execution prompt directly
+into the next turn.
 
 Exact daily sequence:
 
 1. Finish router classification and copy the full canonical handoff block.
-2. Run `pwsh -File skills/shared/learning-card-core/scripts/use_handoff_bridge.ps1`.
+2. Run `pwsh -File skills/shared/learning-card-core/scripts/use_operator_packet.ps1`.
 3. Paste the generated execution prompt into the next turn.
 4. Continue until the execution skill returns `Created file:`, `Updated file:`,
    or `Reviewed file:`.
@@ -237,6 +238,7 @@ Acceptance reference:
 - `analysis/learning-card-bridge-originated-live-validation/report.md`
 - `analysis/learning-card-bridge-originated-promotion-review-validation/report.md`
 - `analysis/learning-card-bridge-originated-ambiguous-create-validation/report.md`
+- `analysis/learning-card-operator-packet-acceptance/report.md`
 
 Live-run readiness rule:
 

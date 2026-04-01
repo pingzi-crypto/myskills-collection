@@ -26,10 +26,16 @@
   - `use_handoff_bridge.ps1` as the thinnest Windows wrapper
 - The shared bridge now prefers `pwsh` for clipboard-backed operator flows and
   falls back to Windows PowerShell when `pwsh` is unavailable.
+- A more product-like operator entrypoint is now being introduced on top of the
+  bridge layer:
+  - `build_operator_packet_from_handoff.py`
+  - `use_operator_packet.ps1`
 - Regression coverage exists for the handoff parser and prompt bridge under
   `analysis/learning-card-handoff-parser/`.
 - Operator acceptance coverage exists for the daily wrapper flow under
   `analysis/learning-card-operator-bridge-acceptance/`.
+- Operator packet acceptance coverage is being added under
+  `analysis/learning-card-operator-packet-acceptance/`.
 - Execution result contract acceptance exists under
   `analysis/learning-card-execution-result-acceptance/`.
 - Bridge live preflight coverage now exists under
@@ -87,8 +93,8 @@
 ## Next Step
 
 - Decide whether the current clarified thin PowerShell wrapper is enough, or
-  whether the bridge should gain a more product-like wrapper beyond shared
-  scripts.
+  whether the new operator-packet entrypoint is enough, or whether the bridge
+  should gain an even thinner daily command surface beyond shared scripts.
 - If a new higher-risk validation line is opened, prefer targeting the
   bridge-originated operator path rather than re-proving the already-covered
   ambiguous create shape.
@@ -120,3 +126,4 @@
 - `analysis/learning-card-bridge-originated-promotion-review-validation/report.md`
 - `analysis/learning-card-bridge-originated-ambiguous-create-validation/report.md`
 - `analysis/learning-card-live-acceptance-harness/report.md`
+- `analysis/learning-card-operator-packet-acceptance/report.md`

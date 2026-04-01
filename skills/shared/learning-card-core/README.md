@@ -14,7 +14,9 @@ Current shared scripts:
 - `scripts/render_common.py`
 - `scripts/build_execution_prompt.py`
 - `scripts/build_execution_prompt_from_handoff.py`
+- `scripts/build_operator_packet_from_handoff.py`
 - `scripts/use_handoff_bridge.ps1`
+- `scripts/use_operator_packet.ps1`
 
 Shared script intent:
 
@@ -25,8 +27,13 @@ Shared script intent:
   handoff text and emit the matching execution prompt skeleton, including
   operator-friendly stdin and clipboard entry modes; prefers `pwsh` on Windows
   and falls back to Windows PowerShell when needed
+- `scripts/build_operator_packet_from_handoff.py`: build an operator-facing
+  packet with the execution prompt, next action, and completion-proof markers
 - `scripts/use_handoff_bridge.ps1`: thin PowerShell wrapper for the handoff
   bridge; defaults to clipboard in and clipboard out for day-to-day operator use
+- `scripts/use_operator_packet.ps1`: product-facing PowerShell wrapper that
+  shows the next operator step and copies only the execution prompt to the
+  clipboard
 
 Boundary rule:
 
