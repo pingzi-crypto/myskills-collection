@@ -59,6 +59,7 @@ $packet = $packetText | ConvertFrom-Json
 $promptText = [string]$packet.prompt
 $summaryLines = @(
     "Operator packet ready.",
+    "Status: $($packet.status)",
     "Downstream skill: $($packet.skill)",
     "Mode: $($packet.mode)",
     "Completion proof: $(([string[]]$packet.completion_markers) -join ', ')"

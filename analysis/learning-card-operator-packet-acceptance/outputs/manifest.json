@@ -3,12 +3,12 @@
     {
       "name": "concept-create-operator-packet-json",
       "output": "analysis/learning-card-operator-packet-acceptance/outputs/concept-create-operator-packet.json",
-      "sha256": "3AE604C06FDB2A51E39E27E4531A6DAACC9BAC41F048630BFE1023A76878F94D"
+      "sha256": "31CA029AF5737BAEA3186AFAF6D3369CAA6BDCC6DCAB14485A7E5984A42CD873"
     },
     {
       "name": "concept-create-operator-packet-text",
       "output": "analysis/learning-card-operator-packet-acceptance/outputs/concept-create-operator-packet.txt",
-      "sha256": "4C5CD822BED4ACD6D2BE84E6F060C3F6524E56ED77956F87B7C31B907E336D58"
+      "sha256": "2D4D3A3E8FE056183089BD68A73B90925236CD57E286EEA8FEBC25D0BB370605"
     }
   ]
 }

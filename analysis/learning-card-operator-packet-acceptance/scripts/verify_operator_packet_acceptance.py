@@ -131,6 +131,7 @@ def main() -> int:
 
     required_phrases = [
         "Operator packet ready.",
+        "Status: Execution prompt ready only. No card file has been created, updated, or reviewed yet.",
         "Downstream skill: $obsidian-concept-card-capture",
         "Mode: create",
         "Completion proof: Created file:, Summary:",

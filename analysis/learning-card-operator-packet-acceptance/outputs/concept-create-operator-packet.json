@@ -3,6 +3,7 @@
   "mode": "create",
   "skill": "$obsidian-concept-card-capture",
   "capture_anchor": "`windows系统有自带的截图功能吗？如果有快捷键是什么` -> first assistant reply after it",
+  "status": "Execution prompt ready only. No card file has been created, updated, or reviewed yet.",
   "missing_inputs": [
     "title",
     "keywords or thread points",

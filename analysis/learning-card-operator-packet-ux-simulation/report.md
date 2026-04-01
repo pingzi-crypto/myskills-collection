@@ -22,6 +22,8 @@ This line focuses on operator comprehension, not on live writing.
 
 ## Observed Improvements
 
+- the packet now states that only the execution prompt is ready and that no
+  card file has been created, updated, or reviewed yet
 - the packet now surfaces `Still needed:` explicitly instead of forcing the
   operator to infer missing inputs from placeholders inside the prompt
 - the `Next action:` line no longer repeats the full missing-field list, so the

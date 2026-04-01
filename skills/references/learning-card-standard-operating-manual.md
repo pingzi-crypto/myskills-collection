@@ -204,8 +204,8 @@ pwsh -File skills/shared/learning-card-core/scripts/use_operator_packet.ps1
 ```
 
 That flow lets you copy the router handoff block, run one command, see the next
-action plus completion proof, and paste the generated execution prompt directly
-into the next turn.
+action plus completion proof, see that no card file has been written yet, and
+paste the generated execution prompt directly into the next turn.
 
 Exact daily sequence:
 

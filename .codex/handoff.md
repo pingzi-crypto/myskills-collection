@@ -33,6 +33,9 @@
 - The operator-packet summary now surfaces missing write-critical inputs as a
   separate `Still needed:` line and keeps `Next action:` compact enough to scan
   during real create and update runs.
+- The operator-packet summary now also states that only the execution prompt is
+  ready and that no card file has been written yet, reducing the chance that
+  operators stop after the wrapper step.
 - Regression coverage exists for the handoff parser and prompt bridge under
   `analysis/learning-card-handoff-parser/`.
 - Operator acceptance coverage exists for the daily wrapper flow under

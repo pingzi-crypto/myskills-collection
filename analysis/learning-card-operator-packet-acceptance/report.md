@@ -26,6 +26,7 @@ Underlying packet builder:
 ## Acceptance Checks
 
 - wrapper output includes:
+  - explicit not-written-yet status
   - downstream skill
   - mode
   - still-needed inputs when write-critical fields are still missing
@@ -50,6 +51,8 @@ python analysis/learning-card-operator-packet-acceptance/scripts/verify_operator
 
 - the repository now has a more product-like operator entrypoint above the raw
   handoff bridge
+- the packet summary now explicitly says the card has not been written yet, so
+  `Operator packet ready.` is less likely to be misread as task completion
 - operators can see the next action and completion proof markers immediately
   without re-reading the manual
 - operators can also see the still-missing fields immediately instead of

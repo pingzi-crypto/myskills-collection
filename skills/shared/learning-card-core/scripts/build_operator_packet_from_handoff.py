@@ -57,6 +57,7 @@ def build_packet(args: argparse.Namespace) -> dict[str, object]:
         "mode": mode,
         "skill": skill,
         "capture_anchor": str(parsed["capture_anchor"]),
+        "status": "Execution prompt ready only. No card file has been created, updated, or reviewed yet.",
         "missing_inputs": missing_inputs,
         "completion_markers": completion_markers,
         "next_action": next_action,
@@ -70,6 +71,7 @@ def render_text(packet: dict[str, object]) -> str:
 
     lines = [
         "Operator packet ready.",
+        f"Status: {packet['status']}",
         f"Downstream skill: {packet['skill']}",
         f"Mode: {packet['mode']}",
         f"Completion proof: {completion_markers}",

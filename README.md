@@ -37,7 +37,8 @@ pwsh -File skills/shared/learning-card-core/scripts/use_handoff_bridge.ps1
 ```
 
 If you want a shorter operator-facing entrypoint that also tells you the next
-action and the exact completion proof to wait for, use:
+action, the not-written-yet status, and the exact completion proof to wait for,
+use:
 
 ```powershell
 pwsh -File skills/shared/learning-card-core/scripts/use_operator_packet.ps1

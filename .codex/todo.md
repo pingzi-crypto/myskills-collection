@@ -58,3 +58,5 @@
   handoff to a real misconception-card create on disk.
 - Compressed the operator-packet summary so `Still needed:` carries missing
   fields and `Next action:` stays action-focused in real use.
+- Added an explicit operator-packet status line so wrapper output states that
+  no card file has been written yet.
