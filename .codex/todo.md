@@ -5,15 +5,15 @@
 - Check the remaining project docs for stale structure language or old branch
   assumptions.
 - Keep new learning-card work based on `main` rather than `master`.
-- Decide whether the current clarified thin PowerShell wrapper is enough, or
-  whether the operator bridge should gain a more product-like wrapper.
+- Decide whether the new operator-packet wrapper is enough, or whether the
+  operator bridge should gain an even thinner daily command surface.
 
 ## Next
 
-- If confusion still appears in real use, shorten the path from bridge output to
-  actual execution-skill invocation even further.
+- If confusion still appears in real use, shorten the path from operator packet
+  output to actual execution-skill invocation even further.
 - Review whether any higher-value aliases, wrapper commands, or docs examples
-  should be added beyond the current PowerShell wrapper.
+  should be added beyond the current operator-packet wrapper.
 - Decide whether to add a stronger live acceptance layer for a
   bridge-originated operator session after the bridge step.
 - If a higher-risk live line is opened, use the new bridge preflight cases as

@@ -1,0 +1,17 @@
+Operator packet ready.
+Downstream skill: $obsidian-concept-card-capture
+Mode: create
+Completion proof: Created file:, Summary:
+Next action: Paste the execution prompt into the next turn and continue with $obsidian-concept-card-capture until the result shows Created file:, Summary:.
+
+Execution prompt copied below:
+Use $obsidian-concept-card-capture to work on one concept card from this thread.
+Mode: create
+Capture anchor: `windows系统有自带的截图功能吗？如果有快捷键是什么` -> first assistant reply after it
+Concept title: <single concept>
+Keywords or thread points to capture:
+- <keywords or short excerpts>
+Domain: <domain>
+Subdomain: <optional subdomain>
+Source: <optional source>
+Vault root: <optional vault path>

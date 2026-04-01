@@ -36,10 +36,17 @@ without manual rewriting, use:
 pwsh -File skills/shared/learning-card-core/scripts/use_handoff_bridge.ps1
 ```
 
+If you want a shorter operator-facing entrypoint that also tells you the next
+action and the exact completion proof to wait for, use:
+
+```powershell
+pwsh -File skills/shared/learning-card-core/scripts/use_operator_packet.ps1
+```
+
 Fastest daily Windows path:
 
 1. Copy the full router handoff block after routing is complete.
-2. Run `pwsh -File skills/shared/learning-card-core/scripts/use_handoff_bridge.ps1`.
+2. Run `pwsh -File skills/shared/learning-card-core/scripts/use_operator_packet.ps1`.
 3. Paste the generated execution prompt into the next turn and continue with the routed execution skill.
 
 Important:
@@ -55,6 +62,7 @@ Operator acceptance for this bridge lives at:
 - `analysis/learning-card-bridge-originated-live-validation/report.md`
 - `analysis/learning-card-bridge-originated-promotion-review-validation/report.md`
 - `analysis/learning-card-bridge-originated-ambiguous-create-validation/report.md`
+- `analysis/learning-card-operator-packet-acceptance/report.md`
 
 ### Simplest prompts
 
