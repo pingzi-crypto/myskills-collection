@@ -30,6 +30,9 @@
   bridge layer:
   - `build_operator_packet_from_handoff.py`
   - `use_operator_packet.ps1`
+- The operator-packet summary now surfaces missing write-critical inputs as a
+  separate `Still needed:` line and keeps `Next action:` compact enough to scan
+  during real create and update runs.
 - Regression coverage exists for the handoff parser and prompt bridge under
   `analysis/learning-card-handoff-parser/`.
 - Operator acceptance coverage exists for the daily wrapper flow under
@@ -92,9 +95,9 @@
 
 ## Next Step
 
-- Decide whether the current clarified thin PowerShell wrapper is enough, or
-  whether the new operator-packet entrypoint is enough, or whether the bridge
-  should gain an even thinner daily command surface beyond shared scripts.
+- Decide whether the current clarified operator-packet entrypoint is enough, or
+  whether the bridge should gain an even thinner daily command surface beyond
+  shared scripts after a few more real operator uses.
 - If a new higher-risk validation line is opened, prefer targeting the
   bridge-originated operator path rather than re-proving the already-covered
   ambiguous create shape.

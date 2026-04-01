@@ -2,9 +2,10 @@ Operator packet ready.
 Downstream skill: $obsidian-concept-card-capture
 Mode: create
 Completion proof: Created file:, Summary:
-Next action: Paste the execution prompt into the next turn and continue with $obsidian-concept-card-capture until the result shows Created file:, Summary:.
+Still needed: title, keywords or thread points, domain, vault root
+Next action: Fill the missing fields, paste the execution prompt into the next turn, and continue with $obsidian-concept-card-capture until the result shows Created file:, Summary:.
 
-Execution prompt copied below:
+Execution prompt preview:
 Use $obsidian-concept-card-capture to work on one concept card from this thread.
 Mode: create
 Capture anchor: `windows系统有自带的截图功能吗？如果有快捷键是什么` -> first assistant reply after it

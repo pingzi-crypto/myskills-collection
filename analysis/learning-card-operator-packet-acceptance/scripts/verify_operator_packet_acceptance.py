@@ -134,8 +134,9 @@ def main() -> int:
         "Downstream skill: $obsidian-concept-card-capture",
         "Mode: create",
         "Completion proof: Created file:, Summary:",
+        "Still needed: title, keywords or thread points, domain, vault root",
         "Next action:",
-        "Execution prompt copied below:",
+        "Execution prompt preview:",
         "Use $obsidian-concept-card-capture to work on one concept card from this thread.",
     ]
     for phrase in required_phrases:

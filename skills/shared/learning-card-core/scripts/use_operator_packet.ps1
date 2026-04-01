@@ -61,14 +61,23 @@ $summaryLines = @(
     "Operator packet ready.",
     "Downstream skill: $($packet.skill)",
     "Mode: $($packet.mode)",
-    "Completion proof: $(([string[]]$packet.completion_markers) -join ', ')",
-    "Next action: $($packet.next_action)"
+    "Completion proof: $(([string[]]$packet.completion_markers) -join ', ')"
 )
+
+if ($packet.missing_inputs -and $packet.missing_inputs.Count -gt 0) {
+    $summaryLines += "Still needed: $(([string[]]$packet.missing_inputs) -join ', ')"
+}
+
+$summaryLines += "Next action: $($packet.next_action)"
 
 $summaryText = ($summaryLines -join [Environment]::NewLine)
 Write-Output $summaryText
 Write-Output ""
-Write-Output "Execution prompt copied below:"
+if ($PrintOnly) {
+    Write-Output "Execution prompt preview:"
+} else {
+    Write-Output "Execution prompt copied to clipboard:"
+}
 Write-Output $promptText
 
 if (-not $PrintOnly -and $promptText) {

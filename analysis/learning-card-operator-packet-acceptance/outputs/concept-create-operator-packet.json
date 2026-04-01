@@ -13,6 +13,6 @@
     "Created file:",
     "Summary:"
   ],
-  "next_action": "Paste the execution prompt into the next turn and continue with $obsidian-concept-card-capture until the result shows Created file:, Summary:.",
+  "next_action": "Fill the missing fields, paste the execution prompt into the next turn, and continue with $obsidian-concept-card-capture until the result shows Created file:, Summary:.",
   "prompt": "Use $obsidian-concept-card-capture to work on one concept card from this thread.\nMode: create\nCapture anchor: `windows系统有自带的截图功能吗？如果有快捷键是什么` -> first assistant reply after it\nConcept title: <single concept>\nKeywords or thread points to capture:\n- <keywords or short excerpts>\nDomain: <domain>\nSubdomain: <optional subdomain>\nSource: <optional source>\nVault root: <optional vault path>"
 }

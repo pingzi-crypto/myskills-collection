@@ -39,18 +39,27 @@ def build_packet(args: argparse.Namespace) -> dict[str, object]:
     mode = str(parsed["mode"])
     skill = CARD_CONFIG[card_type]["skill"]
     completion_markers = COMPLETION_MARKERS[mode]
+    missing_inputs = list(parsed["missing_inputs"])
+
+    if missing_inputs:
+        next_action = (
+            f"Fill the missing fields, paste the execution prompt into the next turn, "
+            f"and continue with {skill} until the result shows {', '.join(completion_markers)}."
+        )
+    else:
+        next_action = (
+            f"Paste the execution prompt into the next turn and continue with {skill} "
+            f"until the result shows {', '.join(completion_markers)}."
+        )
 
     return {
         "card_type": card_type,
         "mode": mode,
         "skill": skill,
         "capture_anchor": str(parsed["capture_anchor"]),
-        "missing_inputs": list(parsed["missing_inputs"]),
+        "missing_inputs": missing_inputs,
         "completion_markers": completion_markers,
-        "next_action": (
-            f"Paste the execution prompt into the next turn and continue with {skill} "
-            f"until the result shows {', '.join(completion_markers)}."
-        ),
+        "next_action": next_action,
         "prompt": prompt,
     }
 
@@ -67,7 +76,7 @@ def render_text(packet: dict[str, object]) -> str:
     ]
 
     if missing_inputs:
-        lines.append(f"Write-critical inputs now covered: {', '.join(str(item) for item in missing_inputs)}")
+        lines.append(f"Still needed: {', '.join(str(item) for item in missing_inputs)}")
 
     lines.extend(
         [

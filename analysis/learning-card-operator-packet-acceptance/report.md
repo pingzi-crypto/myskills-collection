@@ -28,6 +28,7 @@ Underlying packet builder:
 - wrapper output includes:
   - downstream skill
   - mode
+  - still-needed inputs when write-critical fields are still missing
   - completion proof markers
   - next action
 - clipboard still receives only the execution prompt rather than the summary
@@ -51,4 +52,9 @@ python analysis/learning-card-operator-packet-acceptance/scripts/verify_operator
   handoff bridge
 - operators can see the next action and completion proof markers immediately
   without re-reading the manual
+- operators can also see the still-missing fields immediately instead of
+  inferring them from placeholders inside the prompt
+- the summary no longer repeats the exact missing-field list inside
+  `Next action:`, so the action line stays shorter under real create/update
+  usage
 - clipboard behavior stays compatible with the existing execution-skill flow

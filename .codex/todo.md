@@ -2,11 +2,10 @@
 
 ## Now
 
-- Check the remaining project docs for stale structure language or old branch
-  assumptions.
 - Keep new learning-card work based on `main` rather than `master`.
-- Decide whether the new operator-packet wrapper is enough, or whether the
-  operator bridge should gain an even thinner daily command surface.
+- Collect a few more real operator uses to decide whether the new
+  operator-packet wrapper is enough, or whether the operator bridge should gain
+  an even thinner daily command surface.
 
 ## Next
 
@@ -57,3 +56,5 @@
   handoff to a real method-card review update on disk.
 - Completed one bridge-originated live ambiguous create run from canonical
   handoff to a real misconception-card create on disk.
+- Compressed the operator-packet summary so `Still needed:` carries missing
+  fields and `Next action:` stays action-focused in real use.
